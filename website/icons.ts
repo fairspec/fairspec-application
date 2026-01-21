@@ -2,6 +2,7 @@ import { Share2, Upload } from "lucide-react"
 import { detectPlatform } from "#helpers/platform.ts"
 
 export {
+  AlertTriangle as Alert,
   ArrowBigLeftDash as Return,
   Ban as Fault,
   BarChart,
