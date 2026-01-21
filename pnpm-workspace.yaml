@@ -1,0 +1,6 @@
+dangerouslyAllowAllBuilds: true
+packages:
+  - desktop
+  - engine
+  - logger
+  - website

@@ -1,0 +1,13 @@
+{
+  "name": "@fairspec/desktop",
+  "type": "module",
+  "version": "0.0.0-dev",
+  "private": true,
+  "exports": "./index.ts",
+  "imports": {
+    "#*": "./*"
+  },
+  "scripts": {
+    "type": "tsc --noEmit"
+  }
+}
