@@ -3,20 +3,20 @@ import * as icons from "#icons.ts"
 
 export function Links() {
   return (
-    <div className="hidden lg:flex gap-2 items-center">
-      <Link
-        to="https://fairspec.org"
-        className="p-2"
-        style={{ color: "rgb(44, 124, 253)" }}
-      >
-        <strong>Standard</strong>
-      </Link>
+    <div className="hidden lg:flex gap-1 items-center">
       <Link
         to="/"
         className="p-2 underline"
         style={{ color: "rgb(44, 124, 253)" }}
       >
         <strong>Application</strong>
+      </Link>
+      <Link
+        to="https://fairspec.org"
+        className="p-2"
+        style={{ color: "rgb(44, 124, 253)" }}
+      >
+        <strong>Standard</strong>
       </Link>
       <Link
         to="https://typescript.fairspec.org"
