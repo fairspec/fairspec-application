@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro"
 import { Link } from "@tanstack/react-router"
 import { ChevronRight } from "lucide-react"
 import { useState } from "react"
@@ -19,6 +18,12 @@ import {
   SidebarProvider,
 } from "#blocks/sidebar.tsx"
 import * as icons from "#icons.ts"
+
+// TODO: recover
+// import { Trans } from "@lingui/react/macro"
+function Trans({ children }: { children: React.ReactNode }) {
+  return <>{children}</>
+}
 
 export const menuItems = [
   {

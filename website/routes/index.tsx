@@ -1,9 +1,9 @@
-// import { Trans } from "@lingui/react/macro"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { Card, CardDescription, CardHeader, CardTitle } from "#blocks/card.tsx"
 import { menuItems } from "#components/layout/Menu.tsx"
 
 // TODO: recover
+// import { Trans } from "@lingui/react/macro"
 function Trans({ children }: { children: React.ReactNode }) {
   return <>{children}</>
 }
