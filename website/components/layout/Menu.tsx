@@ -1,97 +1,195 @@
 import { Trans } from "@lingui/react/macro"
-import { Link, useMatchRoute } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
+import { ChevronRight } from "lucide-react"
+import { useState } from "react"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "#blocks/collapsible.tsx"
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarProvider,
 } from "#blocks/sidebar.tsx"
 import * as icons from "#icons.ts"
 
 export function Menu() {
-  const matchRoute = useMatchRoute()
+  const [datasetOpen, setDatasetOpen] = useState(true)
+  const [tableOpen, setTableOpen] = useState(true)
+  const [dataOpen, setDataOpen] = useState(true)
+  const [fileOpen, setFileOpen] = useState(true)
 
   return (
     <SidebarProvider>
-      <SidebarGroup className="w-full">
+      <SidebarGroup>
         <SidebarGroupContent>
           <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={matchRoute({ to: "/links", fuzzy: true })}
-                size="lg"
-              >
-                <Link to="/links">
-                  <icons.Link className="w-6 h-6" />
-                  <span className="text-xl">
-                    <Trans>Links</Trans>
-                  </span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <Collapsible
+              open={datasetOpen}
+              onOpenChange={setDatasetOpen}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton className="font-bold">
+                    <icons.Json />
+                    <span>
+                      <Trans>Dataset</Trans>
+                    </span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/dataset/validate">
+                          <span>
+                            <Trans>Validate Dataset</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/dataset/infer">
+                          <span>
+                            <Trans>Infer Dataset</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
 
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={matchRoute({ to: "/feeds", fuzzy: true })}
-                size="lg"
-              >
-                <Link to="/feeds">
-                  <icons.Feed className="w-6 h-6" />
-                  <span className="text-xl">
-                    <Trans>Feeds</Trans>
-                  </span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <Collapsible
+              open={tableOpen}
+              onOpenChange={setTableOpen}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton className="font-bold">
+                    <icons.Text />
+                    <span>
+                      <Trans>Table</Trans>
+                    </span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/table/validate">
+                          <span>
+                            <Trans>Validate Table</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/table/infer">
+                          <span>
+                            <Trans>Infer Table Schema</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
 
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={matchRoute({ to: "/channels", fuzzy: true })}
-                size="lg"
-              >
-                <Link to="/channels">
-                  <icons.Channel className="w-6 h-6" />
-                  <span className="text-xl">
-                    <Trans>Channels</Trans>
-                  </span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <Collapsible
+              open={dataOpen}
+              onOpenChange={setDataOpen}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton className="font-bold">
+                    <icons.BarChart />
+                    <span>
+                      <Trans>Data</Trans>
+                    </span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/data/validate">
+                          <span>
+                            <Trans>Validate Data</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/data/infer">
+                          <span>
+                            <Trans>Infer Data Schema</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
 
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={matchRoute({ to: "/favorites", fuzzy: true })}
-                size="lg"
-              >
-                <Link to="/favorites">
-                  <icons.Star className="w-6 h-6" />
-                  <span className="text-xl">
-                    <Trans>Favorites</Trans>
-                  </span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={matchRoute({ to: "/account", fuzzy: true })}
-                size="lg"
-              >
-                <Link to="/account">
-                  <icons.Account className="w-6 h-6" />
-                  <span className="text-xl">
-                    <Trans>Account</Trans>
-                  </span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <Collapsible
+              open={fileOpen}
+              onOpenChange={setFileOpen}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton className="font-bold">
+                    <icons.File />
+                    <span>
+                      <Trans>File</Trans>
+                    </span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/file/describe">
+                          <span>
+                            <Trans>Describe File</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <Link to="/file/infer">
+                          <span>
+                            <Trans>Infer File Format</Trans>
+                          </span>
+                        </Link>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>
