@@ -11,7 +11,7 @@
     "#*": "./*"
   },
   "scripts": {
-    "start": "NODE_ENV=development node main.ts",
+    "start": "NODE_ENV=development node --watch main.ts",
     "type": "tsc --noEmit"
   },
   "dependencies": {

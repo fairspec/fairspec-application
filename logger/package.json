@@ -2,6 +2,7 @@
   "name": "@fairspec/logger",
   "type": "module",
   "version": "0.0.0-dev",
+  "exports": "./index.ts",
   "private": true,
   "dependencies": {
     "@loglayer/transport-tslog": "3.0.4",
