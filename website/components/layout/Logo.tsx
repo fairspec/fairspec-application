@@ -1,13 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router"
 // @ts-expect-error
-import LogoIcon from "#assets/datist-logo.svg?react"
+import LogoIcon from "#assets/fairspec-logo.svg?react"
 import * as icons from "#icons.ts"
 
 export function Logo(props: { title?: string; Icon?: any; to?: string }) {
   const routerState = useRouterState()
   const isProgress = routerState.status === "pending"
 
-  const title = props.title ?? "keepHero"
+  const title = props.title ?? "Fairspec Application"
   const Icon = isProgress ? icons.Pending : props.Icon || LogoIcon
   const iconClassName = isProgress ? "animate-spin" : undefined
 
