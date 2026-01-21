@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "./Breadcrumbs.tsx"
 import { Language } from "./Language.tsx"
+import { Links } from "./Links.tsx"
 import { Logo } from "./Logo.tsx"
 import { Share } from "./Share.tsx"
 import { Theme } from "./Theme.tsx"
@@ -11,6 +12,7 @@ export function Header() {
         <Logo />
         <Breadcrumbs />
         <div className="flex gap-4 items-center">
+          <Links />
           <Theme />
           <Language />
           <Share />
