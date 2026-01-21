@@ -1,4 +1,3 @@
-import { clerkMiddleware } from "@clerk/tanstack-react-start/server"
 import { createStart } from "@tanstack/react-start"
 import { activateLocal } from "#helpers/locale.ts"
 
@@ -7,6 +6,6 @@ await activateLocal("en")
 
 export const startInstance = createStart(() => {
   return {
-    requestMiddleware: [clerkMiddleware()],
+    requestMiddleware: [],
   }
 })

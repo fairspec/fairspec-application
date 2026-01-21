@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router"
 export function Banner() {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 text-black dark:text-white text-center py-4 border-t border-b border-gray-200 dark:border-gray-700">
-      <div className="max-w-screen-lg mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-4">
         <p>
           <Trans>Support the project by</Trans>{" "}
           <Link

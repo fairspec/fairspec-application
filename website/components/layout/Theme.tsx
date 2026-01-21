@@ -43,7 +43,7 @@ export function Theme() {
           <Trans>Light</Trans>
         </span>
       </div>
-      <div className="flex gap-1 items-center hidden dark:flex">
+      <div className="gap-1 items-center hidden dark:flex">
         <icons.DarkTheme
           className="w-5 h-5"
           strokeWidth={settings.ICON_STROKE_WIDTH}

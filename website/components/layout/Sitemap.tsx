@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router"
 export function Sitemap() {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 border-y border-gray-200 py-12">
-      <div className="max-w-screen-lg mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <SitemapColumn title={<Trans>Product</Trans>}>
             <SitemapItem to="/" label={<Trans>Features</Trans>} />

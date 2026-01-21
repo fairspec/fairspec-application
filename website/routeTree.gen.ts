@@ -9,205 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as LinksIndexRouteImport } from './routes/links/index'
-import { Route as FeedsIndexRouteImport } from './routes/feeds/index'
-import { Route as FavoritesIndexRouteImport } from './routes/favorites/index'
-import { Route as ChannelsIndexRouteImport } from './routes/channels/index'
-import { Route as AccountIndexRouteImport } from './routes/account/index'
-import { Route as LinksSlugRouteImport } from './routes/links/$slug'
-import { Route as FeedsSlugRouteImport } from './routes/feeds/$slug'
-import { Route as ChannelsSlugRouteImport } from './routes/channels/$slug'
-import { Route as AccountPlansRouteImport } from './routes/account/plans'
-import { Route as AccountHelpRouteImport } from './routes/account/help'
-import { Route as AccountBackupsRouteImport } from './routes/account/backups'
 
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LinksIndexRoute = LinksIndexRouteImport.update({
-  id: '/links/',
-  path: '/links/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeedsIndexRoute = FeedsIndexRouteImport.update({
-  id: '/feeds/',
-  path: '/feeds/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FavoritesIndexRoute = FavoritesIndexRouteImport.update({
-  id: '/favorites/',
-  path: '/favorites/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChannelsIndexRoute = ChannelsIndexRouteImport.update({
-  id: '/channels/',
-  path: '/channels/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountIndexRoute = AccountIndexRouteImport.update({
-  id: '/account/',
-  path: '/account/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LinksSlugRoute = LinksSlugRouteImport.update({
-  id: '/links/$slug',
-  path: '/links/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeedsSlugRoute = FeedsSlugRouteImport.update({
-  id: '/feeds/$slug',
-  path: '/feeds/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChannelsSlugRoute = ChannelsSlugRouteImport.update({
-  id: '/channels/$slug',
-  path: '/channels/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountPlansRoute = AccountPlansRouteImport.update({
-  id: '/account/plans',
-  path: '/account/plans',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountHelpRoute = AccountHelpRouteImport.update({
-  id: '/account/help',
-  path: '/account/help',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountBackupsRoute = AccountBackupsRouteImport.update({
-  id: '/account/backups',
-  path: '/account/backups',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/account/backups': typeof AccountBackupsRoute
-  '/account/help': typeof AccountHelpRoute
-  '/account/plans': typeof AccountPlansRoute
-  '/channels/$slug': typeof ChannelsSlugRoute
-  '/feeds/$slug': typeof FeedsSlugRoute
-  '/links/$slug': typeof LinksSlugRoute
-  '/account': typeof AccountIndexRoute
-  '/channels': typeof ChannelsIndexRoute
-  '/favorites': typeof FavoritesIndexRoute
-  '/feeds': typeof FeedsIndexRoute
-  '/links': typeof LinksIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/account/backups': typeof AccountBackupsRoute
-  '/account/help': typeof AccountHelpRoute
-  '/account/plans': typeof AccountPlansRoute
-  '/channels/$slug': typeof ChannelsSlugRoute
-  '/feeds/$slug': typeof FeedsSlugRoute
-  '/links/$slug': typeof LinksSlugRoute
-  '/account': typeof AccountIndexRoute
-  '/channels': typeof ChannelsIndexRoute
-  '/favorites': typeof FavoritesIndexRoute
-  '/feeds': typeof FeedsIndexRoute
-  '/links': typeof LinksIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/account/backups': typeof AccountBackupsRoute
-  '/account/help': typeof AccountHelpRoute
-  '/account/plans': typeof AccountPlansRoute
-  '/channels/$slug': typeof ChannelsSlugRoute
-  '/feeds/$slug': typeof FeedsSlugRoute
-  '/links/$slug': typeof LinksSlugRoute
-  '/account/': typeof AccountIndexRoute
-  '/channels/': typeof ChannelsIndexRoute
-  '/favorites/': typeof FavoritesIndexRoute
-  '/feeds/': typeof FeedsIndexRoute
-  '/links/': typeof LinksIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/login'
-    | '/account/backups'
-    | '/account/help'
-    | '/account/plans'
-    | '/channels/$slug'
-    | '/feeds/$slug'
-    | '/links/$slug'
-    | '/account'
-    | '/channels'
-    | '/favorites'
-    | '/feeds'
-    | '/links'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/login'
-    | '/account/backups'
-    | '/account/help'
-    | '/account/plans'
-    | '/channels/$slug'
-    | '/feeds/$slug'
-    | '/links/$slug'
-    | '/account'
-    | '/channels'
-    | '/favorites'
-    | '/feeds'
-    | '/links'
-  id:
-    | '__root__'
-    | '/'
-    | '/login'
-    | '/account/backups'
-    | '/account/help'
-    | '/account/plans'
-    | '/channels/$slug'
-    | '/feeds/$slug'
-    | '/links/$slug'
-    | '/account/'
-    | '/channels/'
-    | '/favorites/'
-    | '/feeds/'
-    | '/links/'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LoginRoute: typeof LoginRoute
-  AccountBackupsRoute: typeof AccountBackupsRoute
-  AccountHelpRoute: typeof AccountHelpRoute
-  AccountPlansRoute: typeof AccountPlansRoute
-  ChannelsSlugRoute: typeof ChannelsSlugRoute
-  FeedsSlugRoute: typeof FeedsSlugRoute
-  LinksSlugRoute: typeof LinksSlugRoute
-  AccountIndexRoute: typeof AccountIndexRoute
-  ChannelsIndexRoute: typeof ChannelsIndexRoute
-  FavoritesIndexRoute: typeof FavoritesIndexRoute
-  FeedsIndexRoute: typeof FeedsIndexRoute
-  LinksIndexRoute: typeof LinksIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -215,100 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/links/': {
-      id: '/links/'
-      path: '/links'
-      fullPath: '/links'
-      preLoaderRoute: typeof LinksIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/feeds/': {
-      id: '/feeds/'
-      path: '/feeds'
-      fullPath: '/feeds'
-      preLoaderRoute: typeof FeedsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/favorites/': {
-      id: '/favorites/'
-      path: '/favorites'
-      fullPath: '/favorites'
-      preLoaderRoute: typeof FavoritesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/channels/': {
-      id: '/channels/'
-      path: '/channels'
-      fullPath: '/channels'
-      preLoaderRoute: typeof ChannelsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account/': {
-      id: '/account/'
-      path: '/account'
-      fullPath: '/account'
-      preLoaderRoute: typeof AccountIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/links/$slug': {
-      id: '/links/$slug'
-      path: '/links/$slug'
-      fullPath: '/links/$slug'
-      preLoaderRoute: typeof LinksSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/feeds/$slug': {
-      id: '/feeds/$slug'
-      path: '/feeds/$slug'
-      fullPath: '/feeds/$slug'
-      preLoaderRoute: typeof FeedsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/channels/$slug': {
-      id: '/channels/$slug'
-      path: '/channels/$slug'
-      fullPath: '/channels/$slug'
-      preLoaderRoute: typeof ChannelsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account/plans': {
-      id: '/account/plans'
-      path: '/account/plans'
-      fullPath: '/account/plans'
-      preLoaderRoute: typeof AccountPlansRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account/help': {
-      id: '/account/help'
-      path: '/account/help'
-      fullPath: '/account/help'
-      preLoaderRoute: typeof AccountHelpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account/backups': {
-      id: '/account/backups'
-      path: '/account/backups'
-      fullPath: '/account/backups'
-      preLoaderRoute: typeof AccountBackupsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LoginRoute: LoginRoute,
-  AccountBackupsRoute: AccountBackupsRoute,
-  AccountHelpRoute: AccountHelpRoute,
-  AccountPlansRoute: AccountPlansRoute,
-  ChannelsSlugRoute: ChannelsSlugRoute,
-  FeedsSlugRoute: FeedsSlugRoute,
-  LinksSlugRoute: LinksSlugRoute,
-  AccountIndexRoute: AccountIndexRoute,
-  ChannelsIndexRoute: ChannelsIndexRoute,
-  FavoritesIndexRoute: FavoritesIndexRoute,
-  FeedsIndexRoute: FeedsIndexRoute,
-  LinksIndexRoute: LinksIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

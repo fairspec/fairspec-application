@@ -1,3 +1,3 @@
-import { createLoggerService } from "@keephero/logger"
+import { createLoggerService } from "@fairspec/logger"
 
 export const logger = createLoggerService()

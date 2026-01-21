@@ -1,5 +1,5 @@
 {
-  "name": "@keephero/website",
+  "name": "@fairspec/website",
   "type": "module",
   "version": "0.0.0-dev",
   "private": true,
@@ -7,17 +7,16 @@
     "#*": "./*"
   },
   "scripts": {
-    "start": "vite dev --port 5000",
     "build": "vite build",
-    "preview": "vite preview",
     "generate": "wrangler types",
+    "preview": "vite preview",
+    "start": "vite dev --port 5000",
     "type": "tsc --noEmit",
     "ui": "shadcn"
   },
   "dependencies": {
-    "@clerk/tanstack-react-start": "0.27.5",
-    "@keephero/engine": "workspace:*",
-    "@keephero/logger": "workspace:*",
+    "@fairspec/engine": "workspace:*",
+    "@fairspec/logger": "workspace:*",
     "@orpc/tanstack-query": "1.12.3",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -51,7 +50,6 @@
   },
   "devDependencies": {
     "@ai-sdk/openai": "2.0.76",
-    "@clack/prompts": "0.11.0",
     "@cloudflare/vite-plugin": "1.15.3",
     "@lingui/babel-plugin-lingui-macro": "5.5.2",
     "@lingui/cli": "5.5.2",
@@ -66,13 +64,14 @@
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "@vitejs/plugin-react": "4.6.0",
-    "ai": "5.0.106",
     "dotenv": "17.2.3",
+    "ai": "5.0.106",
     "gettext-parser": "8.0.0",
     "shadcn": "3.5.1",
     "tailwindcss": "4.1.15",
     "ts-extras": "0.16.0",
     "vite": "7.1.7",
+    "tasuku": "2.0.5",
     "wrangler": "4.51.0",
     "zod": "4.1.13"
   }

@@ -5,8 +5,8 @@ import datistLogoTextLight from "#assets/datist-logo-text-light.svg"
 
 export function Credits() {
   return (
-    <div className="container mx-auto px-4 max-w-screen-lg">
-      <article className="flex flex-col gap-2 items-center max-w-[40rem] mx-auto py-4">
+    <div className="container mx-auto px-4 max-w-5xl">
+      <article className="flex flex-col gap-2 items-center max-w-160 mx-auto py-4">
         <p className="text-gray-500 dark:text-gray-400 text-sm">
           <Trans>Brought to you by</Trans>
         </p>

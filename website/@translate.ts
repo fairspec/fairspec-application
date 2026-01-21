@@ -1,10 +1,10 @@
 import { readFile, writeFile } from "node:fs/promises"
 import { openai } from "@ai-sdk/openai"
-import { tasks } from "@clack/prompts"
 import { generateObject } from "ai"
 import dotenv from "dotenv"
 import { execa } from "execa"
 import { po } from "gettext-parser"
+import tasuku from "tasuku"
 import { objectKeys } from "ts-extras"
 import { z } from "zod"
 import {
@@ -30,12 +30,11 @@ await translateLanguages()
 // await $`lingui compile`
 
 async function translateLanguages() {
-  await tasks(
-    objectKeys(Languages).map(languageId => ({
-      title: `Translating ${languageId}`,
-      task: () => translateLanguage(languageId),
-    })),
-  )
+  for (const languageId of objectKeys(Languages)) {
+    tasuku(`Translating ${languageId}`, async () => {
+      await translateLanguage(languageId)
+    })
+  }
 }
 
 // TODO: extract empty messages and translate using JSON/JSONSchema
