@@ -3,26 +3,25 @@ import { Link } from "@tanstack/react-router"
 
 export function Banner() {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 text-black dark:text-white text-center py-4 border-t border-b border-gray-200 dark:border-gray-700">
-      <div className="max-w-5xl mx-auto px-4">
+    <div
+      className="text-white text-center py-2.5"
+      style={{ backgroundColor: "rgb(44, 124, 253)" }}
+    >
+      <div className="mx-auto px-4">
         <p>
-          <Trans>Support the project by</Trans>{" "}
+          <Trans>This project is in</Trans>{" "}
+          <strong>
+            <Trans>research preview</Trans>
+          </strong>{" "}
+          <Trans>phase. Please share your</Trans>{" "}
           <Link
-            to="https://github.com/sponsors/datisthq"
+            to="https://github.com/fairspec/fairspec/issues/new"
             rel="noopener noreferrer"
-            className="text-primary font-bold underline"
+            className="text-white font-bold underline"
           >
-            <Trans>becoming a sponsor</Trans>
-          </Link>{" "}
-          <Trans>or</Trans>{" "}
-          <Link
-            to="https://github.com/datisthq/dpkit/stargazers"
-            rel="noopener noreferrer"
-            className="text-primary font-bold underline"
-          >
-            <Trans>adding a star</Trans>
-          </Link>{" "}
-          <Trans>on GitHub!</Trans>
+            <Trans>feedback and ideas</Trans>
+          </Link>
+          .
         </p>
       </div>
     </div>
