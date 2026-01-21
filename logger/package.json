@@ -8,5 +8,8 @@
     "@loglayer/transport-tslog": "3.0.4",
     "loglayer": "6.9.1",
     "tslog": "4.10.2"
+  },
+  "scripts": {
+    "type": "tsc --noEmit"
   }
 }
