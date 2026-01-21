@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router"
 
-export const Route = createFileRoute('/dataset/infer')({
+export const Route = createFileRoute("/dataset/infer")({
   component: RouteComponent,
 })
 

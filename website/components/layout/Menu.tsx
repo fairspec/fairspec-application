@@ -19,7 +19,6 @@ import {
   SidebarProvider,
 } from "#blocks/sidebar.tsx"
 import * as icons from "#icons.ts"
-import { Credits } from "./Credits.tsx"
 
 export const menuItems = [
   {
