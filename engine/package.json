@@ -11,20 +11,21 @@
     "#*": "./*"
   },
   "scripts": {
+    "start": "NODE_ENV=development node main.ts",
     "type": "tsc --noEmit"
   },
   "dependencies": {
-    "@fairspec/logger": "workspace:*",
     "@fairspec/library": "0.2.2",
-    "@orpc/client": "^1.12.2",
-    "@orpc/contract": "^1.12.2",
-    "@orpc/openapi": "1.12.2",
-    "@orpc/openapi-client": "1.12.2",
+    "@fairspec/logger": "workspace:*",
+    "@orpc/client": "1.13.4",
     "@orpc/server": "1.12.2",
     "@orpc/zod": "1.12.2",
-    "@sindresorhus/slugify": "3.0.0",
-    "es-toolkit": "1.42.0",
-    "nanoid": "5.1.6",
     "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@hono/node-server": "1.19.9",
+    "@orpc/openapi": "1.12.2",
+    "@orpc/openapi-client": "1.12.2",
+    "hono": "4.11.4"
   }
 }
