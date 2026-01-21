@@ -72,20 +72,20 @@ export function Menu() {
       <SidebarGroup>
         <SidebarGroupContent>
           <SidebarMenu>
-            {menuItems.map((menuItem) => {
+            {menuItems.map(menuItem => {
               const Icon = menuItem.icon
               return (
                 <Collapsible
                   key={menuItem.id}
                   open={openStates[menuItem.id]}
                   onOpenChange={(open: boolean) =>
-                    setOpenStates((prev) => ({ ...prev, [menuItem.id]: open }))
+                    setOpenStates(prev => ({ ...prev, [menuItem.id]: open }))
                   }
                   className="group/collapsible"
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
-                      <SidebarMenuButton className="font-bold">
+                      <SidebarMenuButton className="font-bold text-lg">
                         <Icon />
                         <span>
                           <Trans>{menuItem.label}</Trans>
@@ -95,9 +95,9 @@ export function Menu() {
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <SidebarMenuSub>
-                        {menuItem.items.map((item) => (
+                        {menuItem.items.map(item => (
                           <SidebarMenuSubItem key={item.path}>
-                            <SidebarMenuSubButton asChild>
+                            <SidebarMenuSubButton asChild className="text-base">
                               <Link to={item.path}>
                                 <span>
                                   <Trans>{item.label}</Trans>
