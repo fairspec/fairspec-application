@@ -74,3 +74,4 @@ tmuxp.yaml
 .tanstack/
 .mastra/
 .claude/settings.local.json
+.playwright-mcp/
