@@ -101,7 +101,7 @@ export function Menu() {
                       <SidebarMenuSubButton asChild>
                         <Link to="/table/infer">
                           <span>
-                            <Trans>Infer Table Schema</Trans>
+                            <Trans>Infer Schema</Trans>
                           </span>
                         </Link>
                       </SidebarMenuSubButton>
@@ -141,7 +141,7 @@ export function Menu() {
                       <SidebarMenuSubButton asChild>
                         <Link to="/data/infer">
                           <span>
-                            <Trans>Infer Data Schema</Trans>
+                            <Trans>Infer Schema</Trans>
                           </span>
                         </Link>
                       </SidebarMenuSubButton>
@@ -181,7 +181,7 @@ export function Menu() {
                       <SidebarMenuSubButton asChild>
                         <Link to="/file/infer">
                           <span>
-                            <Trans>Infer File Format</Trans>
+                            <Trans>Infer Format</Trans>
                           </span>
                         </Link>
                       </SidebarMenuSubButton>
