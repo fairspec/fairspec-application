@@ -13,11 +13,11 @@ export function Logo(props: { title?: string; Icon?: any; to?: string }) {
 
   const PlainLogo = () => {
     return (
-      <div className="h-full flex flex-nowrap gap-1 items-center pl-2">
+      <div className="h-full flex flex-nowrap gap-2 items-center pl-2">
         <div className="w-9 h-9 flex items-center justify-center">
           <Icon className={iconClassName} />
         </div>
-        <h3 className="leading-none line-clamp-2 text-xl font-bold text-black dark:text-white ">
+        <h3 className="leading-none line-clamp-2 text-xl font-bold text-primary dark:text-white ">
           {title}
         </h3>
       </div>
