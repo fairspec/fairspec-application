@@ -24,7 +24,7 @@ const menuItems = [
   {
     id: "dataset",
     label: "Dataset",
-    icon: icons.Json,
+    icon: icons.Dataset,
     items: [
       { label: "Validate Dataset", path: "/dataset/validate" },
       { label: "Infer Dataset", path: "/dataset/infer" },
@@ -33,7 +33,7 @@ const menuItems = [
   {
     id: "table",
     label: "Table",
-    icon: icons.Text,
+    icon: icons.Table,
     items: [
       { label: "Validate Table", path: "/table/validate" },
       { label: "Infer Schema", path: "/table/infer" },
@@ -42,7 +42,7 @@ const menuItems = [
   {
     id: "data",
     label: "Data",
-    icon: icons.BarChart,
+    icon: icons.Data,
     items: [
       { label: "Validate Data", path: "/data/validate" },
       { label: "Infer Schema", path: "/data/infer" },
@@ -69,7 +69,7 @@ export function Menu() {
 
   return (
     <SidebarProvider>
-      <SidebarGroup>
+      <SidebarGroup className="p-5">
         <SidebarGroupContent>
           <SidebarMenu>
             {menuItems.map(menuItem => {
