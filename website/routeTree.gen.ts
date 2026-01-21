@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TableValidateRouteImport } from './routes/table/validate'
+import { Route as TableInferRouteImport } from './routes/table/infer'
+import { Route as FileValidateRouteImport } from './routes/file/validate'
+import { Route as FileInferRouteImport } from './routes/file/infer'
+import { Route as DatasetValidateRouteImport } from './routes/dataset/validate'
+import { Route as DatasetInferRouteImport } from './routes/dataset/infer'
+import { Route as DataValidateRouteImport } from './routes/data/validate'
+import { Route as DataInferRouteImport } from './routes/data/infer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TableValidateRoute = TableValidateRouteImport.update({
+  id: '/table/validate',
+  path: '/table/validate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TableInferRoute = TableInferRouteImport.update({
+  id: '/table/infer',
+  path: '/table/infer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FileValidateRoute = FileValidateRouteImport.update({
+  id: '/file/validate',
+  path: '/file/validate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FileInferRoute = FileInferRouteImport.update({
+  id: '/file/infer',
+  path: '/file/infer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatasetValidateRoute = DatasetValidateRouteImport.update({
+  id: '/dataset/validate',
+  path: '/dataset/validate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatasetInferRoute = DatasetInferRouteImport.update({
+  id: '/dataset/infer',
+  path: '/dataset/infer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataValidateRoute = DataValidateRouteImport.update({
+  id: '/data/validate',
+  path: '/data/validate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataInferRoute = DataInferRouteImport.update({
+  id: '/data/infer',
+  path: '/data/infer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/data/infer': typeof DataInferRoute
+  '/data/validate': typeof DataValidateRoute
+  '/dataset/infer': typeof DatasetInferRoute
+  '/dataset/validate': typeof DatasetValidateRoute
+  '/file/infer': typeof FileInferRoute
+  '/file/validate': typeof FileValidateRoute
+  '/table/infer': typeof TableInferRoute
+  '/table/validate': typeof TableValidateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/data/infer': typeof DataInferRoute
+  '/data/validate': typeof DataValidateRoute
+  '/dataset/infer': typeof DatasetInferRoute
+  '/dataset/validate': typeof DatasetValidateRoute
+  '/file/infer': typeof FileInferRoute
+  '/file/validate': typeof FileValidateRoute
+  '/table/infer': typeof TableInferRoute
+  '/table/validate': typeof TableValidateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/data/infer': typeof DataInferRoute
+  '/data/validate': typeof DataValidateRoute
+  '/dataset/infer': typeof DatasetInferRoute
+  '/dataset/validate': typeof DatasetValidateRoute
+  '/file/infer': typeof FileInferRoute
+  '/file/validate': typeof FileValidateRoute
+  '/table/infer': typeof TableInferRoute
+  '/table/validate': typeof TableValidateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/data/infer'
+    | '/data/validate'
+    | '/dataset/infer'
+    | '/dataset/validate'
+    | '/file/infer'
+    | '/file/validate'
+    | '/table/infer'
+    | '/table/validate'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/data/infer'
+    | '/data/validate'
+    | '/dataset/infer'
+    | '/dataset/validate'
+    | '/file/infer'
+    | '/file/validate'
+    | '/table/infer'
+    | '/table/validate'
+  id:
+    | '__root__'
+    | '/'
+    | '/data/infer'
+    | '/data/validate'
+    | '/dataset/infer'
+    | '/dataset/validate'
+    | '/file/infer'
+    | '/file/validate'
+    | '/table/infer'
+    | '/table/validate'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DataInferRoute: typeof DataInferRoute
+  DataValidateRoute: typeof DataValidateRoute
+  DatasetInferRoute: typeof DatasetInferRoute
+  DatasetValidateRoute: typeof DatasetValidateRoute
+  FileInferRoute: typeof FileInferRoute
+  FileValidateRoute: typeof FileValidateRoute
+  TableInferRoute: typeof TableInferRoute
+  TableValidateRoute: typeof TableValidateRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/table/validate': {
+      id: '/table/validate'
+      path: '/table/validate'
+      fullPath: '/table/validate'
+      preLoaderRoute: typeof TableValidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/table/infer': {
+      id: '/table/infer'
+      path: '/table/infer'
+      fullPath: '/table/infer'
+      preLoaderRoute: typeof TableInferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/file/validate': {
+      id: '/file/validate'
+      path: '/file/validate'
+      fullPath: '/file/validate'
+      preLoaderRoute: typeof FileValidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/file/infer': {
+      id: '/file/infer'
+      path: '/file/infer'
+      fullPath: '/file/infer'
+      preLoaderRoute: typeof FileInferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dataset/validate': {
+      id: '/dataset/validate'
+      path: '/dataset/validate'
+      fullPath: '/dataset/validate'
+      preLoaderRoute: typeof DatasetValidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dataset/infer': {
+      id: '/dataset/infer'
+      path: '/dataset/infer'
+      fullPath: '/dataset/infer'
+      preLoaderRoute: typeof DatasetInferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/validate': {
+      id: '/data/validate'
+      path: '/data/validate'
+      fullPath: '/data/validate'
+      preLoaderRoute: typeof DataValidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/infer': {
+      id: '/data/infer'
+      path: '/data/infer'
+      fullPath: '/data/infer'
+      preLoaderRoute: typeof DataInferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DataInferRoute: DataInferRoute,
+  DataValidateRoute: DataValidateRoute,
+  DatasetInferRoute: DatasetInferRoute,
+  DatasetValidateRoute: DatasetValidateRoute,
+  FileInferRoute: FileInferRoute,
+  FileValidateRoute: FileValidateRoute,
+  TableInferRoute: TableInferRoute,
+  TableValidateRoute: TableValidateRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

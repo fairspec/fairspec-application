@@ -1,0 +1,9 @@
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/file/validate')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
+  return <div>Hello "/file/validate"!</div>
+}

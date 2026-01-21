@@ -54,7 +54,7 @@ export const menuItems = [
     label: "File",
     icon: icons.File,
     items: [
-      { label: "Describe File", path: "/file/describe" },
+      { label: "Validate File", path: "/file/validate" },
       { label: "Infer Format", path: "/file/infer" },
     ],
   },
