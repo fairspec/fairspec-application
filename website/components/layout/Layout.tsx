@@ -7,7 +7,7 @@ import { Menu } from "./Menu.tsx"
 export function Layout(props: { children?: React.ReactNode }) {
   return (
     <div>
-      <div className="fixed top-0 left-0 right-0">
+      <div className="fixed top-0 left-0 right-0 z-10">
         <Header />
         <Banner />
       </div>

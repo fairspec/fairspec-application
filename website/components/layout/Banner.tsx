@@ -3,10 +3,7 @@ import { Link } from "@tanstack/react-router"
 
 export function Banner() {
   return (
-    <div
-      className="text-white text-center py-2.5"
-      style={{ backgroundColor: "rgb(44, 124, 253)" }}
-    >
+    <div className="text-white text-center py-2.5 bg-blue-500">
       <div className="mx-auto px-4">
         <p>
           <Trans>This project is in</Trans>{" "}

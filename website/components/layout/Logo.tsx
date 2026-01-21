@@ -3,30 +3,23 @@ import { Link, useRouterState } from "@tanstack/react-router"
 import LogoIcon from "#assets/fairspec-logo.svg?react"
 import * as icons from "#icons.ts"
 
-export function Logo(props: { title?: string; Icon?: any; to?: string }) {
+export function Logo() {
   const routerState = useRouterState()
   const isProgress = routerState.status === "pending"
 
-  const title = props.title ?? "Fairspec Application"
-  const Icon = isProgress ? icons.Pending : props.Icon || LogoIcon
+  const Icon = isProgress ? icons.Pending : LogoIcon
   const iconClassName = isProgress ? "animate-spin" : undefined
 
-  const PlainLogo = () => {
-    return (
+  return (
+    <Link to="/" className="no-underline">
       <div className="h-full flex flex-nowrap gap-2 items-center pl-2">
         <div className="w-9 h-9 flex items-center justify-center">
           <Icon className={iconClassName} />
         </div>
         <h3 className="leading-none line-clamp-2 text-xl font-bold text-primary dark:text-white ">
-          {title}
+          Fairspec Application
         </h3>
       </div>
-    )
-  }
-
-  return (
-    <Link to="/" className="no-underline">
-      <PlainLogo />
     </Link>
   )
 }
