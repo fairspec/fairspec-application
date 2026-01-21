@@ -11,7 +11,7 @@ export function Layout(props: { children?: React.ReactNode }) {
         <Header />
         <Banner />
       </div>
-      <div className="container mx-auto max-w-5xl px-4">
+      <div className="mx-auto px-4 w-full">
         <div className="flex gap-8">
           <aside className="hidden md:block md:w-3/12">
             <Menu />
