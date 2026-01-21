@@ -39,7 +39,7 @@ export function Theme() {
           className="w-5 h-5"
           strokeWidth={settings.ICON_STROKE_WIDTH}
         />
-        <span className="hidden">
+        <span className="hidden lg:block">
           <Trans>Light</Trans>
         </span>
       </div>
@@ -48,7 +48,7 @@ export function Theme() {
           className="w-5 h-5"
           strokeWidth={settings.ICON_STROKE_WIDTH}
         />
-        <span className="hidden">
+        <span className="hidden lg:block">
           <Trans>Dark</Trans>
         </span>
       </div>

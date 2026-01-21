@@ -58,7 +58,7 @@ export function Language() {
           className="rounded-xl cursor-pointer"
         >
           <icons.Language strokeWidth={settings.ICON_STROKE_WIDTH} />
-          <span className="hidden">English</span>
+          <span className="hidden lg:block">English</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col gap-4 p-2">

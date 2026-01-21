@@ -33,7 +33,7 @@ export function Share() {
           className="rounded-xl cursor-pointer"
         >
           <icons.Share strokeWidth={settings.ICON_STROKE_WIDTH} />
-          <span className="hidden">
+          <span className="hidden lg:block">
             <Trans>Share</Trans>
           </span>
         </Button>
