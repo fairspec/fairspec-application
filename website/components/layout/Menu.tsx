@@ -20,176 +20,98 @@ import {
 } from "#blocks/sidebar.tsx"
 import * as icons from "#icons.ts"
 
+const menuItems = [
+  {
+    id: "dataset",
+    label: "Dataset",
+    icon: icons.Json,
+    items: [
+      { label: "Validate Dataset", path: "/dataset/validate" },
+      { label: "Infer Dataset", path: "/dataset/infer" },
+    ],
+  },
+  {
+    id: "table",
+    label: "Table",
+    icon: icons.Text,
+    items: [
+      { label: "Validate Table", path: "/table/validate" },
+      { label: "Infer Schema", path: "/table/infer" },
+    ],
+  },
+  {
+    id: "data",
+    label: "Data",
+    icon: icons.BarChart,
+    items: [
+      { label: "Validate Data", path: "/data/validate" },
+      { label: "Infer Schema", path: "/data/infer" },
+    ],
+  },
+  {
+    id: "file",
+    label: "File",
+    icon: icons.File,
+    items: [
+      { label: "Describe File", path: "/file/describe" },
+      { label: "Infer Format", path: "/file/infer" },
+    ],
+  },
+]
+
 export function Menu() {
-  const [datasetOpen, setDatasetOpen] = useState(true)
-  const [tableOpen, setTableOpen] = useState(true)
-  const [dataOpen, setDataOpen] = useState(true)
-  const [fileOpen, setFileOpen] = useState(true)
+  const [openStates, setOpenStates] = useState<Record<string, boolean>>({
+    dataset: true,
+    table: true,
+    data: true,
+    file: true,
+  })
 
   return (
     <SidebarProvider>
       <SidebarGroup>
         <SidebarGroupContent>
           <SidebarMenu>
-            <Collapsible
-              open={datasetOpen}
-              onOpenChange={setDatasetOpen}
-              className="group/collapsible"
-            >
-              <SidebarMenuItem>
-                <CollapsibleTrigger asChild>
-                  <SidebarMenuButton className="font-bold">
-                    <icons.Json />
-                    <span>
-                      <Trans>Dataset</Trans>
-                    </span>
-                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                  </SidebarMenuButton>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarMenuSub>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/dataset/validate">
-                          <span>
-                            <Trans>Validate Dataset</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/dataset/infer">
-                          <span>
-                            <Trans>Infer Dataset</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  </SidebarMenuSub>
-                </CollapsibleContent>
-              </SidebarMenuItem>
-            </Collapsible>
-
-            <Collapsible
-              open={tableOpen}
-              onOpenChange={setTableOpen}
-              className="group/collapsible"
-            >
-              <SidebarMenuItem>
-                <CollapsibleTrigger asChild>
-                  <SidebarMenuButton className="font-bold">
-                    <icons.Text />
-                    <span>
-                      <Trans>Table</Trans>
-                    </span>
-                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                  </SidebarMenuButton>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarMenuSub>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/table/validate">
-                          <span>
-                            <Trans>Validate Table</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/table/infer">
-                          <span>
-                            <Trans>Infer Schema</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  </SidebarMenuSub>
-                </CollapsibleContent>
-              </SidebarMenuItem>
-            </Collapsible>
-
-            <Collapsible
-              open={dataOpen}
-              onOpenChange={setDataOpen}
-              className="group/collapsible"
-            >
-              <SidebarMenuItem>
-                <CollapsibleTrigger asChild>
-                  <SidebarMenuButton className="font-bold">
-                    <icons.BarChart />
-                    <span>
-                      <Trans>Data</Trans>
-                    </span>
-                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                  </SidebarMenuButton>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarMenuSub>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/data/validate">
-                          <span>
-                            <Trans>Validate Data</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/data/infer">
-                          <span>
-                            <Trans>Infer Schema</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  </SidebarMenuSub>
-                </CollapsibleContent>
-              </SidebarMenuItem>
-            </Collapsible>
-
-            <Collapsible
-              open={fileOpen}
-              onOpenChange={setFileOpen}
-              className="group/collapsible"
-            >
-              <SidebarMenuItem>
-                <CollapsibleTrigger asChild>
-                  <SidebarMenuButton className="font-bold">
-                    <icons.File />
-                    <span>
-                      <Trans>File</Trans>
-                    </span>
-                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                  </SidebarMenuButton>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                  <SidebarMenuSub>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/file/describe">
-                          <span>
-                            <Trans>Describe File</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <Link to="/file/infer">
-                          <span>
-                            <Trans>Infer Format</Trans>
-                          </span>
-                        </Link>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  </SidebarMenuSub>
-                </CollapsibleContent>
-              </SidebarMenuItem>
-            </Collapsible>
+            {menuItems.map((menuItem) => {
+              const Icon = menuItem.icon
+              return (
+                <Collapsible
+                  key={menuItem.id}
+                  open={openStates[menuItem.id]}
+                  onOpenChange={(open: boolean) =>
+                    setOpenStates((prev) => ({ ...prev, [menuItem.id]: open }))
+                  }
+                  className="group/collapsible"
+                >
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton className="font-bold">
+                        <Icon />
+                        <span>
+                          <Trans>{menuItem.label}</Trans>
+                        </span>
+                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {menuItem.items.map((item) => (
+                          <SidebarMenuSubItem key={item.path}>
+                            <SidebarMenuSubButton asChild>
+                              <Link to={item.path}>
+                                <span>
+                                  <Trans>{item.label}</Trans>
+                                </span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        ))}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
+              )
+            })}
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>
