@@ -2,9 +2,9 @@ import { OpenAPIGenerator } from "@orpc/openapi"
 import { OpenAPIHandler } from "@orpc/openapi/fetch"
 import { CORSPlugin } from "@orpc/server/plugins"
 import { ZodToJsonSchemaConverter } from "@orpc/zod/zod4"
-import metadata from "#package.json" with { type: "json" }
-import { router } from "../router.ts"
-import * as settings from "../settings.ts"
+import packageJson from "#package.json" with { type: "json" }
+import { router } from "#router.ts"
+import * as settings from "#settings.ts"
 
 export async function openapiRequestHandler(request: Request) {
   const prefix = settings.OPENAPI_PREFIX
@@ -42,7 +42,7 @@ export async function openapiRequestHandler(request: Request) {
     const spec = await openapiGenerator.generate(router, {
       info: {
         title: "OpenAPI Spec",
-        version: metadata.version,
+        version: packageJson.version,
       },
       servers: [{ url: `${url.origin}${prefix}` }],
     })

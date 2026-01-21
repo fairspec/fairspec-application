@@ -3,10 +3,7 @@
   "type": "module",
   "version": "0.0.0-dev",
   "private": true,
-  "exports": {
-    ".": "./index.ts",
-    "./handlers/*": "./handlers/*.ts"
-  },
+  "exports": "./index.ts",
   "imports": {
     "#*": "./*"
   },
