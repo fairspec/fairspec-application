@@ -6,22 +6,18 @@ import { Menu } from "./Menu.tsx"
 
 export function Layout(props: { children?: React.ReactNode }) {
   return (
-    <div className="flex flex-col max-md:pt-16">
-      <div>
+    <div>
+      <div className="fixed top-0 left-0 right-0">
         <Header />
         <Banner />
       </div>
-      <div className="mx-auto w-full">
-        <div className="flex gap-8">
-          <aside className="hidden md:block md:w-3/12 bg-gray-50 dark:bg-gray-800">
-            <Menu />
-          </aside>
-          <main className="w-full md:w-9/12">
-            <Content>{props.children}</Content>
-          </main>
-        </div>
+      <div className="fixed top-0 left-0 w-100 pt-27">
+        <Menu />
       </div>
-      <Footer />
+      <div className="mt-27 ml-100">
+        <Content>{props.children}</Content>
+        <Footer />
+      </div>
     </div>
   )
 }

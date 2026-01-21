@@ -69,7 +69,7 @@ export function Menu() {
 
   return (
     <SidebarProvider>
-      <SidebarGroup className="p-5">
+      <SidebarGroup className="p-5 bg-gray-50 dark:bg-gray-800">
         <SidebarGroupContent>
           <SidebarMenu>
             {menuItems.map(menuItem => {
