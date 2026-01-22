@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
-export const Route = createFileRoute("/file/infer")({
+export const Route = createFileRoute("/table/infer-schema")({
   component: Component,
 })
 

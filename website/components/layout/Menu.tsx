@@ -41,7 +41,7 @@ export const menuItems = [
     icon: icons.Table,
     items: [
       { label: "Validate Table", path: "/table/validate" },
-      { label: "Infer Schema", path: "/table/infer" },
+      { label: "Infer Schema", path: "/table/infer-schema" },
     ],
   },
   {
@@ -50,7 +50,7 @@ export const menuItems = [
     icon: icons.Data,
     items: [
       { label: "Validate Data", path: "/data/validate" },
-      { label: "Infer Schema", path: "/data/infer" },
+      { label: "Infer Schema", path: "/data/infer-schema" },
     ],
   },
   {
@@ -59,7 +59,7 @@ export const menuItems = [
     icon: icons.File,
     items: [
       { label: "Validate File", path: "/file/validate" },
-      { label: "Infer Format", path: "/file/infer" },
+      { label: "Infer Dialect", path: "/file/infer-dialect" },
     ],
   },
 ]
