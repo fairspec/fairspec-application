@@ -1,12 +1,7 @@
+import { Trans } from "@lingui/react/macro"
 import { Link } from "@tanstack/react-router"
 import datistLogoTextDark from "#assets/datist-logo-text-dark.svg"
 import datistLogoTextLight from "#assets/datist-logo-text-light.svg"
-
-// TODO: recover
-// import { Trans } from "@lingui/react/macro"
-function Trans({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
-}
 
 export function Credits() {
   return (

@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: en\n"
+"Language: pt\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: \n"
@@ -13,120 +13,115 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/layout/Menu.tsx:94
-#: components/layout/Menu.tsx:106
-#~ msgid "{0}"
-#~ msgstr "{0}"
-
 #: components/layout/Credits.tsx:11
 msgid "Brought to you by"
-msgstr "Brought to you by"
+msgstr "Trazido a você por"
 
 #: components/layout/Language.tsx:57
 msgid "Change Language"
-msgstr "Change Language"
+msgstr "Mudar idioma"
 
 #: components/layout/Theme.tsx:33
 msgid "Change Theme"
-msgstr "Change Theme"
+msgstr "Mudar tema"
 
 #: components/layout/Theme.tsx:52
 msgid "Dark"
-msgstr "Dark"
+msgstr "Escuro"
 
 #: components/layout/Menu.tsx:55
 #: routes/$languageId/index.tsx:32
 msgid "Data"
-msgstr "Data"
+msgstr "Dados"
 
 #: components/layout/Menu.tsx:37
 #: routes/$languageId/index.tsx:16
 msgid "Dataset"
-msgstr "Dataset"
+msgstr "Conjunto de dados"
 
 #: routes/$languageId/index.tsx:43
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
-msgstr "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
+msgstr "Descreva o conteúdo e a estrutura do arquivo em detalhe e infira automaticamente os formatos de arquivo e especificações de codificação"
 
 #: components/layout/Banner.tsx:19
 msgid "feedback and ideas"
-msgstr "feedback and ideas"
+msgstr "sugestões e ideias"
 
 #: components/layout/Menu.tsx:64
 #: routes/$languageId/index.tsx:40
 msgid "File"
-msgstr "File"
+msgstr "Arquivo"
 
 #: components/layout/Menu.tsx:41
 msgid "Infer Dataset"
-msgstr "Infer Dataset"
+msgstr "Inferir Conjunto de Dados"
 
 #: components/layout/Menu.tsx:68
 msgid "Infer Dialect"
-msgstr "Infer Dialect"
+msgstr "Inferir Dialeto"
 
 #: components/layout/Menu.tsx:50
 #: components/layout/Menu.tsx:59
 msgid "Infer Schema"
-msgstr "Infer Schema"
+msgstr "Inferir Esquema"
 
 #: components/layout/Theme.tsx:43
 msgid "Light"
-msgstr "Light"
+msgstr "Claro"
 
 #: components/layout/Banner.tsx:13
 msgid "phase. Please share your"
-msgstr "phase. Please share your"
+msgstr "fase. Por favor, compartilhe seu"
 
 #: components/layout/Banner.tsx:11
 msgid "research preview"
-msgstr "research preview"
+msgstr "prévia de pesquisa"
 
 #: components/layout/Share.tsx:37
 msgid "Share"
-msgstr "Share"
+msgstr "Compartilhar"
 
 #: components/layout/Share.tsx:32
 msgid "Share Page"
-msgstr "Share Page"
+msgstr "Compartilhar página"
 
 #: components/layout/Menu.tsx:46
 #: routes/$languageId/index.tsx:24
 msgid "Table"
-msgstr "Table"
+msgstr "Tabela"
 
 #: components/layout/Banner.tsx:9
 msgid "This project is in"
-msgstr "This project is in"
+msgstr "Este projeto está em"
 
 #: components/layout/Menu.tsx:58
 msgid "Validate Data"
-msgstr "Validate Data"
+msgstr "Validar Dados"
 
 #: routes/$languageId/index.tsx:35
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
-msgstr "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
+msgstr "Valide a qualidade dos dados, verifique inconsistências e erros e infira automaticamente esquemas de dados abrangentes dos seus conjuntos de dados"
 
 #: components/layout/Menu.tsx:40
 msgid "Validate Dataset"
-msgstr "Validate Dataset"
+msgstr "Validar Conjunto de Dados"
 
 #: routes/$languageId/index.tsx:19
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
-msgstr "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
+msgstr "Valide os metadados do conjunto de dados conforme as especificações e infira automaticamente a estrutura do conjunto de dados a partir dos seus arquivos de dados"
 
 #: components/layout/Menu.tsx:67
 msgid "Validate File"
-msgstr "Validate File"
+msgstr "Validar Arquivo"
 
 #: components/layout/Menu.tsx:49
 msgid "Validate Table"
-msgstr "Validate Table"
+msgstr "Validar Tabela"
 
 #: routes/$languageId/index.tsx:27
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
-msgstr "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
+msgstr "Valide a estrutura da tabela quanto à exatidão e conformidade e infira automaticamente as definições de esquemas de tabela a partir dos seus dados tabulares"
 
 #: components/layout/Credits.tsx:32
 msgid "We are bringing technological innovation and consultancy services to the open data field"
-msgstr "We are bringing technological innovation and consultancy services to the open data field"
+msgstr "Estamos trazendo inovação tecnológica e serviços de consultoria para o campo de dados abertos"

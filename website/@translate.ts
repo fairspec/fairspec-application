@@ -13,10 +13,8 @@ import {
   Languages,
 } from "#constants/language.ts"
 
-// TODO: Move ai part to agent?
-
 process.chdir(import.meta.dirname)
-dotenv.config()
+dotenv.config({ path: ".env.local" })
 
 const $ = execa({
   stdout: ["inherit", "pipe"],
