@@ -1,4 +1,4 @@
-import { useLingui } from "@lingui/react/macro"
+import { Trans, useLingui } from "@lingui/react/macro"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { Card, CardDescription, CardHeader, CardTitle } from "#blocks/card.tsx"
 import { Credits } from "#components/layout/Credits.tsx"
@@ -47,8 +47,15 @@ function Component() {
   ]
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="py-10">
+    <div className="pt-8 flex flex-col gap-4">
+      <h1 className="text-3xl font-bold">Fairspec Application</h1>
+      <p className="text-lg">
+        <Trans>
+          Visual tool for managing and validating tabular and structured data
+        </Trans>
+        .
+      </p>
+      <div className="py-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {gridItems.map(item => {
             const Icon = item.icon
