@@ -1,8 +1,20 @@
+import { t } from "@lingui/core/macro"
 import { createFileRoute } from "@tanstack/react-router"
 import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/dataset/infer")({
   component: Component,
+  head: () => ({
+    meta: [
+      {
+        title: t`Infer Dataset`,
+      },
+      {
+        name: "description",
+        content: t`Automatically infer dataset metadata and structure from your data files`,
+      },
+    ],
+  }),
 })
 
 function Component() {

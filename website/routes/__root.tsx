@@ -1,10 +1,10 @@
 import { i18n } from "@lingui/core"
+import { t } from "@lingui/core/macro"
 import { I18nProvider } from "@lingui/react"
 import { TanStackDevtools } from "@tanstack/react-devtools"
-import type { QueryClient } from "@tanstack/react-query"
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools"
 import {
-  createRootRouteWithContext,
+  createRootRoute,
   HeadContent,
   Outlet,
   Scripts,
@@ -19,13 +19,15 @@ import { NotFound } from "#components/system/NotFound.tsx"
 import { LanguageIdDefault } from "#constants/language.ts"
 import generalCss from "#styles/general.css?url"
 
-export const Route = createRootRouteWithContext<{
-  queryClient: QueryClient
-}>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: "utf-8",
+        title: "Fairspec Application",
+      },
+      {
+        name: "description",
+        content: t`Visual tool for managing and validating tabular and structured data`,
       },
       {
         name: "viewport",
@@ -40,7 +42,15 @@ export const Route = createRootRouteWithContext<{
         href: "/fairspec-logo.png",
       },
     ],
+    scripts: [
+      {
+        src: "https://plausible.io/js/script.js",
+        "data-domain": "fairspec.org",
+        defer: true,
+      },
+    ],
   }),
+  notFoundComponent: () => <NotFound />,
   errorComponent: props => {
     return (
       <Document>
@@ -48,8 +58,13 @@ export const Route = createRootRouteWithContext<{
       </Document>
     )
   },
-  notFoundComponent: () => <NotFound />,
-  component: Component,
+  component: () => {
+    return (
+      <Document>
+        <Outlet />
+      </Document>
+    )
+  },
 })
 
 function Document(props: { children: React.ReactNode }) {
@@ -83,13 +98,5 @@ function Document(props: { children: React.ReactNode }) {
         </body>
       </html>
     </I18nProvider>
-  )
-}
-
-function Component() {
-  return (
-    <Document>
-      <Outlet />
-    </Document>
   )
 }

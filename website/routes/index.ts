@@ -5,6 +5,6 @@ import { LanguageIdDefault } from "#constants/language.ts"
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    return redirect({ to: `/${LanguageIdDefault}/` })
+    return redirect({ to: `/${LanguageIdDefault}/`, statusCode: 308 })
   },
 })

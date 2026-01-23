@@ -1,8 +1,20 @@
+import { t } from "@lingui/core/macro"
 import { createFileRoute } from "@tanstack/react-router"
 import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/file/infer-dialect")({
   component: Component,
+  head: () => ({
+    meta: [
+      {
+        title: t`Infer Dialect`,
+      },
+      {
+        name: "description",
+        content: t`Automatically infer file formats, encoding specifications, and dialect parameters`,
+      },
+    ],
+  }),
 })
 
 function Component() {

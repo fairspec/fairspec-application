@@ -13,6 +13,22 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: routes/$languageId/data/infer-schema.tsx:14
+msgid "Automatically infer comprehensive data schemas from your datasets"
+msgstr "Infiera automáticamente esquemas de datos completos a partir de sus conjuntos de datos"
+
+#: routes/$languageId/table/infer-schema.tsx:14
+msgid "Automatically infer comprehensive table schema definitions from your tabular data"
+msgstr "Infiera automáticamente definiciones de esquemas de tabla completas a partir de sus datos tabulares"
+
+#: routes/$languageId/dataset/infer.tsx:14
+msgid "Automatically infer dataset metadata and structure from your data files"
+msgstr "Infiera automáticamente metadatos y estructura del conjunto de datos a partir de sus archivos de datos"
+
+#: routes/$languageId/file/infer-dialect.tsx:14
+msgid "Automatically infer file formats, encoding specifications, and dialect parameters"
+msgstr "Infiera automáticamente formatos de archivo, especificaciones de codificación y parámetros de dialecto"
+
 #: components/layout/Credits.tsx:11
 msgid "Brought to you by"
 msgstr "Presentado por"
@@ -39,6 +55,7 @@ msgstr "Datos"
 msgid "Dataset"
 msgstr "Conjunto de datos"
 
+#: routes/$languageId/file/validate.tsx:14
 #: routes/$languageId/index.tsx:43
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
 msgstr "Describe el contenido y la estructura del archivo en detalle, e infiere automáticamente los formatos de archivo y las especificaciones de codificación"
@@ -52,18 +69,38 @@ msgstr "comentarios e ideas"
 msgid "File"
 msgstr "Archivo"
 
+#: components/layout/Breadcrumbs.tsx:27
+msgid "Home"
+msgstr "Inicio"
+
+#: components/layout/Breadcrumbs.tsx:46
+msgid "Infer data schema"
+msgstr "Inferir esquema de datos"
+
 #: components/layout/Menu.tsx:41
+#: routes/$languageId/dataset/infer.tsx:10
 msgid "Infer Dataset"
 msgstr "Inferir conjunto de datos"
 
+#: components/layout/Breadcrumbs.tsx:44
+msgid "Infer dialect"
+msgstr "Inferir dialecto"
+
 #: components/layout/Menu.tsx:68
+#: routes/$languageId/file/infer-dialect.tsx:10
 msgid "Infer Dialect"
 msgstr "Inferir dialecto"
 
 #: components/layout/Menu.tsx:50
 #: components/layout/Menu.tsx:59
+#: routes/$languageId/data/infer-schema.tsx:10
+#: routes/$languageId/table/infer-schema.tsx:10
 msgid "Infer Schema"
 msgstr "Inferir esquema"
+
+#: components/layout/Breadcrumbs.tsx:48
+msgid "Infer table schema"
+msgstr "Inferir esquema de tabla"
 
 #: components/layout/Theme.tsx:43
 msgid "Light"
@@ -76,6 +113,10 @@ msgstr "fase. Por favor comparte tus"
 #: components/layout/Banner.tsx:11
 msgid "research preview"
 msgstr "vista previa de investigación"
+
+#: components/layout/Breadcrumbs.tsx:50
+msgid "Select tools below"
+msgstr "Seleccione herramientas abajo"
 
 #: components/layout/Share.tsx:37
 msgid "Share"
@@ -95,32 +136,51 @@ msgid "This project is in"
 msgstr "Este proyecto está en"
 
 #: components/layout/Menu.tsx:58
+#: routes/$languageId/data/validate.tsx:10
 msgid "Validate Data"
 msgstr "Validar datos"
 
+#: routes/$languageId/data/validate.tsx:14
 #: routes/$languageId/index.tsx:35
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
 msgstr "Valida la calidad de los datos, verifica inconsistencias y errores, e infiere automáticamente esquemas de datos completos a partir de tus conjuntos de datos"
 
+#: components/layout/Breadcrumbs.tsx:40
+msgid "Validate dataset"
+msgstr "Validar conjunto de datos"
+
 #: components/layout/Menu.tsx:40
+#: routes/$languageId/dataset/validate.tsx:10
 msgid "Validate Dataset"
 msgstr "Validar conjunto de datos"
 
+#: routes/$languageId/dataset/validate.tsx:14
 #: routes/$languageId/index.tsx:19
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 msgstr "Valida los metadatos del conjunto de datos según las especificaciones e infiere automáticamente la estructura del conjunto de datos a partir de tus archivos de datos"
 
 #: components/layout/Menu.tsx:67
+#: routes/$languageId/file/validate.tsx:10
 msgid "Validate File"
 msgstr "Validar archivo"
 
+#: components/layout/Breadcrumbs.tsx:42
+msgid "Validate table"
+msgstr "Validar tabla"
+
 #: components/layout/Menu.tsx:49
+#: routes/$languageId/table/validate.tsx:10
 msgid "Validate Table"
 msgstr "Validar tabla"
 
 #: routes/$languageId/index.tsx:27
+#: routes/$languageId/table/validate.tsx:14
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Valida la estructura de la tabla para garantizar la corrección y el cumplimiento, e infiere automáticamente definiciones de esquemas de tabla a partir de tus datos tabulares"
+
+#: routes/__root.tsx:30
+msgid "Visual tool for managing and validating tabular and structured data"
+msgstr "Herramienta visual para gestionar y validar datos tabulares y estructurados"
 
 #: components/layout/Credits.tsx:32
 msgid "We are bringing technological innovation and consultancy services to the open data field"

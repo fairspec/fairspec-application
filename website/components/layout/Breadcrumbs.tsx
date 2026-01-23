@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router"
+import { Trans, useLingui } from "@lingui/react/macro"
+import { Link, useMatches, useParams } from "@tanstack/react-router"
+import { TypeAnimation } from "react-type-animation"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,29 +10,47 @@ import {
   BreadcrumbSeparator,
 } from "#blocks/breadcrumb.tsx"
 
-// TODO: recover
-// import { Trans } from "@lingui/react/macro"
-function Trans({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
-}
-
 export function Breadcrumbs() {
+  const { t } = useLingui()
+  const { languageId } = useParams({ strict: false })
+
+  const matches = useMatches()
+  const meta = matches.at(-1)?.meta?.find((meta: any) => meta.title)
+  const title = meta?.title
+
   return (
     <Breadcrumb className="hidden md:block">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link to="/">
+            <Link to="/" params={{ languageId }}>
               <Trans>Home</Trans>
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>
-            <Trans>Current Page</Trans>
-          </BreadcrumbPage>
-        </BreadcrumbItem>
+        {title ? (
+          <BreadcrumbItem>
+            <BreadcrumbPage>{title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        ) : (
+          <TypeAnimation
+            className="text-black dark:text-white"
+            sequence={[
+              t`Validate dataset`,
+              1000,
+              t`Validate table`,
+              1000,
+              t`Infer dialect`,
+              1000,
+              t`Infer data schema`,
+              1000,
+              t`Infer table schema`,
+              1000,
+              t`Select tools below`,
+            ]}
+          />
+        )}
       </BreadcrumbList>
     </Breadcrumb>
   )
