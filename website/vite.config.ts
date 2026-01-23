@@ -11,9 +11,7 @@ import svgr from "vite-plugin-svgr"
 export default defineConfig({
   plugins: [
     devtools(),
-    // @ts-expect-error
     tailwind(),
-    // @ts-expect-error
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({
       srcDirectory: ".",

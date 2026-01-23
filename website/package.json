@@ -74,7 +74,6 @@
     "tailwindcss": "4.1.18",
     "tasuku": "2.0.5",
     "ts-extras": "0.16.0",
-    "vite": "7.3.1",
     "wrangler": "4.60.0",
     "zod": "4.1.13"
   }
