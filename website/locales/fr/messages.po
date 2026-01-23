@@ -13,10 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: routes/index.tsx:43
-#: routes/index.tsx:47
-#. placeholder {0}: cardDescriptions[item.id]
+#: components/layout/Menu.tsx:94
+#: components/layout/Menu.tsx:106
 #. placeholder {0}: item.label
+#. placeholder {0}: menuItem.label
 msgid "{0}"
 msgstr "{0}"
 
@@ -32,6 +32,22 @@ msgstr "Changer de thème"
 msgid "Dark"
 msgstr "Sombre"
 
+#: routes/$languageId/index.tsx:32
+msgid "Data"
+msgstr "Données"
+
+#: routes/$languageId/index.tsx:16
+msgid "Dataset"
+msgstr "Jeu de données"
+
+#: routes/$languageId/index.tsx:43
+msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
+msgstr "Décrivez en détail le contenu et la structure du fichier, et déduisez automatiquement les formats de fichiers et les spécifications d'encodage"
+
+#: routes/$languageId/index.tsx:40
+msgid "File"
+msgstr "Fichier"
+
 #: components/layout/Theme.tsx:43
 msgid "Light"
 msgstr "Clair"
@@ -43,3 +59,23 @@ msgstr "Partager"
 #: components/layout/Share.tsx:32
 msgid "Share Page"
 msgstr "Partager la page"
+
+#: routes/$languageId/index.tsx:24
+msgid "Table"
+msgstr "Table"
+
+#: routes/$languageId/index.tsx:35
+msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
+msgstr "Validez la qualité des données, vérifiez les incohérences et les erreurs, et déduisez automatiquement des schémas de données complets à partir de vos jeux de données"
+
+#: components/layout/Menu.tsx:40
+msgid "Validate Dataset"
+msgstr "Valider le jeu de données"
+
+#: routes/$languageId/index.tsx:19
+msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
+msgstr "Validez les métadonnées du jeu de données selon les spécifications et déduisez automatiquement la structure du jeu de données à partir de vos fichiers de données"
+
+#: routes/$languageId/index.tsx:27
+msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
+msgstr "Validez la structure de la table pour la justesse et la conformité, et déduisez automatiquement les définitions du schéma de table à partir de vos données tabulaires"

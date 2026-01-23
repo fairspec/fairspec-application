@@ -13,10 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: routes/index.tsx:43
-#: routes/index.tsx:47
-#. placeholder {0}: cardDescriptions[item.id]
+#: components/layout/Menu.tsx:94
+#: components/layout/Menu.tsx:106
 #. placeholder {0}: item.label
+#. placeholder {0}: menuItem.label
 msgid "{0}"
 msgstr "{0}"
 
@@ -32,6 +32,22 @@ msgstr "Cambia tema"
 msgid "Dark"
 msgstr "Scuro"
 
+#: routes/$languageId/index.tsx:32
+msgid "Data"
+msgstr "Dati"
+
+#: routes/$languageId/index.tsx:16
+msgid "Dataset"
+msgstr "Set di dati"
+
+#: routes/$languageId/index.tsx:43
+msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
+msgstr "Descrivi in dettaglio il contenuto e la struttura del file e deduci automaticamente i formati di file e le specifiche di codifica"
+
+#: routes/$languageId/index.tsx:40
+msgid "File"
+msgstr "File"
+
 #: components/layout/Theme.tsx:43
 msgid "Light"
 msgstr "Chiaro"
@@ -43,3 +59,23 @@ msgstr "Condividi"
 #: components/layout/Share.tsx:32
 msgid "Share Page"
 msgstr "Condividi pagina"
+
+#: routes/$languageId/index.tsx:24
+msgid "Table"
+msgstr "Tabella"
+
+#: routes/$languageId/index.tsx:35
+msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
+msgstr "Valida la qualità dei dati, verifica incoerenze ed errori e deduci automaticamente schemi di dati completi dai tuoi set di dati"
+
+#: components/layout/Menu.tsx:40
+msgid "Validate Dataset"
+msgstr "Convalida set di dati"
+
+#: routes/$languageId/index.tsx:19
+msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
+msgstr "Valida i metadati del set di dati rispetto alle specifiche e deduci automaticamente la struttura del set di dati dai tuoi file di dati"
+
+#: routes/$languageId/index.tsx:27
+msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
+msgstr "Valida la struttura della tabella per accuratezza e conformità e deduci automaticamente le definizioni di schema delle tabelle dai tuoi dati tabulari"
