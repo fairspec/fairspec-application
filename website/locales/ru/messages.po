@@ -13,6 +13,22 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: routes/$languageId/data/infer-schema.tsx:14
+msgid "Automatically infer comprehensive data schemas from your datasets"
+msgstr "Автоматически определяйте комплексные схемы данных из ваших наборов данных"
+
+#: routes/$languageId/table/infer-schema.tsx:14
+msgid "Automatically infer comprehensive table schema definitions from your tabular data"
+msgstr "Автоматически определяйте комплексные схемы таблиц из ваших табличных данных"
+
+#: routes/$languageId/dataset/infer.tsx:14
+msgid "Automatically infer dataset metadata and structure from your data files"
+msgstr "Автоматически определяйте метаданные и структуру набора данных из ваших файлов данных"
+
+#: routes/$languageId/file/infer-dialect.tsx:14
+msgid "Automatically infer file formats, encoding specifications, and dialect parameters"
+msgstr "Автоматически определяйте форматы файлов, спецификации кодировки и параметры диалекта"
+
 #: components/layout/Credits.tsx:11
 msgid "Brought to you by"
 msgstr "Предоставлено"
@@ -39,6 +55,7 @@ msgstr "Данные"
 msgid "Dataset"
 msgstr "Набор данных"
 
+#: routes/$languageId/file/validate.tsx:14
 #: routes/$languageId/index.tsx:43
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
 msgstr "Опишите содержимое и структуру файла подробно, и автоматически определите форматы файлов и спецификации кодировки"
@@ -52,18 +69,38 @@ msgstr "отзывы и идеи"
 msgid "File"
 msgstr "Файл"
 
+#: components/layout/Breadcrumbs.tsx:27
+msgid "Home"
+msgstr "Главная"
+
+#: components/layout/Breadcrumbs.tsx:46
+msgid "Infer data schema"
+msgstr "Определить схему данных"
+
 #: components/layout/Menu.tsx:41
+#: routes/$languageId/dataset/infer.tsx:10
 msgid "Infer Dataset"
 msgstr "Определить набор данных"
 
+#: components/layout/Breadcrumbs.tsx:44
+msgid "Infer dialect"
+msgstr "Определить диалект"
+
 #: components/layout/Menu.tsx:68
+#: routes/$languageId/file/infer-dialect.tsx:10
 msgid "Infer Dialect"
 msgstr "Определить диалект"
 
 #: components/layout/Menu.tsx:50
 #: components/layout/Menu.tsx:59
+#: routes/$languageId/data/infer-schema.tsx:10
+#: routes/$languageId/table/infer-schema.tsx:10
 msgid "Infer Schema"
 msgstr "Определить схему"
+
+#: components/layout/Breadcrumbs.tsx:48
+msgid "Infer table schema"
+msgstr "Определить схему таблицы"
 
 #: components/layout/Theme.tsx:43
 msgid "Light"
@@ -76,6 +113,10 @@ msgstr "этап. Пожалуйста, поделитесь вашими"
 #: components/layout/Banner.tsx:11
 msgid "research preview"
 msgstr "предварительный просмотр исследования"
+
+#: components/layout/Breadcrumbs.tsx:50
+msgid "Select tools below"
+msgstr "Выберите инструменты ниже"
 
 #: components/layout/Share.tsx:37
 msgid "Share"
@@ -95,30 +136,45 @@ msgid "This project is in"
 msgstr "Этот проект находится на"
 
 #: components/layout/Menu.tsx:58
+#: routes/$languageId/data/validate.tsx:10
 msgid "Validate Data"
 msgstr "Проверить данные"
 
+#: routes/$languageId/data/validate.tsx:14
 #: routes/$languageId/index.tsx:35
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
 msgstr "Проверьте качество данных, обнаружьте несоответствия и ошибки, а также автоматически определите полные схемы данных из ваших наборов данных"
 
+#: components/layout/Breadcrumbs.tsx:40
+msgid "Validate dataset"
+msgstr "Проверить набор данных"
+
 #: components/layout/Menu.tsx:40
+#: routes/$languageId/dataset/validate.tsx:10
 msgid "Validate Dataset"
 msgstr "Проверить набор данных"
 
+#: routes/$languageId/dataset/validate.tsx:14
 #: routes/$languageId/index.tsx:19
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 msgstr "Проверьте метаданные набора данных на соответствие спецификациям и автоматически определите структуру набора данных по вашим файлам данных"
 
 #: components/layout/Menu.tsx:67
+#: routes/$languageId/file/validate.tsx:10
 msgid "Validate File"
 msgstr "Проверить файл"
 
+#: components/layout/Breadcrumbs.tsx:42
+msgid "Validate table"
+msgstr "Проверить таблицу"
+
 #: components/layout/Menu.tsx:49
+#: routes/$languageId/table/validate.tsx:10
 msgid "Validate Table"
 msgstr "Проверить таблицу"
 
 #: routes/$languageId/index.tsx:27
+#: routes/$languageId/table/validate.tsx:14
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Проверьте структуру таблицы на правильность и соответствие, а также автоматически определите схемы таблицы по вашим табличным данным"
 
