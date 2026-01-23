@@ -6,7 +6,7 @@ import {
   Languages,
 } from "#constants/language.ts"
 
-export async function activateLocal(languageId: LanguageId) {
+export async function activateLocale(languageId: LanguageId) {
   const { messages } = await import(`../locales/${languageId}/messages.po`)
 
   i18n.load(languageId, messages)
