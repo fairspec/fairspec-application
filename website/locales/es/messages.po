@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: en\n"
+"Language: es\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: \n"
@@ -13,33 +13,33 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#. placeholder {0}: cardDescriptions[item.id]
-#. placeholder {0}: item.label
 #: routes/index.tsx:43
 #: routes/index.tsx:47
+#. placeholder {0}: cardDescriptions[item.id]
+#. placeholder {0}: item.label
 msgid "{0}"
 msgstr "{0}"
 
 #: components/layout/Language.tsx:57
 msgid "Change Language"
-msgstr "Change Language"
+msgstr "Cambiar idioma"
 
 #: components/layout/Theme.tsx:33
 msgid "Change Theme"
-msgstr "Change Theme"
+msgstr "Cambiar tema"
 
 #: components/layout/Theme.tsx:52
 msgid "Dark"
-msgstr "Dark"
+msgstr "Oscuro"
 
 #: components/layout/Theme.tsx:43
 msgid "Light"
-msgstr "Light"
+msgstr "Claro"
 
 #: components/layout/Share.tsx:37
 msgid "Share"
-msgstr "Share"
+msgstr "Compartir"
 
 #: components/layout/Share.tsx:32
 msgid "Share Page"
-msgstr "Share Page"
+msgstr "Compartir página"

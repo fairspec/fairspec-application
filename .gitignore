@@ -66,7 +66,6 @@ dist/
 .cursor/
 .serena/
 .mcp.json
-# .env
 .env.local
 messages.js
 .user/
