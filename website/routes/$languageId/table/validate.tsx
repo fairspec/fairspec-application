@@ -7,6 +7,7 @@ import { useRef } from "react"
 import { toast } from "sonner"
 import * as z from "zod"
 import { Button } from "#blocks/button.tsx"
+import { Card, CardContent } from "#blocks/card.tsx"
 import {
   Field,
   FieldDescription,
@@ -38,7 +39,7 @@ export const Route = createFileRoute("/$languageId/table/validate")({
 
 function Component() {
   return (
-    <div className="py-8 flex flex-col gap-4">
+    <div className="py-8 flex flex-col gap-6">
       <h1 className="text-3xl font-bold">
         <Trans>Validate Table</Trans>
       </h1>
@@ -88,7 +89,7 @@ export function ValidateTable() {
   })
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-10">
       <form
         id="validate-table"
         onSubmit={e => {
@@ -108,7 +109,7 @@ export function ValidateTable() {
           <Button
             type="submit"
             form="validate-table"
-            className="w-full text-lg"
+            className="w-full text-xl h-12"
             size="lg"
             disabled={!tableValue}
           >

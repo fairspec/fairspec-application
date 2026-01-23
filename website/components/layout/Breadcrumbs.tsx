@@ -20,7 +20,7 @@ export function Breadcrumbs() {
 
   return (
     <Breadcrumb className="hidden md:block">
-      <BreadcrumbList>
+      <BreadcrumbList className="text-base">
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to="/" params={{ languageId }}>
@@ -35,7 +35,7 @@ export function Breadcrumbs() {
           </BreadcrumbItem>
         ) : (
           <TypeAnimation
-            className="text-black dark:text-white"
+            className="text-white"
             sequence={[
               t`Validate dataset`,
               1000,
