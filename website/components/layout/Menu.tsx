@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router"
+import { Link, useParams } from "@tanstack/react-router"
 import { ChevronRight } from "lucide-react"
 import { useState } from "react"
 import {
@@ -31,8 +31,8 @@ export const menuItems = [
     label: "Dataset",
     icon: icons.Dataset,
     items: [
-      { label: "Validate Dataset", path: "/dataset/validate" },
-      { label: "Infer Dataset", path: "/dataset/infer" },
+      { label: "Validate Dataset", path: "/$languageId/dataset/validate" },
+      { label: "Infer Dataset", path: "/$languageId/dataset/infer" },
     ],
   },
   {
@@ -40,8 +40,8 @@ export const menuItems = [
     label: "Table",
     icon: icons.Table,
     items: [
-      { label: "Validate Table", path: "/table/validate" },
-      { label: "Infer Schema", path: "/table/infer-schema" },
+      { label: "Validate Table", path: "/$languageId/table/validate" },
+      { label: "Infer Schema", path: "/$languageId/table/infer-schema" },
     ],
   },
   {
@@ -49,8 +49,8 @@ export const menuItems = [
     label: "Data",
     icon: icons.Data,
     items: [
-      { label: "Validate Data", path: "/data/validate" },
-      { label: "Infer Schema", path: "/data/infer-schema" },
+      { label: "Validate Data", path: "/$languageId/data/validate" },
+      { label: "Infer Schema", path: "/$languageId/data/infer-schema" },
     ],
   },
   {
@@ -58,13 +58,15 @@ export const menuItems = [
     label: "File",
     icon: icons.File,
     items: [
-      { label: "Validate File", path: "/file/validate" },
-      { label: "Infer Dialect", path: "/file/infer-dialect" },
+      { label: "Validate File", path: "/$languageId/file/validate" },
+      { label: "Infer Dialect", path: "/$languageId/file/infer-dialect" },
     ],
   },
 ]
 
 export function Menu() {
+  const { languageId } = useParams({ strict: false })
+
   const [openStates, setOpenStates] = useState<Record<string, boolean>>({
     dataset: true,
     table: true,
@@ -103,7 +105,7 @@ export function Menu() {
                         {menuItem.items.map(item => (
                           <SidebarMenuSubItem key={item.path}>
                             <SidebarMenuSubButton asChild className="text-base">
-                              <Link to={item.path}>
+                              <Link to={item.path} params={{ languageId }}>
                                 <span>
                                   <Trans>{item.label}</Trans>
                                 </span>
