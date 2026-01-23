@@ -1,7 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { Card, CardDescription, CardHeader, CardTitle } from "#blocks/card.tsx"
-import { Credits } from "#components/layout/Credits.tsx"
 import * as icons from "#icons.ts"
 
 export const Route = createFileRoute("/$languageId/")({
@@ -81,7 +80,6 @@ function Component() {
           })}
         </div>
       </div>
-      <Credits />
     </div>
   )
 }
