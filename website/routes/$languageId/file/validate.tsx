@@ -1,8 +1,20 @@
+import { t } from "@lingui/core/macro"
 import { createFileRoute } from "@tanstack/react-router"
 import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/file/validate")({
   component: Component,
+  head: () => ({
+    meta: [
+      {
+        title: t`Validate File`,
+      },
+      {
+        name: "description",
+        content: t`Describe file contents and structure in detail, and automatically infer file formats and encoding specifications`,
+      },
+    ],
+  }),
 })
 
 function Component() {

@@ -1,8 +1,20 @@
+import { t } from "@lingui/core/macro"
 import { createFileRoute } from "@tanstack/react-router"
 import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/dataset/validate")({
   component: Component,
+  head: () => ({
+    meta: [
+      {
+        title: t`Validate Dataset`,
+      },
+      {
+        name: "description",
+        content: t`Validate dataset metadata against specifications and automatically infer dataset structure from your data files`,
+      },
+    ],
+  }),
 })
 
 function Component() {
