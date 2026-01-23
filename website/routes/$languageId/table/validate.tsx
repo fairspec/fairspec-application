@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro"
+import { Trans } from "@lingui/react/macro"
 import { createFileRoute } from "@tanstack/react-router"
-import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/table/validate")({
   component: Component,
@@ -19,15 +19,17 @@ export const Route = createFileRoute("/$languageId/table/validate")({
 
 function Component() {
   return (
-    <div className="py-8">
-      <Alert className="border-yellow-400 bg-yellow-50 dark:bg-yellow-800 gap-2">
-        <AlertTitle className="text-yellow-500 text-2xl">
-          Under Construction
-        </AlertTitle>
-        <AlertDescription className="text-black dark:text-white text-lg">
-          This tool is currently under construction and not yet available
-        </AlertDescription>
-      </Alert>
+    <div className="py-8 flex flex-col gap-4">
+      <h1 className="text-3xl font-bold">
+        <Trans>Validate Table</Trans>
+      </h1>
+      <p className="text-lg">
+        <Trans>
+          Validate table structure for correctness and compliance, and
+          automatically infer table schema from your tabular data
+        </Trans>
+        .
+      </p>
     </div>
   )
 }
