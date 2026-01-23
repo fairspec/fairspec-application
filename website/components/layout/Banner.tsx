@@ -1,10 +1,5 @@
+import { Trans } from "@lingui/react/macro"
 import { Link } from "@tanstack/react-router"
-
-// TODO: recover
-// import { Trans } from "@lingui/react/macro"
-function Trans({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
-}
 
 export function Banner() {
   return (

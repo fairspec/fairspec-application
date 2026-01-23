@@ -8,6 +8,7 @@ import {
   HeadContent,
   Outlet,
   Scripts,
+  useParams,
 } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import type * as React from "react"
@@ -15,6 +16,7 @@ import { Toaster } from "#blocks/sonner.tsx"
 import { Layout } from "#components/layout/Layout.tsx"
 import { DefaultCatchBoundary } from "#components/system/DefaultCatchBoundary.tsx"
 import { NotFound } from "#components/system/NotFound.tsx"
+import { LanguageIdDefault } from "#constants/language.ts"
 import generalCss from "#styles/general.css?url"
 
 export const Route = createRootRouteWithContext<{
@@ -41,27 +43,21 @@ export const Route = createRootRouteWithContext<{
   }),
   errorComponent: props => {
     return (
-      <RootDocument>
+      <Document>
         <DefaultCatchBoundary {...props} />
-      </RootDocument>
+      </Document>
     )
   },
   notFoundComponent: () => <NotFound />,
-  component: RootComponent,
+  component: Component,
 })
 
-function RootComponent() {
-  return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
-  )
-}
+function Document(props: { children: React.ReactNode }) {
+  const { languageId } = useParams({ strict: false })
 
-function RootDocument(props: { children: React.ReactNode }) {
   return (
     <I18nProvider i18n={i18n}>
-      <html lang="en">
+      <html lang={languageId ?? LanguageIdDefault}>
         <head>
           <HeadContent />
         </head>
@@ -87,5 +83,13 @@ function RootDocument(props: { children: React.ReactNode }) {
         </body>
       </html>
     </I18nProvider>
+  )
+}
+
+function Component() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
   )
 }

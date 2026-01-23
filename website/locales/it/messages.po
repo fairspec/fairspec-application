@@ -13,12 +13,9 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/layout/Menu.tsx:94
-#: components/layout/Menu.tsx:106
-#. placeholder {0}: item.label
-#. placeholder {0}: menuItem.label
-msgid "{0}"
-msgstr "{0}"
+#: components/layout/Credits.tsx:11
+msgid "Brought to you by"
+msgstr "Offerto da"
 
 #: components/layout/Language.tsx:57
 msgid "Change Language"
@@ -32,10 +29,12 @@ msgstr "Cambia tema"
 msgid "Dark"
 msgstr "Scuro"
 
+#: components/layout/Menu.tsx:55
 #: routes/$languageId/index.tsx:32
 msgid "Data"
 msgstr "Dati"
 
+#: components/layout/Menu.tsx:37
 #: routes/$languageId/index.tsx:16
 msgid "Dataset"
 msgstr "Set di dati"
@@ -44,13 +43,39 @@ msgstr "Set di dati"
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
 msgstr "Descrivi in dettaglio il contenuto e la struttura del file e deduci automaticamente i formati di file e le specifiche di codifica"
 
+#: components/layout/Banner.tsx:19
+msgid "feedback and ideas"
+msgstr "feedback e idee"
+
+#: components/layout/Menu.tsx:64
 #: routes/$languageId/index.tsx:40
 msgid "File"
 msgstr "File"
 
+#: components/layout/Menu.tsx:41
+msgid "Infer Dataset"
+msgstr "Deduci il Dataset"
+
+#: components/layout/Menu.tsx:68
+msgid "Infer Dialect"
+msgstr "Deduci il Dialetto"
+
+#: components/layout/Menu.tsx:50
+#: components/layout/Menu.tsx:59
+msgid "Infer Schema"
+msgstr "Deduci lo Schema"
+
 #: components/layout/Theme.tsx:43
 msgid "Light"
 msgstr "Chiaro"
+
+#: components/layout/Banner.tsx:13
+msgid "phase. Please share your"
+msgstr "fase. Per favore condividi il tuo"
+
+#: components/layout/Banner.tsx:11
+msgid "research preview"
+msgstr "anteprima della ricerca"
 
 #: components/layout/Share.tsx:37
 msgid "Share"
@@ -60,9 +85,18 @@ msgstr "Condividi"
 msgid "Share Page"
 msgstr "Condividi pagina"
 
+#: components/layout/Menu.tsx:46
 #: routes/$languageId/index.tsx:24
 msgid "Table"
 msgstr "Tabella"
+
+#: components/layout/Banner.tsx:9
+msgid "This project is in"
+msgstr "Questo progetto è nella"
+
+#: components/layout/Menu.tsx:58
+msgid "Validate Data"
+msgstr "Valida i Dati"
 
 #: routes/$languageId/index.tsx:35
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
@@ -76,6 +110,18 @@ msgstr "Convalida set di dati"
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 msgstr "Valida i metadati del set di dati rispetto alle specifiche e deduci automaticamente la struttura del set di dati dai tuoi file di dati"
 
+#: components/layout/Menu.tsx:67
+msgid "Validate File"
+msgstr "Valida il File"
+
+#: components/layout/Menu.tsx:49
+msgid "Validate Table"
+msgstr "Valida la Tabella"
+
 #: routes/$languageId/index.tsx:27
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Valida la struttura della tabella per accuratezza e conformità e deduci automaticamente le definizioni di schema delle tabelle dai tuoi dati tabulari"
+
+#: components/layout/Credits.tsx:32
+msgid "We are bringing technological innovation and consultancy services to the open data field"
+msgstr "Stiamo portando innovazione tecnologica e servizi di consulenza nel campo dei dati aperti"
