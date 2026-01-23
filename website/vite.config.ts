@@ -15,8 +15,6 @@ export default defineConfig({
     tanstackStart({
       srcDirectory: ".",
     }),
-    // TODO: Move to react plugin (it doesn't work atm)
-    // @ts-expect-error
     babel({
       filter: /\.tsx?$/u,
       babelConfig: {
