@@ -1,10 +1,9 @@
 import { i18n } from "@lingui/core"
 import { I18nProvider } from "@lingui/react"
 import { TanStackDevtools } from "@tanstack/react-devtools"
-import type { QueryClient } from "@tanstack/react-query"
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools"
 import {
-  createRootRouteWithContext,
+  createRootRoute,
   HeadContent,
   Outlet,
   Scripts,
@@ -19,9 +18,7 @@ import { NotFound } from "#components/system/NotFound.tsx"
 import { LanguageIdDefault } from "#constants/language.ts"
 import generalCss from "#styles/general.css?url"
 
-export const Route = createRootRouteWithContext<{
-  queryClient: QueryClient
-}>()({
+export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
@@ -49,7 +46,13 @@ export const Route = createRootRouteWithContext<{
     )
   },
   notFoundComponent: () => <NotFound />,
-  component: Component,
+  component: () => {
+    return (
+      <Document>
+        <Outlet />
+      </Document>
+    )
+  },
 })
 
 function Document(props: { children: React.ReactNode }) {
@@ -83,13 +86,5 @@ function Document(props: { children: React.ReactNode }) {
         </body>
       </html>
     </I18nProvider>
-  )
-}
-
-function Component() {
-  return (
-    <Document>
-      <Outlet />
-    </Document>
   )
 }
