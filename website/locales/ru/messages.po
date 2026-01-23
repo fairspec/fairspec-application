@@ -122,6 +122,10 @@ msgstr "Проверить таблицу"
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Проверьте структуру таблицы на правильность и соответствие, а также автоматически определите схемы таблицы по вашим табличным данным"
 
+#: routes/__root.tsx:30
+msgid "Visual tool for managing and validating tabular and structured data"
+msgstr "Визуальный инструмент для управления и проверки табличных и структурированных данных"
+
 #: components/layout/Credits.tsx:32
 msgid "We are bringing technological innovation and consultancy services to the open data field"
 msgstr "Мы внедряем технологические инновации и консалтинговые услуги в сферу открытых данных"

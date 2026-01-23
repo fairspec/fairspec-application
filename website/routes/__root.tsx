@@ -1,4 +1,5 @@
 import { i18n } from "@lingui/core"
+import { t } from "@lingui/core/macro"
 import { I18nProvider } from "@lingui/react"
 import { TanStackDevtools } from "@tanstack/react-devtools"
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools"
@@ -22,7 +23,11 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: "utf-8",
+        title: "Fairspec Application",
+      },
+      {
+        name: "description",
+        content: t`Visual tool for managing and validating tabular and structured data`,
       },
       {
         name: "viewport",
@@ -37,7 +42,15 @@ export const Route = createRootRoute({
         href: "/fairspec-logo.png",
       },
     ],
+    scripts: [
+      {
+        src: "https://plausible.io/js/script.js",
+        "data-domain": "fairspec.org",
+        defer: true,
+      },
+    ],
   }),
+  notFoundComponent: () => <NotFound />,
   errorComponent: props => {
     return (
       <Document>
@@ -45,7 +58,6 @@ export const Route = createRootRoute({
       </Document>
     )
   },
-  notFoundComponent: () => <NotFound />,
   component: () => {
     return (
       <Document>

@@ -107,6 +107,9 @@ importers:
       '@fairspec/logger':
         specifier: workspace:*
         version: link:../logger
+      '@lingui/macro':
+        specifier: 5.8.0
+        version: 5.8.0(@lingui/babel-plugin-lingui-macro@5.8.0(typescript@5.9.2))(react@19.0.0)
       '@orpc/tanstack-query':
         specifier: 1.13.4
         version: 1.13.4(@opentelemetry/api@1.9.0)(@orpc/client@1.13.4(@opentelemetry/api@1.9.0))(@tanstack/query-core@5.90.19)
@@ -1495,6 +1498,18 @@ packages:
   '@lingui/format-po@5.8.0':
     resolution: {integrity: sha512-7/nf1dccWia+qz+1uVvzB5ov/+6YOg4rYXwRfVi1uoVk1D0002slGaytk9rva17g/ENH8poJgf/pJ0tey3ngKw==}
     engines: {node: '>=20.0.0'}
+
+  '@lingui/macro@5.8.0':
+    resolution: {integrity: sha512-7VGhw7ADQxy1z78VS9DH1I1yA9ihsC3r3Jq+UDkgbCZGDKxrSgCUI9Cw/5IvvqIzxUkA/ZIa7zYOLGn1HvMhUA==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@lingui/babel-plugin-lingui-macro': 5.8.0
+      babel-plugin-macros: 2 || 3
+    peerDependenciesMeta:
+      '@lingui/babel-plugin-lingui-macro':
+        optional: true
+      babel-plugin-macros:
+        optional: true
 
   '@lingui/message-utils@5.8.0':
     resolution: {integrity: sha512-w6GtFPnd3QDsRHFvsITcflueeB/lLusB7tmwhXt9Vo3RV1ffRmCraAbVS1+iuRYTDC/Yq35UyweHwMG7Q2nAYw==}
@@ -8186,6 +8201,15 @@ snapshots:
       pofile: 1.1.4
     transitivePeerDependencies:
       - typescript
+
+  '@lingui/macro@5.8.0(@lingui/babel-plugin-lingui-macro@5.8.0(typescript@5.9.2))(react@19.0.0)':
+    dependencies:
+      '@lingui/core': 5.8.0(@lingui/babel-plugin-lingui-macro@5.8.0(typescript@5.9.2))
+      '@lingui/react': 5.8.0(@lingui/babel-plugin-lingui-macro@5.8.0(typescript@5.9.2))(react@19.0.0)
+    optionalDependencies:
+      '@lingui/babel-plugin-lingui-macro': 5.8.0(typescript@5.9.2)
+    transitivePeerDependencies:
+      - react
 
   '@lingui/message-utils@5.8.0':
     dependencies:

@@ -122,6 +122,10 @@ msgstr "Valida la Tabella"
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Valida la struttura della tabella per accuratezza e conformità e deduci automaticamente le definizioni di schema delle tabelle dai tuoi dati tabulari"
 
+#: routes/__root.tsx:30
+msgid "Visual tool for managing and validating tabular and structured data"
+msgstr "Strumento visuale per la gestione e la validazione di dati tabellari e strutturati"
+
 #: components/layout/Credits.tsx:32
 msgid "We are bringing technological innovation and consultancy services to the open data field"
 msgstr "Stiamo portando innovazione tecnologica e servizi di consulenza nel campo dei dati aperti"

@@ -18,6 +18,7 @@
   "dependencies": {
     "@fairspec/engine": "workspace:*",
     "@fairspec/logger": "workspace:*",
+    "@lingui/macro": "5.8.0",
     "@orpc/tanstack-query": "1.13.4",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",

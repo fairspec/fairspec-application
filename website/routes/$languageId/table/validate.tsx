@@ -1,8 +1,20 @@
+import { t } from "@lingui/core/macro"
 import { createFileRoute } from "@tanstack/react-router"
 import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/table/validate")({
   component: Component,
+  head: () => ({
+    meta: [
+      {
+        title: t`Validate Table`,
+      },
+      {
+        name: "description",
+        content: t`Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data`,
+      },
+    ],
+  }),
 })
 
 function Component() {
