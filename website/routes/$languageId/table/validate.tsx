@@ -2,24 +2,11 @@ import { t } from "@lingui/core/macro"
 import { Trans } from "@lingui/react/macro"
 import { useForm } from "@tanstack/react-form"
 import { createFileRoute } from "@tanstack/react-router"
-import { ChevronRight, Upload, X } from "lucide-react"
-import { useRef, useState } from "react"
+import { Upload, X } from "lucide-react"
+import { useRef } from "react"
 import { toast } from "sonner"
 import * as z from "zod"
 import { Button } from "#blocks/button.tsx"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "#blocks/card.tsx"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "#blocks/collapsible.tsx"
 import {
   Field,
   FieldDescription,
@@ -27,14 +14,11 @@ import {
   FieldGroup,
   FieldLabel,
 } from "#blocks/field.tsx"
-import { Input } from "#blocks/input.tsx"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-  InputGroupText,
-  InputGroupTextarea,
 } from "#blocks/input-group.tsx"
 
 export const Route = createFileRoute("/$languageId/table/validate")({
@@ -76,7 +60,6 @@ const formSchema = z.object({
 })
 
 export function ValidateTable() {
-  const [isOptionalOpen, setIsOptionalOpen] = useState(false)
   const form = useForm({
     defaultValues: {
       table: "",
