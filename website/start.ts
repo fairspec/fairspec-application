@@ -10,7 +10,7 @@ const localeMiddleware = createMiddleware().server(
     const language = await detectServerLanguage(request)
     await activateLocale(language.languageId)
 
-    return next()
+    return await next()
   },
 )
 

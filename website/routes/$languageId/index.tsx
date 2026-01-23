@@ -19,7 +19,7 @@ const iconColors: Record<string, string> = {
   file: "text-orange-500",
 }
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/$languageId/")({
   component: Component,
 })
 

@@ -23,7 +23,6 @@ export function Banner() {
           >
             <Trans>feedback and ideas</Trans>
           </Link>
-          .
         </p>
       </div>
     </div>

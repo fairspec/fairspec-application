@@ -10,141 +10,158 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as TableValidateRouteImport } from './routes/table/validate'
-import { Route as TableInferSchemaRouteImport } from './routes/table/infer-schema'
-import { Route as FileValidateRouteImport } from './routes/file/validate'
-import { Route as FileInferDialectRouteImport } from './routes/file/infer-dialect'
-import { Route as DatasetValidateRouteImport } from './routes/dataset/validate'
-import { Route as DatasetInferRouteImport } from './routes/dataset/infer'
-import { Route as DataValidateRouteImport } from './routes/data/validate'
-import { Route as DataInferSchemaRouteImport } from './routes/data/infer-schema'
+import { Route as LanguageIdIndexRouteImport } from './routes/$languageId/index'
+import { Route as LanguageIdTableValidateRouteImport } from './routes/$languageId/table/validate'
+import { Route as LanguageIdTableInferSchemaRouteImport } from './routes/$languageId/table/infer-schema'
+import { Route as LanguageIdFileValidateRouteImport } from './routes/$languageId/file/validate'
+import { Route as LanguageIdFileInferDialectRouteImport } from './routes/$languageId/file/infer-dialect'
+import { Route as LanguageIdDatasetValidateRouteImport } from './routes/$languageId/dataset/validate'
+import { Route as LanguageIdDatasetInferRouteImport } from './routes/$languageId/dataset/infer'
+import { Route as LanguageIdDataValidateRouteImport } from './routes/$languageId/data/validate'
+import { Route as LanguageIdDataInferSchemaRouteImport } from './routes/$languageId/data/infer-schema'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TableValidateRoute = TableValidateRouteImport.update({
-  id: '/table/validate',
-  path: '/table/validate',
+const LanguageIdIndexRoute = LanguageIdIndexRouteImport.update({
+  id: '/$languageId/',
+  path: '/$languageId/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TableInferSchemaRoute = TableInferSchemaRouteImport.update({
-  id: '/table/infer-schema',
-  path: '/table/infer-schema',
+const LanguageIdTableValidateRoute = LanguageIdTableValidateRouteImport.update({
+  id: '/$languageId/table/validate',
+  path: '/$languageId/table/validate',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FileValidateRoute = FileValidateRouteImport.update({
-  id: '/file/validate',
-  path: '/file/validate',
+const LanguageIdTableInferSchemaRoute =
+  LanguageIdTableInferSchemaRouteImport.update({
+    id: '/$languageId/table/infer-schema',
+    path: '/$languageId/table/infer-schema',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LanguageIdFileValidateRoute = LanguageIdFileValidateRouteImport.update({
+  id: '/$languageId/file/validate',
+  path: '/$languageId/file/validate',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FileInferDialectRoute = FileInferDialectRouteImport.update({
-  id: '/file/infer-dialect',
-  path: '/file/infer-dialect',
+const LanguageIdFileInferDialectRoute =
+  LanguageIdFileInferDialectRouteImport.update({
+    id: '/$languageId/file/infer-dialect',
+    path: '/$languageId/file/infer-dialect',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LanguageIdDatasetValidateRoute =
+  LanguageIdDatasetValidateRouteImport.update({
+    id: '/$languageId/dataset/validate',
+    path: '/$languageId/dataset/validate',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LanguageIdDatasetInferRoute = LanguageIdDatasetInferRouteImport.update({
+  id: '/$languageId/dataset/infer',
+  path: '/$languageId/dataset/infer',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DatasetValidateRoute = DatasetValidateRouteImport.update({
-  id: '/dataset/validate',
-  path: '/dataset/validate',
+const LanguageIdDataValidateRoute = LanguageIdDataValidateRouteImport.update({
+  id: '/$languageId/data/validate',
+  path: '/$languageId/data/validate',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DatasetInferRoute = DatasetInferRouteImport.update({
-  id: '/dataset/infer',
-  path: '/dataset/infer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DataValidateRoute = DataValidateRouteImport.update({
-  id: '/data/validate',
-  path: '/data/validate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DataInferSchemaRoute = DataInferSchemaRouteImport.update({
-  id: '/data/infer-schema',
-  path: '/data/infer-schema',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const LanguageIdDataInferSchemaRoute =
+  LanguageIdDataInferSchemaRouteImport.update({
+    id: '/$languageId/data/infer-schema',
+    path: '/$languageId/data/infer-schema',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/data/infer-schema': typeof DataInferSchemaRoute
-  '/data/validate': typeof DataValidateRoute
-  '/dataset/infer': typeof DatasetInferRoute
-  '/dataset/validate': typeof DatasetValidateRoute
-  '/file/infer-dialect': typeof FileInferDialectRoute
-  '/file/validate': typeof FileValidateRoute
-  '/table/infer-schema': typeof TableInferSchemaRoute
-  '/table/validate': typeof TableValidateRoute
+  '/$languageId/': typeof LanguageIdIndexRoute
+  '/$languageId/data/infer-schema': typeof LanguageIdDataInferSchemaRoute
+  '/$languageId/data/validate': typeof LanguageIdDataValidateRoute
+  '/$languageId/dataset/infer': typeof LanguageIdDatasetInferRoute
+  '/$languageId/dataset/validate': typeof LanguageIdDatasetValidateRoute
+  '/$languageId/file/infer-dialect': typeof LanguageIdFileInferDialectRoute
+  '/$languageId/file/validate': typeof LanguageIdFileValidateRoute
+  '/$languageId/table/infer-schema': typeof LanguageIdTableInferSchemaRoute
+  '/$languageId/table/validate': typeof LanguageIdTableValidateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/data/infer-schema': typeof DataInferSchemaRoute
-  '/data/validate': typeof DataValidateRoute
-  '/dataset/infer': typeof DatasetInferRoute
-  '/dataset/validate': typeof DatasetValidateRoute
-  '/file/infer-dialect': typeof FileInferDialectRoute
-  '/file/validate': typeof FileValidateRoute
-  '/table/infer-schema': typeof TableInferSchemaRoute
-  '/table/validate': typeof TableValidateRoute
+  '/$languageId': typeof LanguageIdIndexRoute
+  '/$languageId/data/infer-schema': typeof LanguageIdDataInferSchemaRoute
+  '/$languageId/data/validate': typeof LanguageIdDataValidateRoute
+  '/$languageId/dataset/infer': typeof LanguageIdDatasetInferRoute
+  '/$languageId/dataset/validate': typeof LanguageIdDatasetValidateRoute
+  '/$languageId/file/infer-dialect': typeof LanguageIdFileInferDialectRoute
+  '/$languageId/file/validate': typeof LanguageIdFileValidateRoute
+  '/$languageId/table/infer-schema': typeof LanguageIdTableInferSchemaRoute
+  '/$languageId/table/validate': typeof LanguageIdTableValidateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/data/infer-schema': typeof DataInferSchemaRoute
-  '/data/validate': typeof DataValidateRoute
-  '/dataset/infer': typeof DatasetInferRoute
-  '/dataset/validate': typeof DatasetValidateRoute
-  '/file/infer-dialect': typeof FileInferDialectRoute
-  '/file/validate': typeof FileValidateRoute
-  '/table/infer-schema': typeof TableInferSchemaRoute
-  '/table/validate': typeof TableValidateRoute
+  '/$languageId/': typeof LanguageIdIndexRoute
+  '/$languageId/data/infer-schema': typeof LanguageIdDataInferSchemaRoute
+  '/$languageId/data/validate': typeof LanguageIdDataValidateRoute
+  '/$languageId/dataset/infer': typeof LanguageIdDatasetInferRoute
+  '/$languageId/dataset/validate': typeof LanguageIdDatasetValidateRoute
+  '/$languageId/file/infer-dialect': typeof LanguageIdFileInferDialectRoute
+  '/$languageId/file/validate': typeof LanguageIdFileValidateRoute
+  '/$languageId/table/infer-schema': typeof LanguageIdTableInferSchemaRoute
+  '/$languageId/table/validate': typeof LanguageIdTableValidateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/data/infer-schema'
-    | '/data/validate'
-    | '/dataset/infer'
-    | '/dataset/validate'
-    | '/file/infer-dialect'
-    | '/file/validate'
-    | '/table/infer-schema'
-    | '/table/validate'
+    | '/$languageId/'
+    | '/$languageId/data/infer-schema'
+    | '/$languageId/data/validate'
+    | '/$languageId/dataset/infer'
+    | '/$languageId/dataset/validate'
+    | '/$languageId/file/infer-dialect'
+    | '/$languageId/file/validate'
+    | '/$languageId/table/infer-schema'
+    | '/$languageId/table/validate'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/data/infer-schema'
-    | '/data/validate'
-    | '/dataset/infer'
-    | '/dataset/validate'
-    | '/file/infer-dialect'
-    | '/file/validate'
-    | '/table/infer-schema'
-    | '/table/validate'
+    | '/$languageId'
+    | '/$languageId/data/infer-schema'
+    | '/$languageId/data/validate'
+    | '/$languageId/dataset/infer'
+    | '/$languageId/dataset/validate'
+    | '/$languageId/file/infer-dialect'
+    | '/$languageId/file/validate'
+    | '/$languageId/table/infer-schema'
+    | '/$languageId/table/validate'
   id:
     | '__root__'
     | '/'
-    | '/data/infer-schema'
-    | '/data/validate'
-    | '/dataset/infer'
-    | '/dataset/validate'
-    | '/file/infer-dialect'
-    | '/file/validate'
-    | '/table/infer-schema'
-    | '/table/validate'
+    | '/$languageId/'
+    | '/$languageId/data/infer-schema'
+    | '/$languageId/data/validate'
+    | '/$languageId/dataset/infer'
+    | '/$languageId/dataset/validate'
+    | '/$languageId/file/infer-dialect'
+    | '/$languageId/file/validate'
+    | '/$languageId/table/infer-schema'
+    | '/$languageId/table/validate'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DataInferSchemaRoute: typeof DataInferSchemaRoute
-  DataValidateRoute: typeof DataValidateRoute
-  DatasetInferRoute: typeof DatasetInferRoute
-  DatasetValidateRoute: typeof DatasetValidateRoute
-  FileInferDialectRoute: typeof FileInferDialectRoute
-  FileValidateRoute: typeof FileValidateRoute
-  TableInferSchemaRoute: typeof TableInferSchemaRoute
-  TableValidateRoute: typeof TableValidateRoute
+  LanguageIdIndexRoute: typeof LanguageIdIndexRoute
+  LanguageIdDataInferSchemaRoute: typeof LanguageIdDataInferSchemaRoute
+  LanguageIdDataValidateRoute: typeof LanguageIdDataValidateRoute
+  LanguageIdDatasetInferRoute: typeof LanguageIdDatasetInferRoute
+  LanguageIdDatasetValidateRoute: typeof LanguageIdDatasetValidateRoute
+  LanguageIdFileInferDialectRoute: typeof LanguageIdFileInferDialectRoute
+  LanguageIdFileValidateRoute: typeof LanguageIdFileValidateRoute
+  LanguageIdTableInferSchemaRoute: typeof LanguageIdTableInferSchemaRoute
+  LanguageIdTableValidateRoute: typeof LanguageIdTableValidateRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -156,60 +173,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/table/validate': {
-      id: '/table/validate'
-      path: '/table/validate'
-      fullPath: '/table/validate'
-      preLoaderRoute: typeof TableValidateRouteImport
+    '/$languageId/': {
+      id: '/$languageId/'
+      path: '/$languageId'
+      fullPath: '/$languageId/'
+      preLoaderRoute: typeof LanguageIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/table/infer-schema': {
-      id: '/table/infer-schema'
-      path: '/table/infer-schema'
-      fullPath: '/table/infer-schema'
-      preLoaderRoute: typeof TableInferSchemaRouteImport
+    '/$languageId/table/validate': {
+      id: '/$languageId/table/validate'
+      path: '/$languageId/table/validate'
+      fullPath: '/$languageId/table/validate'
+      preLoaderRoute: typeof LanguageIdTableValidateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/file/validate': {
-      id: '/file/validate'
-      path: '/file/validate'
-      fullPath: '/file/validate'
-      preLoaderRoute: typeof FileValidateRouteImport
+    '/$languageId/table/infer-schema': {
+      id: '/$languageId/table/infer-schema'
+      path: '/$languageId/table/infer-schema'
+      fullPath: '/$languageId/table/infer-schema'
+      preLoaderRoute: typeof LanguageIdTableInferSchemaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/file/infer-dialect': {
-      id: '/file/infer-dialect'
-      path: '/file/infer-dialect'
-      fullPath: '/file/infer-dialect'
-      preLoaderRoute: typeof FileInferDialectRouteImport
+    '/$languageId/file/validate': {
+      id: '/$languageId/file/validate'
+      path: '/$languageId/file/validate'
+      fullPath: '/$languageId/file/validate'
+      preLoaderRoute: typeof LanguageIdFileValidateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dataset/validate': {
-      id: '/dataset/validate'
-      path: '/dataset/validate'
-      fullPath: '/dataset/validate'
-      preLoaderRoute: typeof DatasetValidateRouteImport
+    '/$languageId/file/infer-dialect': {
+      id: '/$languageId/file/infer-dialect'
+      path: '/$languageId/file/infer-dialect'
+      fullPath: '/$languageId/file/infer-dialect'
+      preLoaderRoute: typeof LanguageIdFileInferDialectRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dataset/infer': {
-      id: '/dataset/infer'
-      path: '/dataset/infer'
-      fullPath: '/dataset/infer'
-      preLoaderRoute: typeof DatasetInferRouteImport
+    '/$languageId/dataset/validate': {
+      id: '/$languageId/dataset/validate'
+      path: '/$languageId/dataset/validate'
+      fullPath: '/$languageId/dataset/validate'
+      preLoaderRoute: typeof LanguageIdDatasetValidateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/data/validate': {
-      id: '/data/validate'
-      path: '/data/validate'
-      fullPath: '/data/validate'
-      preLoaderRoute: typeof DataValidateRouteImport
+    '/$languageId/dataset/infer': {
+      id: '/$languageId/dataset/infer'
+      path: '/$languageId/dataset/infer'
+      fullPath: '/$languageId/dataset/infer'
+      preLoaderRoute: typeof LanguageIdDatasetInferRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/data/infer-schema': {
-      id: '/data/infer-schema'
-      path: '/data/infer-schema'
-      fullPath: '/data/infer-schema'
-      preLoaderRoute: typeof DataInferSchemaRouteImport
+    '/$languageId/data/validate': {
+      id: '/$languageId/data/validate'
+      path: '/$languageId/data/validate'
+      fullPath: '/$languageId/data/validate'
+      preLoaderRoute: typeof LanguageIdDataValidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$languageId/data/infer-schema': {
+      id: '/$languageId/data/infer-schema'
+      path: '/$languageId/data/infer-schema'
+      fullPath: '/$languageId/data/infer-schema'
+      preLoaderRoute: typeof LanguageIdDataInferSchemaRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -217,14 +241,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DataInferSchemaRoute: DataInferSchemaRoute,
-  DataValidateRoute: DataValidateRoute,
-  DatasetInferRoute: DatasetInferRoute,
-  DatasetValidateRoute: DatasetValidateRoute,
-  FileInferDialectRoute: FileInferDialectRoute,
-  FileValidateRoute: FileValidateRoute,
-  TableInferSchemaRoute: TableInferSchemaRoute,
-  TableValidateRoute: TableValidateRoute,
+  LanguageIdIndexRoute: LanguageIdIndexRoute,
+  LanguageIdDataInferSchemaRoute: LanguageIdDataInferSchemaRoute,
+  LanguageIdDataValidateRoute: LanguageIdDataValidateRoute,
+  LanguageIdDatasetInferRoute: LanguageIdDatasetInferRoute,
+  LanguageIdDatasetValidateRoute: LanguageIdDatasetValidateRoute,
+  LanguageIdFileInferDialectRoute: LanguageIdFileInferDialectRoute,
+  LanguageIdFileValidateRoute: LanguageIdFileValidateRoute,
+  LanguageIdTableInferSchemaRoute: LanguageIdTableInferSchemaRoute,
+  LanguageIdTableValidateRoute: LanguageIdTableValidateRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

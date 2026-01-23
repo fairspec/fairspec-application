@@ -17,6 +17,7 @@ export function getRouter() {
     defaultNotFoundComponent: () => <NotFound />,
     scrollRestoration: true,
   })
+
   setupRouterSsrQueryIntegration({
     router,
     queryClient,
