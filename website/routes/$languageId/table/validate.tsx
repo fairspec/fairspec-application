@@ -23,7 +23,7 @@ export const Route = createFileRoute("/$languageId/table/validate")({
 
 function Component() {
   return (
-    <div className="py-8 flex flex-col gap-6">
+    <div className="py-8 flex flex-col gap-8">
       <div className="flex flex-col gap-4">
         <h1 className="text-3xl font-bold">
           <Trans>Validate Table</Trans>
@@ -114,7 +114,7 @@ export function ValidateTable() {
               size="lg"
               type="submit"
               form="form"
-              className="w-full text-xl h-12"
+              className="mt-4 w-full text-xl h-12"
               disabled={!table}
             >
               Validate Table
