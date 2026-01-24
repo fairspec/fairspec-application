@@ -47,8 +47,10 @@ export {
   Tag,
   Trash2 as Delete,
   TrendingUp,
+  Upload,
   Upload as File,
   User as Account,
+  X as Close,
   XCircle as Error,
 } from "lucide-react"
 

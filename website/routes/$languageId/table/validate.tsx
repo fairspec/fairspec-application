@@ -1,25 +1,11 @@
 import { t } from "@lingui/core/macro"
-import { Trans } from "@lingui/react/macro"
-import { useForm } from "@tanstack/react-form"
+import { Trans, useLingui } from "@lingui/react/macro"
 import { createFileRoute } from "@tanstack/react-router"
-import { Upload, X } from "lucide-react"
-import { useRef } from "react"
 import { toast } from "sonner"
 import * as z from "zod"
+import { useAppForm } from "#components/form/hooks.ts"
 import { Button } from "#elements/button.tsx"
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-} from "#elements/field.tsx"
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from "#elements/input-group.tsx"
+import { FieldGroup } from "#elements/field.tsx"
 
 export const Route = createFileRoute("/$languageId/table/validate")({
   component: Component,
@@ -62,7 +48,9 @@ const formSchema = z.object({
 })
 
 export function ValidateTable() {
-  const form = useForm({
+  const { t } = useLingui()
+
+  const form = useAppForm({
     defaultValues: {
       table: "",
       schema: "",
@@ -72,283 +60,69 @@ export function ValidateTable() {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      toast("You submitted the following values:", {
-        description: (
-          <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
-            <code>{JSON.stringify(value, null, 2)}</code>
-          </pre>
-        ),
-        position: "bottom-right",
-        classNames: {
-          content: "flex flex-col gap-2",
-        },
-        style: {
-          "--border-radius": "calc(var(--radius)  + 4px)",
-        } as React.CSSProperties,
-      })
+      alert(value)
     },
   })
 
   return (
     <div className="flex flex-col gap-10">
       <form
-        id="validate-table"
         onSubmit={e => {
           e.preventDefault()
           form.handleSubmit()
         }}
       >
         <FieldGroup>
-          <TableField form={form} />
-          <SchemaField form={form} />
-          <DialectField form={form} />
+          <form.AppField
+            name="table"
+            children={field => (
+              <field.FileOrPathField
+                label={t`Table`}
+                description={t`Upload a file or provide a URL to a tabular data file`}
+                placeholder="https://example.com/table.csv"
+                fileType="table"
+                required
+              />
+            )}
+          />
+          <form.AppField
+            name="schema"
+            children={field => (
+              <field.FileOrPathField
+                label={t`Schema`}
+                description={t`Upload a file or provide a URL to a table schema`}
+                placeholder="https://example.com/table.schema.json"
+                fileType="schema"
+              />
+            )}
+          />
+          <form.AppField
+            name="dialect"
+            children={field => (
+              <field.FileOrPathField
+                label={t`Dialect`}
+                description={t`Upload a file or provide a URL to a table dialect`}
+                placeholder="https://example.com/table.dialect.json"
+                fileType="dialect"
+              />
+            )}
+          />
         </FieldGroup>
       </form>
       <form.Subscribe
         selector={state => state.values.table}
-        children={tableValue => (
+        children={table => (
           <Button
+            size="lg"
             type="submit"
             form="validate-table"
             className="w-full text-xl h-12"
-            size="lg"
-            disabled={!tableValue}
+            disabled={!table}
           >
             Validate Table
           </Button>
         )}
       />
     </div>
-  )
-}
-
-function TableField(props: { form: ReturnType<typeof useForm> }) {
-  const { form } = props
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleFileUpload = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldOnChange: (value: string) => void,
-  ) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      // For now, just set the file name. In production, you'd upload the file and get a URL
-      fieldOnChange(file.name)
-    }
-  }
-
-  return (
-    <form.Field
-      name="table"
-      children={field => {
-        const isInvalid =
-          field.state.meta.isTouched && !field.state.meta.isValid
-        return (
-          <Field data-invalid={isInvalid}>
-            <FieldLabel htmlFor={field.name} className="text-xl">
-              Table <span className="text-destructive">*</span>
-            </FieldLabel>
-            <FieldDescription className="text-base text-inherit">
-              Upload a file or provide a URL to a tabular data file
-            </FieldDescription>
-            <InputGroup>
-              <InputGroupInput
-                id={field.name}
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={e => field.handleChange(e.target.value)}
-                aria-invalid={isInvalid}
-                placeholder="https://example.com/data.csv or upload a file"
-                autoComplete="off"
-              />
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={e => handleFileUpload(e, field.handleChange)}
-                className="hidden"
-                accept=".csv,.tsv,.json,.xml"
-              />
-              <InputGroupAddon align="inline-start">
-                <InputGroupButton
-                  onClick={() => fileInputRef.current?.click()}
-                  variant="secondary"
-                >
-                  <Upload />
-                  Upload
-                </InputGroupButton>
-              </InputGroupAddon>
-              {field.state.value && (
-                <InputGroupAddon align="inline-end">
-                  <InputGroupButton
-                    onClick={() => field.handleChange("")}
-                    variant="ghost"
-                    size="icon-xs"
-                    aria-label="Clear field"
-                  >
-                    <X />
-                  </InputGroupButton>
-                </InputGroupAddon>
-              )}
-            </InputGroup>
-            {isInvalid && <FieldError errors={field.state.meta.errors} />}
-          </Field>
-        )
-      }}
-    />
-  )
-}
-
-function SchemaField(props: { form: ReturnType<typeof useForm> }) {
-  const { form } = props
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleFileUpload = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldOnChange: (value: string) => void,
-  ) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      // For now, just set the file name. In production, you'd upload the file and get a URL
-      fieldOnChange(file.name)
-    }
-  }
-
-  return (
-    <form.Field
-      name="schema"
-      children={field => {
-        const isInvalid =
-          field.state.meta.isTouched && !field.state.meta.isValid
-        return (
-          <Field data-invalid={isInvalid}>
-            <FieldLabel htmlFor={field.name} className="text-xl">
-              Schema
-            </FieldLabel>
-            <FieldDescription className="text-base text-inherit">
-              Upload a file or provide a URL to a table schema definition
-            </FieldDescription>
-            <InputGroup>
-              <InputGroupInput
-                id={field.name}
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={e => field.handleChange(e.target.value)}
-                aria-invalid={isInvalid}
-                placeholder="https://example.com/schema.json or upload a file"
-                autoComplete="off"
-              />
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={e => handleFileUpload(e, field.handleChange)}
-                className="hidden"
-                accept=".json,.yaml,.yml"
-              />
-              <InputGroupAddon align="inline-start">
-                <InputGroupButton
-                  onClick={() => fileInputRef.current?.click()}
-                  variant="secondary"
-                >
-                  <Upload />
-                  Upload
-                </InputGroupButton>
-              </InputGroupAddon>
-              {field.state.value && (
-                <InputGroupAddon align="inline-end">
-                  <InputGroupButton
-                    onClick={() => field.handleChange("")}
-                    variant="ghost"
-                    size="icon-xs"
-                    aria-label="Clear field"
-                  >
-                    <X />
-                  </InputGroupButton>
-                </InputGroupAddon>
-              )}
-            </InputGroup>
-            {isInvalid && <FieldError errors={field.state.meta.errors} />}
-          </Field>
-        )
-      }}
-    />
-  )
-}
-
-function DialectField(props: { form: ReturnType<typeof useForm> }) {
-  const { form } = props
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleFileUpload = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldOnChange: (value: string) => void,
-  ) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      // For now, just set the file name. In production, you'd upload the file and get a URL
-      fieldOnChange(file.name)
-    }
-  }
-
-  return (
-    <form.Field
-      name="dialect"
-      children={field => {
-        const isInvalid =
-          field.state.meta.isTouched && !field.state.meta.isValid
-        return (
-          <Field data-invalid={isInvalid}>
-            <FieldLabel htmlFor={field.name} className="text-xl">
-              Dialect
-            </FieldLabel>
-            <FieldDescription className="text-base text-inherit">
-              Upload a file or provide a URL to a table dialect specification
-            </FieldDescription>
-            <InputGroup>
-              <InputGroupInput
-                id={field.name}
-                name={field.name}
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={e => field.handleChange(e.target.value)}
-                aria-invalid={isInvalid}
-                placeholder="https://example.com/dialect.json or upload a file"
-                autoComplete="off"
-              />
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={e => handleFileUpload(e, field.handleChange)}
-                className="hidden"
-                accept=".json"
-              />
-              <InputGroupAddon align="inline-start">
-                <InputGroupButton
-                  onClick={() => fileInputRef.current?.click()}
-                  variant="secondary"
-                >
-                  <Upload />
-                  Upload
-                </InputGroupButton>
-              </InputGroupAddon>
-              {field.state.value && (
-                <InputGroupAddon align="inline-end">
-                  <InputGroupButton
-                    onClick={() => field.handleChange("")}
-                    variant="ghost"
-                    size="icon-xs"
-                    aria-label="Clear field"
-                  >
-                    <X />
-                  </InputGroupButton>
-                </InputGroupAddon>
-              )}
-            </InputGroup>
-            {isInvalid && <FieldError errors={field.state.meta.errors} />}
-          </Field>
-        )
-      }}
-    />
   )
 }

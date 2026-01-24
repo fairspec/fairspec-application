@@ -35,6 +35,7 @@
         "useLiteralKeys": "off"
       },
       "correctness": {
+        "noChildrenProp": "off",
         "useExhaustiveDependencies": "off"
       },
       "performance": {
