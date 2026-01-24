@@ -1,10 +1,13 @@
+import { ValidateTableInput } from "@fairspec/engine"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
+import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
-import * as z from "zod"
+import type * as z from "zod"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
+import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/$languageId/table/validate")({
   component: Component,
@@ -44,12 +47,15 @@ function Component() {
 export function ValidateTable() {
   const { t } = useLingui()
 
-  const Form = z.object({
-    table: z.union([z.instanceof(File), z.httpUrl()]),
-    schema: z.union([z.instanceof(File), z.httpUrl(), z.literal("")]),
-    dialect: z.union([z.instanceof(File), z.httpUrl(), z.literal("")]),
-  })
+  const validateTable = useMutation(
+    engine.table.validate.mutationOptions({
+      onSuccess: report => {
+        console.log(report)
+      },
+    }),
+  )
 
+  const Form = ValidateTableInput.extend({})
   const form = useAppForm({
     defaultValues: {
       table: "",
@@ -60,7 +66,7 @@ export function ValidateTable() {
       onSubmit: Form,
     },
     onSubmit: async ({ value }) => {
-      console.log(value)
+      validateTable.mutate(value)
     },
   })
 
