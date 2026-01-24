@@ -1,6 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useEffect, useState } from "react"
-import { Button } from "#blocks/button.tsx"
+import { Button } from "#elements/button.tsx"
 import * as icons from "#icons.ts"
 import * as settings from "#settings.ts"
 

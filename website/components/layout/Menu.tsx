@@ -6,7 +6,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "#blocks/collapsible.tsx"
+} from "#elements/collapsible.tsx"
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -17,7 +17,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarProvider,
-} from "#blocks/sidebar.tsx"
+} from "#elements/sidebar.tsx"
 import * as icons from "#icons.ts"
 
 export function Menu() {
@@ -87,21 +87,26 @@ export function Menu() {
                   className="group/collapsible"
                 >
                   <SidebarMenuItem>
-                    <CollapsibleTrigger asChild>
-                      <SidebarMenuButton className="font-bold text-lg">
-                        <Icon />
-                        <span>{menuItem.label}</span>
-                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                      </SidebarMenuButton>
+                    <CollapsibleTrigger
+                      render={
+                        <SidebarMenuButton className="font-bold text-lg" />
+                      }
+                    >
+                      <Icon />
+                      <span>{menuItem.label}</span>
+                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <SidebarMenuSub>
                         {menuItem.items.map(item => (
                           <SidebarMenuSubItem key={item.path}>
-                            <SidebarMenuSubButton asChild className="text-base">
-                              <Link to={item.path} params={{ languageId }}>
-                                <span>{item.label}</span>
-                              </Link>
+                            <SidebarMenuSubButton
+                              render={
+                                <Link to={item.path} params={{ languageId }} />
+                              }
+                              className="text-base"
+                            >
+                              <span>{item.label}</span>
                             </SidebarMenuSubButton>
                           </SidebarMenuSubItem>
                         ))}

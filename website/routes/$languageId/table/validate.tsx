@@ -6,21 +6,20 @@ import { Upload, X } from "lucide-react"
 import { useRef } from "react"
 import { toast } from "sonner"
 import * as z from "zod"
-import { Button } from "#blocks/button.tsx"
-import { Card, CardContent } from "#blocks/card.tsx"
+import { Button } from "#elements/button.tsx"
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "#blocks/field.tsx"
+} from "#elements/field.tsx"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "#blocks/input-group.tsx"
+} from "#elements/input-group.tsx"
 
 export const Route = createFileRoute("/$languageId/table/validate")({
   component: Component,

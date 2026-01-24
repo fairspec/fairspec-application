@@ -1,4 +1,4 @@
-import { Input as InputPrimitive } from "components/ui/input"
+import { Input as InputPrimitive } from "@base-ui/react/input"
 import { cn } from "#helpers/style.ts"
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {

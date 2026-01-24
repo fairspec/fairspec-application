@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "#blocks/breadcrumb.tsx"
+} from "#elements/breadcrumb.tsx"
 
 export function Breadcrumbs() {
   const { t } = useLingui()
@@ -22,10 +22,8 @@ export function Breadcrumbs() {
     <Breadcrumb className="hidden md:block">
       <BreadcrumbList className="text-base">
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link to="/" params={{ languageId }}>
-              <Trans>Home</Trans>
-            </Link>
+          <BreadcrumbLink render={<Link to="/" params={{ languageId }} />}>
+            <Trans>Home</Trans>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

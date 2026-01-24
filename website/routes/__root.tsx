@@ -12,11 +12,11 @@ import {
 } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import type * as React from "react"
-import { Toaster } from "#blocks/sonner.tsx"
 import { Layout } from "#components/layout/Layout.tsx"
 import { DefaultCatchBoundary } from "#components/system/DefaultCatchBoundary.tsx"
 import { NotFound } from "#components/system/NotFound.tsx"
 import { LanguageIdDefault } from "#constants/language.ts"
+import { Toaster } from "#elements/sonner.tsx"
 import generalCss from "#styles/general.css?url"
 
 export const Route = createRootRoute({

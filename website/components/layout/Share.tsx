@@ -1,12 +1,12 @@
 import { Trans, useLingui } from "@lingui/react/macro"
 import * as share from "react-share"
-import { Button } from "#blocks/button.tsx"
+import { Button } from "#elements/button.tsx"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "#blocks/dropdown-menu.tsx"
+} from "#elements/dropdown-menu.tsx"
 import * as icons from "#icons.ts"
 import * as settings from "#settings.ts"
 
@@ -25,18 +25,20 @@ export function Share() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="default"
-          title={t`Share Page`}
-          className="rounded-xl cursor-pointer"
-        >
-          <icons.Share strokeWidth={settings.ICON_STROKE_WIDTH} />
-          <span className="hidden">
-            <Trans>Share</Trans>
-          </span>
-        </Button>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="outline"
+            size="default"
+            title={t`Share Page`}
+            className="rounded-xl cursor-pointer"
+          />
+        }
+      >
+        <icons.Share strokeWidth={settings.ICON_STROKE_WIDTH} />
+        <span className="hidden">
+          <Trans>Share</Trans>
+        </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col gap-4 p-2">
         {items}

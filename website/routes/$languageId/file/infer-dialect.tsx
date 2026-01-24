@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro"
 import { createFileRoute } from "@tanstack/react-router"
-import { Alert, AlertDescription, AlertTitle } from "#blocks/alert.tsx"
+import { Alert, AlertDescription, AlertTitle } from "#elements/alert.tsx"
 
 export const Route = createFileRoute("/$languageId/file/infer-dialect")({
   component: Component,
