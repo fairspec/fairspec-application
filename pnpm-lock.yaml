@@ -69,10 +69,10 @@ importers:
         version: 1.13.4(@opentelemetry/api@1.9.0)(crossws@0.3.5)(ws@8.19.0)
       '@orpc/zod':
         specifier: 1.13.4
-        version: 1.13.4(@opentelemetry/api@1.9.0)(@orpc/contract@1.13.4(@opentelemetry/api@1.9.0))(@orpc/server@1.13.4(@opentelemetry/api@1.9.0)(crossws@0.3.5)(ws@8.19.0))(crossws@0.3.5)(ws@8.19.0)(zod@4.1.12)
+        version: 1.13.4(@opentelemetry/api@1.9.0)(@orpc/contract@1.13.4(@opentelemetry/api@1.9.0))(@orpc/server@1.13.4(@opentelemetry/api@1.9.0)(crossws@0.3.5)(ws@8.19.0))(crossws@0.3.5)(ws@8.19.0)(zod@4.3.6)
       zod:
-        specifier: 4.1.12
-        version: 4.1.12
+        specifier: 4.3.6
+        version: 4.3.6
     devDependencies:
       '@hono/node-server':
         specifier: 1.19.9
@@ -182,10 +182,13 @@ importers:
       tw-animate-css:
         specifier: 1.4.0
         version: 1.4.0
+      zod:
+        specifier: 4.3.6
+        version: 4.3.6
     devDependencies:
       '@ai-sdk/openai':
         specifier: 2.0.76
-        version: 2.0.76(zod@4.1.13)
+        version: 2.0.76(zod@4.3.6)
       '@cloudflare/vite-plugin':
         specifier: 1.21.2
         version: 1.21.2(vite@7.3.1(@types/node@24.2.0)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.21.0))(workerd@1.20260120.0)(wrangler@4.60.0)
@@ -230,7 +233,7 @@ importers:
         version: 5.1.2(vite@7.3.1(@types/node@24.2.0)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.2)(terser@5.46.0)(tsx@4.21.0))
       ai:
         specifier: 5.0.106
-        version: 5.0.106(zod@4.1.13)
+        version: 5.0.106(zod@4.3.6)
       dotenv:
         specifier: 17.2.3
         version: 17.2.3
@@ -258,9 +261,6 @@ importers:
       wrangler:
         specifier: 4.60.0
         version: 4.60.0
-      zod:
-        specifier: 4.1.13
-        version: 4.1.13
 
 packages:
 
@@ -6837,39 +6837,33 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.12:
-    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
-
-  zod@4.1.13:
-    resolution: {integrity: sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==}
-
-  zod@4.3.5:
-    resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
 
-  '@ai-sdk/gateway@2.0.18(zod@4.1.13)':
+  '@ai-sdk/gateway@2.0.18(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 2.0.0
-      '@ai-sdk/provider-utils': 3.0.18(zod@4.1.13)
+      '@ai-sdk/provider-utils': 3.0.18(zod@4.3.6)
       '@vercel/oidc': 3.0.5
-      zod: 4.1.13
+      zod: 4.3.6
 
-  '@ai-sdk/openai@2.0.76(zod@4.1.13)':
+  '@ai-sdk/openai@2.0.76(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 2.0.0
-      '@ai-sdk/provider-utils': 3.0.18(zod@4.1.13)
-      zod: 4.1.13
+      '@ai-sdk/provider-utils': 3.0.18(zod@4.3.6)
+      zod: 4.3.6
 
-  '@ai-sdk/provider-utils@3.0.18(zod@4.1.13)':
+  '@ai-sdk/provider-utils@3.0.18(zod@4.3.6)':
     dependencies:
       '@ai-sdk/provider': 2.0.0
       '@standard-schema/spec': 1.1.0
       eventsource-parser: 3.0.6
-      zod: 4.1.13
+      zod: 4.3.6
 
   '@ai-sdk/provider@2.0.0':
     dependencies:
@@ -7540,7 +7534,7 @@ snapshots:
       p-all: 5.0.1
       p-map: 7.0.4
       tempy: 3.1.0
-      zod: 4.3.5
+      zod: 4.3.6
 
   '@fairspec/extension@0.2.2':
     dependencies:
@@ -7572,7 +7566,7 @@ snapshots:
       ajv: 8.17.1
       quick-lru: 7.3.0
       ts-extras: 0.16.1
-      zod: 4.3.5
+      zod: 4.3.6
 
   '@fairspec/table@0.2.2(typescript@5.9.2)':
     dependencies:
@@ -7586,7 +7580,7 @@ snapshots:
       temporal-polyfill: 0.3.0
       wkx-ts: 1.0.1(typescript@5.9.2)
       xlsx: https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
-      zod: 4.3.5
+      zod: 4.3.6
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -8244,7 +8238,7 @@ snapshots:
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
-  '@orpc/zod@1.13.4(@opentelemetry/api@1.9.0)(@orpc/contract@1.13.4(@opentelemetry/api@1.9.0))(@orpc/server@1.13.4(@opentelemetry/api@1.9.0)(crossws@0.3.5)(ws@8.19.0))(crossws@0.3.5)(ws@8.19.0)(zod@4.1.12)':
+  '@orpc/zod@1.13.4(@opentelemetry/api@1.9.0)(@orpc/contract@1.13.4(@opentelemetry/api@1.9.0))(@orpc/server@1.13.4(@opentelemetry/api@1.9.0)(crossws@0.3.5)(ws@8.19.0))(crossws@0.3.5)(ws@8.19.0)(zod@4.3.6)':
     dependencies:
       '@orpc/contract': 1.13.4(@opentelemetry/api@1.9.0)
       '@orpc/json-schema': 1.13.4(@opentelemetry/api@1.9.0)(crossws@0.3.5)(ws@8.19.0)
@@ -8253,7 +8247,7 @@ snapshots:
       '@orpc/shared': 1.13.4(@opentelemetry/api@1.9.0)
       escape-string-regexp: 5.0.0
       wildcard-match: 5.1.4
-      zod: 4.1.12
+      zod: 4.3.6
     transitivePeerDependencies:
       - '@opentelemetry/api'
       - crossws
@@ -10045,13 +10039,13 @@ snapshots:
       clean-stack: 5.3.0
       indent-string: 5.0.0
 
-  ai@5.0.106(zod@4.1.13):
+  ai@5.0.106(zod@4.3.6):
     dependencies:
-      '@ai-sdk/gateway': 2.0.18(zod@4.1.13)
+      '@ai-sdk/gateway': 2.0.18(zod@4.3.6)
       '@ai-sdk/provider': 2.0.0
-      '@ai-sdk/provider-utils': 3.0.18(zod@4.1.13)
+      '@ai-sdk/provider-utils': 3.0.18(zod@4.3.6)
       '@opentelemetry/api': 1.9.0
-      zod: 4.1.13
+      zod: 4.3.6
 
   ajv-formats@3.0.1(ajv@8.17.1):
     optionalDependencies:
@@ -14210,10 +14204,6 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.12: {}
-
-  zod@4.1.13: {}
-
-  zod@4.3.5: {}
+  zod@4.3.6: {}
 
   zwitch@2.0.4: {}

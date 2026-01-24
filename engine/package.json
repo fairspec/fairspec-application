@@ -17,7 +17,7 @@
     "@orpc/client": "1.13.4",
     "@orpc/server": "1.13.4",
     "@orpc/zod": "1.13.4",
-    "zod": "4.1.12"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@hono/node-server": "1.19.9",

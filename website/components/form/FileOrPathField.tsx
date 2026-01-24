@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/react/macro"
 import { useRef } from "react"
 import {
   Field,
@@ -29,22 +30,21 @@ export function FileOrPathField(props: {
     ? typeof field.state.value === "string"
       ? field.state.value
       : field.state.value.name
-    : undefined
+    : ""
 
-  const fileInputAccept = ["json"]
+  const fileInputAccept = [".json"]
   if (props.fileType === "table") {
     fileInputAccept.push(
-      "csv",
-      "tsv",
-      "json",
-      "jsonl",
-      "ndjson",
-      "xlsx",
-      "ods",
-      "parquet",
-      "arrow",
-      "feather",
-      "sqlite",
+      ".csv",
+      ".tsv",
+      ".jsonl",
+      ".ndjson",
+      ".xlsx",
+      ".ods",
+      ".parquet",
+      ".arrow",
+      ".feather",
+      ".sqlite",
     )
   }
 
@@ -61,7 +61,6 @@ export function FileOrPathField(props: {
       )}
       <InputGroup>
         <InputGroupInput
-          id={field.name}
           name={field.name}
           value={value}
           onBlur={field.handleBlur}
@@ -86,7 +85,7 @@ export function FileOrPathField(props: {
             variant="secondary"
           >
             <icons.Upload />
-            Upload
+            <Trans>Upload</Trans>
           </InputGroupButton>
         </InputGroupAddon>
         {field.state.value && (
