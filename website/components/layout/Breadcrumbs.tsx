@@ -20,16 +20,19 @@ export function Breadcrumbs() {
 
   return (
     <Breadcrumb className="hidden md:block">
-      <BreadcrumbList className="text-base">
+      <BreadcrumbList className="text-base text-white">
         <BreadcrumbItem>
-          <BreadcrumbLink render={<Link to="/" params={{ languageId }} />}>
+          <BreadcrumbLink
+            render={<Link to="/" params={{ languageId }} />}
+            className="text-white hover:text-blue-100"
+          >
             <Trans>Home</Trans>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
+        <BreadcrumbSeparator className="text-white" />
         {title ? (
           <BreadcrumbItem>
-            <BreadcrumbPage>{title}</BreadcrumbPage>
+            <BreadcrumbPage className="text-white">{title}</BreadcrumbPage>
           </BreadcrumbItem>
         ) : (
           <TypeAnimation
