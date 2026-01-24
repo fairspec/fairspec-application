@@ -16,6 +16,7 @@
     "ui": "shadcn"
   },
   "dependencies": {
+    "@base-ui/react": "1.1.0",
     "@fairspec/engine": "workspace:*",
     "@fairspec/logger": "workspace:*",
     "@lingui/macro": "5.8.0",
@@ -74,9 +75,9 @@
     "tailwindcss": "4.1.18",
     "tasuku": "2.0.5",
     "ts-extras": "0.16.0",
-    "wrangler": "4.60.0",
     "vite-plugin-devtools-json": "1.0.0",
     "vite-plugin-svgr": "4.5.0",
+    "wrangler": "4.60.0",
     "zod": "4.1.13"
   }
 }
