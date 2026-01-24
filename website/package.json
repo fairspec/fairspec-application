@@ -75,7 +75,6 @@
     "tasuku": "2.0.5",
     "ts-extras": "0.16.0",
     "wrangler": "4.60.0",
-    "vite-plugin-babel": "1.4.1",
     "vite-plugin-devtools-json": "1.0.0",
     "vite-plugin-svgr": "4.5.0",
     "zod": "4.1.13"
