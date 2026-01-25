@@ -15,7 +15,7 @@ export function Layout(props: { children?: React.ReactNode }) {
       <div className="mt-16 ml-100">
         <Content>{props.children}</Content>
       </div>
-      <div className="fixed bottom-0 left-0 right-0 z-10 ">
+      <div className="fixed bottom-0 left-0 right-0 z-12">
         <Footer />
       </div>
     </div>
