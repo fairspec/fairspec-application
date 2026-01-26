@@ -17,6 +17,7 @@ export function FileOrPathField(props: {
   placeholder?: string
   fileType?: FileType
   required?: boolean
+  disabled?: boolean
 }) {
   const field = useFieldContext<File | string>()
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -28,8 +29,8 @@ export function FileOrPathField(props: {
       : field.state.value.name
     : ""
 
-  const fileInputAccept = [".json"]
-  if (props.fileType === "table") {
+  const fileInputAccept = props.fileType !== "file" ? [".json"] : undefined
+  if (fileInputAccept && props.fileType === "table") {
     fileInputAccept.push(
       ".csv",
       ".tsv",
@@ -63,6 +64,7 @@ export function FileOrPathField(props: {
           aria-invalid={isInvalid}
           placeholder={props.placeholder}
           autoComplete="off"
+          disabled={props.disabled}
         />
         <input
           type="file"
@@ -73,12 +75,14 @@ export function FileOrPathField(props: {
             if (file) field.handleChange(file)
           }}
           className="hidden"
-          accept={fileInputAccept.join(",")}
+          accept={fileInputAccept?.join(",")}
+          disabled={props.disabled}
         />
         <InputGroupAddon align="inline-start">
           <InputGroupButton
             onClick={() => fileInputRef.current?.click()}
             variant="secondary"
+            disabled={props.disabled}
           >
             <icons.Upload />
             <Trans>Upload</Trans>
@@ -91,6 +95,7 @@ export function FileOrPathField(props: {
               variant="ghost"
               size="icon-xs"
               aria-label="Clear field"
+              disabled={props.disabled}
             >
               <icons.Close />
             </InputGroupButton>

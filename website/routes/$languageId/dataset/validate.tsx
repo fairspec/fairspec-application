@@ -1,6 +1,20 @@
+import { ValidateDatasetInput } from "@fairspec/engine"
+import type * as fairspec from "@fairspec/metadata"
 import { t } from "@lingui/core/macro"
-import { Trans } from "@lingui/react/macro"
+import { Trans, useLingui } from "@lingui/react/macro"
+import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { useState } from "react"
+import type * as z from "zod"
+import { Dialog } from "#components/dialog/Dialog.tsx"
+import { Status, type StatusType } from "#components/dialog/Status.tsx"
+import { useAppForm } from "#components/form/hooks.ts"
+import { Report } from "#components/report/Report.tsx"
+import { Alert, AlertDescription, AlertTitle } from "#elements/alert.tsx"
+import { Button } from "#elements/button.tsx"
+import { FieldGroup } from "#elements/field.tsx"
+import * as icons from "#icons.ts"
+import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/$languageId/dataset/validate")({
   component: Component,
@@ -21,7 +35,23 @@ function Component() {
   return (
     <div className="py-8 flex flex-col gap-8">
       <Intro />
+      <Form />
+      <Note />
     </div>
+  )
+}
+
+function Note() {
+  return (
+    <Alert variant="destructive" className="mt-2">
+      <icons.Alert className="size-6" />
+      <AlertTitle className="text-xl">
+        <Trans>Desktop Only (coming soon)</Trans>
+      </AlertTitle>
+      <AlertDescription className="text-base">
+        <Trans>This functionality is only available in the desktop application</Trans>
+      </AlertDescription>
+    </Alert>
   )
 }
 
@@ -39,5 +69,103 @@ function Intro() {
         .
       </p>
     </div>
+  )
+}
+
+function Form() {
+  const { t } = useLingui()
+  const [error, setError] = useState<Error | undefined>()
+  const [report, setReport] = useState<fairspec.Report | undefined>()
+  const [statusType, setStatusType] = useState<StatusType | undefined>()
+
+  const Form = ValidateDatasetInput.extend({})
+  const form = useAppForm({
+    defaultValues: {
+      dataset: "",
+    } as z.infer<typeof Form>,
+    validators: {
+      onSubmit: Form,
+    },
+    onSubmit: async ({ value }) => {
+      validateDataset.mutate(value)
+    },
+  })
+
+  const validateDataset = useMutation(
+    engine.dataset.validate.mutationOptions({
+      onMutate: () => {
+        setStatusType("pending")
+      },
+      onSuccess: report => {
+        setReport(report)
+        setStatusType(report.valid ? "success" : "error")
+      },
+      onError: error => {
+        setError(error)
+        setStatusType("error")
+      },
+    }),
+  )
+
+  const handleDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      setStatusType(undefined)
+      setReport(undefined)
+      setError(undefined)
+    }
+  }
+
+  return (
+    <form
+      id="form"
+      onSubmit={e => {
+        e.preventDefault()
+        form.handleSubmit()
+      }}
+    >
+      <FieldGroup>
+        <form.AppField
+          name="dataset"
+          children={field => (
+            <field.FileOrPathField
+              label={t`Dataset`}
+              description={t`Upload a file or provide a URL to a dataset package`}
+              placeholder="https://example.com/datapackage.json"
+              fileType="dataset"
+              required
+              disabled
+            />
+          )}
+        />
+        <form.Subscribe
+          selector={state => state.values.dataset}
+          children={dataset => (
+            <Button
+              size="lg"
+              type="submit"
+              form="form"
+              className="mt-4 w-full text-xl h-12"
+              disabled={!dataset}
+            >
+              Validate Dataset
+            </Button>
+          )}
+        />
+      </FieldGroup>
+      <Dialog
+        open={!!statusType}
+        fullScreen={!!report?.errors.length}
+        onOpenChange={handleDialogOpenChange}
+      >
+        <Status
+          statusType={statusType}
+          pendingTitle={t`Validating dataset...`}
+          successTitle={t`Valid dataset`}
+          errorTitle={error?.message ?? t`Invalid dataset`}
+        />
+
+        {!!report && <Report report={report} />}
+      </Dialog>
+    </form>
   )
 }
