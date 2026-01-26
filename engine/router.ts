@@ -1,5 +1,6 @@
 import { validateDatasetEndpoint } from "#endpoints/dataset/validate.ts"
 import { validateTableEndpoint } from "#endpoints/table/validate.ts"
+import { validateDataEndpoint } from "./endpoints/data/validate.ts"
 
 export const router = {
   dataset: {
@@ -7,6 +8,9 @@ export const router = {
   },
   table: {
     validate: validateTableEndpoint,
+  },
+  data: {
+    validate: validateDataEndpoint,
   },
 }
 

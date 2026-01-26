@@ -15,7 +15,7 @@ export function getFilePath(
     return undefined
   }
 
-  const extension = ["table"].includes(fileType)
+  const extension = ["data", "table"].includes(fileType)
     ? getFileExtension(typeof source === "string" ? source : source.name)
     : "json"
 

@@ -1,5 +1,5 @@
 import { z } from "zod"
 
-export const FileType = z.enum(["table", "schema", "dialect"])
+export const FileType = z.enum(["data", "table", "schema", "dialect"])
 
 export type FileType = z.infer<typeof FileType>
