@@ -8,13 +8,13 @@ export const validateDataEndpoint = publicEndpoint
   .input(ValidateDataInput)
   .handler(async ({ input }) => {
     return await temporaryDirectoryTask(async folder => {
-      const [table, schema] = await Promise.all([
-        prefetchFile(input.data, { folder, fileType: "table" }),
+      const [data, schema] = await Promise.all([
+        prefetchFile(input.data, { folder, fileType: "data" }),
         prefetchFile(input.schema, { folder, fileType: "schema" }),
       ])
 
       const report = await validateData({
-        data: table,
+        data: data,
         dataSchema: schema,
       })
 
