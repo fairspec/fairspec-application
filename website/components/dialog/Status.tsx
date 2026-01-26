@@ -41,7 +41,7 @@ export function Status(props: StatusProps) {
     <div className="flex justify-center items-center flex-col gap-6 sm:gap-3 sm:my-5">
       <div className="flex flex-col sm:flex-row items-center gap-4">
         {getIcon()}
-        <span className="text-4xl font-semibold sm:text-xl">{getTitle()}</span>
+        <span className="text-4xl font-semibold">{getTitle()}</span>
       </div>
     </div>
   )

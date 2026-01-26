@@ -4,7 +4,7 @@ import { groupBy } from "es-toolkit"
 import { useState } from "react"
 import { objectKeys } from "ts-extras"
 import { Error } from "#components/error/Error.tsx"
-import { Card } from "#elements/card.tsx"
+import { Card, CardContent } from "#elements/card.tsx"
 import { Separator } from "#elements/separator.tsx"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#elements/tabs.tsx"
 
@@ -29,7 +29,7 @@ export function Report(props: { report: fairspec.Report }) {
       <div className="flex flex-col gap-6">
         <div className="relative flex items-center">
           <Separator className="flex-1" />
-          <span className="px-4 text-sm text-muted-foreground">
+          <span className="px-4 text-lg text-muted-foreground">
             <Trans>Errors</Trans>
           </span>
           <Separator className="flex-1" />
@@ -56,7 +56,9 @@ export function Report(props: { report: fairspec.Report }) {
                 <div className="flex flex-col gap-4">
                   {errorsByType[type].map((error, index) => (
                     <Card key={index} className="bg-gray-50 dark:bg-gray-900">
-                      <Error error={error} />
+                      <CardContent>
+                        <Error error={error} />
+                      </CardContent>
                     </Card>
                   ))}
                 </div>
