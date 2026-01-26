@@ -163,12 +163,12 @@ function Form() {
         fullScreen={!!report?.errors.length}
         onOpenChange={handleDialogOpenChange}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
             pendingTitle={t`Validating Table...`}
             successTitle={t`Valid Table`}
-            errorTitle={error?.message ?? t`Invalid Table`}
+            errorTitle={error?.message ?? t`Table Errors`}
           />
           {!!report && <Report report={report} />}
         </div>

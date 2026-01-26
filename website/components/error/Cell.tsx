@@ -9,8 +9,7 @@ export function CellTypeError(props: { error: fairspec.CellTypeError }) {
     <p>
       <Trans>Value of the cell</Trans> <Code>{error.cell}</Code> <Trans>in column</Trans>{" "}
       <Code>{error.columnName}</Code> <Trans>of row</Trans> <Code>{error.rowNumber}</Code>{" "}
-      <Trans>is not</Trans>
-      <Code>{error.columnType}</Code> {"type"}
+      <Trans>is not</Trans> <Code>{error.columnType}</Code> {"type"}
     </p>
   )
 }

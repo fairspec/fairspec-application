@@ -68,6 +68,7 @@ export function FileOrPathField(props: {
           type="file"
           ref={fileInputRef}
           onChange={e => {
+            // TODO: Replacing one file by another doesn't trigger rerender
             const file = e.target.files?.[0]
             if (file) field.handleChange(file)
           }}

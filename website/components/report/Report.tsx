@@ -26,19 +26,21 @@ export function Report(props: { report: fairspec.Report }) {
   return (
     <Tabs value={selectedType} onValueChange={value => setSelectedType(value)}>
       <div className="flex flex-col gap-8">
-        <TabsList variant="line" className="justify-start">
-          {errorTypes.map(type => {
-            return (
-              <TabsTrigger
-                key={type}
-                value={type}
-                className={`w-full sm:w-auto uppercase ${selectedType === type ? "font-bold" : "font-normal"}`}
-              >
-                {t`${type}`} ({errorsByType[type].length})
-              </TabsTrigger>
-            )
-          })}
-        </TabsList>
+        <div className="flex justify-center">
+          <TabsList variant="line">
+            {errorTypes.map(type => {
+              return (
+                <TabsTrigger
+                  key={type}
+                  value={type}
+                  className={`w-full sm:w-auto uppercase ${selectedType === type ? "font-bold" : "font-normal"}`}
+                >
+                  {t`${type}`} ({errorsByType[type].length})
+                </TabsTrigger>
+              )
+            })}
+          </TabsList>
+        </div>
 
         {errorTypes.map(type => {
           return (
@@ -46,8 +48,11 @@ export function Report(props: { report: fairspec.Report }) {
               <div className="overflow-auto">
                 <div className="flex flex-col gap-4">
                   {errorsByType[type].map((error, index) => (
-                    <Card key={index} className="bg-gray-50 dark:bg-gray-900">
-                      <CardContent>
+                    <Card
+                      key={index}
+                      className="bg-red-50 dark:bg-red-950 border border-red-500"
+                    >
+                      <CardContent className="text-lg">
                         <Error error={error} />
                       </CardContent>
                     </Card>
