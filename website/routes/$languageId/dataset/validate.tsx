@@ -157,14 +157,15 @@ function Form() {
         fullScreen={!!report?.errors.length}
         onOpenChange={handleDialogOpenChange}
       >
-        <Status
-          statusType={statusType}
-          pendingTitle={t`Validating dataset...`}
-          successTitle={t`Valid dataset`}
-          errorTitle={error?.message ?? t`Invalid dataset`}
-        />
-
-        {!!report && <Report report={report} />}
+        <div className="flex flex-col gap-8">
+          <Status
+            statusType={statusType}
+            pendingTitle={t`Validating Dataset...`}
+            successTitle={t`Valid Dataset`}
+            errorTitle={error?.message ?? t`Dataset Errors`}
+          />
+          {!!report && <Report report={report} />}
+        </div>
       </Dialog>
     </form>
   )

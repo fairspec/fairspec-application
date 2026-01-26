@@ -20,8 +20,8 @@ export function TextualError(props: { error: fairspec.TextualError }) {
 export function IntegrityError(props: { error: fairspec.IntegrityError }) {
   return (
     <p>
-      <Trans>File hash</Trans> <Code>props.error.hashType</Code>{" "}
-      <Trans>is expected to be</Trans> <Code>{props.error.actualHash}</Code>{" "}
+      <Trans>File hash</Trans> <Code>{props.error.hashType}</Code>{" "}
+      <Trans>is expected to be</Trans> <Code>{props.error.expectedHash}</Code>{" "}
       <Trans>but it is actually</Trans> <Code>{props.error.actualHash}</Code>
     </p>
   )

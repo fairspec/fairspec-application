@@ -134,6 +134,19 @@ function InputGroupTextarea({ className, ...props }: React.ComponentProps<"texta
   )
 }
 
+function InputGroupSelect({ className, ...props }: React.ComponentProps<"select">) {
+  return (
+    <select
+      data-slot="input-group-control"
+      className={cn(
+        "rounded-none border-0 bg-transparent shadow-none ring-0 focus-visible:ring-0 aria-invalid:ring-0 dark:bg-transparent px-3 py-2 text-sm outline-none",
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
 export {
   InputGroup,
   InputGroupAddon,
@@ -141,4 +154,5 @@ export {
   InputGroupText,
   InputGroupInput,
   InputGroupTextarea,
+  InputGroupSelect,
 }

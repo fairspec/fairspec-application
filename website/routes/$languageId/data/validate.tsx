@@ -46,8 +46,8 @@ function Intro() {
       </h1>
       <p className="text-lg">
         <Trans>
-          Validate data quality, check for inconsistencies and errors, and automatically infer
-          comprehensive data schemas from your datasets
+          Validate data quality, check for inconsistencies and errors, and automatically
+          infer comprehensive data schemas from your datasets
         </Trans>
         .
       </p>
@@ -151,14 +151,15 @@ function Form() {
         fullScreen={!!report?.errors.length}
         onOpenChange={handleDialogOpenChange}
       >
-        <Status
-          statusType={statusType}
-          pendingTitle={t`Validating data...`}
-          successTitle={t`Valid data`}
-          errorTitle={error?.message ?? t`Invalid data`}
-        />
-
-        {!!report && <Report report={report} />}
+        <div className="flex flex-col gap-8">
+          <Status
+            statusType={statusType}
+            pendingTitle={t`Validating Data...`}
+            successTitle={t`Valid Data`}
+            errorTitle={error?.message ?? t`Data Errors`}
+          />
+          {!!report && <Report report={report} />}
+        </div>
       </Dialog>
     </form>
   )
