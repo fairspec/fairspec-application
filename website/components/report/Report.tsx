@@ -3,10 +3,10 @@ import { Trans, useLingui } from "@lingui/react/macro"
 import { groupBy } from "es-toolkit"
 import { useState } from "react"
 import { objectKeys } from "ts-extras"
+import { Error } from "#components/error/Error.tsx"
 import { Card } from "#elements/card.tsx"
 import { Separator } from "#elements/separator.tsx"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#elements/tabs.tsx"
-import { Error } from "./error/Error.tsx"
 
 export function Report(props: { errors?: FairspecError[] }) {
   const { t } = useLingui()

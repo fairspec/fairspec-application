@@ -12,10 +12,9 @@ import {
   CellTypeError,
   CellUniqueError,
 } from "./Cell.tsx"
+import { ColumnMissingError, ColumnTypeError } from "./Column.tsx"
 import { DataError } from "./Data.tsx"
-import { FieldNameError, FieldTypeError } from "./Field.tsx"
-import { FieldsExtraError, FieldsMissingError } from "./Fields.tsx"
-import { BytesError, EncodingError, HashError } from "./File.tsx"
+import { IntegrityError, TextualError } from "./File.tsx"
 import { ForeignKeyError } from "./ForeignKey.tsx"
 import { MetadataError } from "./Metadata.tsx"
 import { RowUniqueError } from "./Row.tsx"
@@ -28,21 +27,15 @@ export function Error(props: { error: FairspecError }) {
       return <MetadataError error={error} />
     case "data":
       return <DataError error={error} />
-    case "file/bytes":
-      return <BytesError error={error} />
-    case "file/hash":
-      return <HashError error={error} />
-    case "file/encoding":
-      return <EncodingError error={error} />
-    case "fields/missing":
-      return <FieldsMissingError error={error} />
-    case "fields/extra":
-      return <FieldsExtraError error={error} />
-    case "field/name":
-      return <FieldNameError error={error} />
-    case "field/type":
-      return <FieldTypeError error={error} />
-    case "row/unique":
+    case "file/textual":
+      return <TextualError error={error} />
+    case "file/integrity":
+      return <IntegrityError error={error} />
+    case "column/missing":
+      return <ColumnMissingError error={error} />
+    case "column/type":
+      return <ColumnTypeError error={error} />
+    case "row/uniqueKey":
       return <RowUniqueError error={error} />
     case "cell/type":
       return <CellTypeError error={error} />
