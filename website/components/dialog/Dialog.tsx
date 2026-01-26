@@ -12,7 +12,7 @@ export function Dialog(props: {
   return (
     <Drawer open={props.open} onOpenChange={props.onOpenChange}>
       <DrawerContent>
-        <div className="mx-auto w-full max-w-6xl h-full flex flex-col px-4">
+        <div className="mx-auto w-full max-w-6xl h-full flex flex-col px-4 gap-4 pt-6">
           <DrawerTitle className="hidden">
             <Trans>Dialog</Trans>
           </DrawerTitle>
@@ -21,7 +21,7 @@ export function Dialog(props: {
           >
             {props.children}
           </div>
-          <DrawerFooter className="px-0">
+          <DrawerFooter className="px-0 pt-0">
             <Button
               onClick={() => props.onOpenChange(false)}
               variant="outline"

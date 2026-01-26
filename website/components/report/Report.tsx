@@ -1,11 +1,10 @@
 import type * as fairspec from "@fairspec/metadata"
-import { Trans, useLingui } from "@lingui/react/macro"
+import { useLingui } from "@lingui/react/macro"
 import { groupBy } from "es-toolkit"
 import { useState } from "react"
 import { objectKeys } from "ts-extras"
 import { Error } from "#components/error/Error.tsx"
 import { Card, CardContent } from "#elements/card.tsx"
-import { Separator } from "#elements/separator.tsx"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#elements/tabs.tsx"
 
 export function Report(props: { report: fairspec.Report }) {
@@ -26,15 +25,7 @@ export function Report(props: { report: fairspec.Report }) {
 
   return (
     <Tabs value={selectedType} onValueChange={value => setSelectedType(value)}>
-      <div className="flex flex-col gap-6">
-        <div className="relative flex items-center">
-          <Separator className="flex-1" />
-          <span className="px-4 text-lg text-muted-foreground">
-            <Trans>Errors</Trans>
-          </span>
-          <Separator className="flex-1" />
-        </div>
-
+      <div className="flex flex-col gap-8">
         <TabsList variant="line" className="justify-start">
           {errorTypes.map(type => {
             return (
