@@ -7,7 +7,7 @@ import { Theme } from "./Theme.tsx"
 
 export function Header() {
   return (
-    <header className="flex bg-blue-500 gap-4 h-16 border-b border-blue-600 px-4 shadow-md">
+    <header className="flex bg-gray-50 dark:bg-gray-800 gap-4 h-16 border-gray-200 dark:border-gray-700 px-4">
       <div className="mx-auto w-full flex gap-4 items-center justify-between">
         <Logo />
         <Breadcrumbs />
