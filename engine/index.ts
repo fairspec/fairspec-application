@@ -1,5 +1,5 @@
 export { ValidateDataInput } from "./models/data.ts"
 export { ValidateDatasetInput } from "./models/dataset.ts"
-export { FileType } from "./models/file.ts"
+export { FileType, ValidateFileInput } from "./models/file.ts"
 export { ValidateTableInput } from "./models/table.ts"
 export { createEngineService } from "./service.ts"
