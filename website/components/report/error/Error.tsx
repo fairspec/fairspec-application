@@ -1,13 +1,12 @@
-import type { UnboundError } from "frictionless-ts"
+import type { FairspecError } from "@fairspec/metadata"
 import {
   CellEnumError,
   CellExclusiveMaximumError,
   CellExclusiveMinimumError,
-  CellJsonSchemaError,
-  CellMaxLengthError,
   CellMaximumError,
-  CellMinLengthError,
+  CellMaxLengthError,
   CellMinimumError,
+  CellMinLengthError,
   CellPatternError,
   CellRequiredError,
   CellTypeError,
@@ -21,9 +20,7 @@ import { ForeignKeyError } from "./ForeignKey.tsx"
 import { MetadataError } from "./Metadata.tsx"
 import { RowUniqueError } from "./Row.tsx"
 
-export function Error(props: {
-  error: UnboundError
-}) {
+export function Error(props: { error: FairspecError }) {
   const { error } = props
 
   switch (error.type) {
@@ -69,8 +66,6 @@ export function Error(props: {
       return <CellUniqueError error={error} />
     case "cell/enum":
       return <CellEnumError error={error} />
-    case "cell/jsonSchema":
-      return <CellJsonSchemaError error={error} />
     case "foreignKey":
       return <ForeignKeyError error={error} />
     default:

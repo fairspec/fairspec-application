@@ -1,8 +1,8 @@
+import type * as fairspec from "@fairspec/metadata"
 import { Trans } from "@lingui/react/macro"
 import { Code, Text } from "@mantine/core"
-import type * as library from "frictionless-ts"
 
-export function CellTypeError(props: { error: library.CellTypeError }) {
+export function CellTypeError(props: { error: fairspec.CellTypeError }) {
   const { error } = props
 
   return (
@@ -11,9 +11,9 @@ export function CellTypeError(props: { error: library.CellTypeError }) {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -21,7 +21,7 @@ export function CellTypeError(props: { error: library.CellTypeError }) {
       </Code>{" "}
       <Trans>is not</Trans>
       <Code fz="lg" fw="bold">
-        {[error.fieldType, error.fieldFormat].filter(Boolean).join("/")}
+        {error.columnType}
       </Code>{" "}
       {"type"}
     </Text>
@@ -29,15 +29,15 @@ export function CellTypeError(props: { error: library.CellTypeError }) {
 }
 
 export function CellRequiredError(props: {
-  error: library.CellRequiredError
+  error: fairspec.CellRequiredError
 }) {
   const { error } = props
 
   return (
     <Text>
-      <Trans>A required cell in field</Trans>{" "}
+      <Trans>A required cell in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -48,9 +48,7 @@ export function CellRequiredError(props: {
   )
 }
 
-export function CellMinimumError(props: {
-  error: library.CellMinimumError
-}) {
+export function CellMinimumError(props: { error: fairspec.CellMinimumError }) {
   const { error } = props
 
   return (
@@ -59,9 +57,9 @@ export function CellMinimumError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -76,9 +74,7 @@ export function CellMinimumError(props: {
   )
 }
 
-export function CellMaximumError(props: {
-  error: library.CellMaximumError
-}) {
+export function CellMaximumError(props: { error: fairspec.CellMaximumError }) {
   const { error } = props
 
   return (
@@ -87,9 +83,9 @@ export function CellMaximumError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -105,7 +101,7 @@ export function CellMaximumError(props: {
 }
 
 export function CellExclusiveMinimumError(props: {
-  error: library.CellExclusiveMinimumError
+  error: fairspec.CellExclusiveMinimumError
 }) {
   const { error } = props
 
@@ -115,9 +111,9 @@ export function CellExclusiveMinimumError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -133,7 +129,7 @@ export function CellExclusiveMinimumError(props: {
 }
 
 export function CellExclusiveMaximumError(props: {
-  error: library.CellExclusiveMaximumError
+  error: fairspec.CellExclusiveMaximumError
 }) {
   const { error } = props
 
@@ -143,9 +139,9 @@ export function CellExclusiveMaximumError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -161,7 +157,7 @@ export function CellExclusiveMaximumError(props: {
 }
 
 export function CellMinLengthError(props: {
-  error: library.CellMinLengthError
+  error: fairspec.CellMinLengthError
 }) {
   const { error } = props
 
@@ -171,9 +167,9 @@ export function CellMinLengthError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -189,7 +185,7 @@ export function CellMinLengthError(props: {
 }
 
 export function CellMaxLengthError(props: {
-  error: library.CellMaxLengthError
+  error: fairspec.CellMaxLengthError
 }) {
   const { error } = props
 
@@ -199,9 +195,9 @@ export function CellMaxLengthError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -216,9 +212,7 @@ export function CellMaxLengthError(props: {
   )
 }
 
-export function CellPatternError(props: {
-  error: library.CellPatternError
-}) {
+export function CellPatternError(props: { error: fairspec.CellPatternError }) {
   const { error } = props
 
   return (
@@ -227,9 +221,9 @@ export function CellPatternError(props: {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -244,7 +238,7 @@ export function CellPatternError(props: {
   )
 }
 
-export function CellUniqueError(props: { error: library.CellUniqueError }) {
+export function CellUniqueError(props: { error: fairspec.CellUniqueError }) {
   const { error } = props
 
   return (
@@ -253,9 +247,9 @@ export function CellUniqueError(props: { error: library.CellUniqueError }) {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -266,7 +260,7 @@ export function CellUniqueError(props: { error: library.CellUniqueError }) {
   )
 }
 
-export function CellEnumError(props: { error: library.CellEnumError }) {
+export function CellEnumError(props: { error: fairspec.CellEnumError }) {
   const { error } = props
 
   return (
@@ -275,9 +269,9 @@ export function CellEnumError(props: { error: library.CellEnumError }) {
       <Code fz="lg" fw="bold">
         {error.cell}
       </Code>{" "}
-      <Trans>in field</Trans>{" "}
+      <Trans>in column</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {error.fieldName}
+        {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
       <Code fz="lg" fw="bold">
@@ -288,30 +282,6 @@ export function CellEnumError(props: { error: library.CellEnumError }) {
         {error.enum.join(", ")}
       </Code>{" "}
       <Trans>values</Trans>
-    </Text>
-  )
-}
-
-export function CellJsonSchemaError(props: {
-  error: library.CellJsonSchemaError
-}) {
-  const { error } = props
-
-  return (
-    <Text>
-      <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
-        {error.cell}
-      </Code>{" "}
-      <Trans>in field</Trans>{" "}
-      <Code fz="lg" fw="bold">
-        {error.fieldName}
-      </Code>{" "}
-      <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
-        {error.rowNumber}
-      </Code>{" "}
-      <Trans>does not match the</Trans> JSON schema
     </Text>
   )
 }

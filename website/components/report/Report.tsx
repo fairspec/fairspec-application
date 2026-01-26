@@ -6,7 +6,7 @@ import { objectKeys } from "ts-extras"
 import { Card } from "#elements/card.tsx"
 import { Separator } from "#elements/separator.tsx"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#elements/tabs.tsx"
-import { Error } from "./Error/Error.tsx"
+import { Error } from "./error/Error.tsx"
 
 export function Report(props: { errors?: FairspecError[] }) {
   const { t } = useLingui()
@@ -57,10 +57,7 @@ export function Report(props: { errors?: FairspecError[] }) {
               <div className="overflow-auto">
                 <div className="flex flex-col gap-4">
                   {errorsByType[type].map((error, index) => (
-                    <Card
-                      key={index}
-                      className="bg-gray-50 dark:bg-gray-900"
-                    >
+                    <Card key={index} className="bg-gray-50 dark:bg-gray-900">
                       <Error error={error} />
                     </Card>
                   ))}

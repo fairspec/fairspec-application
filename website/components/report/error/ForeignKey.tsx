@@ -1,13 +1,13 @@
+import type * as fairspec from "@fairspec/metadata"
 import { Trans } from "@lingui/react/macro"
 import { Code, Text } from "@mantine/core"
-import type * as library from "frictionless-ts"
 
-export function ForeignKeyError(props: { error: library.ForeignKeyError }) {
+export function ForeignKeyError(props: { error: fairspec.ForeignKeyError }) {
   return (
     <Text>
-      <Trans>Foreign key violation in field(s)</Trans>{" "}
+      <Trans>Foreign key violation in column(s)</Trans>{" "}
       <Code fz="lg" fw="bold">
-        {props.error.foreignKey.fields.join(", ")}
+        {props.error.foreignKey.columns.join(", ")}
       </Code>
       {": "}
       <Code fz="lg" fw="bold">
