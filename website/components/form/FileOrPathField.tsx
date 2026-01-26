@@ -1,11 +1,7 @@
+import type { FileType } from "@fairspec/engine"
 import { Trans } from "@lingui/react/macro"
 import { useRef } from "react"
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "#elements/field.tsx"
+import { Field, FieldDescription, FieldError, FieldLabel } from "#elements/field.tsx"
 import {
   InputGroup,
   InputGroupAddon,
@@ -19,7 +15,7 @@ export function FileOrPathField(props: {
   label: string
   description?: string
   placeholder?: string
-  fileType?: "table" | "schema" | "dialect"
+  fileType?: FileType
   required?: boolean
 }) {
   const field = useFieldContext<File | string>()
@@ -51,8 +47,7 @@ export function FileOrPathField(props: {
   return (
     <Field data-invalid={isInvalid}>
       <FieldLabel htmlFor={field.name} className="text-xl">
-        {props.label}{" "}
-        {props.required && <span className="text-destructive">*</span>}
+        {props.label} {props.required && <span className="text-destructive">*</span>}
       </FieldLabel>
       {props.description && (
         <FieldDescription className="text-base text-inherit">

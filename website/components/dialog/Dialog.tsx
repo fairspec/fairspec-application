@@ -2,12 +2,7 @@ import { Trans } from "@lingui/react/macro"
 import type { ReactNode } from "react"
 import { useEffect, useState } from "react"
 import { Button } from "#elements/button.tsx"
-import {
-  Drawer,
-  DrawerContent,
-  DrawerFooter,
-  DrawerTitle,
-} from "#elements/drawer.tsx"
+import { Drawer, DrawerContent, DrawerFooter, DrawerTitle } from "#elements/drawer.tsx"
 
 export function Dialog(props: {
   open?: boolean
@@ -37,9 +32,7 @@ export function Dialog(props: {
             <Trans>Dialog</Trans>
           </DrawerTitle>
           <div
-            className={
-              props.fullScreen ? "flex-1 overflow-y-auto" : "overflow-y-hidden"
-            }
+            className={props.fullScreen ? "flex-1 overflow-y-auto" : "overflow-y-hidden"}
           >
             {props.children}
           </div>

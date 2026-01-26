@@ -21,18 +21,10 @@ export function Status(props: StatusProps) {
       )
     if (status === "success")
       return (
-        <icons.Success
-          size={100}
-          className="text-green-500 w-20 h-20 sm:w-10 sm:h-10"
-        />
+        <icons.Success size={100} className="text-green-500 w-20 h-20 sm:w-10 sm:h-10" />
       )
     if (status === "error")
-      return (
-        <icons.Error
-          size={100}
-          className="text-red-500 w-20 h-20 sm:w-10 sm:h-10"
-        />
-      )
+      return <icons.Error size={100} className="text-red-500 w-20 h-20 sm:w-10 sm:h-10" />
     return null
   }
 

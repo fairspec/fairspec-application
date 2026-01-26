@@ -6,10 +6,7 @@ export function RowUniqueError(props: { error: fairspec.RowUniqueKeyError }) {
   return (
     <p>
       <Trans>The cell values of the fields</Trans>{" "}
-      <Code>
-        {props.error.columnNames.join(", ")}
-      </Code>{" "}
-      <Trans>are not unique</Trans>
+      <Code>{props.error.columnNames.join(", ")}</Code> <Trans>are not unique</Trans>
     </p>
   )
 }

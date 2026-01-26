@@ -6,13 +6,9 @@ export function ForeignKeyError(props: { error: fairspec.ForeignKeyError }) {
   return (
     <p>
       <Trans>Foreign key violation in column(s)</Trans>{" "}
-      <Code>
-        {props.error.foreignKey.columns.join(", ")}
-      </Code>
+      <Code>{props.error.foreignKey.columns.join(", ")}</Code>
       {": "}
-      <Code>
-        {props.error.cells.join(", ")}
-      </Code>
+      <Code>{props.error.cells.join(", ")}</Code>
     </p>
   )
 }

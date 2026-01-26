@@ -9,9 +9,7 @@ export function MetadataError(props: { error: fairspec.MetadataError }) {
   return (
     <p>
       {capitalize(t`${props.error.message}`)} {t`at`}{" "}
-      <Code>
-        {props.error.jsonPointer}
-      </Code>
+      <Code>{props.error.jsonPointer}</Code>
     </p>
   )
 }

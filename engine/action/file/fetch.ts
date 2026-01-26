@@ -3,6 +3,8 @@ import { mkdir } from "node:fs/promises"
 import { dirname } from "node:path"
 import { Readable, Transform } from "node:stream"
 import { pipeline } from "node:stream/promises"
+import { getFilePath } from "#action/file/path.ts"
+import type { FileType } from "#models/file.ts"
 import * as settings from "#settings.ts"
 
 // TODO: Bypass for local files in the Desktop App
@@ -10,37 +12,39 @@ import * as settings from "#settings.ts"
 export async function prefetchFile(
   source: string | File,
   options: {
-    targetPath: string
-    fileType: "data" | "metadata"
+    folder: string
+    fileType: FileType
   },
 ) {
-  const { targetPath, fileType } = options
+  const { folder, fileType } = options
 
-  const maxBytes =
-    fileType === "data" ? settings.DATA_MAX_BYTES : settings.METADATA_MAX_BYTES
+  const path = getFilePath(source, { folder, fileType })
+  if (!path) {
+    return undefined
+  }
+
+  const maxBytes = ["table"].includes(fileType)
+    ? settings.DATA_MAX_BYTES
+    : settings.METADATA_MAX_BYTES
 
   const webStream =
     typeof source === "string" ? (await fetch(source)).body : source.stream()
-
   if (!webStream) {
     throw new Error("Invalid file source")
   }
 
   // @ts-expect-error
-  const stream = Readable.fromWeb(webStream)
-
+  let stream = Readable.fromWeb(webStream)
   if (maxBytes) {
-    stream.pipe(limitStreamSize(stream, maxBytes))
+    stream = limitStreamSize(stream, maxBytes)
   }
 
   // It is an equivalent to ensureDir function that won't overwrite an existing directory
-  await mkdir(dirname(targetPath), { recursive: true })
+  await mkdir(dirname(path), { recursive: true })
+  // The "wx" flag ensures that the file won't overwrite an existing file
+  await pipeline(stream, createWriteStream(path, { flags: "wx" }))
 
-  await pipeline(
-    stream,
-    // The "wx" flag ensures that the file won't overwrite an existing file
-    createWriteStream(targetPath, { flags: "wx" }),
-  )
+  return path
 }
 
 function limitStreamSize(inputStream: Readable, maxBytes: number) {

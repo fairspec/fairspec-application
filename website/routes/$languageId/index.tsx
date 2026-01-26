@@ -1,11 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro"
 import { createFileRoute, Link } from "@tanstack/react-router"
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "#elements/card.tsx"
+import { Card, CardDescription, CardHeader, CardTitle } from "#elements/card.tsx"
 import * as icons from "#icons.ts"
 
 export const Route = createFileRoute("/$languageId/")({
@@ -54,9 +49,7 @@ function Component() {
     <div className="pt-8 flex flex-col gap-4">
       <h1 className="text-3xl font-bold">Fairspec Application</h1>
       <p className="text-lg">
-        <Trans>
-          Visual tool for managing and validating tabular and structured data
-        </Trans>
+        <Trans>Visual tool for managing and validating tabular and structured data</Trans>
         .
       </p>
       <div className="py-4">

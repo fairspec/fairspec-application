@@ -88,9 +88,7 @@ export function Menu() {
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger
-                      render={
-                        <SidebarMenuButton className="font-bold text-lg" />
-                      }
+                      render={<SidebarMenuButton className="font-bold text-lg" />}
                     >
                       <Icon />
                       <span>{menuItem.label}</span>
@@ -101,9 +99,7 @@ export function Menu() {
                         {menuItem.items.map(item => (
                           <SidebarMenuSubItem key={item.path}>
                             <SidebarMenuSubButton
-                              render={
-                                <Link to={item.path} params={{ languageId }} />
-                              }
+                              render={<Link to={item.path} params={{ languageId }} />}
                               className="text-base"
                             >
                               <span>{item.label}</span>

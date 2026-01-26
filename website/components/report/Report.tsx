@@ -18,9 +18,7 @@ export function Report(props: { errors?: FairspecError[] }) {
   }
 
   const errorTypes = objectKeys(errorsByType)
-  const [selectedType, setSelectedType] = useState<string>(
-    errorTypes?.[0] ?? "all",
-  )
+  const [selectedType, setSelectedType] = useState<string>(errorTypes?.[0] ?? "all")
 
   if (!errors?.length) {
     return null
