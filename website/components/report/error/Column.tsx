@@ -1,36 +1,36 @@
 import type * as fairspec from "@fairspec/metadata"
 import { Trans } from "@lingui/react/macro"
-import { Code, Text } from "@mantine/core"
+import { Code } from "#components/common/Code.tsx"
 
 export function ColumnsMissingError(props: {
   error: fairspec.ColumnMissingError
 }) {
   return (
-    <Text>
+    <p>
       <Trans>The columns</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {props.error.columnName}
       </Code>{" "}
       <Trans>are missing</Trans>
-    </Text>
+    </p>
   )
 }
 
 export function ColumnTypeError(props: { error: fairspec.ColumnTypeError }) {
   return (
-    <Text>
+    <p>
       <Trans>Column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {props.error.columnName}
       </Code>{" "}
       <Trans>is expected to be</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {props.error.expectedColumnType}
       </Code>{" "}
       <Trans>but it is actually</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {props.error.actualColumnType}
       </Code>
-    </Text>
+    </p>
   )
 }

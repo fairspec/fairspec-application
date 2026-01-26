@@ -1,18 +1,18 @@
 import type * as fairspec from "@fairspec/metadata"
 import { Trans } from "@lingui/react/macro"
-import { Code, Text } from "@mantine/core"
+import { Code } from "#components/common/Code.tsx"
 
 export function ForeignKeyError(props: { error: fairspec.ForeignKeyError }) {
   return (
-    <Text>
+    <p>
       <Trans>Foreign key violation in column(s)</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {props.error.foreignKey.columns.join(", ")}
       </Code>
       {": "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {props.error.cells.join(", ")}
       </Code>
-    </Text>
+    </p>
   )
 }

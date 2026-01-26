@@ -1,30 +1,30 @@
 import type * as fairspec from "@fairspec/metadata"
 import { Trans } from "@lingui/react/macro"
-import { Code, Text } from "@mantine/core"
+import { Code } from "#components/common/Code.tsx"
 
 export function CellTypeError(props: { error: fairspec.CellTypeError }) {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is not</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnType}
       </Code>{" "}
       {"type"}
-    </Text>
+    </p>
   )
 }
 
@@ -34,17 +34,17 @@ export function CellRequiredError(props: {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>A required cell in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is missing</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -52,25 +52,25 @@ export function CellMinimumError(props: { error: fairspec.CellMinimumError }) {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is less than</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.minimum}
       </Code>{" "}
       <Trans>minimum</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -78,25 +78,25 @@ export function CellMaximumError(props: { error: fairspec.CellMaximumError }) {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is more than</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.maximum}
       </Code>{" "}
       <Trans>maximum</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -106,25 +106,25 @@ export function CellExclusiveMinimumError(props: {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is less or equal to</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.minimum}
       </Code>{" "}
       <Trans>exclusive minimum</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -134,25 +134,25 @@ export function CellExclusiveMaximumError(props: {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is less or equal to</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.maximum}
       </Code>{" "}
       <Trans>exclusive maximum</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -162,25 +162,25 @@ export function CellMinLengthError(props: {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Length of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is less than</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.minLength}
       </Code>{" "}
       <Trans>minimum</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -190,25 +190,25 @@ export function CellMaxLengthError(props: {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Length of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is more than</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.maxLength}
       </Code>{" "}
       <Trans>maximum</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -216,25 +216,25 @@ export function CellPatternError(props: { error: fairspec.CellPatternError }) {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>does not match the</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.pattern}
       </Code>{" "}
       <Trans>pattern</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -242,21 +242,21 @@ export function CellUniqueError(props: { error: fairspec.CellUniqueError }) {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is not unique</Trans>
-    </Text>
+    </p>
   )
 }
 
@@ -264,24 +264,24 @@ export function CellEnumError(props: { error: fairspec.CellEnumError }) {
   const { error } = props
 
   return (
-    <Text>
+    <p>
       <Trans>Value of the cell</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.cell}
       </Code>{" "}
       <Trans>in column</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.columnName}
       </Code>{" "}
       <Trans>of row</Trans>{" "}
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.rowNumber}
       </Code>{" "}
       <Trans>is not in the allowed</Trans>
-      <Code fz="lg" fw="bold">
+      <Code>
         {error.enum.join(", ")}
       </Code>{" "}
       <Trans>values</Trans>
-    </Text>
+    </p>
   )
 }
