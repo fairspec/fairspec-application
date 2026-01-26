@@ -1,37 +1,39 @@
 import type { ReactNode } from "react"
 import * as icons from "#icons.ts"
 
+export type StatusType = "pending" | "success" | "error" | "fault"
+
 export interface StatusProps {
-  status?: "pending" | "success" | "error" | "fault"
+  statusType?: StatusType
   pendingTitle: string
   successTitle: string
   errorTitle: string
 }
 
 export function Status(props: StatusProps) {
-  const { status } = props
+  const { statusType } = props
 
   const getIcon = (): ReactNode => {
-    if (status === "pending")
+    if (statusType === "pending")
       return (
         <icons.Pending
           size={100}
           className="animate-spin text-yellow-500 w-20 h-20 sm:w-10 sm:h-10"
         />
       )
-    if (status === "success")
+    if (statusType === "success")
       return (
         <icons.Success size={100} className="text-green-500 w-20 h-20 sm:w-10 sm:h-10" />
       )
-    if (status === "error")
+    if (statusType === "error")
       return <icons.Error size={100} className="text-red-500 w-20 h-20 sm:w-10 sm:h-10" />
     return null
   }
 
   const getTitle = (): string => {
-    if (status === "pending") return props.pendingTitle
-    if (status === "success") return props.successTitle
-    if (status === "error") return props.errorTitle
+    if (statusType === "pending") return props.pendingTitle
+    if (statusType === "success") return props.successTitle
+    if (statusType === "error") return props.errorTitle
     return ""
   }
 

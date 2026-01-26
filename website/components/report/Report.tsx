@@ -1,4 +1,4 @@
-import type { FairspecError } from "@fairspec/metadata"
+import type * as fairspec from "@fairspec/metadata"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { groupBy } from "es-toolkit"
 import { useState } from "react"
@@ -8,19 +8,19 @@ import { Card } from "#elements/card.tsx"
 import { Separator } from "#elements/separator.tsx"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#elements/tabs.tsx"
 
-export function Report(props: { errors?: FairspecError[] }) {
+export function Report(props: { report: fairspec.Report }) {
   const { t } = useLingui()
-  const { errors } = props
+  const { report } = props
 
   const errorsByType = {
-    all: errors ?? [],
-    ...groupBy(errors ?? [], error => error.type),
+    all: report.errors ?? [],
+    ...groupBy(report.errors ?? [], error => error.type),
   }
 
   const errorTypes = objectKeys(errorsByType)
   const [selectedType, setSelectedType] = useState<string>(errorTypes?.[0] ?? "all")
 
-  if (!errors?.length) {
+  if (!report.errors?.length) {
     return null
   }
 

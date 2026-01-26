@@ -1,10 +1,15 @@
 import { ValidateTableInput } from "@fairspec/engine"
+import type * as fairspec from "@fairspec/metadata"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { useState } from "react"
 import type * as z from "zod"
+import { Dialog } from "#components/dialog/Dialog.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
+import { Report } from "#components/report/Report.tsx"
+import { Status, type StatusType } from "#components/status/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { engine } from "#services/engine.ts"
@@ -27,33 +32,34 @@ export const Route = createFileRoute("/$languageId/table/validate")({
 function Component() {
   return (
     <div className="py-8 flex flex-col gap-8">
-      <div className="flex flex-col gap-4">
-        <h1 className="text-3xl font-bold">
-          <Trans>Validate Table</Trans>
-        </h1>
-        <p className="text-lg">
-          <Trans>
-            Validate table structure for correctness and compliance, and automatically
-            infer table schema from your tabular data
-          </Trans>
-          .
-        </p>
-      </div>
-      <ValidateTable />
+      <Intro />
+      <Form />
     </div>
   )
 }
 
-export function ValidateTable() {
-  const { t } = useLingui()
-
-  const validateTable = useMutation(
-    engine.table.validate.mutationOptions({
-      onSuccess: report => {
-        console.log(report)
-      },
-    }),
+function Intro() {
+  return (
+    <div className="flex flex-col gap-4">
+      <h1 className="text-3xl font-bold">
+        <Trans>Validate Table</Trans>
+      </h1>
+      <p className="text-lg">
+        <Trans>
+          Validate table structure for correctness and compliance, and automatically infer
+          table schema from your tabular data
+        </Trans>
+        .
+      </p>
+    </div>
   )
+}
+
+function Form() {
+  const { t } = useLingui()
+  const [error, setError] = useState<Error | undefined>()
+  const [report, setReport] = useState<fairspec.Report | undefined>()
+  const [statusType, setStatusType] = useState<StatusType | undefined>()
 
   const Form = ValidateTableInput.extend({})
   const form = useAppForm({
@@ -69,6 +75,30 @@ export function ValidateTable() {
       validateTable.mutate(value)
     },
   })
+
+  const validateTable = useMutation(
+    engine.table.validate.mutationOptions({
+      onMutate: () => {
+        setStatusType("pending")
+      },
+      onSuccess: report => {
+        setReport(report)
+        setStatusType(report.valid ? "success" : "error")
+      },
+      onError: error => {
+        setError(error)
+        setStatusType("error")
+      },
+    }),
+  )
+
+  const handleDialogOpenChange = (open: boolean) => {
+    if (!open) {
+      setStatusType(undefined)
+      setReport(undefined)
+      setError(undefined)
+    }
+  }
 
   return (
     <form
@@ -128,6 +158,20 @@ export function ValidateTable() {
           )}
         />
       </FieldGroup>
+      <Dialog
+        open={!!statusType}
+        fullScreen={!!report?.errors.length}
+        onOpenChange={handleDialogOpenChange}
+      >
+        <Status
+          statusType={statusType}
+          pendingTitle={t`Validating data package...`}
+          successTitle={t`Valid data package`}
+          errorTitle={error?.message ?? t`Invalid data package`}
+        />
+
+        {!!report && <Report report={report} />}
+      </Dialog>
     </form>
   )
 }
