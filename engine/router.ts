@@ -4,6 +4,7 @@ import { inferDialectEndpoint } from "#endpoints/dialect/infer.ts"
 import { validateTableEndpoint } from "#endpoints/table/validate.ts"
 import { inferTableSchemaEndpoint } from "#endpoints/tableSchema/infer.ts"
 import { validateDataEndpoint } from "./endpoints/data/validate.ts"
+import { inferDatasetEndpoint } from "./endpoints/dataset/infer.ts"
 import { validateFileEndpoint } from "./endpoints/file/validate.ts"
 
 export const router = {
@@ -12,6 +13,7 @@ export const router = {
     inferSchema: inferDataSchemaEndpoint,
   },
   dataset: {
+    infer: inferDatasetEndpoint,
     validate: validateDatasetEndpoint,
   },
   dialect: {
