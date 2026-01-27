@@ -150,7 +150,7 @@ function Form() {
               className="mt-4 w-full text-xl h-12"
               disabled={!dataset}
             >
-              Validate Dataset
+              Validate
             </Button>
           )}
         />
