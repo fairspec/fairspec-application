@@ -1,4 +1,4 @@
-export { ValidateDataInput } from "./models/data.ts"
+export { InferDataSchemaInput, ValidateDataInput } from "./models/data.ts"
 export { ValidateDatasetInput } from "./models/dataset.ts"
 export { InferDialectInput } from "./models/dialect.ts"
 export { FileType, ValidateFileInput } from "./models/file.ts"

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/$languageId/table/infer-schema")({
   head: () => ({
     meta: [
       {
-        title: t`Infer Schema`,
+        title: t`Infer Table Schema`,
       },
       {
         name: "description",
@@ -40,11 +40,12 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Infer Schema</Trans>
+        <Trans>Infer Table Schema</Trans>
       </h1>
       <p className="text-lg">
         <Trans>
-          Automatically infer comprehensive table schema definitions from your tabular data
+          Automatically infer comprehensive table schema definitions from your tabular
+          data
         </Trans>
         .
       </p>
