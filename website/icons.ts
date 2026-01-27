@@ -2,7 +2,7 @@ import { Share2, Upload } from "lucide-react"
 import { detectPlatform } from "#helpers/platform.ts"
 
 export {
-  AlertTriangle as Alert,
+  AlertCircle as Alert,
   ArrowBigLeftDash as Return,
   Ban as Fault,
   BarChart,
@@ -13,6 +13,7 @@ export {
   CheckCircle as Success,
   CircleHelp as Help,
   CornerDownLeft as Enter,
+  Download,
   ExternalLink,
   FileJson as Data,
   FilePlusCorner as Add,
@@ -47,8 +48,10 @@ export {
   Tag,
   Trash2 as Delete,
   TrendingUp,
+  Upload,
   Upload as File,
   User as Account,
+  X as Close,
   XCircle as Error,
 } from "lucide-react"
 

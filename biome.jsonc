@@ -20,6 +20,7 @@
   "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "formatter": {
     "enabled": true,
+    "lineWidth": 90,
     "useEditorconfig": true
   },
   "linter": {
@@ -35,6 +36,7 @@
         "useLiteralKeys": "off"
       },
       "correctness": {
+        "noChildrenProp": "off",
         "useExhaustiveDependencies": "off"
       },
       "performance": {

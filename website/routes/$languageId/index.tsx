@@ -1,6 +1,6 @@
-import { useLingui } from "@lingui/react/macro"
+import { Trans, useLingui } from "@lingui/react/macro"
 import { createFileRoute, Link } from "@tanstack/react-router"
-import { Card, CardDescription, CardHeader, CardTitle } from "#blocks/card.tsx"
+import { Card, CardDescription, CardHeader, CardTitle } from "#elements/card.tsx"
 import * as icons from "#icons.ts"
 
 export const Route = createFileRoute("/$languageId/")({
@@ -46,30 +46,37 @@ function Component() {
   ]
 
   return (
-    <div className="py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {gridItems.map(item => {
-          const Icon = item.icon
-          return (
-            <Link key={item.id} to={item.path}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full group">
-                <CardHeader>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className={item.color}>
-                        <Icon className="w-8 h-8 group-hover:animate-[spin_0.5s_ease-in-out_1]" />
+    <div className="pt-8 flex flex-col gap-4">
+      <h1 className="text-3xl font-bold">Fairspec Application</h1>
+      <p className="text-lg">
+        <Trans>Visual tool for managing and validating tabular and structured data</Trans>
+        .
+      </p>
+      <div className="py-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {gridItems.map(item => {
+            const Icon = item.icon
+            return (
+              <Link key={item.id} to={item.path}>
+                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full group">
+                  <CardHeader>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className={item.color}>
+                          <Icon className="w-8 h-8 group-hover:animate-[spin_0.5s_ease-in-out_1]" />
+                        </div>
+                        <CardTitle className="text-2xl">{item.title}</CardTitle>
                       </div>
-                      <CardTitle className="text-2xl">{item.title}</CardTitle>
+                      <CardDescription className="text-base">
+                        {item.description}
+                      </CardDescription>
                     </div>
-                    <CardDescription className="text-base">
-                      {item.description}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-              </Card>
-            </Link>
-          )
-        })}
+                  </CardHeader>
+                </Card>
+              </Link>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

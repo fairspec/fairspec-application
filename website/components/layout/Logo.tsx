@@ -8,10 +8,10 @@ export function Logo() {
   return (
     <Link to="/$languageId" params={{ languageId }} className="no-underline">
       <div className="h-full flex flex-nowrap gap-2 items-center pl-2">
-        <div className="w-9 h-9 flex items-center justify-center">
+        <div className="w-10 h-10 flex items-center justify-center">
           <LogoIcon />
         </div>
-        <h3 className="leading-none line-clamp-2 text-xl font-bold text-primary dark:text-white ">
+        <h3 className="leading-none line-clamp-2 text-xl font-bold text-blue-500">
           Fairspec Application
         </h3>
       </div>

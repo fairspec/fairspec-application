@@ -1,13 +1,14 @@
 import { useLingui } from "@lingui/react/macro"
+import { useMatches, useNavigate } from "@tanstack/react-router"
 import { De, Es, Fr, Gb, It, Pt, Ru, Ua } from "react-flags-select"
-import { Button } from "#blocks/button.tsx"
+import { type LanguageId, Languages } from "#constants/language.ts"
+import { Button } from "#elements/button.tsx"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "#blocks/dropdown-menu.tsx"
-import { type LanguageId, Languages } from "#constants/language.ts"
+} from "#elements/dropdown-menu.tsx"
 import * as icons from "#icons.ts"
 import * as settings from "#settings.ts"
 
@@ -24,11 +25,17 @@ const LANGUAGE_FLAGS = {
 
 export function Language() {
   const { t } = useLingui()
+  const matches = useMatches()
+  const navigate = useNavigate()
 
   const onLanguageChange = (languageId: LanguageId) => {
-    const location = globalThis.location
-    if (location) {
-      location.href = `/${languageId}`
+    const path = matches.at(-1)?.fullPath
+    if (path) {
+      navigate({
+        to: path,
+        params: { languageId },
+        reloadDocument: true,
+      })
     }
   }
 
@@ -50,16 +57,18 @@ export function Language() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="default"
-          title={t`Change Language`}
-          className="rounded-xl cursor-pointer"
-        >
-          <icons.Language strokeWidth={settings.ICON_STROKE_WIDTH} />
-          <span className="hidden">English</span>
-        </Button>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="outline"
+            size="default"
+            title={t`Change Language`}
+            className="rounded-xl cursor-pointer"
+          />
+        }
+      >
+        <icons.Language strokeWidth={settings.ICON_STROKE_WIDTH} />
+        <span className="hidden">English</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col gap-4 p-2">
         {items}

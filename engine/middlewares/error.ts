@@ -1,12 +1,21 @@
-import { os } from "@orpc/server"
+import { FairspecException } from "@fairspec/library"
+import { ORPCError, os } from "@orpc/server"
 import { logger } from "#services/logger.ts"
 
 export const errorMiddleware = os.middleware(async ({ next }) => {
   try {
     return await next()
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error)
-    logger.withError(error).error(message)
-    throw error
+  } catch (exception) {
+    const message = exception instanceof Error ? exception.message : String(exception)
+
+    const report = exception instanceof FairspecException ? exception.report : undefined
+    if (!report) {
+      logger.withError(exception).error(message)
+    }
+
+    throw new ORPCError("UNKNOWN", {
+      message,
+      data: { report },
+    })
   }
 })

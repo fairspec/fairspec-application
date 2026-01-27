@@ -7,7 +7,7 @@ import * as settings from "#settings.ts"
 
 export async function orpcRequestHandler(request: Request) {
   const { response } = await orpcHandler.handle(request, {
-    prefix: settings.NATIVE_PREFIX,
+    prefix: settings.ORPC_PREFIX,
   })
 
   return response

@@ -1,9 +1,9 @@
-import { Credits } from "./Credits.tsx"
+import { Banner } from "./Banner.tsx"
 
 export function Footer() {
   return (
-    <footer className="flex flex-col gap-4">
-      <Credits />
+    <footer className="h-12 flex flex-col gap-4">
+      <Banner />
     </footer>
   )
 }

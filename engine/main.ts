@@ -1,14 +1,28 @@
 import { serve } from "@hono/node-server"
 import { Hono } from "hono"
+import { cors } from "hono/cors"
+import { logger as honoLogger } from "hono/logger"
 import { openapiRequestHandler } from "#handlers/openapi.ts"
 import { orpcRequestHandler } from "#handlers/orpc.ts"
 import { logger } from "#services/logger.ts"
 import * as settings from "#settings.ts"
 
 const app = new Hono()
-const port = process.env.PORT ? Number.parseInt(process.env.PORT, 10) : 4000
 
-app.use(`${settings.OPENAPI_PREFIX}/*`, async (context, next) => {
+app.use(
+  honoLogger((message, ...args) => {
+    logger.info(message, ...args)
+  }),
+)
+
+app.use(
+  cors({
+    origin: settings.CORS_ORIGINS,
+    allowMethods: settings.CORS_METHODS,
+  }),
+)
+
+app.use(async (context, next) => {
   const orpcResponse = await orpcRequestHandler(context.req.raw)
   if (orpcResponse) {
     return context.newResponse(orpcResponse.body, orpcResponse)
@@ -24,5 +38,7 @@ app.use(`${settings.OPENAPI_PREFIX}/*`, async (context, next) => {
   return await next()
 })
 
+const port = process.env.PORT ? Number.parseInt(process.env.PORT, 10) : 4000
 serve({ fetch: app.fetch, port })
+
 logger.info(`Server running at http://localhost:${port}`)

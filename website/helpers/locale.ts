@@ -1,10 +1,6 @@
 import { i18n } from "@lingui/core"
 import { detect, fromHtmlTag } from "@lingui/detect-locale"
-import {
-  type LanguageId,
-  LanguageIdDefault,
-  Languages,
-} from "#constants/language.ts"
+import { type LanguageId, LanguageIdDefault, Languages } from "#constants/language.ts"
 
 export async function activateLocale(languageId: LanguageId) {
   const { messages } = await import(`../locales/${languageId}/messages.po`)
@@ -17,9 +13,8 @@ export async function detectClientLanguage() {
   const langTag = detect(fromHtmlTag("lang"))
 
   const language =
-    Object.values(Languages).find(
-      language => language.languageId === langTag,
-    ) ?? Languages[LanguageIdDefault]
+    Object.values(Languages).find(language => language.languageId === langTag) ??
+    Languages[LanguageIdDefault]
 
   return language
 }
@@ -34,9 +29,8 @@ export function detectLanguageFromPath(path: string) {
   const [languageParam] = path.split("/").slice(1)
 
   const language =
-    Object.values(Languages).find(
-      language => language.languageId === languageParam,
-    ) ?? Languages[LanguageIdDefault]
+    Object.values(Languages).find(language => language.languageId === languageParam) ??
+    Languages[LanguageIdDefault]
 
   return language
 }

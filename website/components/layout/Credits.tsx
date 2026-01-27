@@ -11,11 +11,7 @@ export function Credits() {
           <Trans>Brought to you by</Trans>
         </p>
         <div className="p-[15px] rounded-[15px] border border-dashed border-gray-300">
-          <Link
-            to="https://datist.io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link to="https://datist.io" target="_blank" rel="noopener noreferrer">
             <img
               src={datistLogoTextLight}
               alt="Datist"
@@ -30,8 +26,8 @@ export function Credits() {
         </div>
         <p className="text-gray-500 dark:text-gray-400 text-center max-w-[50ch]">
           <Trans>
-            We are bringing technological innovation and consultancy services to
-            the open data field
+            We are bringing technological innovation and consultancy services to the open
+            data field
           </Trans>
         </p>
       </article>

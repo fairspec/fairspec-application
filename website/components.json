@@ -1,19 +1,18 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
+  "style": "base-vega",
   "rsc": false,
   "tsx": true,
   "tailwind": {
     "config": "",
     "css": "styles/general.css",
     "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
+    "cssVariables": true
   },
   "aliases": {
     "components": "components",
     "utils": "helpers",
-    "ui": "blocks",
+    "ui": "elements",
     "lib": "helpers",
     "hooks": "hooks"
   },
