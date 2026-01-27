@@ -11,7 +11,6 @@ import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
-import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/$languageId/file/infer-dialect")({

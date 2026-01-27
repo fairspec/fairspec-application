@@ -3,6 +3,7 @@ import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { JsonEditor } from "json-edit-react"
 import { useState } from "react"
 import type * as z from "zod"
 import { Dialog } from "#components/dialog/Dialog.tsx"
@@ -97,6 +98,22 @@ function Form() {
     }
   }
 
+  const handleDownloadSchema = () => {
+    if (!schema) return
+
+    const blob = new Blob([JSON.stringify(schema, null, 2)], {
+      type: "application/json",
+    })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = "table-schema.json"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <form
       id="form"
@@ -153,9 +170,18 @@ function Form() {
             errorTitle={error?.message ?? t`Failed to Infer Schema`}
           />
           {schema && (
-            <pre className="bg-muted p-4 rounded-lg overflow-auto">
-              <code>{JSON.stringify(schema, null, 2)}</code>
-            </pre>
+            <>
+              <div className="bg-muted p-4 rounded-lg overflow-auto">
+                <JsonEditor data={schema} setData={setSchema} />
+              </div>
+              <Button
+                size="lg"
+                onClick={handleDownloadSchema}
+                className="w-full text-xl h-12"
+              >
+                <Trans>Save</Trans>
+              </Button>
+            </>
           )}
         </div>
       </Dialog>
