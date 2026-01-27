@@ -2,7 +2,7 @@ import { inferDataSchema } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
 import { prefetchFile } from "#action/file/fetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
-import { InferDataSchemaInput } from "#models/data.ts"
+import { InferDataSchemaInput } from "#models/dataSchema.ts"
 
 export const inferDataSchemaEndpoint = publicEndpoint
   .input(InferDataSchemaInput)

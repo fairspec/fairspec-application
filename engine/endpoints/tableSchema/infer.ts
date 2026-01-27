@@ -2,10 +2,10 @@ import { inferTableSchema } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
 import { prefetchFile } from "#action/file/fetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
-import { InferSchemaInput } from "#models/table.ts"
+import { InferTableSchemaInput } from "#models/tableSchema.ts"
 
-export const inferSchemaEndpoint = publicEndpoint
-  .input(InferSchemaInput)
+export const inferTableSchemaEndpoint = publicEndpoint
+  .input(InferTableSchemaInput)
   .handler(async ({ input }) => {
     return await temporaryDirectoryTask(async folder => {
       const [table, dialect] = await Promise.all([

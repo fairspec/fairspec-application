@@ -1,4 +1,4 @@
-import { InferSchemaInput } from "@fairspec/engine"
+import { InferTableSchemaInput } from "@fairspec/engine"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
@@ -59,7 +59,7 @@ function Form() {
   const [schema, setSchema] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferSchemaInput.extend({})
+  const Form = InferTableSchemaInput.extend({})
   const form = useAppForm({
     defaultValues: {
       table: "",

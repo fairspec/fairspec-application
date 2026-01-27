@@ -1,7 +1,6 @@
 import { z } from "zod"
 
-export const ValidateTableInput = z.object({
+export const InferTableSchemaInput = z.object({
   table: z.union([z.instanceof(File), z.httpUrl()]),
-  schema: z.union([z.instanceof(File), z.httpUrl(), z.literal("")]),
   dialect: z.union([z.instanceof(File), z.httpUrl(), z.literal("")]),
 })

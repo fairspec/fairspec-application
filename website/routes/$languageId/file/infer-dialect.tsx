@@ -44,7 +44,8 @@ function Intro() {
       </h1>
       <p className="text-lg">
         <Trans>
-          Automatically infer file formats, encoding specifications, and dialect parameters
+          Automatically infer file formats, encoding specifications, and dialect
+          parameters
         </Trans>
         .
       </p>
