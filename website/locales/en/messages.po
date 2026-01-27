@@ -13,24 +13,45 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/report/Error.tsx:385
+#: components/report/Error.tsx:420
+msgid ", but it is"
+msgstr ", but it is"
+
 #: components/layout/Menu.tsx:94
 #: components/layout/Menu.tsx:106
 #~ msgid "{0}"
 #~ msgstr "{0}"
 
-#: routes/$languageId/data/infer-schema.tsx:14
+#: components/report/Error.tsx:315
+msgid "A required cell in column"
+msgstr "A required cell in column"
+
+#: components/report/Report.tsx:38
+msgid "All Errors"
+msgstr "All Errors"
+
+#: components/report/Error.tsx:468
+msgid "at"
+msgstr "at"
+
+#: routes/$languageId/data/infer-schema.tsx:25
+#: routes/$languageId/data/infer-schema.tsx:47
 msgid "Automatically infer comprehensive data schemas from your datasets"
 msgstr "Automatically infer comprehensive data schemas from your datasets"
 
-#: routes/$languageId/table/infer-schema.tsx:14
+#: routes/$languageId/table/infer-schema.tsx:25
+#: routes/$languageId/table/infer-schema.tsx:47
 msgid "Automatically infer comprehensive table schema definitions from your tabular data"
 msgstr "Automatically infer comprehensive table schema definitions from your tabular data"
 
-#: routes/$languageId/dataset/infer.tsx:14
+#: routes/$languageId/dataset/infer.tsx:27
+#: routes/$languageId/dataset/infer.tsx:64
 msgid "Automatically infer dataset metadata and structure from your data files"
 msgstr "Automatically infer dataset metadata and structure from your data files"
 
-#: routes/$languageId/file/infer-dialect.tsx:14
+#: routes/$languageId/file/infer-dialect.tsx:25
+#: routes/$languageId/file/infer-dialect.tsx:47
 msgid "Automatically infer file formats, encoding specifications, and dialect parameters"
 msgstr "Automatically infer file formats, encoding specifications, and dialect parameters"
 
@@ -38,7 +59,7 @@ msgstr "Automatically infer file formats, encoding specifications, and dialect p
 msgid "Brought to you by"
 msgstr "Brought to you by"
 
-#: components/layout/Language.tsx:57
+#: components/layout/Language.tsx:65
 msgid "Change Language"
 msgstr "Change Language"
 
@@ -46,147 +67,539 @@ msgstr "Change Language"
 msgid "Change Theme"
 msgstr "Change Theme"
 
-#: components/layout/Theme.tsx:52
+#: components/dialog/Dialog.tsx:31
+msgid "Close"
+msgstr "Close"
+
+#: components/report/Error.tsx:383
+msgid "Column"
+msgstr "Column"
+
+#: components/layout/Theme.tsx:46
 msgid "Dark"
 msgstr "Dark"
 
 #: components/layout/Menu.tsx:55
+#: routes/$languageId/data/infer-schema.tsx:125
+#: routes/$languageId/data/validate.tsx:118
 #: routes/$languageId/index.tsx:32
 msgid "Data"
 msgstr "Data"
 
+#: components/report/Error.tsx:401
+msgid "Data error at"
+msgstr "Data error at"
+
 #: components/layout/Menu.tsx:37
+#: routes/$languageId/dataset/validate.tsx:134
 #: routes/$languageId/index.tsx:16
 msgid "Dataset"
 msgstr "Dataset"
 
-#: routes/$languageId/file/validate.tsx:14
+#: routes/$languageId/dataset/infer.tsx:169
+msgid "Dataset Inferred"
+msgstr "Dataset Inferred"
+
+#: routes/$languageId/file/validate.tsx:34
+#: routes/$languageId/file/validate.tsx:56
 #: routes/$languageId/index.tsx:43
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
 msgstr "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
+
+#: routes/$languageId/dataset/infer.tsx:48
+#: routes/$languageId/dataset/validate.tsx:49
+msgid "Desktop Only (coming soon)"
+msgstr "Desktop Only (coming soon)"
+
+#: routes/$languageId/table/infer-schema.tsx:142
+#: routes/$languageId/table/validate.tsx:142
+msgid "Dialect"
+msgstr "Dialect"
+
+#: routes/$languageId/file/infer-dialect.tsx:157
+msgid "Dialect Inferred"
+msgstr "Dialect Inferred"
+
+#: components/dialog/Dialog.tsx:17
+msgid "Dialog"
+msgstr "Dialog"
+
+#: components/report/Error.tsx:452
+msgid "do not reference existing values"
+msgstr "do not reference existing values"
+
+#: components/report/Error.tsx:300
+msgid "does not match the"
+msgstr "does not match the"
+
+#: routes/$languageId/file/validate.tsx:171
+msgid "Enter hash value"
+msgstr "Enter hash value"
+
+#: routes/$languageId/dataset/infer.tsx:170
+msgid "Failed to Infer Dataset"
+msgstr "Failed to Infer Dataset"
+
+#: routes/$languageId/file/infer-dialect.tsx:158
+msgid "Failed to Infer Dialect"
+msgstr "Failed to Infer Dialect"
+
+#: routes/$languageId/data/infer-schema.tsx:154
+#: routes/$languageId/table/infer-schema.tsx:170
+msgid "Failed to Infer Schema"
+msgstr "Failed to Infer Schema"
 
 #: components/layout/Banner.tsx:19
 msgid "feedback and ideas"
 msgstr "feedback and ideas"
 
 #: components/layout/Menu.tsx:64
+#: routes/$languageId/dataset/infer.tsx:145
+#: routes/$languageId/file/infer-dialect.tsx:129
+#: routes/$languageId/file/validate.tsx:127
 #: routes/$languageId/index.tsx:40
 msgid "File"
 msgstr "File"
 
-#: components/layout/Breadcrumbs.tsx:27
+#: components/report/Error.tsx:419
+msgid "File hash"
+msgstr "File hash"
+
+#: components/report/Error.tsx:434
+msgid "File is expected to be textual with utf-8 encoding but it is"
+msgstr "File is expected to be textual with utf-8 encoding but it is"
+
+#: components/report/Error.tsx:451
+msgid "Foreign key constraint violated as cells"
+msgstr "Foreign key constraint violated as cells"
+
+#: components/report/Error.tsx:227
+msgid "has less than"
+msgstr "has less than"
+
+#: components/report/Error.tsx:172
+msgid "has more than"
+msgstr "has more than"
+
+#: routes/$languageId/file/validate.tsx:137
+msgid "Hash"
+msgstr "Hash"
+
+#: components/layout/Breadcrumbs.tsx:26
 msgid "Home"
 msgstr "Home"
 
-#: components/layout/Breadcrumbs.tsx:46
+#: components/report/Error.tsx:79
+#: components/report/Error.tsx:97
+#: components/report/Error.tsx:116
+#: components/report/Error.tsx:134
+#: components/report/Error.tsx:152
+#: components/report/Error.tsx:171
+#: components/report/Error.tsx:190
+#: components/report/Error.tsx:208
+#: components/report/Error.tsx:226
+#: components/report/Error.tsx:245
+#: components/report/Error.tsx:263
+#: components/report/Error.tsx:281
+#: components/report/Error.tsx:299
+#: components/report/Error.tsx:333
+#: components/report/Error.tsx:350
+msgid "in column"
+msgstr "in column"
+
+#: components/report/Error.tsx:556
+msgid "in resource"
+msgstr "in resource"
+
+#: components/layout/Breadcrumbs.tsx:44
 msgid "Infer data schema"
 msgstr "Infer data schema"
 
+#: routes/$languageId/data/infer-schema.tsx:21
+#: routes/$languageId/data/infer-schema.tsx:44
+msgid "Infer Data Schema"
+msgstr "Infer Data Schema"
+
 #: components/layout/Menu.tsx:41
-#: routes/$languageId/dataset/infer.tsx:10
+#: routes/$languageId/dataset/infer.tsx:23
+#: routes/$languageId/dataset/infer.tsx:61
 msgid "Infer Dataset"
 msgstr "Infer Dataset"
 
-#: components/layout/Breadcrumbs.tsx:44
+#: components/layout/Breadcrumbs.tsx:42
 msgid "Infer dialect"
 msgstr "Infer dialect"
 
 #: components/layout/Menu.tsx:68
-#: routes/$languageId/file/infer-dialect.tsx:10
+#: routes/$languageId/file/infer-dialect.tsx:21
+#: routes/$languageId/file/infer-dialect.tsx:44
 msgid "Infer Dialect"
 msgstr "Infer Dialect"
 
 #: components/layout/Menu.tsx:50
 #: components/layout/Menu.tsx:59
-#: routes/$languageId/data/infer-schema.tsx:10
-#: routes/$languageId/table/infer-schema.tsx:10
 msgid "Infer Schema"
 msgstr "Infer Schema"
 
-#: components/layout/Breadcrumbs.tsx:48
+#: components/layout/Breadcrumbs.tsx:46
 msgid "Infer table schema"
 msgstr "Infer table schema"
 
-#: components/layout/Theme.tsx:43
+#: routes/$languageId/table/infer-schema.tsx:21
+#: routes/$languageId/table/infer-schema.tsx:44
+msgid "Infer Table Schema"
+msgstr "Infer Table Schema"
+
+#: routes/$languageId/dataset/infer.tsx:168
+msgid "Inferring Dataset..."
+msgstr "Inferring Dataset..."
+
+#: routes/$languageId/file/infer-dialect.tsx:156
+msgid "Inferring Dialect..."
+msgstr "Inferring Dialect..."
+
+#: routes/$languageId/data/infer-schema.tsx:152
+#: routes/$languageId/table/infer-schema.tsx:168
+msgid "Inferring Schema..."
+msgstr "Inferring Schema..."
+
+#: routes/$languageId/data/validate.tsx:162
+msgid "Invalid Data"
+msgstr "Invalid Data"
+
+#: routes/$languageId/dataset/validate.tsx:168
+msgid "Invalid Dataset"
+msgstr "Invalid Dataset"
+
+#: routes/$languageId/file/validate.tsx:215
+msgid "Invalid File"
+msgstr "Invalid File"
+
+#: routes/$languageId/table/validate.tsx:174
+msgid "Invalid Table"
+msgstr "Invalid Table"
+
+#: components/report/Error.tsx:383
+#: components/report/Error.tsx:419
+#: components/report/Error.tsx:503
+msgid "is expected to be"
+msgstr "is expected to be"
+
+#: components/report/Error.tsx:117
+msgid "is greater or equal to"
+msgstr "is greater or equal to"
+
+#: components/report/Error.tsx:135
+msgid "is less or equal to"
+msgstr "is less or equal to"
+
+#: components/report/Error.tsx:246
+#: components/report/Error.tsx:264
+msgid "is less than"
+msgstr "is less than"
+
+#: components/report/Error.tsx:316
+#: components/report/Error.tsx:367
+msgid "is missing"
+msgstr "is missing"
+
+#: components/report/Error.tsx:486
+msgid "is missing, but expected"
+msgstr "is missing, but expected"
+
+#: components/report/Error.tsx:191
+#: components/report/Error.tsx:209
+msgid "is more than"
+msgstr "is more than"
+
+#: components/report/Error.tsx:334
+msgid "is not"
+msgstr "is not"
+
+#: components/report/Error.tsx:282
+msgid "is not a multiple of"
+msgstr "is not a multiple of"
+
+#: components/report/Error.tsx:80
+msgid "is not allowed value"
+msgstr "is not allowed value"
+
+#: components/report/Error.tsx:98
+msgid "is not in the allowed values"
+msgstr "is not in the allowed values"
+
+#: components/report/Error.tsx:351
+msgid "is not unique"
+msgstr "is not unique"
+
+#: components/report/Error.tsx:173
+#: components/report/Error.tsx:228
+msgid "items"
+msgstr "items"
+
+#: components/report/Error.tsx:190
+#: components/report/Error.tsx:245
+msgid "Length of the cell"
+msgstr "Length of the cell"
+
+#: components/layout/Theme.tsx:40
 msgid "Light"
 msgstr "Light"
+
+#: components/report/Error.tsx:80
+#: components/report/Error.tsx:98
+#: components/report/Error.tsx:117
+#: components/report/Error.tsx:135
+#: components/report/Error.tsx:153
+#: components/report/Error.tsx:172
+#: components/report/Error.tsx:191
+#: components/report/Error.tsx:209
+#: components/report/Error.tsx:227
+#: components/report/Error.tsx:246
+#: components/report/Error.tsx:264
+#: components/report/Error.tsx:282
+#: components/report/Error.tsx:300
+#: components/report/Error.tsx:315
+#: components/report/Error.tsx:334
+#: components/report/Error.tsx:351
+msgid "of row"
+msgstr "of row"
 
 #: components/layout/Banner.tsx:13
 msgid "phase. Please share your"
 msgstr "phase. Please share your"
 
+#: components/report/Error.tsx:367
+msgid "Required column"
+msgstr "Required column"
+
 #: components/layout/Banner.tsx:11
 msgid "research preview"
 msgstr "research preview"
 
-#: components/layout/Breadcrumbs.tsx:50
+#: components/report/Error.tsx:486
+#: components/report/Error.tsx:503
+msgid "Resource"
+msgstr "Resource"
+
+#: components/report/Error.tsx:521
+#: components/report/Error.tsx:537
+msgid "Row"
+msgstr "Row"
+
+#: routes/$languageId/data/infer-schema.tsx:166
+#: routes/$languageId/dataset/infer.tsx:182
+#: routes/$languageId/file/infer-dialect.tsx:170
+#: routes/$languageId/table/infer-schema.tsx:182
+msgid "Save"
+msgstr "Save"
+
+#: routes/$languageId/data/validate.tsx:130
+#: routes/$languageId/table/validate.tsx:131
+msgid "Schema"
+msgstr "Schema"
+
+#: routes/$languageId/data/infer-schema.tsx:153
+#: routes/$languageId/table/infer-schema.tsx:169
+msgid "Schema Inferred"
+msgstr "Schema Inferred"
+
+#: routes/$languageId/file/validate.tsx:140
+msgid "Select hash algorithm and enter hash value"
+msgstr "Select hash algorithm and enter hash value"
+
+#: components/layout/Breadcrumbs.tsx:48
 msgid "Select tools below"
 msgstr "Select tools below"
 
-#: components/layout/Share.tsx:37
+#: components/layout/Share.tsx:40
 msgid "Share"
 msgstr "Share"
 
-#: components/layout/Share.tsx:32
+#: components/layout/Share.tsx:33
 msgid "Share Page"
 msgstr "Share Page"
 
 #: components/layout/Menu.tsx:46
 #: routes/$languageId/index.tsx:24
+#: routes/$languageId/table/infer-schema.tsx:130
+#: routes/$languageId/table/validate.tsx:119
 msgid "Table"
 msgstr "Table"
+
+#: routes/$languageId/dataset/infer.tsx:51
+#: routes/$languageId/dataset/validate.tsx:52
+msgid "This functionality is only available in the desktop application"
+msgstr "This functionality is only available in the desktop application"
 
 #: components/layout/Banner.tsx:9
 msgid "This project is in"
 msgstr "This project is in"
 
+#: components/form/FileOrPathField.tsx:88
+msgid "Upload"
+msgstr "Upload"
+
+#: routes/$languageId/data/infer-schema.tsx:126
+msgid "Upload a data file or provide a URL to a data file"
+msgstr "Upload a data file or provide a URL to a data file"
+
+#: routes/$languageId/table/infer-schema.tsx:143
+msgid "Upload a dialect or provide a URL to a dialect (optional)"
+msgstr "Upload a dialect or provide a URL to a dialect (optional)"
+
+#: routes/$languageId/data/validate.tsx:119
+msgid "Upload a file or provide a URL to a data file"
+msgstr "Upload a file or provide a URL to a data file"
+
+#: routes/$languageId/data/validate.tsx:131
+msgid "Upload a file or provide a URL to a data schema"
+msgstr "Upload a file or provide a URL to a data schema"
+
+#: routes/$languageId/dataset/validate.tsx:135
+msgid "Upload a file or provide a URL to a dataset package"
+msgstr "Upload a file or provide a URL to a dataset package"
+
+#: routes/$languageId/dataset/infer.tsx:146
+#: routes/$languageId/file/infer-dialect.tsx:130
+#: routes/$languageId/file/validate.tsx:128
+msgid "Upload a file or provide a URL to a file"
+msgstr "Upload a file or provide a URL to a file"
+
+#: routes/$languageId/table/validate.tsx:143
+msgid "Upload a file or provide a URL to a table dialect"
+msgstr "Upload a file or provide a URL to a table dialect"
+
+#: routes/$languageId/table/validate.tsx:132
+msgid "Upload a file or provide a URL to a table schema"
+msgstr "Upload a file or provide a URL to a table schema"
+
+#: routes/$languageId/table/validate.tsx:120
+msgid "Upload a file or provide a URL to a tabular data file"
+msgstr "Upload a file or provide a URL to a tabular data file"
+
+#: routes/$languageId/table/infer-schema.tsx:131
+msgid "Upload a table or provide a URL to a table"
+msgstr "Upload a table or provide a URL to a table"
+
+#: routes/$languageId/data/validate.tsx:161
+msgid "Valid Data"
+msgstr "Valid Data"
+
+#: routes/$languageId/dataset/validate.tsx:167
+msgid "Valid Dataset"
+msgstr "Valid Dataset"
+
+#: routes/$languageId/file/validate.tsx:214
+msgid "Valid File"
+msgstr "Valid File"
+
+#: routes/$languageId/table/validate.tsx:173
+msgid "Valid Table"
+msgstr "Valid Table"
+
 #: components/layout/Menu.tsx:58
-#: routes/$languageId/data/validate.tsx:10
+#: routes/$languageId/data/validate.tsx:22
+#: routes/$languageId/data/validate.tsx:45
 msgid "Validate Data"
 msgstr "Validate Data"
 
-#: routes/$languageId/data/validate.tsx:14
+#: routes/$languageId/data/validate.tsx:26
+#: routes/$languageId/data/validate.tsx:48
 #: routes/$languageId/index.tsx:35
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
 msgstr "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
 
-#: components/layout/Breadcrumbs.tsx:40
+#: components/layout/Breadcrumbs.tsx:38
 msgid "Validate dataset"
 msgstr "Validate dataset"
 
 #: components/layout/Menu.tsx:40
-#: routes/$languageId/dataset/validate.tsx:10
+#: routes/$languageId/dataset/validate.tsx:24
+#: routes/$languageId/dataset/validate.tsx:62
 msgid "Validate Dataset"
 msgstr "Validate Dataset"
 
-#: routes/$languageId/dataset/validate.tsx:14
+#: routes/$languageId/dataset/validate.tsx:28
+#: routes/$languageId/dataset/validate.tsx:65
 #: routes/$languageId/index.tsx:19
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 msgstr "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 
 #: components/layout/Menu.tsx:67
-#: routes/$languageId/file/validate.tsx:10
+#: routes/$languageId/file/validate.tsx:30
+#: routes/$languageId/file/validate.tsx:53
 msgid "Validate File"
 msgstr "Validate File"
 
-#: components/layout/Breadcrumbs.tsx:42
+#: components/layout/Breadcrumbs.tsx:40
 msgid "Validate table"
 msgstr "Validate table"
 
 #: components/layout/Menu.tsx:49
-#: routes/$languageId/table/validate.tsx:10
+#: routes/$languageId/table/validate.tsx:22
+#: routes/$languageId/table/validate.tsx:45
 msgid "Validate Table"
 msgstr "Validate Table"
 
 #: routes/$languageId/index.tsx:27
-#: routes/$languageId/table/validate.tsx:14
+#: routes/$languageId/table/validate.tsx:26
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 
+#: routes/$languageId/table/validate.tsx:48
+msgid "Validate table structure for correctness and compliance, and automatically infer table schema from your tabular data"
+msgstr "Validate table structure for correctness and compliance, and automatically infer table schema from your tabular data"
+
+#: routes/$languageId/data/validate.tsx:160
+msgid "Validating Data..."
+msgstr "Validating Data..."
+
+#: routes/$languageId/dataset/validate.tsx:166
+msgid "Validating Dataset..."
+msgstr "Validating Dataset..."
+
+#: routes/$languageId/file/validate.tsx:213
+msgid "Validating File..."
+msgstr "Validating File..."
+
+#: routes/$languageId/table/validate.tsx:172
+msgid "Validating Table..."
+msgstr "Validating Table..."
+
+#: components/report/Error.tsx:79
+#: components/report/Error.tsx:97
+#: components/report/Error.tsx:116
+#: components/report/Error.tsx:134
+#: components/report/Error.tsx:152
+#: components/report/Error.tsx:171
+#: components/report/Error.tsx:208
+#: components/report/Error.tsx:226
+#: components/report/Error.tsx:263
+#: components/report/Error.tsx:281
+#: components/report/Error.tsx:299
+#: components/report/Error.tsx:333
+#: components/report/Error.tsx:350
+msgid "Value of the cell"
+msgstr "Value of the cell"
+
+#: components/report/Error.tsx:153
+msgid "violates JSON schema at"
+msgstr "violates JSON schema at"
+
+#: components/report/Error.tsx:522
+msgid "violates primary key constraint on columns"
+msgstr "violates primary key constraint on columns"
+
+#: components/report/Error.tsx:538
+msgid "violates unique key constraint on columns"
+msgstr "violates unique key constraint on columns"
+
 #: routes/__root.tsx:30
+#: routes/$languageId/index.tsx:52
 msgid "Visual tool for managing and validating tabular and structured data"
 msgstr "Visual tool for managing and validating tabular and structured data"
 
-#: components/layout/Credits.tsx:32
+#: components/layout/Credits.tsx:28
 msgid "We are bringing technological innovation and consultancy services to the open data field"
 msgstr "We are bringing technological innovation and consultancy services to the open data field"
