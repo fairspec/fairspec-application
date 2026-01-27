@@ -13,6 +13,7 @@ export {
   CheckCircle as Success,
   CircleHelp as Help,
   CornerDownLeft as Enter,
+  Download,
   ExternalLink,
   FileJson as Data,
   FilePlusCorner as Add,

@@ -3,6 +3,7 @@ import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { JsonEditor } from "json-edit-react"
 import { useState } from "react"
 import type * as z from "zod"
 import { Dialog } from "#components/dialog/Dialog.tsx"
@@ -10,6 +11,7 @@ import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
+import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/$languageId/file/infer-dialect")({
@@ -96,6 +98,22 @@ function Form() {
     }
   }
 
+  const handleDownloadDialect = () => {
+    if (!dialect) return
+
+    const blob = new Blob([JSON.stringify(dialect, null, 2)], {
+      type: "application/json",
+    })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = "dialect.json"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <form
       id="form"
@@ -141,9 +159,18 @@ function Form() {
             errorTitle={error?.message ?? t`Failed to Infer Dialect`}
           />
           {dialect && (
-            <pre className="bg-muted p-4 rounded-lg overflow-auto">
-              <code>{JSON.stringify(dialect, null, 2)}</code>
-            </pre>
+            <>
+              <div className="bg-muted p-4 rounded-lg overflow-auto">
+                <JsonEditor data={dialect} setData={setDialect} />
+              </div>
+              <Button
+                size="lg"
+                onClick={handleDownloadDialect}
+                className="w-full text-xl h-12"
+              >
+                <Trans>Save</Trans>
+              </Button>
+            </>
           )}
         </div>
       </Dialog>
