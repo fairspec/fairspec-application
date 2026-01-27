@@ -1,4 +1,5 @@
 import { useLingui } from "@lingui/react/macro"
+import { useMatches, useNavigate } from "@tanstack/react-router"
 import { De, Es, Fr, Gb, It, Pt, Ru, Ua } from "react-flags-select"
 import { type LanguageId, Languages } from "#constants/language.ts"
 import { Button } from "#elements/button.tsx"
@@ -24,11 +25,17 @@ const LANGUAGE_FLAGS = {
 
 export function Language() {
   const { t } = useLingui()
+  const matches = useMatches()
+  const navigate = useNavigate()
 
   const onLanguageChange = (languageId: LanguageId) => {
-    const location = globalThis.location
-    if (location) {
-      location.href = `/${languageId}`
+    const path = matches.at(-1)?.fullPath
+    if (path) {
+      navigate({
+        to: path,
+        params: { languageId },
+        reloadDocument: true,
+      })
     }
   }
 
