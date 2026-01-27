@@ -89,6 +89,9 @@ function Form() {
       onError: error => {
         setError(error)
         setStatusType("error")
+        // TODO: Fix types
+        // @ts-expect-error
+        if (error.data.report) setReport(error.data.report)
       },
     }),
   )
@@ -188,7 +191,7 @@ function Form() {
             statusType={statusType}
             pendingTitle={t`Validating File...`}
             successTitle={t`Valid File`}
-            errorTitle={error?.message ?? t`File Errors`}
+            errorTitle={error?.message ?? t`Invalid File`}
           />
           {!!report && <Report report={report} />}
         </div>

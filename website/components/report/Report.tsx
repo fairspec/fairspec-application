@@ -35,7 +35,7 @@ export function Report(props: { report: fairspec.Report }) {
                   value={type}
                   className={`w-full sm:w-auto uppercase ${selectedType === type ? "font-bold" : "font-normal"}`}
                 >
-                  {t`${type}`} ({errorsByType[type].length})
+                  {type === "all" ? t`All Errors` : type} ({errorsByType[type].length})
                 </TabsTrigger>
               )
             })}
