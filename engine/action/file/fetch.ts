@@ -23,7 +23,7 @@ export async function prefetchFile(
     return undefined
   }
 
-  const maxBytes = ["data", "table"].includes(fileType)
+  const maxBytes = ["table", "data", "file"].includes(fileType)
     ? settings.DATA_MAX_BYTES
     : settings.METADATA_MAX_BYTES
 
