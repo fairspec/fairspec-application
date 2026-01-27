@@ -10,7 +10,9 @@ import { validateFileEndpoint } from "./endpoints/file/validate.ts"
 export const router = {
   data: {
     validate: validateDataEndpoint,
-    inferSchema: inferDataSchemaEndpoint,
+  },
+  dataSchema: {
+    infer: inferDataSchemaEndpoint,
   },
   dataset: {
     infer: inferDatasetEndpoint,
@@ -24,7 +26,9 @@ export const router = {
   },
   table: {
     validate: validateTableEndpoint,
-    inferSchema: inferTableSchemaEndpoint,
+  },
+  tableSchema: {
+    infer: inferTableSchemaEndpoint,
   },
 }
 

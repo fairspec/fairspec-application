@@ -69,7 +69,7 @@ function Form() {
   })
 
   const inferSchema = useMutation(
-    engine.data.inferSchema.mutationOptions({
+    engine.dataSchema.infer.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
