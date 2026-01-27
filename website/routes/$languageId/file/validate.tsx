@@ -12,7 +12,14 @@ import { useAppForm } from "#components/form/hooks.ts"
 import { Report } from "#components/report/Report.tsx"
 import { Button } from "#elements/button.tsx"
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "#elements/field.tsx"
-import { InputGroup, InputGroupInput, InputGroupSelect } from "#elements/input-group.tsx"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupSelect,
+} from "#elements/input-group.tsx"
+import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/$languageId/file/validate")({
@@ -155,13 +162,27 @@ function Form() {
             <form.Field
               name="hashValue"
               children={field => (
-                <InputGroupInput
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={e => field.handleChange(e.target.value)}
-                  placeholder={t`Enter hash value`}
-                />
+                <>
+                  <InputGroupInput
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={e => field.handleChange(e.target.value)}
+                    placeholder={t`Enter hash value`}
+                  />
+                  {field.state.value && (
+                    <InputGroupAddon align="inline-end">
+                      <InputGroupButton
+                        onClick={() => field.handleChange("")}
+                        variant="ghost"
+                        size="icon-xs"
+                        aria-label="Clear field"
+                      >
+                        <icons.Close />
+                      </InputGroupButton>
+                    </InputGroupAddon>
+                  )}
+                </>
               )}
             />
           </InputGroup>
