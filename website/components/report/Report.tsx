@@ -3,9 +3,9 @@ import { useLingui } from "@lingui/react/macro"
 import { groupBy } from "es-toolkit"
 import { useState } from "react"
 import { objectKeys } from "ts-extras"
-import { Error } from "#components/error/Error.tsx"
 import { Card, CardContent } from "#elements/card.tsx"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "#elements/tabs.tsx"
+import { Error } from "./Error.tsx"
 
 export function Report(props: { report: fairspec.Report }) {
   const { t } = useLingui()
