@@ -1,6 +1,6 @@
 appId: fairspec
 copyright: Copyright © 2025 ${author}
-artifactName: fairspec-desktop-${os}-${version}.${ext}
+artifactName: fairspec-${os}-${version}.${ext}
 
 # General
 
@@ -9,11 +9,14 @@ artifactName: fairspec-desktop-${os}-${version}.${ext}
 #   owner: fairspec
 #   releaseType: draft
 files:
-  - "build/client/**/*"
-  - "build/desktop/**/*"
-extraResources:
-  - from: "build/server"
-    to: "server"
+  - "build/main/**/*"
+  - "build/preload/**/*"
+  - "build/renderer/**/*"
+# extraResources:
+#   - from: "build/server"
+#     to: "server"
+directories:
+  output: build
 
 # Linux
 

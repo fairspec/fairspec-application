@@ -1,7 +1,7 @@
 import { stat } from "node:fs/promises"
 import nodePath from "node:path"
 import { protocol } from "electron"
-import * as settings from "#settings.ts"
+import * as settings from "./settings.ts"
 
 // TODO: rebase on the fetch API
 // https://www.electronjs.org/docs/latest/api/protocol#protocolhandlescheme-handler

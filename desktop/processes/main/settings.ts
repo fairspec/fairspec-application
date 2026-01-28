@@ -6,6 +6,8 @@ export const APP_USER_MODEL_ID = "org.fairspec.application"
 
 export const WEBSITE_FOLDER = nodePath.join(
   import.meta.dirname,
+  "..",
+  "..",
   "node_modules",
   "@fairspec",
   "website",

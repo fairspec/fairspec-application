@@ -17,7 +17,11 @@ export default defineConfig({
     !isSpa ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
     tanstackStart({
       srcDirectory: ".",
-      spa: { enabled: isSpa, prerender: { outputPath: "/index.html" } },
+      spa: {
+        enabled: isSpa,
+        maskPath: "/en",
+        prerender: { outputPath: "/index.html" },
+      },
     }),
     react({
       babel: {

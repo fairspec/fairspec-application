@@ -1,6 +1,6 @@
 import nodePath from "node:path"
 import { BrowserWindow } from "electron"
-import * as settings from "#settings.ts"
+import * as settings from "./settings.ts"
 // @ts-expect-error
 // import icon from "../assets/fairspec-logo.svg?asset"
 
