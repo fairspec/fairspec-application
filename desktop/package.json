@@ -3,11 +3,26 @@
   "type": "module",
   "version": "0.0.0-dev",
   "private": true,
-  "exports": "./index.ts",
   "imports": {
     "#*": "./*"
   },
   "scripts": {
+    "build": "pnpm build:website && pnpm build:desktop",
+    "build:desktop": "electron-vite build",
+    "build:website": "cd ../website && pnpm build",
+    "start": "electron-vite dev",
     "type": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@fairspec/website": "workspace:*",
+    "@fairspec/engine": "workspace:*",
+    "@electron-toolkit/utils": "4.0.0",
+    "@loglayer/transport-electron-log": "2.1.10",
+    "electron-log": "5.4.3",
+    "loglayer": "6.9.1",
+    "electron-vite": "4.0.1",
+    "electron": "39.1.2",
+    "electron-builder": "26.0.12",
+    "electron-updater": "6.6.2"
   }
 }
