@@ -7,13 +7,18 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
+const isDesktop = !!process.env.DESKTOP
+const buildFolder = isDesktop ? "../desktop/build/website" : "./build"
+
 export default defineConfig({
+  build: { outDir: buildFolder },
   plugins: [
     devtools(),
     tailwind(),
-    cloudflare({ viteEnvironment: { name: "ssr" } }),
+    !isDesktop ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
     tanstackStart({
       srcDirectory: ".",
+      spa: { enabled: isDesktop },
     }),
     react({
       babel: {
