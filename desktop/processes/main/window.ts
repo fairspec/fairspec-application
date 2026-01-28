@@ -1,7 +1,6 @@
 import nodePath from "node:path"
 import { is } from "@electron-toolkit/utils"
 import { BrowserWindow } from "electron"
-// @ts-expect-error
 // import icon from "#assets/fairspec-logo.svg?asset"
 import * as settings from "#settings.ts"
 
@@ -11,6 +10,7 @@ export function createWindow() {
 
   const mainWindow = new BrowserWindow({
     show: false,
+    frame: false,
     // ...(process.platform === "linux" ? { icon } : {}),
     webPreferences: {
       preload: preloadPath,
