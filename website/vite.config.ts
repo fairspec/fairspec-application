@@ -19,7 +19,6 @@ export default defineConfig({
       srcDirectory: ".",
       spa: {
         enabled: isSpa,
-        maskPath: "/en",
         prerender: { outputPath: "/index.html" },
       },
     }),

@@ -3,9 +3,9 @@ import { electronApp, optimizer } from "@electron-toolkit/utils"
 import { app, BrowserWindow, dialog } from "electron"
 import packageJson from "#package.json" with { type: "json" }
 import { logger } from "#services/logger.ts"
+import * as settings from "#settings.ts"
 import { createBridge } from "./bridge.ts"
 import { createProxy } from "./proxy.ts"
-import * as settings from "./settings.ts"
 import { createWindow } from "./window.ts"
 
 // This method will be called when Electron has finished
