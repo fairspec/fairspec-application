@@ -24,7 +24,7 @@ async function checkFileExistence(path: string) {
   try {
     const stats = await stat(path)
     return stats.isFile()
-  } catch (error) {
+  } catch {
     return false
   }
 }

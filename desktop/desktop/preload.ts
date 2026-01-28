@@ -1,4 +1,4 @@
 import { contextBridge } from 'electron'
 
-contextBridge.exposeInMainWorld('dpkit', {
+contextBridge.exposeInMainWorld('desktop', {
 })

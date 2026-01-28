@@ -16,12 +16,12 @@ export default defineConfig({
     },
   },
   renderer: {
-    root: "build/website/client",
+    root: "../website/render/client",
     build: {
       outDir: "build/renderer",
       rollupOptions: {
         input: {
-          index: "build/website/client/index.html",
+          index: "../website/render/client/index.html",
         },
       },
     },

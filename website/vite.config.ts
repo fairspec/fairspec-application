@@ -8,17 +8,21 @@ import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
 const isDesktop = !!process.env.DESKTOP
-const buildFolder = isDesktop ? "../desktop/build/website" : "./build"
 
 export default defineConfig({
-  build: { outDir: buildFolder },
+  build: { outDir: isDesktop ? "render" : "build" },
   plugins: [
     devtools(),
     tailwind(),
     !isDesktop ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
     tanstackStart({
       srcDirectory: ".",
-      spa: { enabled: isDesktop },
+      spa: {
+        enabled: isDesktop,
+        prerender: {
+          outputPath: "/index.html",
+        },
+      },
     }),
     react({
       babel: {

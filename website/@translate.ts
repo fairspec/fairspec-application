@@ -9,16 +9,12 @@ import { objectKeys } from "ts-extras"
 import { z } from "zod"
 import { type LanguageId, LanguageIdDefault, Languages } from "#constants/language.ts"
 
-process.chdir(import.meta.dirname)
 dotenv.config({ path: ".env.local" })
 
-const $ = execa({
-  stdout: ["inherit", "pipe"],
-  verbose: "short",
-  preferLocal: true,
-})
+process.chdir(import.meta.dirname)
+const shell = execa({ stdout: ["inherit"], preferLocal: true, shell: true })
 
-await $`lingui extract`
+await shell`lingui extract`
 await translateLanguages()
 // Handled by Vite
 // await $`lingui compile`

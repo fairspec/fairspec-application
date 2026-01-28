@@ -216,9 +216,6 @@ importers:
       sonner:
         specifier: ^2.0.7
         version: 2.0.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      srvx:
-        specifier: 0.8.15
-        version: 0.8.15
       tailwind-merge:
         specifier: 3.4.0
         version: 3.4.0
@@ -7049,11 +7046,6 @@ packages:
 
   srvx@0.10.1:
     resolution: {integrity: sha512-A//xtfak4eESMWWydSRFUVvCTQbSwivnGCEf8YGPe2eHU0+Z6znfUTCPF0a7oV3sObSOcrXHlL6Bs9vVctfXdg==}
-    engines: {node: '>=20.16.0'}
-    hasBin: true
-
-  srvx@0.8.15:
-    resolution: {integrity: sha512-poPs1GuctQLpiJ/1Pb8e+5b5lju9hQU7wxJ6NkYVUw7ZZExeRoYwyiaOekal+rDZc99MO/J2y9+SGFpHBKRSpQ==}
     engines: {node: '>=20.16.0'}
     hasBin: true
 
@@ -15738,10 +15730,6 @@ snapshots:
     optional: true
 
   srvx@0.10.1: {}
-
-  srvx@0.8.15:
-    dependencies:
-      cookie-es: 2.0.0
 
   ssri@9.0.1:
     dependencies:
