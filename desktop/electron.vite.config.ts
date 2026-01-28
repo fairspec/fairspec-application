@@ -14,12 +14,13 @@ export default defineConfig({
     },
   },
   renderer: {
-    root: "node_modules/@fairspec/website/build/spa/client",
+    root: "../website/build/spa/client",
+    server: { port: 5000 },
     build: {
       outDir: "build/renderer",
       rollupOptions: {
         input: {
-          index: "node_modules/@fairspec/website/build/spa/client/index.html",
+          index: "../website/build/spa/client/index.html",
         },
       },
     },
