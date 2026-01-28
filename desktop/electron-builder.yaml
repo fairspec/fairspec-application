@@ -6,7 +6,7 @@ artifactName: fairspec-desktop-${os}-${version}.${ext}
 
 # publish:
 #   provider: github
-#   owner: datisthq
+#   owner: fairspec
 #   releaseType: draft
 files:
   - "build/client/**/*"

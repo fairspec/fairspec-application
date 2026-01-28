@@ -7,7 +7,9 @@
     "#*": "./*"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "pnpm /build:/",
+    "build:ssr": "vite build",
+    "build:spa": "SPA=true vite build",
     "generate": "wrangler types",
     "preview": "vite preview",
     "render": "DESKTOP=true pnpm build",

@@ -1,6 +1,5 @@
 import { ElectronLogTransport } from "@loglayer/transport-electron-log"
-// @ts-ignore
-import log from "electron-log/main"
+import log from "electron-log/main.js"
 import { LogLayer } from "loglayer"
 
 // TODO: Setup proper on disk logging storage

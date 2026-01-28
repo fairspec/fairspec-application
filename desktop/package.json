@@ -3,13 +3,13 @@
   "type": "module",
   "version": "0.0.0-dev",
   "private": true,
-  "main": "build/main/main.js",
+  "main": "processes/main/main.ts",
   "imports": {
     "#*": "./*"
   },
   "scripts": {
-    "build": "electron-vite build",
-    "start": "electron-vite dev --port 5000",
+    "build": "electron-builder",
+    "start": "electron . --port 5000",
     "type": "tsc --noEmit"
   },
   "devDependencies": {
