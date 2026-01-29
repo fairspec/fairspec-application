@@ -2,9 +2,9 @@ import { electronApp, optimizer } from "@electron-toolkit/utils"
 import { app, BrowserWindow, dialog } from "electron"
 // @ts-expect-error
 import iconPath from "#assets/fairspec-logo.svg?asset"
+import { logger } from "#desktop/services/logger.ts"
+import * as settings from "#desktop/settings.ts"
 import packageJson from "#package.json" with { type: "json" }
-import { logger } from "#services/logger.ts"
-import * as settings from "#settings.ts"
 import { createBridge } from "./bridge.ts"
 import { createProxy } from "./proxy.ts"
 import { createWindow } from "./window.ts"

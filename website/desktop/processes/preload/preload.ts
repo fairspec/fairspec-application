@@ -1,4 +1,4 @@
-const { contextBridge } = require("electron")
+import { contextBridge } from "electron"
 // import { electronAPI } from '@electron-toolkit/preload'
 
 contextBridge.exposeInMainWorld("desktop", {})
