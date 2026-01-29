@@ -13,6 +13,10 @@ import * as settings from "#settings.ts"
 export function Share() {
   const { t } = useLingui()
 
+  if ("desktop" in globalThis) {
+    return null
+  }
+
   const currentUrl = globalThis.location?.href || ""
   const items = SHARE_PROVIDERS.map(provider => {
     const Component = provider.component

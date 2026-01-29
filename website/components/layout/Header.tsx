@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "./Breadcrumbs.tsx"
+import { Close } from "./Close.tsx"
 import { Language } from "./Language.tsx"
 import { Links } from "./Links.tsx"
 import { Logo } from "./Logo.tsx"
@@ -16,6 +17,7 @@ export function Header() {
           <Theme />
           <Language />
           <Share />
+          <Close />
         </div>
       </div>
     </header>
