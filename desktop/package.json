@@ -1,0 +1,36 @@
+{
+  "name": "@fairspec/desktop",
+  "type": "module",
+  "version": "0.0.0-dev",
+  "private": true,
+  "main": "build/main/main.js",
+  "imports": {
+    "#*": "./*"
+  },
+  "license": "MIT",
+  "author": "Evgeny Karev",
+  "repository": "https://github.com/fairspec/fairspec-application",
+  "homepage": "https://application.fairspec.org",
+  "description": "Fairspec Application is a visual tool for managing and validating tabular and structured data",
+  "scripts": {
+    "build": "electron-vite build",
+    "compile": "electron-builder",
+    "start": "electron-vite dev",
+    "type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@electron-toolkit/utils": "4.0.0",
+    "@electron-toolkit/preload": "3.0.2",
+    "@fairspec/engine": "workspace:*",
+    "@loglayer/transport-electron-log": "2.1.16",
+    "electron-log": "5.4.3",
+    "loglayer": "6.9.1"
+  },
+  "devDependencies": {
+    "@fairspec/website": "workspace:*",
+    "electron": "40.1.0",
+    "electron-builder": "26.4.0",
+    "electron-updater": "6.7.3",
+    "electron-vite": "5.0.0"
+  }
+}
