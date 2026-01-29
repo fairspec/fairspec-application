@@ -5,7 +5,7 @@
   "private": true,
   "exports": {
     ".": "./index.ts",
-    "handlers/electron": "./handlers/electron.ts"
+    "./handlers/electron": "./handlers/electron.ts"
   },
   "imports": {
     "#*": "./*"

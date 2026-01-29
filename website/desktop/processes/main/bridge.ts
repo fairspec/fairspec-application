@@ -1,10 +1,14 @@
-import { electronRpcHandler } from "@engine/handlers/electron"
+import { electronRpcHandler } from "@fairspec/engine/handlers/electron"
 import { dialog, ipcMain } from "electron"
 
 export function createBridge() {
   ipcMain.on("engine:start", async event => {
     const [serverPort] = event.ports
-    electronRpcHandler.upgrade(serverPort)
+
+    electronRpcHandler.upgrade(serverPort, {
+      isDesktop: true,
+    })
+
     serverPort.start()
   })
 
