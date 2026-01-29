@@ -20,7 +20,7 @@ linux:
   icon: icon.icns
   target:
     - AppImage
-    - deb
+    # - deb
 
 # Macos
 # Some resources to understand values and github secrets

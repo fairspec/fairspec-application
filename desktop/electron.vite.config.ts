@@ -5,6 +5,10 @@ export default defineConfig({
     build: {
       lib: { entry: "processes/main/main.ts" },
       outDir: "build/main",
+      externalizeDeps: false,
+      rollupOptions: {
+        external: ["nodejs-polars"],
+      },
     },
   },
   preload: {
@@ -14,6 +18,7 @@ export default defineConfig({
         formats: ["cjs"],
       },
       outDir: "build/preload",
+      externalizeDeps: false,
       rollupOptions: {
         output: {
           entryFileNames: "preload.js",
