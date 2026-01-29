@@ -7,11 +7,10 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
-// TODO: For some reason, electron-vite doesn't build correctly so we use this config
 const isDesktop = !!process.env.DESKTOP
 
 export default defineConfig({
-  build: { outDir: isDesktop ? "desktop/build/renderer" : "build" },
+  build: { outDir: isDesktop ? "build/desktop" : "build" },
   plugins: [
     devtools(),
     tailwind(),

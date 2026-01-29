@@ -17,7 +17,7 @@
     "install:ci": "pnpm install --ignore-scripts",
     "prepare": "husky",
     "spec": "vitest run",
-    "start": "pnpm -F website start:desktop",
+    "start": "pnpm --parallel -F engine -F website start",
     "test": "pnpm lint && pnpm type && pnpm spec",
     "type": "pnpm -r type"
   },
