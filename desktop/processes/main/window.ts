@@ -3,7 +3,7 @@ import { is } from "@electron-toolkit/utils"
 import { BrowserWindow } from "electron"
 // @ts-expect-error
 import iconPath from "#assets/fairspec-logo.svg?asset"
-import * as settings from "#desktop/settings.ts"
+import * as settings from "#settings.ts"
 
 export function createWindow() {
   const preloadFolder = join(import.meta.dirname, "..", "preload")
@@ -51,9 +51,9 @@ export function createWindow() {
   })
 
   if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
-    mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"])
+    mainWindow.loadURL("http://localhost:5000")
   } else {
-    mainWindow.loadFile(join(rendererFolder, "client", "index.html"))
+    mainWindow.loadFile(join(rendererFolder, "index.html"))
   }
 
   return mainWindow

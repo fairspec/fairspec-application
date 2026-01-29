@@ -9,11 +9,11 @@ export function createProxy() {
     const rendererFolder = join(import.meta.dirname, "..", "renderer")
 
     const url = new URL(request.url)
-    let path = join(rendererFolder, "client", url.pathname)
+    let path = join(rendererFolder, url.pathname)
 
     const isExists = await checkFileExistence(path)
     if (!isExists) {
-      path = join(rendererFolder, "client", "index.html")
+      path = join(rendererFolder, "index.html")
     }
 
     callback({ path })

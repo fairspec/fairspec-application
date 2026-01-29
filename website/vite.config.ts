@@ -7,19 +7,18 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
-// TODO: For some reason, electron-vite doesn't build correctly so we use this config
-const desktop = !!process.env.DESKTOP
+const isSpa = !!process.env.SPA
 
 export default defineConfig({
-  build: { outDir: desktop ? "desktop/build/renderer" : "build" },
+  build: { outDir: isSpa ? "build/spa" : "build/ssr" },
   plugins: [
     devtools(),
     tailwind(),
-    !desktop ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
+    !isSpa ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
     tanstackStart({
       srcDirectory: ".",
       spa: {
-        enabled: desktop,
+        enabled: isSpa,
         prerender: { outputPath: "/index.html" },
       },
     }),
