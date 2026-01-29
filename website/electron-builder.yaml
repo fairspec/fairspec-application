@@ -9,14 +9,14 @@ artifactName: fairspec-${os}-${version}.${ext}
 #   owner: fairspec
 #   releaseType: draft
 files:
-  - "build/main/**/*"
-  - "build/preload/**/*"
-  - "build/renderer/**/*"
+  - "desktop/build/main/**/*"
+  - "desktop/build/preload/**/*"
+  - "desktop/build/renderer/**/*"
 # extraResources:
 #   - from: "build/server"
 #     to: "server"
 directories:
-  output: build
+  output: desktop/compile
 
 # Linux
 

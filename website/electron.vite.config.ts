@@ -9,17 +9,17 @@ import svgr from "vite-plugin-svgr"
 export default defineConfig({
   main: {
     build: {
-      lib: { entry: "processes/main/main.ts" },
-      outDir: "build/main",
+      lib: { entry: "desktop/processes/main/main.ts" },
+      outDir: "desktop/build/main",
     },
   },
   preload: {
     build: {
       lib: {
-        entry: "processes/preload/preload.ts",
+        entry: "desktop/processes/preload/preload.ts",
         formats: ["cjs"],
       },
-      outDir: "build/preload",
+      outDir: "desktop/build/preload",
       rollupOptions: {
         output: {
           entryFileNames: "preload.js",
@@ -28,14 +28,21 @@ export default defineConfig({
     },
   },
   renderer: {
-    root: "../",
+    root: ".",
     server: { port: 5000 },
-    build: { outDir: "build/renderer" },
+    build: {
+      outDir: "desktop/build/renderer",
+      rollupOptions: {
+        input: {
+          index: "desktop/build/renderer/client/index.html",
+        },
+      },
+    },
     plugins: [
       devtools(),
       tailwind(),
       tanstackStart({
-        srcDirectory: "../",
+        srcDirectory: ".",
         spa: {
           enabled: true,
           prerender: { outputPath: "/index.html" },

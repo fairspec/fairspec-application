@@ -3,17 +3,19 @@
   "type": "module",
   "version": "0.0.0-dev",
   "private": true,
+  "main": "desktop/build/main/main.js",
   "imports": {
     "#*": "./*"
   },
   "scripts": {
-    "build": "pnpm /build:/",
-    "build:ssr": "vite build",
-    "build:spa": "SPA=true vite build",
+    "build": "vite build",
+    "build:desktop": "electron-vite build",
+    "compile:desktop": "electron-builder",
     "generate": "wrangler types",
     "preview": "vite preview",
     "render": "DESKTOP=true pnpm build",
     "start": "vite dev --port 5000",
+    "start:desktop": "electron-vite dev",
     "translate": "node @translate.ts",
     "type": "tsc --noEmit",
     "ui": "shadcn"
