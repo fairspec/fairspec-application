@@ -9,8 +9,16 @@ export default defineConfig({
   },
   preload: {
     build: {
-      lib: { entry: "processes/preload/preload.ts" },
+      lib: {
+        entry: "processes/preload/preload.ts",
+        formats: ["cjs"],
+      },
       outDir: "build/preload",
+      rollupOptions: {
+        output: {
+          entryFileNames: "preload.js",
+        },
+      },
     },
   },
   renderer: {
