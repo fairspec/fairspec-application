@@ -4,17 +4,11 @@ artifactName: fairspec-${os}-${version}.${ext}
 
 # General
 
-# publish:
-#   provider: github
-#   owner: fairspec
-#   releaseType: draft
 files:
   - "desktop/build/main/**/*"
   - "desktop/build/preload/**/*"
   - "desktop/build/renderer/**/*"
-# extraResources:
-#   - from: "build/server"
-#     to: "server"
+
 directories:
   output: desktop/compile
 
@@ -34,6 +28,7 @@ linux:
 # https://www.electron.build/code-signing
 # https://www.electron.build/app-builder-lib.interface.macconfiguration#notarize
 # https://github.com/electron/notarize
+
 mac:
   hardenedRuntime: true
   entitlements: "entitlements.mac.plist"
@@ -44,6 +39,7 @@ mac:
 
 win:
   executableName: fairspec
+
 nsis:
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}

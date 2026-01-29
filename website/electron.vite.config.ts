@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "electron-vite"
 import svgr from "vite-plugin-svgr"
 
-export default defineConfig(({ command }) => ({
+export default defineConfig({
   main: {
     build: {
       lib: { entry: "desktop/processes/main/main.ts" },
@@ -33,13 +33,7 @@ export default defineConfig(({ command }) => ({
     build: {
       outDir: "desktop/build/renderer",
       rollupOptions: {
-        // output: {
-        //   entryFileNames: "index.html",
-        // },
-        input:
-          command !== "build"
-            ? { index: "desktop/build/renderer/client/index.html" }
-            : undefined,
+        input: "virtual:tanstack-start-client-entry",
       },
     },
     plugins: [
@@ -61,4 +55,4 @@ export default defineConfig(({ command }) => ({
       svgr(),
     ],
   },
-}))
+})
