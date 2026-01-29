@@ -1,4 +1,4 @@
-import nodePath from "node:path"
+import { join } from "node:path"
 import { is } from "@electron-toolkit/utils"
 import { BrowserWindow } from "electron"
 // @ts-expect-error
@@ -6,15 +6,15 @@ import iconPath from "#assets/fairspec-logo.svg?asset"
 import * as settings from "#desktop/settings.ts"
 
 export function createWindow() {
-  const indexPath = nodePath.join(import.meta.dirname, "..", "renderer", "index.html")
-  const preloadPath = nodePath.join(import.meta.dirname, "..", "preload", "preload.js")
+  const preloadFolder = join(import.meta.dirname, "..", "preload")
+  const rendererFolder = join(import.meta.dirname, "..", "renderer")
 
   const mainWindow = new BrowserWindow({
     show: false,
     frame: false,
     ...(process.platform === "linux" ? { icon: iconPath } : {}),
     webPreferences: {
-      preload: preloadPath,
+      preload: join(preloadFolder, "preload.js"),
       contextIsolation: true,
     },
   })
@@ -53,7 +53,7 @@ export function createWindow() {
   if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
     mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"])
   } else {
-    mainWindow.loadFile(indexPath)
+    mainWindow.loadFile(join(rendererFolder, "client", "index.html"))
   }
 
   return mainWindow

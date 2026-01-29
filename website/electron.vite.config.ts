@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "electron-vite"
 import svgr from "vite-plugin-svgr"
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   main: {
     build: {
       lib: { entry: "desktop/processes/main/main.ts" },
@@ -33,9 +33,13 @@ export default defineConfig({
     build: {
       outDir: "desktop/build/renderer",
       rollupOptions: {
-        input: {
-          index: "desktop/build/renderer/client/index.html",
-        },
+        // output: {
+        //   entryFileNames: "index.html",
+        // },
+        input:
+          command !== "build"
+            ? { index: "desktop/build/renderer/client/index.html" }
+            : undefined,
       },
     },
     plugins: [
@@ -57,4 +61,4 @@ export default defineConfig({
       svgr(),
     ],
   },
-})
+}))
