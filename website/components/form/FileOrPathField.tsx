@@ -21,6 +21,7 @@ export function FileOrPathField(props: {
 }) {
   const field = useFieldContext<File | string>()
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const isDesktop = "desktop" in globalThis
 
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
   const value = field.state.value
@@ -43,6 +44,24 @@ export function FileOrPathField(props: {
       ".feather",
       ".sqlite",
     )
+  }
+
+  const handleDesktopFileSelect = async () => {
+    if (!isDesktop || !globalThis.desktop) return
+
+    const filters = fileInputAccept
+      ? [
+          {
+            name: props.fileType === "table" ? "Table Files" : "JSON Files",
+            extensions: fileInputAccept.map(ext => ext.slice(1)),
+          },
+        ]
+      : undefined
+
+    const filePath = await globalThis.desktop.openFileDialog({ filters })
+    if (filePath) {
+      field.handleChange(filePath)
+    }
   }
 
   return (
@@ -80,7 +99,9 @@ export function FileOrPathField(props: {
         />
         <InputGroupAddon align="inline-start">
           <InputGroupButton
-            onClick={() => fileInputRef.current?.click()}
+            onClick={
+              isDesktop ? handleDesktopFileSelect : () => fileInputRef.current?.click()
+            }
             variant="secondary"
             disabled={props.disabled}
           >

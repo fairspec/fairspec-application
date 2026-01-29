@@ -16,7 +16,6 @@
     "compile:desktop": "electron-builder",
     "generate": "wrangler types",
     "preview": "vite preview",
-    "render": "DESKTOP=true pnpm build",
     "start": "vite dev --port 5000",
     "start:desktop": "electron-vite dev",
     "translate": "node @translate.ts",

@@ -1,4 +1,7 @@
-import { contextBridge } from "electron"
-// import { electronAPI } from '@electron-toolkit/preload'
+import { contextBridge, ipcRenderer } from "electron"
 
-contextBridge.exposeInMainWorld("desktop", {})
+contextBridge.exposeInMainWorld("desktop", {
+  openFileDialog: async (options: { filters?: { name: string; extensions: string[] }[] }) => {
+    return await ipcRenderer.invoke("dialog:openFile", options)
+  },
+})

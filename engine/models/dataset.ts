@@ -1,9 +1,9 @@
 import { z } from "zod"
 
 export const InferDatasetInput = z.object({
-  file: z.union([z.instanceof(File), z.httpUrl()]),
+  file: z.union([z.instanceof(File), z.string()]),
 })
 
 export const ValidateDatasetInput = z.object({
-  dataset: z.union([z.instanceof(File), z.httpUrl()]),
+  dataset: z.union([z.instanceof(File), z.string()]),
 })

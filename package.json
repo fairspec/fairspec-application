@@ -8,7 +8,6 @@
     "pnpm": "^10.0.0"
   },
   "scripts": {
-    "build": "pnpm -F website build",
     "bump": "ncu -ws -u",
     "clean": "rm -rf **/node_modules",
     "coverage": "sensible-browser coverage/index.html",
@@ -18,7 +17,7 @@
     "install:ci": "pnpm install --ignore-scripts",
     "prepare": "husky",
     "spec": "vitest run",
-    "start": "pnpm --parallel -F engine -F website start",
+    "start": "pnpm -F website start:desktop",
     "test": "pnpm lint && pnpm type && pnpm spec",
     "type": "pnpm -r type"
   },
