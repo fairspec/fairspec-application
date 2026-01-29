@@ -8,8 +8,10 @@
     "pnpm": "^10.0.0"
   },
   "scripts": {
+    "build": "pnpm -r build",
     "bump": "ncu -ws -u",
     "clean": "rm -rf **/node_modules",
+    "compile": "pnpm -r compile",
     "coverage": "sensible-browser coverage/index.html",
     "generate": "pnpm --parallel generate",
     "format": "biome check --write",
