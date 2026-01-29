@@ -21,7 +21,7 @@ export function FileOrPathField(props: {
 }) {
   const field = useFieldContext<File | string>()
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const isDesktop = "desktop" in globalThis
+  const isDesktop = !!globalThis.desktop
 
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
   const value = field.state.value

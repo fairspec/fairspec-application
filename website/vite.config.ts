@@ -8,18 +8,18 @@ import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
 // TODO: For some reason, electron-vite doesn't build correctly so we use this config
-const desktop = !!process.env.DESKTOP
+const isDesktop = !!process.env.DESKTOP
 
 export default defineConfig({
-  build: { outDir: desktop ? "desktop/build/renderer" : "build" },
+  build: { outDir: isDesktop ? "desktop/build/renderer" : "build" },
   plugins: [
     devtools(),
     tailwind(),
-    !desktop ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
+    !isDesktop ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
     tanstackStart({
       srcDirectory: ".",
       spa: {
-        enabled: desktop,
+        enabled: isDesktop,
         prerender: { outputPath: "/index.html" },
       },
     }),
