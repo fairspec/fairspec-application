@@ -13,7 +13,7 @@ export function createEngineService(
   const createLink = () => {
     if (options?.isDesktop) {
       const { port1: clientPort, port2: serverPort } = new MessageChannel()
-      window.postMessage("start-engine", "*", [serverPort])
+      window.postMessage("engine:start", "*", [serverPort])
       clientPort.start()
 
       return new MessagePortRpcLink({

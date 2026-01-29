@@ -7,11 +7,11 @@ contextBridge.exposeInMainWorld("desktop", {
 })
 
 window.addEventListener("message", (event) => {
-  if (event.data === "engine-start") {
+  if (event.data === "engine:start") {
     const [serverPort] = event.ports
 
     if (serverPort) {
-      ipcRenderer.postMessage('engine-start', null, [serverPort])
+      ipcRenderer.postMessage('engine:start', null, [serverPort])
     }
   }
 })
