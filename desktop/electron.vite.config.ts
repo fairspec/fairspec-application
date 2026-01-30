@@ -28,7 +28,7 @@ export default defineConfig({
   },
   renderer: {
     root: "../website/build/spa/client",
-    server: { port: 5000 },
+    server: { port: 5500 },
     build: {
       outDir: "build/renderer",
       rollupOptions: {

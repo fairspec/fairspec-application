@@ -11,10 +11,13 @@
     "#*": "./*"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "pnpm build:ssr && pnpm build:spa",
+    "build:ssr": "vite build",
+    "build:spa": "SPA=true vite build",
     "generate": "wrangler types",
     "preview": "vite preview",
     "start": "vite dev --port 5000",
+    "start:spa": "SPA=true vite dev --port 5000",
     "translate": "node @translate.ts",
     "type": "tsc --noEmit",
     "ui": "shadcn"

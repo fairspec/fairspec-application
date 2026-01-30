@@ -19,10 +19,10 @@ export function createWindow() {
     },
   })
 
-  if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
-    mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"])
+  if (is.dev) {
+    mainWindow.loadURL("http://localhost:5000/dataset/validate")
   } else {
-    mainWindow.loadFile("/en")
+    mainWindow.loadFile("/")
   }
 
   mainWindow.once("ready-to-show", () => {
