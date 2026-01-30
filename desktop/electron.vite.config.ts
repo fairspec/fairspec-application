@@ -27,13 +27,13 @@ export default defineConfig({
     },
   },
   renderer: {
-    root: "../website/build/spa/client",
+    root: "processes/renderer",
     server: { port: 5500 },
     build: {
       outDir: "build/renderer",
       rollupOptions: {
         input: {
-          index: "../website/build/spa/client/index.html",
+          index: "processes/renderer/index.html",
         },
       },
     },

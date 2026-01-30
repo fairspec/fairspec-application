@@ -20,7 +20,7 @@ export function createWindow() {
   })
 
   if (is.dev) {
-    mainWindow.loadURL("http://localhost:5000/dataset/validate")
+    mainWindow.loadURL("http://localhost:5000")
   } else {
     mainWindow.loadFile("/")
   }
