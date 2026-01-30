@@ -30,7 +30,7 @@ export default defineConfig({
     root: "processes/renderer",
     server: { port: 5500 },
     build: {
-      outDir: "build/renderer",
+      outDir: "build/renderer/not-used",
       rollupOptions: {
         input: {
           index: "processes/renderer/index.html",
