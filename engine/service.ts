@@ -7,13 +7,13 @@ import type { Router } from "./router.ts"
 export function createEngineService(
   url: string,
   options?: {
-    isDesktop?: boolean
+    engineIpc?: string
   },
 ) {
   const createLink = () => {
-    if (options?.isDesktop) {
+    if (options?.engineIpc) {
       const { port1: clientPort, port2: serverPort } = new MessageChannel()
-      window.postMessage("engine:start", "*", [serverPort])
+      window.postMessage(options.engineIpc, "*", [serverPort])
       clientPort.start()
 
       return new MessagePortRpcLink({
