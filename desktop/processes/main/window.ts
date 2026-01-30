@@ -7,7 +7,6 @@ import * as settings from "../../settings.ts"
 
 export function createWindow() {
   const preloadFolder = join(import.meta.dirname, "..", "preload")
-  const rendererFolder = join(import.meta.dirname, "..", "renderer")
 
   const mainWindow = new BrowserWindow({
     show: false,
@@ -22,6 +21,7 @@ export function createWindow() {
   if (is.dev) {
     mainWindow.loadURL("http://localhost:5000")
   } else {
+    // See proxy config
     mainWindow.loadFile("/")
   }
 

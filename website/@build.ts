@@ -7,7 +7,7 @@ const shell = execa({ stdout: ["inherit"], preferLocal: true, shell: true })
 
 // Desktop
 
-await shell`DESKTOP=true vite build`
+await shell`vite build`
 await shell`rm -rf ../desktop/build/renderer`
 await shell`cp -r build/client ../desktop/build/renderer`
 
