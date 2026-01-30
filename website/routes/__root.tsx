@@ -6,6 +6,7 @@ import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools"
 import {
   createRootRoute,
   HeadContent,
+  notFound,
   Outlet,
   Scripts,
   useParams,
@@ -15,7 +16,7 @@ import type * as React from "react"
 import { Layout } from "#components/layout/Layout.tsx"
 import { DefaultCatchBoundary } from "#components/system/DefaultCatchBoundary.tsx"
 import { NotFound } from "#components/system/NotFound.tsx"
-import { LanguageIdDefault } from "#constants/language.ts"
+import { LanguageIdDefault, Languages } from "#constants/language.ts"
 import { Toaster } from "#elements/sonner.tsx"
 import generalCss from "#styles/general.css?url"
 
@@ -50,6 +51,19 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  // TODO: improve NotFound page in this case
+  beforeLoad: ({ params }) => {
+    if ("languageSlug" in params) {
+      const language = Object.values(Languages).find(
+        language => language.slug === params.languageSlug,
+      )
+
+      if (!language) {
+        throw notFound()
+      }
+    }
+  },
+  // TODO: improve NotFound page
   notFoundComponent: () => <NotFound />,
   errorComponent: props => {
     return (
