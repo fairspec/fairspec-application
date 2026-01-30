@@ -1,8 +1,9 @@
 import { electronRpcHandler } from "@fairspec/engine/handlers/electron"
 import { dialog, ipcMain } from "electron"
+import * as settings from "#settings.ts"
 
 export function createBridge() {
-  ipcMain.on(import.meta.env.VITE_ENGINE_IPC, async event => {
+  ipcMain.on(settings.ENGINE_IPC, async event => {
     const [serverPort] = event.ports
 
     if (serverPort) {
