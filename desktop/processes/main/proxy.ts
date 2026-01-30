@@ -1,4 +1,3 @@
-import { stat } from "node:fs/promises"
 import { join } from "node:path"
 import { protocol } from "electron"
 
@@ -9,22 +8,15 @@ export function createProxy() {
     const rendererFolder = join(import.meta.dirname, "..", "renderer")
 
     const url = new URL(request.url)
-    let path = join(rendererFolder, url.pathname)
+    const assetName = url.pathname.split("/assets/")[1]
 
-    const isExists = await checkFileExistence(path)
-    if (!isExists) {
-      path = join(rendererFolder, "index.html")
-    }
+    console.log(request.url)
+    console.log(url.pathname)
+
+    const path = assetName
+      ? join(rendererFolder, "assets", assetName)
+      : join(rendererFolder, "index.html")
 
     callback({ path })
   })
-}
-
-async function checkFileExistence(path: string) {
-  try {
-    const stats = await stat(path)
-    return stats.isFile()
-  } catch {
-    return false
-  }
 }
