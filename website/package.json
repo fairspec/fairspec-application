@@ -11,9 +11,7 @@
     "#*": "./*"
   },
   "scripts": {
-    "build": "pnpm /build:/",
-    "build:ssr": "vite build",
-    "build:spa": "SPA=true vite build",
+    "build": "vite build",
     "generate": "wrangler types",
     "preview": "vite preview",
     "start": "vite dev --port 5000",

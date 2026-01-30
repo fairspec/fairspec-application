@@ -7,22 +7,15 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
-const isSpa = !!process.env.SPA
-
 export default defineConfig({
-  build: { outDir: isSpa ? "build/spa" : "build/ssr" },
+  build: { outDir: "build" },
   plugins: [
     devtools(),
     tailwind(),
-    !isSpa ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({
       srcDirectory: ".",
-      prerender: { enabled: isSpa },
-      // spa: {
-      //   enabled: isSpa,
-      //   maskPath: "/en",
-      //   prerender: { outputPath: "/index.html" },
-      // },
+      prerender: { enabled: true },
     }),
     react({
       babel: {
