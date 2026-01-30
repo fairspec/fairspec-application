@@ -1,3 +1,4 @@
+import { stat } from "node:fs/promises"
 import { join } from "node:path"
 import { protocol } from "electron"
 
@@ -8,18 +9,22 @@ export function createProxy() {
     const rendererFolder = join(import.meta.dirname, "..", "renderer")
 
     const url = new URL(request.url)
-    const assetName = url.pathname.split("/assets/")[1]
+    let path = join(rendererFolder, url.pathname)
 
-    // TODO: review sandboxing security
-    const path = assetName
-      ? join(rendererFolder, "assets", assetName)
-      : join(rendererFolder, url.pathname.slice(1), "index.html")
-
-    // console.log(request.url)
-    // console.log(url.pathname)
-    // console.log(path)
-    // console.log("---")
+    const isFile = await getIsFile(path)
+    if (!isFile) {
+      path = join(rendererFolder, "index.html")
+    }
 
     callback({ path })
   })
+}
+
+async function getIsFile(path: string) {
+  try {
+    const stats = await stat(path)
+    return stats.isFile()
+  } catch {
+    return false
+  }
 }
