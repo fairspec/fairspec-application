@@ -13,7 +13,7 @@ export async function detectClientLanguage() {
   const langTag = detect(fromHtmlTag("lang"))
 
   const language =
-    Object.values(Languages).find(language => language.languageId === langTag) ??
+    Object.values(Languages).find(language => language.id === langTag) ??
     Languages[LanguageIdDefault]
 
   return language
@@ -29,7 +29,7 @@ export function detectLanguageFromPath(path: string) {
   const [languageParam] = path.split("/").slice(1)
 
   const language =
-    Object.values(Languages).find(language => language.languageId === languageParam) ??
+    Object.values(Languages).find(language => language.id === languageParam) ??
     Languages[LanguageIdDefault]
 
   return language

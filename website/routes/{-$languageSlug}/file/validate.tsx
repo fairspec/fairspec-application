@@ -22,7 +22,7 @@ import {
 import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/file/validate")({
+export const Route = createFileRoute("/{-$languageSlug}/file/validate")({
   component: Component,
   head: () => ({
     meta: [

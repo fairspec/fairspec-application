@@ -1,4 +1,4 @@
-import { InferTableSchemaInput } from "@fairspec/engine"
+import { InferDatasetInput } from "@fairspec/engine"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
@@ -9,20 +9,22 @@ import type * as z from "zod"
 import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
+import { Alert, AlertDescription, AlertTitle } from "#elements/alert.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
+import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/table/infer-schema")({
+export const Route = createFileRoute("/{-$languageSlug}/dataset/infer")({
   component: Component,
   head: () => ({
     meta: [
       {
-        title: t`Infer Table Schema`,
+        title: t`Infer Dataset`,
       },
       {
         name: "description",
-        content: t`Automatically infer comprehensive table schema definitions from your tabular data`,
+        content: t`Automatically infer dataset metadata and structure from your data files`,
       },
     ],
   }),
@@ -33,7 +35,22 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
+      <Note />
     </div>
+  )
+}
+
+function Note() {
+  return (
+    <Alert variant="destructive" className="mt-2">
+      <icons.Alert className="size-6" />
+      <AlertTitle className="text-xl">
+        <Trans>Desktop Only (coming soon)</Trans>
+      </AlertTitle>
+      <AlertDescription className="text-base">
+        <Trans>This functionality is only available in the desktop application</Trans>
+      </AlertDescription>
+    </Alert>
   )
 }
 
@@ -41,12 +58,11 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Infer Table Schema</Trans>
+        <Trans>Infer Dataset</Trans>
       </h1>
       <p className="text-lg">
         <Trans>
-          Automatically infer comprehensive table schema definitions from your tabular
-          data
+          Automatically infer dataset metadata and structure from your data files
         </Trans>
         .
       </p>
@@ -57,30 +73,29 @@ function Intro() {
 function Form() {
   const { t } = useLingui()
   const [error, setError] = useState<Error | undefined>()
-  const [schema, setSchema] = useState<any>()
+  const [dataset, setDataset] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferTableSchemaInput.extend({})
+  const Form = InferDatasetInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      table: "",
-      dialect: "",
+      file: "",
     } as z.infer<typeof Form>,
     validators: {
       onSubmit: Form,
     },
     onSubmit: async ({ value }) => {
-      inferSchema.mutate(value)
+      inferDataset.mutate(value)
     },
   })
 
-  const inferSchema = useMutation(
-    engine.tableSchema.infer.mutationOptions({
+  const inferDataset = useMutation(
+    engine.dataset.infer.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
-      onSuccess: schema => {
-        setSchema(schema)
+      onSuccess: dataset => {
+        setDataset(dataset)
         setStatusType("success")
       },
       onError: error => {
@@ -93,21 +108,21 @@ function Form() {
   const handleDialogOpenChange = (open: boolean) => {
     if (!open) {
       setStatusType(undefined)
-      setSchema(undefined)
+      setDataset(undefined)
       setError(undefined)
     }
   }
 
-  const handleDownloadSchema = () => {
-    if (!schema) return
+  const handleDownloadDataset = () => {
+    if (!dataset) return
 
-    const blob = new Blob([JSON.stringify(schema, null, 2)], {
+    const blob = new Blob([JSON.stringify(dataset, null, 2)], {
       type: "application/json",
     })
     const url = URL.createObjectURL(blob)
     const link = document.createElement("a")
     link.href = url
-    link.download = "table-schema.json"
+    link.download = "dataset.json"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -124,59 +139,44 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="table"
+          name="file"
           children={field => (
             <field.FileOrPathField
-              label={t`Table`}
-              description={t`Upload a table or provide a URL to a table`}
-              placeholder="https://example.com/table.csv"
-              fileType="table"
+              label={t`File`}
+              description={t`Upload a file or provide a URL to a file`}
+              placeholder="https://example.com/file.csv"
+              fileType="file"
               required
+              disabled
             />
           )}
         />
-        <form.AppField
-          name="dialect"
-          children={field => (
-            <field.FileOrPathField
-              label={t`Dialect`}
-              description={t`Upload a dialect or provide a URL to a dialect (optional)`}
-              placeholder="https://example.com/dialect.json"
-              fileType="dialect"
-            />
-          )}
-        />
-        <form.Subscribe
-          selector={state => state.values.table}
-          children={table => (
-            <Button
-              size="lg"
-              type="submit"
-              form="form"
-              className="mt-4 w-full text-xl h-12"
-              disabled={!table}
-            >
-              Infer
-            </Button>
-          )}
-        />
+        <Button
+          size="lg"
+          type="submit"
+          form="form"
+          className="mt-4 w-full text-xl h-12"
+          disabled
+        >
+          Infer
+        </Button>
       </FieldGroup>
       <Dialog open={!!statusType} onOpenChange={handleDialogOpenChange}>
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
-            pendingTitle={t`Inferring Schema...`}
-            successTitle={t`Schema Inferred`}
-            errorTitle={error?.message ?? t`Failed to Infer Schema`}
+            pendingTitle={t`Inferring Dataset...`}
+            successTitle={t`Dataset Inferred`}
+            errorTitle={error?.message ?? t`Failed to Infer Dataset`}
           />
-          {schema && (
+          {dataset && (
             <>
               <div className="bg-muted p-4 rounded-lg overflow-auto">
-                <JsonEditor data={schema} setData={setSchema} />
+                <JsonEditor data={dataset} setData={setDataset} />
               </div>
               <Button
                 size="lg"
-                onClick={handleDownloadSchema}
+                onClick={handleDownloadDataset}
                 className="w-full text-xl h-12"
               >
                 <Trans>Save</Trans>

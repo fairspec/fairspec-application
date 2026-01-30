@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router"
 import { Card, CardDescription, CardHeader, CardTitle } from "#elements/card.tsx"
 import * as icons from "#icons.ts"
 
-export const Route = createFileRoute("/$languageId/")({
+export const Route = createFileRoute("/{-$languageSlug}/")({
   component: Component,
 })
 
@@ -15,7 +15,7 @@ function Component() {
       id: "dataset",
       title: t`Dataset`,
       icon: icons.Dataset,
-      path: "/$languageId/dataset/validate",
+      path: "/{-$languageSlug}/dataset/validate",
       description: t`Validate dataset metadata against specifications and automatically infer dataset structure from your data files`,
       color: "text-blue-500",
     },
@@ -23,7 +23,7 @@ function Component() {
       id: "table",
       title: t`Table`,
       icon: icons.Table,
-      path: "/$languageId/table/validate",
+      path: "/{-$languageSlug}/table/validate",
       description: t`Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data`,
       color: "text-green-500",
     },
@@ -31,7 +31,7 @@ function Component() {
       id: "data",
       title: t`Data`,
       icon: icons.Data,
-      path: "/$languageId/data/validate",
+      path: "/{-$languageSlug}/data/validate",
       description: t`Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets`,
       color: "text-purple-500",
     },
@@ -39,7 +39,7 @@ function Component() {
       id: "file",
       title: t`File`,
       icon: icons.File,
-      path: "/$languageId/file/validate",
+      path: "/{-$languageSlug}/file/validate",
       description: t`Describe file contents and structure in detail, and automatically infer file formats and encoding specifications`,
       color: "text-orange-500",
     },

@@ -1,4 +1,4 @@
-import { Trans, useLingui } from "@lingui/react/macro"
+import { useLingui } from "@lingui/react/macro"
 import * as share from "react-share"
 import { Button } from "#elements/button.tsx"
 import {
@@ -40,9 +40,6 @@ export function Share() {
         }
       >
         <icons.Share strokeWidth={settings.ICON_STROKE_WIDTH} />
-        <span className="hidden">
-          <Trans>Share</Trans>
-        </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col gap-4 p-2">
         {items}

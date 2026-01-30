@@ -1,4 +1,4 @@
-import { ValidateDataInput } from "@fairspec/engine"
+import { ValidateTableInput } from "@fairspec/engine"
 import type * as fairspec from "@fairspec/metadata"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
@@ -14,16 +14,16 @@ import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/data/validate")({
+export const Route = createFileRoute("/{-$languageSlug}/table/validate")({
   component: Component,
   head: () => ({
     meta: [
       {
-        title: t`Validate Data`,
+        title: t`Validate Table`,
       },
       {
         name: "description",
-        content: t`Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets`,
+        content: t`Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data`,
       },
     ],
   }),
@@ -42,12 +42,12 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Validate Data</Trans>
+        <Trans>Validate Table</Trans>
       </h1>
       <p className="text-lg">
         <Trans>
-          Validate data quality, check for inconsistencies and errors, and automatically
-          infer comprehensive data schemas from your datasets
+          Validate table structure for correctness and compliance, and automatically infer
+          table schema from your tabular data
         </Trans>
         .
       </p>
@@ -61,22 +61,23 @@ function Form() {
   const [report, setReport] = useState<fairspec.Report | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = ValidateDataInput.extend({})
+  const Form = ValidateTableInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      data: "",
+      table: "",
       schema: "",
+      dialect: "",
     } as z.infer<typeof Form>,
     validators: {
       onSubmit: Form,
     },
     onSubmit: async ({ value }) => {
-      validateData.mutate(value)
+      validateTable.mutate(value)
     },
   })
 
-  const validateData = useMutation(
-    engine.data.validate.mutationOptions({
+  const validateTable = useMutation(
+    engine.table.validate.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
@@ -112,12 +113,12 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="data"
+          name="table"
           children={field => (
             <field.FileOrPathField
-              label={t`Data`}
-              description={t`Upload a file or provide a URL to a data file`}
-              placeholder="https://example.com/data.csv"
+              label={t`Table`}
+              description={t`Upload a file or provide a URL to a tabular data file`}
+              placeholder="https://example.com/table.csv"
               fileType="table"
               required
             />
@@ -128,21 +129,32 @@ function Form() {
           children={field => (
             <field.FileOrPathField
               label={t`Schema`}
-              description={t`Upload a file or provide a URL to a data schema`}
-              placeholder="https://example.com/data.schema.json"
+              description={t`Upload a file or provide a URL to a table schema`}
+              placeholder="https://example.com/table.schema.json"
               fileType="schema"
             />
           )}
         />
+        <form.AppField
+          name="dialect"
+          children={field => (
+            <field.FileOrPathField
+              label={t`Dialect`}
+              description={t`Upload a file or provide a URL to a table dialect`}
+              placeholder="https://example.com/table.dialect.json"
+              fileType="dialect"
+            />
+          )}
+        />
         <form.Subscribe
-          selector={state => state.values.data}
-          children={data => (
+          selector={state => state.values.table}
+          children={table => (
             <Button
               size="lg"
               type="submit"
               form="form"
               className="mt-4 w-full text-xl h-12"
-              disabled={!data}
+              disabled={!table}
             >
               Validate
             </Button>
@@ -157,9 +169,9 @@ function Form() {
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
-            pendingTitle={t`Validating Data...`}
-            successTitle={t`Valid Data`}
-            errorTitle={error?.message ?? t`Invalid Data`}
+            pendingTitle={t`Validating Table...`}
+            successTitle={t`Valid Table`}
+            errorTitle={error?.message ?? t`Invalid Table`}
           />
           {!!report && <Report report={report} />}
         </div>

@@ -1,12 +1,10 @@
-import { Link, useParams } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
 // @ts-expect-error
 import LogoIcon from "#assets/fairspec-logo.svg?react"
 
 export function Logo() {
-  const { languageId } = useParams({ strict: false })
-
   return (
-    <Link to="/$languageId" params={{ languageId }} className="no-underline">
+    <Link to="/{-$languageSlug}" className="no-underline">
       <div className="h-full flex flex-nowrap gap-2 items-center pl-2">
         <div className="w-10 h-10 flex items-center justify-center">
           <LogoIcon />

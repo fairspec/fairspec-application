@@ -1,31 +1,28 @@
-import { ValidateDatasetInput } from "@fairspec/engine"
-import type * as fairspec from "@fairspec/metadata"
+import { InferDialectInput } from "@fairspec/engine"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { JsonEditor } from "json-edit-react"
 import { useState } from "react"
 import type * as z from "zod"
 import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
-import { Report } from "#components/report/Report.tsx"
-import { Alert, AlertDescription, AlertTitle } from "#elements/alert.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
-import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/dataset/validate")({
+export const Route = createFileRoute("/{-$languageSlug}/file/infer-dialect")({
   component: Component,
   head: () => ({
     meta: [
       {
-        title: t`Validate Dataset`,
+        title: t`Infer Dialect`,
       },
       {
         name: "description",
-        content: t`Validate dataset metadata against specifications and automatically infer dataset structure from your data files`,
+        content: t`Automatically infer file formats, encoding specifications, and dialect parameters`,
       },
     ],
   }),
@@ -36,22 +33,7 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
-      <Note />
     </div>
-  )
-}
-
-function Note() {
-  return (
-    <Alert variant="destructive" className="mt-2">
-      <icons.Alert className="size-6" />
-      <AlertTitle className="text-xl">
-        <Trans>Desktop Only (coming soon)</Trans>
-      </AlertTitle>
-      <AlertDescription className="text-base">
-        <Trans>This functionality is only available in the desktop application</Trans>
-      </AlertDescription>
-    </Alert>
   )
 }
 
@@ -59,12 +41,12 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Validate Dataset</Trans>
+        <Trans>Infer Dialect</Trans>
       </h1>
       <p className="text-lg">
         <Trans>
-          Validate dataset metadata against specifications and automatically infer dataset
-          structure from your data files
+          Automatically infer file formats, encoding specifications, and dialect
+          parameters
         </Trans>
         .
       </p>
@@ -75,37 +57,34 @@ function Intro() {
 function Form() {
   const { t } = useLingui()
   const [error, setError] = useState<Error | undefined>()
-  const [report, setReport] = useState<fairspec.Report | undefined>()
+  const [dialect, setDialect] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = ValidateDatasetInput.extend({})
+  const Form = InferDialectInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      dataset: "",
+      file: "",
     } as z.infer<typeof Form>,
     validators: {
       onSubmit: Form,
     },
     onSubmit: async ({ value }) => {
-      validateDataset.mutate(value)
+      inferDialect.mutate(value)
     },
   })
 
-  const validateDataset = useMutation(
-    engine.dataset.validate.mutationOptions({
+  const inferDialect = useMutation(
+    engine.dialect.infer.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
-      onSuccess: report => {
-        setReport(report)
-        setStatusType(report.valid ? "success" : "error")
+      onSuccess: dialect => {
+        setDialect(dialect)
+        setStatusType("success")
       },
       onError: error => {
         setError(error)
         setStatusType("error")
-        // TODO: Fix types
-        // @ts-expect-error
-        if (error.data.report) setReport(error.data.report)
       },
     }),
   )
@@ -113,9 +92,25 @@ function Form() {
   const handleDialogOpenChange = (open: boolean) => {
     if (!open) {
       setStatusType(undefined)
-      setReport(undefined)
+      setDialect(undefined)
       setError(undefined)
     }
+  }
+
+  const handleDownloadDialect = () => {
+    if (!dialect) return
+
+    const blob = new Blob([JSON.stringify(dialect, null, 2)], {
+      type: "application/json",
+    })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.download = "dialect.json"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -128,46 +123,54 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="dataset"
+          name="file"
           children={field => (
             <field.FileOrPathField
-              label={t`Dataset`}
-              description={t`Upload a file or provide a URL to a dataset package`}
-              placeholder="https://example.com/datapackage.json"
-              fileType="dataset"
+              label={t`File`}
+              description={t`Upload a file or provide a URL to a file`}
+              placeholder="https://example.com/file.csv"
+              fileType="file"
               required
-              disabled
             />
           )}
         />
         <form.Subscribe
-          selector={state => state.values.dataset}
-          children={dataset => (
+          selector={state => state.values.file}
+          children={file => (
             <Button
               size="lg"
               type="submit"
               form="form"
               className="mt-4 w-full text-xl h-12"
-              disabled={!dataset}
+              disabled={!file}
             >
-              Validate
+              Infer
             </Button>
           )}
         />
       </FieldGroup>
-      <Dialog
-        open={!!statusType}
-        fullScreen={!!report?.errors.length}
-        onOpenChange={handleDialogOpenChange}
-      >
+      <Dialog open={!!statusType} onOpenChange={handleDialogOpenChange}>
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
-            pendingTitle={t`Validating Dataset...`}
-            successTitle={t`Valid Dataset`}
-            errorTitle={error?.message ?? t`Invalid Dataset`}
+            pendingTitle={t`Inferring Dialect...`}
+            successTitle={t`Dialect Inferred`}
+            errorTitle={error?.message ?? t`Failed to Infer Dialect`}
           />
-          {!!report && <Report report={report} />}
+          {dialect && (
+            <>
+              <div className="bg-muted p-4 rounded-lg overflow-auto">
+                <JsonEditor data={dialect} setData={setDialect} />
+              </div>
+              <Button
+                size="lg"
+                onClick={handleDownloadDialect}
+                className="w-full text-xl h-12"
+              >
+                <Trans>Save</Trans>
+              </Button>
+            </>
+          )}
         </div>
       </Dialog>
     </form>

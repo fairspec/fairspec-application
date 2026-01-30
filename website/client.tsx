@@ -4,7 +4,7 @@ import { hydrateRoot } from "react-dom/client"
 import { activateLocale, detectClientLanguage } from "#helpers/locale.ts"
 
 const language = await detectClientLanguage()
-await activateLocale(language.languageId)
+await activateLocale(language.id)
 
 hydrateRoot(
   document,

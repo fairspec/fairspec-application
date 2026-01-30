@@ -1,4 +1,4 @@
-import { InferDataSchemaInput } from "@fairspec/engine"
+import { InferTableSchemaInput } from "@fairspec/engine"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
@@ -13,16 +13,16 @@ import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/data/infer-schema")({
+export const Route = createFileRoute("/{-$languageSlug}/table/infer-schema")({
   component: Component,
   head: () => ({
     meta: [
       {
-        title: t`Infer Data Schema`,
+        title: t`Infer Table Schema`,
       },
       {
         name: "description",
-        content: t`Automatically infer comprehensive data schemas from your datasets`,
+        content: t`Automatically infer comprehensive table schema definitions from your tabular data`,
       },
     ],
   }),
@@ -41,10 +41,14 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Infer Data Schema</Trans>
+        <Trans>Infer Table Schema</Trans>
       </h1>
       <p className="text-lg">
-        <Trans>Automatically infer comprehensive data schemas from your datasets</Trans>.
+        <Trans>
+          Automatically infer comprehensive table schema definitions from your tabular
+          data
+        </Trans>
+        .
       </p>
     </div>
   )
@@ -56,10 +60,11 @@ function Form() {
   const [schema, setSchema] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferDataSchemaInput.extend({})
+  const Form = InferTableSchemaInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      data: "",
+      table: "",
+      dialect: "",
     } as z.infer<typeof Form>,
     validators: {
       onSubmit: Form,
@@ -70,7 +75,7 @@ function Form() {
   })
 
   const inferSchema = useMutation(
-    engine.dataSchema.infer.mutationOptions({
+    engine.tableSchema.infer.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
@@ -102,7 +107,7 @@ function Form() {
     const url = URL.createObjectURL(blob)
     const link = document.createElement("a")
     link.href = url
-    link.download = "data-schema.json"
+    link.download = "table-schema.json"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -119,26 +124,37 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="data"
+          name="table"
           children={field => (
             <field.FileOrPathField
-              label={t`Data`}
-              description={t`Upload a data file or provide a URL to a data file`}
-              placeholder="https://example.com/data.json"
-              fileType="data"
+              label={t`Table`}
+              description={t`Upload a table or provide a URL to a table`}
+              placeholder="https://example.com/table.csv"
+              fileType="table"
               required
             />
           )}
         />
+        <form.AppField
+          name="dialect"
+          children={field => (
+            <field.FileOrPathField
+              label={t`Dialect`}
+              description={t`Upload a dialect or provide a URL to a dialect (optional)`}
+              placeholder="https://example.com/dialect.json"
+              fileType="dialect"
+            />
+          )}
+        />
         <form.Subscribe
-          selector={state => state.values.data}
-          children={data => (
+          selector={state => state.values.table}
+          children={table => (
             <Button
               size="lg"
               type="submit"
               form="form"
               className="mt-4 w-full text-xl h-12"
-              disabled={!data}
+              disabled={!table}
             >
               Infer
             </Button>

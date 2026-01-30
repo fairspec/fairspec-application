@@ -1,4 +1,4 @@
-import { Trans, useLingui } from "@lingui/react/macro"
+import { useLingui } from "@lingui/react/macro"
 import { useEffect, useState } from "react"
 import { Button } from "#elements/button.tsx"
 import * as icons from "#icons.ts"
@@ -36,15 +36,9 @@ export function Theme() {
     >
       <div className="flex gap-1 items-center dark:hidden">
         <icons.LightTheme className="w-5 h-5" strokeWidth={settings.ICON_STROKE_WIDTH} />
-        <span className="hidden">
-          <Trans>Light</Trans>
-        </span>
       </div>
       <div className="gap-1 items-center hidden dark:flex">
         <icons.DarkTheme className="w-5 h-5" strokeWidth={settings.ICON_STROKE_WIDTH} />
-        <span className="hidden">
-          <Trans>Dark</Trans>
-        </span>
       </div>
     </Button>
   )

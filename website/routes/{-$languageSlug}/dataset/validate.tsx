@@ -1,4 +1,4 @@
-import { ValidateTableInput } from "@fairspec/engine"
+import { ValidateDatasetInput } from "@fairspec/engine"
 import type * as fairspec from "@fairspec/metadata"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
@@ -10,20 +10,22 @@ import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Report } from "#components/report/Report.tsx"
+import { Alert, AlertDescription, AlertTitle } from "#elements/alert.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
+import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/table/validate")({
+export const Route = createFileRoute("/{-$languageSlug}/dataset/validate")({
   component: Component,
   head: () => ({
     meta: [
       {
-        title: t`Validate Table`,
+        title: t`Validate Dataset`,
       },
       {
         name: "description",
-        content: t`Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data`,
+        content: t`Validate dataset metadata against specifications and automatically infer dataset structure from your data files`,
       },
     ],
   }),
@@ -34,7 +36,22 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
+      <Note />
     </div>
+  )
+}
+
+function Note() {
+  return (
+    <Alert variant="destructive" className="mt-2">
+      <icons.Alert className="size-6" />
+      <AlertTitle className="text-xl">
+        <Trans>Desktop Only (coming soon)</Trans>
+      </AlertTitle>
+      <AlertDescription className="text-base">
+        <Trans>This functionality is only available in the desktop application</Trans>
+      </AlertDescription>
+    </Alert>
   )
 }
 
@@ -42,12 +59,12 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Validate Table</Trans>
+        <Trans>Validate Dataset</Trans>
       </h1>
       <p className="text-lg">
         <Trans>
-          Validate table structure for correctness and compliance, and automatically infer
-          table schema from your tabular data
+          Validate dataset metadata against specifications and automatically infer dataset
+          structure from your data files
         </Trans>
         .
       </p>
@@ -61,23 +78,21 @@ function Form() {
   const [report, setReport] = useState<fairspec.Report | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = ValidateTableInput.extend({})
+  const Form = ValidateDatasetInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      table: "",
-      schema: "",
-      dialect: "",
+      dataset: "",
     } as z.infer<typeof Form>,
     validators: {
       onSubmit: Form,
     },
     onSubmit: async ({ value }) => {
-      validateTable.mutate(value)
+      validateDataset.mutate(value)
     },
   })
 
-  const validateTable = useMutation(
-    engine.table.validate.mutationOptions({
+  const validateDataset = useMutation(
+    engine.dataset.validate.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
@@ -113,48 +128,27 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="table"
+          name="dataset"
           children={field => (
             <field.FileOrPathField
-              label={t`Table`}
-              description={t`Upload a file or provide a URL to a tabular data file`}
-              placeholder="https://example.com/table.csv"
-              fileType="table"
+              label={t`Dataset`}
+              description={t`Upload a file or provide a URL to a dataset package`}
+              placeholder="https://example.com/datapackage.json"
+              fileType="dataset"
               required
-            />
-          )}
-        />
-        <form.AppField
-          name="schema"
-          children={field => (
-            <field.FileOrPathField
-              label={t`Schema`}
-              description={t`Upload a file or provide a URL to a table schema`}
-              placeholder="https://example.com/table.schema.json"
-              fileType="schema"
-            />
-          )}
-        />
-        <form.AppField
-          name="dialect"
-          children={field => (
-            <field.FileOrPathField
-              label={t`Dialect`}
-              description={t`Upload a file or provide a URL to a table dialect`}
-              placeholder="https://example.com/table.dialect.json"
-              fileType="dialect"
+              disabled
             />
           )}
         />
         <form.Subscribe
-          selector={state => state.values.table}
-          children={table => (
+          selector={state => state.values.dataset}
+          children={dataset => (
             <Button
               size="lg"
               type="submit"
               form="form"
               className="mt-4 w-full text-xl h-12"
-              disabled={!table}
+              disabled={!dataset}
             >
               Validate
             </Button>
@@ -169,9 +163,9 @@ function Form() {
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
-            pendingTitle={t`Validating Table...`}
-            successTitle={t`Valid Table`}
-            errorTitle={error?.message ?? t`Invalid Table`}
+            pendingTitle={t`Validating Dataset...`}
+            successTitle={t`Valid Dataset`}
+            errorTitle={error?.message ?? t`Invalid Dataset`}
           />
           {!!report && <Report report={report} />}
         </div>

@@ -1,7 +1,7 @@
 import { useLingui } from "@lingui/react/macro"
 import { useMatches, useNavigate } from "@tanstack/react-router"
 import { De, Es, Fr, Gb, It, Pt, Ru, Ua } from "react-flags-select"
-import { type LanguageId, Languages } from "#constants/language.ts"
+import { type LanguageSlug, Languages } from "#constants/language.ts"
 import { Button } from "#elements/button.tsx"
 import {
   DropdownMenu,
@@ -28,28 +28,29 @@ export function Language() {
   const matches = useMatches()
   const navigate = useNavigate()
 
-  const onLanguageChange = (languageId: LanguageId) => {
+  const onLanguageChange = (languageSlug: LanguageSlug) => {
     const path = matches.at(-1)?.fullPath
+    console.log(languageSlug)
     if (path) {
       navigate({
         to: path,
-        params: { languageId },
+        params: { languageSlug },
         reloadDocument: true,
       })
     }
   }
 
-  const items = Object.values(Languages).map(item => {
-    const Flag = LANGUAGE_FLAGS[item.languageId as LanguageId]
+  const items = Object.values(Languages).map(language => {
+    const Flag = LANGUAGE_FLAGS[language.id]
     return (
       <DropdownMenuItem
-        key={item.languageId}
-        onClick={() => onLanguageChange(item.languageId)}
+        key={language.id}
+        onClick={() => onLanguageChange(language.slug)}
         className="cursor-pointer"
       >
         <div className="flex gap-2 flex-nowrap items-center cursor-pointer">
           <Flag fontSize={settings.ICON_SIZE} />
-          {item.title}
+          {language.title}
         </div>
       </DropdownMenuItem>
     )
@@ -68,7 +69,6 @@ export function Language() {
         }
       >
         <icons.Language strokeWidth={settings.ICON_STROKE_WIDTH} />
-        <span className="hidden">English</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col gap-4 p-2">
         {items}

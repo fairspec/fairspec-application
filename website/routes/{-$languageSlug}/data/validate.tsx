@@ -1,28 +1,29 @@
-import { InferDialectInput } from "@fairspec/engine"
+import { ValidateDataInput } from "@fairspec/engine"
+import type * as fairspec from "@fairspec/metadata"
 import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
-import { JsonEditor } from "json-edit-react"
 import { useState } from "react"
 import type * as z from "zod"
 import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
+import { Report } from "#components/report/Report.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { engine } from "#services/engine.ts"
 
-export const Route = createFileRoute("/$languageId/file/infer-dialect")({
+export const Route = createFileRoute("/{-$languageSlug}/data/validate")({
   component: Component,
   head: () => ({
     meta: [
       {
-        title: t`Infer Dialect`,
+        title: t`Validate Data`,
       },
       {
         name: "description",
-        content: t`Automatically infer file formats, encoding specifications, and dialect parameters`,
+        content: t`Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets`,
       },
     ],
   }),
@@ -41,12 +42,12 @@ function Intro() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-3xl font-bold">
-        <Trans>Infer Dialect</Trans>
+        <Trans>Validate Data</Trans>
       </h1>
       <p className="text-lg">
         <Trans>
-          Automatically infer file formats, encoding specifications, and dialect
-          parameters
+          Validate data quality, check for inconsistencies and errors, and automatically
+          infer comprehensive data schemas from your datasets
         </Trans>
         .
       </p>
@@ -57,34 +58,38 @@ function Intro() {
 function Form() {
   const { t } = useLingui()
   const [error, setError] = useState<Error | undefined>()
-  const [dialect, setDialect] = useState<any>()
+  const [report, setReport] = useState<fairspec.Report | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferDialectInput.extend({})
+  const Form = ValidateDataInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      file: "",
+      data: "",
+      schema: "",
     } as z.infer<typeof Form>,
     validators: {
       onSubmit: Form,
     },
     onSubmit: async ({ value }) => {
-      inferDialect.mutate(value)
+      validateData.mutate(value)
     },
   })
 
-  const inferDialect = useMutation(
-    engine.dialect.infer.mutationOptions({
+  const validateData = useMutation(
+    engine.data.validate.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
-      onSuccess: dialect => {
-        setDialect(dialect)
-        setStatusType("success")
+      onSuccess: report => {
+        setReport(report)
+        setStatusType(report.valid ? "success" : "error")
       },
       onError: error => {
         setError(error)
         setStatusType("error")
+        // TODO: Fix types
+        // @ts-expect-error
+        if (error.data.report) setReport(error.data.report)
       },
     }),
   )
@@ -92,25 +97,9 @@ function Form() {
   const handleDialogOpenChange = (open: boolean) => {
     if (!open) {
       setStatusType(undefined)
-      setDialect(undefined)
+      setReport(undefined)
       setError(undefined)
     }
-  }
-
-  const handleDownloadDialect = () => {
-    if (!dialect) return
-
-    const blob = new Blob([JSON.stringify(dialect, null, 2)], {
-      type: "application/json",
-    })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement("a")
-    link.href = url
-    link.download = "dialect.json"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
   }
 
   return (
@@ -123,54 +112,56 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="file"
+          name="data"
           children={field => (
             <field.FileOrPathField
-              label={t`File`}
-              description={t`Upload a file or provide a URL to a file`}
-              placeholder="https://example.com/file.csv"
-              fileType="file"
+              label={t`Data`}
+              description={t`Upload a file or provide a URL to a data file`}
+              placeholder="https://example.com/data.csv"
+              fileType="table"
               required
             />
           )}
         />
+        <form.AppField
+          name="schema"
+          children={field => (
+            <field.FileOrPathField
+              label={t`Schema`}
+              description={t`Upload a file or provide a URL to a data schema`}
+              placeholder="https://example.com/data.schema.json"
+              fileType="schema"
+            />
+          )}
+        />
         <form.Subscribe
-          selector={state => state.values.file}
-          children={file => (
+          selector={state => state.values.data}
+          children={data => (
             <Button
               size="lg"
               type="submit"
               form="form"
               className="mt-4 w-full text-xl h-12"
-              disabled={!file}
+              disabled={!data}
             >
-              Infer
+              Validate
             </Button>
           )}
         />
       </FieldGroup>
-      <Dialog open={!!statusType} onOpenChange={handleDialogOpenChange}>
+      <Dialog
+        open={!!statusType}
+        fullScreen={!!report?.errors.length}
+        onOpenChange={handleDialogOpenChange}
+      >
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
-            pendingTitle={t`Inferring Dialect...`}
-            successTitle={t`Dialect Inferred`}
-            errorTitle={error?.message ?? t`Failed to Infer Dialect`}
+            pendingTitle={t`Validating Data...`}
+            successTitle={t`Valid Data`}
+            errorTitle={error?.message ?? t`Invalid Data`}
           />
-          {dialect && (
-            <>
-              <div className="bg-muted p-4 rounded-lg overflow-auto">
-                <JsonEditor data={dialect} setData={setDialect} />
-              </div>
-              <Button
-                size="lg"
-                onClick={handleDownloadDialect}
-                className="w-full text-xl h-12"
-              >
-                <Trans>Save</Trans>
-              </Button>
-            </>
-          )}
+          {!!report && <Report report={report} />}
         </div>
       </Dialog>
     </form>

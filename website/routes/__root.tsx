@@ -68,11 +68,11 @@ export const Route = createRootRoute({
 })
 
 function Document(props: { children: React.ReactNode }) {
-  const { languageId } = useParams({ strict: false })
+  const { languageSlug } = useParams({ strict: false })
 
   return (
     <I18nProvider i18n={i18n}>
-      <html lang={languageId ?? LanguageIdDefault}>
+      <html lang={languageSlug ?? LanguageIdDefault}>
         <head>
           <HeadContent />
         </head>
