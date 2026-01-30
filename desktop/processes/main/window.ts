@@ -7,6 +7,7 @@ import * as settings from "../../settings.ts"
 
 export function createWindow() {
   const preloadFolder = join(import.meta.dirname, "..", "preload")
+  const rendererFolder = join(import.meta.dirname, "..", "renderer")
 
   const mainWindow = new BrowserWindow({
     show: false,
@@ -21,7 +22,6 @@ export function createWindow() {
   if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
     mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"])
   } else {
-    // We handle path rewriting in the proxy
     mainWindow.loadFile("/en")
   }
 
