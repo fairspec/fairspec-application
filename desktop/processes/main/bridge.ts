@@ -5,11 +5,10 @@ export function createBridge() {
   ipcMain.on("engine:start", async event => {
     const [serverPort] = event.ports
 
-    electronRpcHandler.upgrade(serverPort, {
-      isDesktop: true,
-    })
-
-    serverPort.start()
+    if (serverPort) {
+      electronRpcHandler.upgrade(serverPort)
+      serverPort.start()
+    }
   })
 
   ipcMain.handle(

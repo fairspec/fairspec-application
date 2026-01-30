@@ -6,3 +6,5 @@ export const CORS_ORIGINS = ["http://localhost:5000", "https://application.fairs
 
 export const DATA_MAX_BYTES = 100 * 1024 * 1024 // 100MB
 export const METADATA_MAX_BYTES = 1 * 1024 * 1024 // 1MB
+
+export const IS_DESKTOP = !!process.versions.electron
