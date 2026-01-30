@@ -5,12 +5,4 @@ process.chdir(import.meta.dirname)
 dotenv.config({ path: ".env.local" })
 const shell = execa({ stdout: ["inherit"], preferLocal: true, shell: true })
 
-// Desktop
-
-await shell`vite build`
-await shell`rm -rf ../desktop/build/renderer`
-await shell`cp -r build/client ../desktop/build/renderer`
-
-// Website
-
-await shell`vite build`
+await shell`electron-builder`

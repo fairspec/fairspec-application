@@ -7,18 +7,16 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
-const isDesktop = !!process.env.DESKTOP
-
 export default defineConfig({
   build: { outDir: "build" },
   plugins: [
     devtools(),
     tailwind(),
-    !isDesktop ? cloudflare({ viteEnvironment: { name: "ssr" } }) : undefined,
+    cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({
       srcDirectory: ".",
-      prerender: { enabled: !isDesktop },
-      spa: { enabled: isDesktop, prerender: { outputPath: "/index.html" } },
+      // TODO: ensure all the languages are prerendered
+      prerender: { enabled: true },
     }),
     react({
       babel: {

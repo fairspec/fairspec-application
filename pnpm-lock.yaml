@@ -26,6 +26,9 @@ importers:
       conventional-changelog-conventionalcommits:
         specifier: 9.1.0
         version: 9.1.0
+      dotenv:
+        specifier: 17.2.3
+        version: 17.2.3
       execa:
         specifier: 9.6.0
         version: 9.6.0
@@ -235,9 +238,6 @@ importers:
       clsx:
         specifier: 2.1.1
         version: 2.1.1
-      dotenv:
-        specifier: 17.2.3
-        version: 17.2.3
       es-toolkit:
         specifier: 1.44.0
         version: 1.44.0

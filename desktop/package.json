@@ -13,8 +13,8 @@
   "homepage": "https://application.fairspec.org",
   "description": "Fairspec Application is a visual tool for managing and validating tabular and structured data",
   "scripts": {
-    "build": "electron-vite build",
-    "compile": "electron-builder",
+    "build": "node @build.ts",
+    "compile": "node @compile.ts",
     "start": "electron-vite dev",
     "type": "tsc --noEmit"
   },

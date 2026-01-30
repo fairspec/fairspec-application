@@ -9,9 +9,8 @@ import { objectKeys } from "ts-extras"
 import { z } from "zod"
 import { type LanguageId, LanguageIdDefault, Languages } from "#constants/language.ts"
 
-dotenv.config({ path: ".env.local" })
-
 process.chdir(import.meta.dirname)
+dotenv.config({ path: ".env.local" })
 const shell = execa({ stdout: ["inherit"], preferLocal: true, shell: true })
 
 await shell`lingui extract`

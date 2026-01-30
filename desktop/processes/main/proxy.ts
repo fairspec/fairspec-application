@@ -10,14 +10,15 @@ export function createProxy() {
     const url = new URL(request.url)
     const assetName = url.pathname.split("/assets/")[1]
 
+    // TODO: review sandboxing security
     const path = assetName
       ? join(rendererFolder, "assets", assetName)
       : join(rendererFolder, url.pathname.slice(1), "index.html")
 
-    console.log(request.url)
-    console.log(url.pathname)
-    console.log(path)
-    console.log("---")
+    // console.log(request.url)
+    // console.log(url.pathname)
+    // console.log(path)
+    // console.log("---")
 
     callback({ path })
   })
