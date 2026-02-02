@@ -63,13 +63,13 @@ function Form() {
   const [report, setReport] = useState<fairspec.Report | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = ValidateDatasetInput.extend({})
+  const FormInput = ValidateDatasetInput.extend({})
   const form = useAppForm({
     defaultValues: {
       dataset: "",
-    } as z.infer<typeof Form>,
+    } as z.infer<typeof FormInput>,
     validators: {
-      onSubmit: Form,
+      onSubmit: FormInput,
     },
     onSubmit: async ({ value }) => {
       validateDataset.mutate(value)
@@ -117,11 +117,11 @@ function Form() {
           children={field => (
             <field.FileOrPathField
               label={t`Dataset`}
-              description={t`Upload a file or provide a URL to a dataset package`}
-              placeholder="https://example.com/datapackage.json"
+              description={t`Upload a file or provide a URL to a dataset`}
+              placeholder="https://example.com/dataset.json"
               fileType="dataset"
+              disabled={!globalThis.desktop}
               required
-              disabled
             />
           )}
         />

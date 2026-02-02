@@ -62,14 +62,14 @@ function Form() {
   const [schema, setSchema] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferTableSchemaInput.extend({})
+  const FormInput = InferTableSchemaInput.extend({})
   const form = useAppForm({
     defaultValues: {
       table: "",
       dialect: "",
-    } as z.infer<typeof Form>,
+    } as z.infer<typeof FormInput>,
     validators: {
-      onSubmit: Form,
+      onSubmit: FormInput,
     },
     onSubmit: async ({ value }) => {
       inferSchema.mutate(value)

@@ -62,13 +62,13 @@ function Form() {
   const [dialect, setDialect] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferDialectInput.extend({})
+  const FormInput = InferDialectInput.extend({})
   const form = useAppForm({
     defaultValues: {
       file: "",
-    } as z.infer<typeof Form>,
+    } as z.infer<typeof FormInput>,
     validators: {
-      onSubmit: Form,
+      onSubmit: FormInput,
     },
     onSubmit: async ({ value }) => {
       inferDialect.mutate(value)

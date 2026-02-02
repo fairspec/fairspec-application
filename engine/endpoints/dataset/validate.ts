@@ -1,4 +1,4 @@
-// import { validateDataset } from "@fairspec/library"
+import { validateDataset } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
 import { prefetchFile } from "#action/file/fetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
@@ -9,10 +9,12 @@ export const validateDatasetEndpoint = publicEndpoint
   .handler(async ({ input }) => {
     return await temporaryDirectoryTask(async folder => {
       const dataset = await prefetchFile(input.dataset, { folder, fileType: "dataset" })
-      console.log(dataset)
 
-      // TODO: Implement
+      if (!dataset) {
+        throw new Error("Dataset is required")
+      }
 
-      return { valid: true, errors: [] }
+      const report = await validateDataset(dataset)
+      return report
     })
   })

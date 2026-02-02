@@ -63,15 +63,15 @@ function Form() {
   const [report, setReport] = useState<fairspec.Report | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = ValidateTableInput.extend({})
+  const FormInput = ValidateTableInput.extend({})
   const form = useAppForm({
     defaultValues: {
       table: "",
       schema: "",
       dialect: "",
-    } as z.infer<typeof Form>,
+    } as z.infer<typeof FormInput>,
     validators: {
-      onSubmit: Form,
+      onSubmit: FormInput,
     },
     onSubmit: async ({ value }) => {
       validateTable.mutate(value)

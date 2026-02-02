@@ -71,15 +71,15 @@ function Form() {
   const [report, setReport] = useState<fairspec.Report | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = ValidateFileInput.extend({})
+  const FormInput = ValidateFileInput.extend({})
   const form = useAppForm({
     defaultValues: {
       file: "",
       hashType: "md5",
       hashValue: "",
-    } as z.infer<typeof Form>,
+    } as z.infer<typeof FormInput>,
     validators: {
-      onSubmit: Form,
+      onSubmit: FormInput,
     },
     onSubmit: async ({ value }) => {
       validateFile.mutate(value)

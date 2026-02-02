@@ -61,13 +61,13 @@ function Form() {
   const [dataset, setDataset] = useState<any>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 
-  const Form = InferDatasetInput.extend({})
+  const FormInput = InferDatasetInput.extend({})
   const form = useAppForm({
     defaultValues: {
-      file: "",
-    } as z.infer<typeof Form>,
+      table: "",
+    } as z.infer<typeof FormInput>,
     validators: {
-      onSubmit: Form,
+      onSubmit: FormInput,
     },
     onSubmit: async ({ value }) => {
       inferDataset.mutate(value)
@@ -124,27 +124,32 @@ function Form() {
     >
       <FieldGroup>
         <form.AppField
-          name="file"
+          name="table"
           children={field => (
             <field.FileOrPathField
-              label={t`File`}
-              description={t`Upload a file or provide a URL to a file`}
+              label={t`Table`}
+              description={t`Upload a file or provide a URL to a tabular data file`}
               placeholder="https://example.com/file.csv"
-              fileType="file"
+              fileType="table"
+              disabled={!globalThis.desktop}
               required
-              disabled
             />
           )}
         />
-        <Button
-          size="lg"
-          type="submit"
-          form="form"
-          className="mt-4 w-full text-xl h-12"
-          disabled
-        >
-          Infer
-        </Button>
+        <form.Subscribe
+          selector={state => state.values.table}
+          children={table => (
+            <Button
+              size="lg"
+              type="submit"
+              form="form"
+              className="mt-4 w-full text-xl h-12"
+              disabled={!table}
+            >
+              Infer
+            </Button>
+          )}
+        />
       </FieldGroup>
       <Dialog open={!!statusType} onOpenChange={handleDialogOpenChange}>
         <div className="flex flex-col gap-8">
