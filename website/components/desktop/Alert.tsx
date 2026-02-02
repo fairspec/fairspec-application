@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/react/macro"
 import { Alert, AlertDescription, AlertTitle } from "#elements/custom/alert.tsx"
 
-export function DesktopTip() {
+export function DesktopAlert() {
   if (globalThis.desktop) {
     return null
   }

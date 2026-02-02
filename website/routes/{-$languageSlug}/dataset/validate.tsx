@@ -6,7 +6,7 @@ import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
 import { useState } from "react"
 import type * as z from "zod"
-import { DesktopTip } from "#components/common/Desktop.tsx"
+import { DesktopAlert } from "#components/desktop/Alert.tsx"
 import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
@@ -35,7 +35,7 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
-      <DesktopTip />
+      <DesktopAlert />
     </div>
   )
 }
