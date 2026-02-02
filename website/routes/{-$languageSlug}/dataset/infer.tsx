@@ -35,21 +35,7 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
-      <Note />
     </div>
-  )
-}
-
-function Note() {
-  return (
-    <Alert variant="danger" className="mt-2">
-      <AlertTitle className="text-xl">
-        <Trans>Desktop Only (coming soon)</Trans>
-      </AlertTitle>
-      <AlertDescription className="text-base">
-        <Trans>This functionality is only available in the desktop application</Trans>
-      </AlertDescription>
-    </Alert>
   )
 }
 
