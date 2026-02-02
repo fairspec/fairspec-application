@@ -3,7 +3,7 @@ import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
-import { JsonEditor } from "json-edit-react"
+import JsonView from "@uiw/react-json-view"
 import { useState } from "react"
 import type * as z from "zod"
 import { DesktopAlert } from "#components/desktop/Alert.tsx"
@@ -162,7 +162,7 @@ function Form() {
           {dataset && (
             <>
               <div className="bg-muted p-4 rounded-lg overflow-auto">
-                <JsonEditor data={dataset} setData={setDataset} />
+                <JsonView value={dataset} displayDataTypes={false} />
               </div>
               <Button
                 size="lg"
