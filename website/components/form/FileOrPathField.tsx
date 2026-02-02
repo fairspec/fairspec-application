@@ -1,5 +1,5 @@
 import type { FileType } from "@fairspec/engine"
-import { Trans } from "@lingui/react/macro"
+import { Trans, useLingui } from "@lingui/react/macro"
 import { useRef } from "react"
 import { Field, FieldDescription, FieldError, FieldLabel } from "#elements/field.tsx"
 import {
@@ -13,12 +13,13 @@ import { useFieldContext } from "./context.ts"
 
 export function FileOrPathField(props: {
   label: string
+  fileType: FileType
   description?: string
   placeholder?: string
-  fileType?: FileType
   required?: boolean
   disabled?: boolean
 }) {
+  const { t } = useLingui()
   const field = useFieldContext<File | string>()
   const fileInputRef = useRef<HTMLInputElement>(null)
   const isDesktop = !!globalThis.desktop
@@ -29,6 +30,11 @@ export function FileOrPathField(props: {
       ? field.state.value
       : field.state.value.name
     : ""
+
+  const maxFileSizeNote =
+    !isDesktop && ["table", "data", "file"].includes(props.fileType)
+      ? ` (${t`maximum`} 100MB)`
+      : undefined
 
   const fileInputAccept = props.fileType !== "file" ? [".json"] : undefined
   if (fileInputAccept && props.fileType === "table") {
@@ -72,6 +78,9 @@ export function FileOrPathField(props: {
       {props.description && (
         <FieldDescription className="text-base text-inherit">
           {props.description}
+          {maxFileSizeNote && (
+            <span className="text-muted-foreground">{maxFileSizeNote}</span>
+          )}
         </FieldDescription>
       )}
       <InputGroup>

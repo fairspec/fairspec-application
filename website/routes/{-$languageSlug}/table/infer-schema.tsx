@@ -142,7 +142,7 @@ function Form() {
           children={field => (
             <field.FileOrPathField
               label={t`Dialect`}
-              description={t`Upload a dialect or provide a URL to a dialect (optional)`}
+              description={t`Upload a dialect or provide a URL to a dialect`}
               placeholder="https://example.com/dialect.json"
               fileType="dialect"
             />
