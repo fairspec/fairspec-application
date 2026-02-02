@@ -1,7 +1,13 @@
 import { Trans } from "@lingui/react/macro"
 import type { ReactNode } from "react"
 import { Button } from "#elements/button.tsx"
-import { Drawer, DrawerContent, DrawerFooter, DrawerTitle } from "#elements/drawer.tsx"
+import {
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "#elements/drawer.tsx"
 
 export function Dialog(props: {
   open?: boolean
@@ -11,10 +17,12 @@ export function Dialog(props: {
   return (
     <Drawer open={props.open} onOpenChange={props.onOpenChange}>
       <DrawerContent>
-        <div className="mx-auto w-full max-w-6xl h-full flex flex-col px-4 gap-4 pt-6">
-          <DrawerTitle className="hidden">
-            <Trans>Dialog</Trans>
-          </DrawerTitle>
+        <div className="max-w-6xl w-full mx-auto">
+          <DrawerHeader>
+            <DrawerTitle className="hidden">
+              <Trans>Dialog</Trans>
+            </DrawerTitle>
+          </DrawerHeader>
           <div> {props.children}</div>
           <DrawerFooter className="px-0 pt-0">
             <Button
