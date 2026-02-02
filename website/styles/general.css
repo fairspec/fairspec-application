@@ -121,7 +121,13 @@
     @apply bg-background text-foreground;
   }
 
-  /* Custom */
+  /* Scrollbar */
+
+  html {
+    scrollbar-color: #ddd transparent;
+  }
+
+  /* Buttons */
 
   button:not([disabled]),
   [role="button"]:not([disabled]) {
