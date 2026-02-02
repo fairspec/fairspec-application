@@ -7,6 +7,7 @@ import { useState } from "react"
 import type * as z from "zod"
 import { Json } from "#components/common/Json.tsx"
 import { DesktopAlert } from "#components/desktop/Alert.tsx"
+import { downloadJson } from "#helpers/json.ts"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Result } from "#components/result/Result.tsx"
 import { Status, type StatusType } from "#components/result/Status.tsx"
@@ -100,18 +101,7 @@ function Form() {
 
   const handleDownloadDataset = () => {
     if (!dataset) return
-
-    const blob = new Blob([JSON.stringify(dataset, null, 2)], {
-      type: "application/json",
-    })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement("a")
-    link.href = url
-    link.download = "dataset.json"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
+    downloadJson(dataset, "dataset.json")
   }
 
   return (

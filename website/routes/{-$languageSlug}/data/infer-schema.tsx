@@ -8,6 +8,7 @@ import type * as z from "zod"
 import { Json } from "#components/common/Json.tsx"
 import { DesktopAlert } from "#components/desktop/Alert.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
+import { downloadJson } from "#helpers/json.ts"
 import { Result } from "#components/result/Result.tsx"
 import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
@@ -97,18 +98,7 @@ function Form() {
 
   const handleDownloadSchema = () => {
     if (!schema) return
-
-    const blob = new Blob([JSON.stringify(schema, null, 2)], {
-      type: "application/json",
-    })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement("a")
-    link.href = url
-    link.download = "data-schema.json"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
+    downloadJson(schema, "data-schema.json")
   }
 
   return (
