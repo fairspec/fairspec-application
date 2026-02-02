@@ -2,7 +2,8 @@ import { Share2, Upload } from "lucide-react"
 import { detectPlatform } from "#helpers/platform.ts"
 
 export {
-  AlertCircle as Alert,
+  AlertCircle as Danger,
+  AlertTriangle as Warning,
   ArrowBigLeftDash as Return,
   Ban as Fault,
   BarChart,
@@ -23,9 +24,10 @@ export {
   GraduationCap as Guide,
   Group,
   History,
-  Info,
+  Info as Note,
   Keyboard,
   Languages as Language,
+  Lightbulb as Tip,
   Link2 as Link,
   Link2 as Stats,
   ListCheck as Channel,

@@ -10,8 +10,8 @@ import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Report } from "#components/report/Report.tsx"
-import { Alert, AlertDescription, AlertTitle } from "#elements/alert.tsx"
 import { Button } from "#elements/button.tsx"
+import { Alert, AlertDescription, AlertTitle } from "#elements/custom/alert.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import * as icons from "#icons.ts"
 import { engine } from "#services/engine.ts"
@@ -43,13 +43,21 @@ function Component() {
 
 function Note() {
   return (
-    <Alert variant="destructive" className="mt-2">
-      <icons.Alert className="size-6" />
+    <Alert variant="tip" className="mt-2">
       <AlertTitle className="text-xl">
-        <Trans>Desktop Only (coming soon)</Trans>
+        <Trans>Desktop App Available</Trans>
       </AlertTitle>
       <AlertDescription className="text-base">
-        <Trans>This functionality is only available in the desktop application</Trans>
+        <Trans>
+          For faster and privacy-first work, download the{" "}
+          <a
+            href="https://github.com/fairspec/fairspec-application/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            desktop application
+          </a>
+        </Trans>
       </AlertDescription>
     </Alert>
   )
