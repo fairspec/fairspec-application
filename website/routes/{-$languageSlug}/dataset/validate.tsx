@@ -140,16 +140,19 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Result open={!!statusType} onOpenChange={handleDialogOpenChange}>
-        <div className="flex flex-col gap-8">
+      <Result
+        open={!!statusType}
+        onOpenChange={handleDialogOpenChange}
+        status={
           <Status
             statusType={statusType}
             pendingTitle={t`Validating Dataset...`}
             successTitle={t`Valid Dataset`}
             errorTitle={error?.message ?? t`Invalid Dataset`}
           />
-          {!!report && <Report report={report} />}
-        </div>
+        }
+      >
+        {report?.valid === false && <Report report={report} />}
       </Result>
     </form>
   )

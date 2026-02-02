@@ -151,16 +151,19 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Result open={!!statusType} onOpenChange={handleDialogOpenChange}>
-        <div className="flex flex-col gap-8">
+      <Result
+        open={!!statusType}
+        onOpenChange={handleDialogOpenChange}
+        status={
           <Status
             statusType={statusType}
             pendingTitle={t`Validating Data...`}
             successTitle={t`Valid Data`}
             errorTitle={error?.message ?? t`Invalid Data`}
           />
-          {!!report && <Report report={report} />}
-        </div>
+        }
+      >
+        {report?.valid === false && <Report report={report} />}
       </Result>
     </form>
   )

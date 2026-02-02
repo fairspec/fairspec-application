@@ -151,27 +151,30 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Result open={!!statusType} onOpenChange={handleDialogOpenChange}>
-        <div className="flex flex-col gap-8">
+      <Result
+        open={!!statusType}
+        onOpenChange={handleDialogOpenChange}
+        status={
           <Status
             statusType={statusType}
             pendingTitle={t`Inferring Dialect...`}
             successTitle={t`Dialect Inferred`}
             errorTitle={error?.message ?? t`Failed to Infer Dialect`}
           />
-          {dialect && (
-            <>
-              <Json value={dialect} />
-              <Button
-                size="lg"
-                onClick={handleDownloadDialect}
-                className="w-full text-xl h-12"
-              >
-                <Trans>Save</Trans>
-              </Button>
-            </>
-          )}
-        </div>
+        }
+        action={
+          dialect && (
+            <Button
+              size="lg"
+              onClick={handleDownloadDialect}
+              className="w-full text-xl h-12"
+            >
+              <Trans>Save</Trans>
+            </Button>
+          )
+        }
+      >
+        {dialect && <Json value={dialect} />}
       </Result>
     </form>
   )

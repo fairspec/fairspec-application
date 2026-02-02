@@ -151,27 +151,30 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Result open={!!statusType} onOpenChange={handleDialogOpenChange}>
-        <div className="flex flex-col gap-8">
+      <Result
+        open={!!statusType}
+        onOpenChange={handleDialogOpenChange}
+        status={
           <Status
             statusType={statusType}
             pendingTitle={t`Inferring Dataset...`}
             successTitle={t`Dataset Inferred`}
             errorTitle={error?.message ?? t`Failed to Infer Dataset`}
           />
-          {dataset && (
-            <>
-              <Json value={dataset} />
-              <Button
-                size="lg"
-                onClick={handleDownloadDataset}
-                className="w-full text-xl h-12"
-              >
-                <Trans>Save</Trans>
-              </Button>
-            </>
-          )}
-        </div>
+        }
+        action={
+          dataset && (
+            <Button
+              size="lg"
+              onClick={handleDownloadDataset}
+              className="w-full text-xl h-12"
+            >
+              <Trans>Save</Trans>
+            </Button>
+          )
+        }
+      >
+        {dataset && <Json value={dataset} />}
       </Result>
     </form>
   )

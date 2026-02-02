@@ -147,27 +147,30 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Result open={!!statusType} onOpenChange={handleDialogOpenChange}>
-        <div className="flex flex-col gap-8">
+      <Result
+        open={!!statusType}
+        onOpenChange={handleDialogOpenChange}
+        status={
           <Status
             statusType={statusType}
             pendingTitle={t`Inferring Schema...`}
             successTitle={t`Schema Inferred`}
             errorTitle={error?.message ?? t`Failed to Infer Schema`}
           />
-          {schema && (
-            <>
-              <Json value={schema} />
-              <Button
-                size="lg"
-                onClick={handleDownloadSchema}
-                className="w-full text-xl h-12"
-              >
-                <Trans>Save</Trans>
-              </Button>
-            </>
-          )}
-        </div>
+        }
+        action={
+          schema && (
+            <Button
+              size="lg"
+              onClick={handleDownloadSchema}
+              className="w-full text-xl h-12"
+            >
+              <Trans>Save</Trans>
+            </Button>
+          )
+        }
+      >
+        {schema && <Json value={schema} />}
       </Result>
     </form>
   )
