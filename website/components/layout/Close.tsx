@@ -6,7 +6,7 @@ import * as settings from "#settings.ts"
 export function Close() {
   const { t } = useLingui()
 
-  if (!("desktop" in globalThis)) {
+  if (!globalThis.desktop) {
     return null
   }
 

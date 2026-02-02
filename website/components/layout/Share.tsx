@@ -13,7 +13,7 @@ import * as settings from "#settings.ts"
 export function Share() {
   const { t } = useLingui()
 
-  if ("desktop" in globalThis) {
+  if (globalThis.desktop) {
     return null
   }
 

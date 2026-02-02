@@ -36,12 +36,16 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
-      <Note />
+      <Info />
     </div>
   )
 }
 
-function Note() {
+function Info() {
+  if (globalThis.desktop) {
+    return null
+  }
+
   return (
     <Alert variant="tip" className="mt-2">
       <AlertTitle className="text-xl">
