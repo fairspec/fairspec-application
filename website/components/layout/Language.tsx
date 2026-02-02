@@ -1,7 +1,7 @@
 import { useLingui } from "@lingui/react/macro"
 import { useMatches, useNavigate } from "@tanstack/react-router"
 import { De, Es, Fr, Gb, It, Pt, Ru, Ua } from "react-flags-select"
-import { type LanguageSlug, Languages } from "#constants/language.ts"
+import { Languages, type Language as LanguageType } from "#constants/language.ts"
 import { Button } from "#elements/button.tsx"
 import {
   DropdownMenu,
@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "#elements/dropdown-menu.tsx"
+import { activateLocale } from "#helpers/locale.ts"
 import * as icons from "#icons.ts"
 import * as settings from "#settings.ts"
 
@@ -27,15 +28,17 @@ export function Language() {
   const { t } = useLingui()
   const matches = useMatches()
   const navigate = useNavigate()
+  const isDesktop = !!globalThis.desktop
 
-  const onLanguageChange = (languageSlug: LanguageSlug) => {
+  const onLanguageChange = (language: LanguageType) => {
+    activateLocale(language.id)
+
     const path = matches.at(-1)?.fullPath
-    console.log(languageSlug)
     if (path) {
       navigate({
         to: path,
-        params: { languageSlug },
-        reloadDocument: true,
+        params: { languageSlug: language.slug },
+        reloadDocument: !isDesktop,
       })
     }
   }
@@ -45,7 +48,7 @@ export function Language() {
     return (
       <DropdownMenuItem
         key={language.id}
-        onClick={() => onLanguageChange(language.slug)}
+        onClick={() => onLanguageChange(language)}
         className="cursor-pointer"
       >
         <div className="flex gap-2 flex-nowrap items-center cursor-pointer">
