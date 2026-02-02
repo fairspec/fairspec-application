@@ -98,9 +98,13 @@ export function FileOrPathField(props: {
           type="file"
           ref={fileInputRef}
           onChange={e => {
-            // TODO: Replacing one file by another doesn't trigger rerender
             const file = e.target.files?.[0]
-            if (file) field.handleChange(file)
+            if (file) {
+              // Tanstack doesn't rerender on File change,
+              // so we use a hack to trigger a rerender
+              field.handleChange(file.name)
+              requestAnimationFrame(() => field.handleChange(file))
+            }
           }}
           className="hidden"
           accept={fileInputAccept?.join(",")}
