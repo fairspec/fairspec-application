@@ -13,6 +13,7 @@ import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { downloadJson } from "#helpers/json.ts"
+import { getFileBasename } from "#helpers/path.ts"
 import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/dataset/infer")({
@@ -101,7 +102,8 @@ function Form() {
 
   const handleDownloadDataset = () => {
     if (!dataset) return
-    downloadJson(dataset, "dataset.json")
+    const basename = getFileBasename(form.state.values.table)
+    downloadJson(dataset, `${basename}.dataset.json`)
   }
 
   return (

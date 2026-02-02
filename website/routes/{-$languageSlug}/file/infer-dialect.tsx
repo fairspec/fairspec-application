@@ -13,6 +13,7 @@ import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { downloadJson } from "#helpers/json.ts"
+import { getFileBasename } from "#helpers/path.ts"
 import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/file/infer-dialect")({
@@ -102,7 +103,8 @@ function Form() {
 
   const handleDownloadDialect = () => {
     if (!dialect) return
-    downloadJson(dialect, "dialect.json")
+    const basename = getFileBasename(form.state.values.file)
+    downloadJson(dialect, `${basename}.dialect.json`)
   }
 
   return (
