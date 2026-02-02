@@ -47,6 +47,7 @@ export function Menu() {
       items: [
         { label: t`Validate Table`, path: "/{-$languageSlug}/table/validate" },
         { label: t`Infer Schema`, path: "/{-$languageSlug}/table/infer-schema" },
+        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
       ],
     },
     {
@@ -56,6 +57,7 @@ export function Menu() {
       items: [
         { label: t`Validate Data`, path: "/{-$languageSlug}/data/validate" },
         { label: t`Infer Schema`, path: "/{-$languageSlug}/data/infer-schema" },
+        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
       ],
     },
     {
