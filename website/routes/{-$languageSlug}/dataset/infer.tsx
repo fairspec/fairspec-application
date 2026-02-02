@@ -7,12 +7,12 @@ import { useState } from "react"
 import type * as z from "zod"
 import { Json } from "#components/common/Json.tsx"
 import { DesktopAlert } from "#components/desktop/Alert.tsx"
-import { downloadJson } from "#helpers/json.ts"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Result } from "#components/result/Result.tsx"
 import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
+import { downloadJson } from "#helpers/json.ts"
 import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/dataset/infer")({
