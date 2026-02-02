@@ -34,7 +34,7 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
-      <DesktopAlert />
+      <DesktopAlert desktopRequired={true} />
     </div>
   )
 }
