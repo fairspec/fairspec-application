@@ -3,9 +3,9 @@ import { t } from "@lingui/core/macro"
 import { Trans, useLingui } from "@lingui/react/macro"
 import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
-import { JsonEditor } from "json-edit-react"
 import { useState } from "react"
 import type * as z from "zod"
+import { Json } from "#components/common/Json.tsx"
 import { DesktopAlert } from "#components/desktop/Alert.tsx"
 import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
@@ -173,9 +173,7 @@ function Form() {
           />
           {schema && (
             <>
-              <div className="bg-muted p-4 rounded-lg overflow-auto">
-                <JsonEditor data={schema} setData={setSchema} />
-              </div>
+              <Json value={schema} />
               <Button
                 size="lg"
                 onClick={handleDownloadSchema}

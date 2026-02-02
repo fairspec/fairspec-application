@@ -8,8 +8,6 @@ import { getFilePath } from "#action/file/path.ts"
 import type { FileType } from "#models/file.ts"
 import * as settings from "#settings.ts"
 
-// TODO: Bypass for local files in the Desktop App
-
 export async function prefetchFile(
   source: string | File,
   options: {
@@ -18,6 +16,10 @@ export async function prefetchFile(
   },
 ) {
   const { folder, fileType } = options
+
+  if (!source) {
+    return undefined
+  }
 
   if (typeof source === "string") {
     const isRemote = isRemotePath(source)
