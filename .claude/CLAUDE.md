@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-- Store plans in .clause/plans/xxx.<name>.md
+- Store plans in .clause/plans/date-<name>.md
 - Don't change shadcn code in @website/elements
 - Prioritize using LSP capabilities if possible
 - Run `pnpm run lint` to lint the code using Biome
