@@ -1,3 +1,4 @@
+import { Banner } from "./Banner.tsx"
 import { Content } from "./Content.tsx"
 import { Footer } from "./Footer.tsx"
 import { Header } from "./Header.tsx"
@@ -10,13 +11,14 @@ export function Layout(props: { children?: React.ReactNode }) {
         <Header />
       </div>
       <div className="fixed top-16 left-0 right-0 z-20">
-        <Footer />
+        <Banner />
       </div>
       <div className="fixed top-0 left-0 w-100 pt-28">
         <Menu />
       </div>
       <div className="mt-28 ml-100">
         <Content>{props.children}</Content>
+        <Footer />
       </div>
     </div>
   )

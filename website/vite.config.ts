@@ -6,6 +6,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
+import * as settings from "#settings.ts"
 
 export default defineConfig({
   build: { outDir: "build" },
@@ -15,8 +16,8 @@ export default defineConfig({
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({
       srcDirectory: ".",
-      // TODO: ensure all the languages are prerendered
       prerender: { enabled: true },
+      sitemap: { enabled: true, host: settings.HOST },
     }),
     react({
       babel: {
