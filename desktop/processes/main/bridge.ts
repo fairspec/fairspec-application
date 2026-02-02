@@ -26,7 +26,7 @@ export function createBridge() {
       })
 
       if (result.canceled || result.filePaths.length === 0) {
-        return null
+        return undefined
       }
 
       const selectedFile = result.filePaths[0]

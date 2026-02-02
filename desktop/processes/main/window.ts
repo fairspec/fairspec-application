@@ -3,7 +3,7 @@ import { is } from "@electron-toolkit/utils"
 import { BrowserWindow } from "electron"
 // @ts-expect-error
 import iconPath from "#assets/fairspec-logo.svg?asset"
-import * as settings from "../../settings.ts"
+import * as settings from "#settings.ts"
 
 export function createWindow() {
   const preloadFolder = join(import.meta.dirname, "..", "preload")
