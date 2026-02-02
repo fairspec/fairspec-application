@@ -4,7 +4,7 @@ import { dirname } from "node:path"
 import { Readable, Transform } from "node:stream"
 import { pipeline } from "node:stream/promises"
 import { isRemotePath } from "@fairspec/library"
-import { getFilePath } from "#action/file/path.ts"
+import { getFilePath } from "#helpers/path.ts"
 import type { FileType } from "#models/file.ts"
 import * as settings from "#settings.ts"
 
