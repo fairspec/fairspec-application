@@ -140,11 +140,7 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Dialog
-        open={!!statusType}
-        fullScreen={!!report?.errors.length}
-        onOpenChange={handleDialogOpenChange}
-      >
+      <Dialog open={!!statusType} onOpenChange={handleDialogOpenChange}>
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}

@@ -6,7 +6,6 @@ import { Drawer, DrawerContent, DrawerFooter, DrawerTitle } from "#elements/draw
 export function Dialog(props: {
   open?: boolean
   children: ReactNode
-  fullScreen?: boolean
   onOpenChange: (open: boolean) => void
 }) {
   return (
@@ -16,11 +15,7 @@ export function Dialog(props: {
           <DrawerTitle className="hidden">
             <Trans>Dialog</Trans>
           </DrawerTitle>
-          <div
-            className={props.fullScreen ? "flex-1 overflow-y-auto" : "overflow-y-hidden"}
-          >
-            {props.children}
-          </div>
+          <div> {props.children}</div>
           <DrawerFooter className="px-0 pt-0">
             <Button
               onClick={() => props.onOpenChange(false)}
