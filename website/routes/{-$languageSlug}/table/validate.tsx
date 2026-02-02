@@ -7,10 +7,10 @@ import { createFileRoute } from "@tanstack/react-router"
 import { useState } from "react"
 import type * as z from "zod"
 import { DesktopAlert } from "#components/desktop/Alert.tsx"
-import { Dialog } from "#components/dialog/Dialog.tsx"
-import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Report } from "#components/report/Report.tsx"
+import { Result } from "#components/result/Result.tsx"
+import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { engine } from "#services/engine.ts"
@@ -163,7 +163,7 @@ function Form() {
           )}
         />
       </FieldGroup>
-      <Dialog open={!!statusType} onOpenChange={handleDialogOpenChange}>
+      <Result open={!!statusType} onOpenChange={handleDialogOpenChange}>
         <div className="flex flex-col gap-8">
           <Status
             statusType={statusType}
@@ -173,7 +173,7 @@ function Form() {
           />
           {!!report && <Report report={report} />}
         </div>
-      </Dialog>
+      </Result>
     </form>
   )
 }
