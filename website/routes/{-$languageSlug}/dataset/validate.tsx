@@ -6,12 +6,12 @@ import { useMutation } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
 import { useState } from "react"
 import type * as z from "zod"
+import { DesktopTip } from "#components/common/Desktop.tsx"
 import { Dialog } from "#components/dialog/Dialog.tsx"
 import { Status, type StatusType } from "#components/dialog/Status.tsx"
 import { useAppForm } from "#components/form/hooks.ts"
 import { Report } from "#components/report/Report.tsx"
 import { Button } from "#elements/button.tsx"
-import { Alert, AlertDescription, AlertTitle } from "#elements/custom/alert.tsx"
 import { FieldGroup } from "#elements/field.tsx"
 import { engine } from "#services/engine.ts"
 
@@ -35,7 +35,7 @@ function Component() {
     <div className="py-8 flex flex-col gap-8">
       <Intro />
       <Form />
-      <Tip />
+      <DesktopTip />
     </div>
   )
 }
@@ -156,31 +156,5 @@ function Form() {
         </div>
       </Dialog>
     </form>
-  )
-}
-
-function Tip() {
-  if (globalThis.desktop) {
-    return null
-  }
-
-  return (
-    <Alert variant="tip" className="mt-2">
-      <AlertTitle className="text-xl">
-        <Trans>Desktop App Available</Trans>
-      </AlertTitle>
-      <AlertDescription className="text-base">
-        <Trans>
-          For faster and privacy-first work, download the{" "}
-          <a
-            href="https://github.com/fairspec/fairspec-application/releases"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            desktop application
-          </a>
-        </Trans>
-      </AlertDescription>
-    </Alert>
   )
 }
