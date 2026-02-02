@@ -1,4 +1,5 @@
-import { inferDataset } from "@fairspec/library"
+import { dirname } from "node:path"
+import { denormalizeDataset, inferDataset } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
 import { prefetchFile } from "#action/file/fetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
@@ -11,6 +12,10 @@ export const inferDatasetEndpoint = publicEndpoint
       const table = await prefetchFile(input.table, { folder, fileType: "table" })
 
       const dataset = await inferDataset({ resources: [{ data: table }] })
-      return dataset
+      const descriptor = denormalizeDataset(dataset, {
+        basepath: table ? dirname(table) : undefined,
+      })
+
+      return descriptor
     })
   })
