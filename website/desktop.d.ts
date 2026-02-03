@@ -1,8 +1,19 @@
 export interface DesktopAPI {
   engineIpc: string
+
   openFileDialog: (options: {
     filters?: { name: string; extensions: string[] }[]
-  }) => Promise<string | null>
+  }) => Promise<string | undefined>
+
+  saveFileDialog: (options: {
+    defaultPath?: string
+    filters?: { name: string; extensions: string[] }[]
+  }) => Promise<string | undefined>
+
+  writeFile: (options: {
+    filePath: string
+    content: string
+  }) => Promise<string>
 }
 
 declare global {

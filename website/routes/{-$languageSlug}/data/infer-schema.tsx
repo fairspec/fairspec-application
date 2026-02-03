@@ -12,7 +12,7 @@ import { Result } from "#components/result/Result.tsx"
 import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
-import { downloadJson } from "#helpers/json.ts"
+import { saveJson } from "#helpers/json.ts"
 import { getFileBasename } from "#helpers/path.ts"
 import { engine } from "#services/engine.ts"
 
@@ -99,10 +99,10 @@ function Form() {
     }
   }
 
-  const handleDownloadSchema = () => {
+  const handleDownloadSchema = async () => {
     if (!schema) return
     const basename = getFileBasename(form.state.values.data)
-    downloadJson(schema, `${basename}.schema.json`)
+    await saveJson(schema, `${basename}.schema.json`)
   }
 
   return (

@@ -10,6 +10,20 @@ contextBridge.exposeInMainWorld("desktop", {
   }) => {
     return await ipcRenderer.invoke("dialog:openFile", options)
   },
+
+  saveFileDialog: async (options: {
+    defaultPath?: string
+    filters?: { name: string; extensions: string[] }[]
+  }) => {
+    return await ipcRenderer.invoke("dialog:saveFile", options)
+  },
+
+  writeFile: async (options: {
+    filePath: string
+    content: string
+  }) => {
+    return await ipcRenderer.invoke("file:write", options)
+  },
 })
 
 window.addEventListener("message", (event) => {

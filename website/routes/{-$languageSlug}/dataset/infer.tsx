@@ -12,7 +12,7 @@ import { Result } from "#components/result/Result.tsx"
 import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
-import { downloadJson } from "#helpers/json.ts"
+import { saveJson } from "#helpers/json.ts"
 import { getFileBasename } from "#helpers/path.ts"
 import { engine } from "#services/engine.ts"
 
@@ -102,10 +102,10 @@ function Form() {
     }
   }
 
-  const handleDownloadDataset = () => {
+  const handleDownloadDataset = async () => {
     if (!dataset) return
     const basename = getFileBasename(form.state.values.table)
-    downloadJson(dataset, `${basename}.dataset.json`)
+    await saveJson(dataset, `${basename}.dataset.json`)
   }
 
   return (

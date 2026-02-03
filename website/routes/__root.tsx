@@ -75,7 +75,7 @@ export const Route = createRootRoute({
         },
         ...Object.values(Languages).map(language => ({
           rel: "alternate",
-          hreflang: language.id,
+          hrefLang: language.id,
           href: makeLink(language.slug),
         })),
       ],
