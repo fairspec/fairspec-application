@@ -9,7 +9,7 @@ const alertVariants = cva(
       variant: {
         default: "bg-card text-card-foreground",
         danger:
-          "text-red-600 dark:text-white bg-red-50 dark:bg-red-700 border-red-300 dark:border-red-800 *:data-[slot=alert-description]:text-red-600 dark:*:data-[slot=alert-description]:text-white/90 *:[svg]:text-current",
+          "text-red-600 dark:text-white bg-red-50 dark:bg-red-800 border-red-300 dark:border-red-700 *:data-[slot=alert-description]:text-red-600 dark:*:data-[slot=alert-description]:text-white/90 *:[svg]:text-current",
         warning:
           "text-amber-700 dark:text-white bg-amber-100 dark:bg-amber-900 border-amber-300 dark:border-amber-800 *:data-[slot=alert-description]:text-amber-700 dark:*:data-[slot=alert-description]:text-white/90 *:[svg]:text-current",
         success:

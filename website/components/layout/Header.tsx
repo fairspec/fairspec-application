@@ -1,3 +1,4 @@
+import { ClientOnly } from "@tanstack/react-router"
 import { Breadcrumbs } from "./Breadcrumbs.tsx"
 import { Close } from "./Close.tsx"
 import { Language } from "./Language.tsx"
@@ -17,7 +18,9 @@ export function Header() {
           <Theme />
           <Language />
           <Share />
-          <Close />
+          <ClientOnly>
+            <Close />
+          </ClientOnly>
         </div>
       </div>
     </header>

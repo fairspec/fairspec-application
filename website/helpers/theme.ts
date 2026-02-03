@@ -14,7 +14,7 @@ export async function detectTheme() {
   return theme || "light"
 }
 
-export function applyTheme(theme: Theme) {
+export function activateTheme(theme: Theme) {
   if (theme === "dark") {
     globalThis.document.documentElement.classList.add("dark")
   } else {
@@ -29,7 +29,7 @@ export function getCurrentTheme() {
 }
 
 export async function setTheme(theme: Theme) {
-  applyTheme(theme)
+  activateTheme(theme)
 
   if (globalThis.desktop) {
     await globalThis.desktop.setTheme(theme)

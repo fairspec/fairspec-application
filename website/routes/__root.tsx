@@ -124,7 +124,7 @@ function Document(props: { children: React.ReactNode }) {
 
   return (
     <I18nProvider i18n={i18n}>
-      <html lang={languageSlug ?? LanguageIdDefault}>
+      <html lang={languageSlug ?? LanguageIdDefault} suppressHydrationWarning>
         <head>
           <HeadContent />
         </head>
