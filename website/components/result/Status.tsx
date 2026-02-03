@@ -15,13 +15,10 @@ export function Status(props: StatusProps) {
 
   const getIcon = (): ReactNode => {
     if (statusType === "pending")
-      return (
-        <icons.Pending className="animate-spin text-yellow-500 w-12 h-12 md:w-16 md:h-16" />
-      )
+      return <icons.Pending className="animate-spin text-yellow-500 w-12 h-12" />
     if (statusType === "success")
-      return <icons.Success className="text-green-500 w-12 h-12 md:w-16 md:h-16" />
-    if (statusType === "error")
-      return <icons.Error className="text-red-500 w-12 h-12 md:w-16 md:h-16" />
+      return <icons.Success className="text-green-500 w-12 h-12" />
+    if (statusType === "error") return <icons.Error className="text-red-500 w-12 h-12" />
     return null
   }
 
