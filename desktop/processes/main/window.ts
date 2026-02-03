@@ -29,17 +29,17 @@ export function createWindow() {
     mainWindow.loadFile(urlPath)
   }
 
+  const zoomFactor = store.get("zoomFactor") ?? 1.0
+  const zoomLevels = [0.5, 0.67, 0.75, 0.8, 0.9, 1.0, 1.1, 1.25, 1.5, 1.75, 2.0]
+
   mainWindow.once("ready-to-show", () => {
+    mainWindow.webContents.setZoomFactor(zoomFactor)
     mainWindow.setTitle(settings.APP_NAME)
     mainWindow.setMenu(null)
     mainWindow.maximize()
     mainWindow.show()
   })
 
-  const zoomFactor = store.get("zoomFactor") ?? 1.0
-  mainWindow.webContents.setZoomFactor(zoomFactor)
-
-  const zoomLevels = [0.5, 0.67, 0.75, 0.8, 0.9, 1.0, 1.1, 1.25, 1.5, 1.75, 2.0]
   mainWindow.webContents.on("before-input-event", (event, input) => {
     if (input.control) {
       if (input.key === "+" || input.key === "=") {
