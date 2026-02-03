@@ -90,12 +90,12 @@ export function createBridge() {
   })
 
   ipcMain.handle("language:get", async () => {
-    const language = store.get("language") as LanguageId | undefined
-    return language || LanguageIdDefault
+    const languageId = store.get("languageId") as LanguageId | undefined
+    return languageId || LanguageIdDefault
   })
 
-  ipcMain.handle("language:set", async (_, language: LanguageId) => {
-    store.set("language", language)
-    return language
+  ipcMain.handle("language:set", async (_, languageId: LanguageId) => {
+    store.set("languageId", languageId)
+    return languageId
   })
 }

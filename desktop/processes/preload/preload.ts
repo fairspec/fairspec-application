@@ -38,8 +38,8 @@ contextBridge.exposeInMainWorld("desktop", {
     return await ipcRenderer.invoke("language:get")
   },
 
-  setLanguage: async (language: LanguageId): Promise<LanguageId> => {
-    return await ipcRenderer.invoke("language:set", language)
+  setLanguage: async (languageId: LanguageId): Promise<LanguageId> => {
+    return await ipcRenderer.invoke("language:set", languageId)
   },
 })
 
