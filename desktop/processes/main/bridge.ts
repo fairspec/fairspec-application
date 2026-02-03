@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises"
 import { basename, dirname, join } from "node:path"
 import { electronRpcHandler } from "@fairspec/engine/handlers/electron"
-import { type LanguageId, LanguageIdDefault } from "@fairspec/website"
+import type { LanguageSlug } from "@fairspec/website"
 import { dialog, ipcMain } from "electron"
 import { store } from "#processes/main/store.ts"
 import * as settings from "#settings.ts"
@@ -90,12 +90,12 @@ export function createBridge() {
   })
 
   ipcMain.handle("language:get", async () => {
-    const languageId = store.get("languageId") as LanguageId | undefined
-    return languageId || LanguageIdDefault
+    const languageSlug = store.get("languageSlug") as LanguageSlug | null
+    return languageSlug ?? undefined
   })
 
-  ipcMain.handle("language:set", async (_, languageId: LanguageId) => {
-    store.set("languageId", languageId)
-    return languageId
+  ipcMain.handle("language:set", async (_, languageSlug: LanguageSlug) => {
+    store.set("languageSlug", languageSlug ?? null)
+    return languageSlug
   })
 }

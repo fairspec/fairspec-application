@@ -1,6 +1,7 @@
 import { stat } from "node:fs/promises"
 import { join } from "node:path"
 import { protocol } from "electron"
+import { store } from "./store.ts"
 
 // TODO: rebase on the fetch API
 // https://www.electronjs.org/docs/latest/api/protocol#protocolhandlescheme-handler
@@ -13,7 +14,8 @@ export function createProxy() {
 
     const isFile = await getIsFile(path)
     if (!isFile) {
-      path = join(rendererFolder, "index.html")
+      const languageSlug = store.get("languageSlug")
+      path = join(rendererFolder, languageSlug ?? "", "index.html")
     }
 
     callback({ path })

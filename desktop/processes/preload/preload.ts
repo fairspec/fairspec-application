@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from "electron"
 import * as settings from "#settings.ts"
-import type { LanguageId } from "@fairspec/website"
+import type { LanguageSlug } from "@fairspec/website"
 
 contextBridge.exposeInMainWorld("desktop", {
   engineIpc: settings.ENGINE_IPC,
@@ -34,12 +34,12 @@ contextBridge.exposeInMainWorld("desktop", {
     return await ipcRenderer.invoke("theme:set", theme)
   },
 
-  getLanguage: async (): Promise<LanguageId> => {
+  getLanguage: async (): Promise<LanguageSlug> => {
     return await ipcRenderer.invoke("language:get")
   },
 
-  setLanguage: async (languageId: LanguageId): Promise<LanguageId> => {
-    return await ipcRenderer.invoke("language:set", languageId)
+  setLanguage: async (languageSlug: LanguageSlug): Promise<LanguageSlug> => {
+    return await ipcRenderer.invoke("language:set", languageSlug)
   },
 })
 

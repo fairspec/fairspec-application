@@ -1,9 +1,9 @@
-import type { LanguageId } from "@fairspec/website"
+import type { LanguageSlug } from "@fairspec/website"
 import Store from "electron-store"
 
 interface StoreState {
   lastOpenedFolder?: string
-  languageId?: LanguageId
+  languageSlug?: LanguageSlug | null
   theme?: "light" | "dark"
 }
 

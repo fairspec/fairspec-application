@@ -4,6 +4,7 @@ import { BrowserWindow } from "electron"
 // @ts-expect-error
 import iconPath from "#assets/fairspec-logo.svg?asset"
 import * as settings from "#settings.ts"
+import { store } from "./store.ts"
 
 export function createWindow() {
   const preloadFolder = join(import.meta.dirname, "..", "preload")
@@ -18,11 +19,14 @@ export function createWindow() {
     },
   })
 
+  const languageSlug = store.get("languageSlug")
+  const urlPath = languageSlug ? `/${languageSlug}` : "/"
+
   if (is.dev) {
-    mainWindow.loadURL("http://localhost:5000")
+    mainWindow.loadURL(`http://localhost:5000${urlPath}`)
   } else {
     // See proxy config
-    mainWindow.loadFile("/")
+    mainWindow.loadFile(urlPath)
   }
 
   mainWindow.once("ready-to-show", () => {

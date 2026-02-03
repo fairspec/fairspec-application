@@ -32,7 +32,7 @@ export function Language() {
 
   const onLanguageChange = async (language: LanguageType) => {
     await activateLocale(language.id)
-    await setLanguage(language.id)
+    await setLanguage(language.slug)
 
     const path = matches.at(-1)?.fullPath
     if (path) {

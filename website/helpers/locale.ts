@@ -1,6 +1,11 @@
 import { i18n } from "@lingui/core"
 import { detect, fromHtmlTag } from "@lingui/detect-locale"
-import { type LanguageId, LanguageIdDefault, Languages } from "#constants/language.ts"
+import {
+  type LanguageId,
+  LanguageIdDefault,
+  type LanguageSlug,
+  Languages,
+} from "#constants/language.ts"
 
 export async function activateLocale(languageId: LanguageId) {
   const { messages } = await import(`../locales/${languageId}/messages.po`)
@@ -10,16 +15,10 @@ export async function activateLocale(languageId: LanguageId) {
 }
 
 export async function detectClientLanguage() {
-  let langTag: string | null | undefined
-
-  if (globalThis.desktop) {
-    langTag = await globalThis.desktop.getLanguage()
-  } else {
-    langTag = detect(fromHtmlTag("lang"))
-  }
+  const languageId = detect(fromHtmlTag("lang"))
 
   const language =
-    Object.values(Languages).find(language => language.id === langTag) ??
+    Object.values(Languages).find(language => language.id === languageId) ??
     Languages[LanguageIdDefault]
 
   return language
@@ -41,8 +40,8 @@ export function detectLanguageFromPath(path: string) {
   return language
 }
 
-export async function setLanguage(languageId: LanguageId) {
+export async function setLanguage(languageSlug: LanguageSlug) {
   if (globalThis.desktop) {
-    await globalThis.desktop.setLanguage(languageId)
+    await globalThis.desktop.setLanguage(languageSlug)
   }
 }
