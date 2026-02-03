@@ -1,3 +1,5 @@
+import type { LanguageId } from "#constants/language.ts"
+
 export interface DesktopAPI {
   engineIpc: string
 
@@ -17,6 +19,9 @@ export interface DesktopAPI {
 
   getTheme: () => Promise<"light" | "dark">
   setTheme: (theme: "light" | "dark") => Promise<"light" | "dark">
+
+  getLanguage: () => Promise<LanguageId>
+  setLanguage: (language: LanguageId) => Promise<LanguageId>
 }
 
 declare global {

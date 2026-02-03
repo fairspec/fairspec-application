@@ -68,6 +68,9 @@ importers:
       '@fairspec/engine':
         specifier: workspace:*
         version: link:../engine
+      '@fairspec/website':
+        specifier: workspace:*
+        version: link:../website
       '@loglayer/transport-electron-log':
         specifier: 2.1.16
         version: 2.1.16(electron-log@5.4.3)
@@ -81,9 +84,6 @@ importers:
         specifier: 6.9.1
         version: 6.9.1
     devDependencies:
-      '@fairspec/website':
-        specifier: workspace:*
-        version: link:../website
       electron:
         specifier: 40.1.0
         version: 40.1.0

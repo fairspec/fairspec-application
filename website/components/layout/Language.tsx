@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "#elements/dropdown-menu.tsx"
-import { activateLocale } from "#helpers/locale.ts"
+import { activateLocale, setLanguage } from "#helpers/locale.ts"
 import * as icons from "#icons.ts"
 import * as settings from "#settings.ts"
 
@@ -30,8 +30,9 @@ export function Language() {
   const navigate = useNavigate()
   const isDesktop = !!globalThis.desktop
 
-  const onLanguageChange = (language: LanguageType) => {
-    activateLocale(language.id)
+  const onLanguageChange = async (language: LanguageType) => {
+    await activateLocale(language.id)
+    await setLanguage(language.id)
 
     const path = matches.at(-1)?.fullPath
     if (path) {

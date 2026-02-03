@@ -1,6 +1,7 @@
-import { dirname, basename, join } from "node:path"
 import { writeFile } from "node:fs/promises"
+import { basename, dirname, join } from "node:path"
 import { electronRpcHandler } from "@fairspec/engine/handlers/electron"
+import { type LanguageId, LanguageIdDefault } from "@fairspec/website"
 import { dialog, ipcMain } from "electron"
 import { store } from "#processes/main/store.ts"
 import * as settings from "#settings.ts"
@@ -42,10 +43,13 @@ export function createBridge() {
 
   ipcMain.handle(
     "dialog:saveFile",
-    async (_, options: {
-      defaultPath?: string
-      filters?: { name: string; extensions: string[] }[]
-    }) => {
+    async (
+      _,
+      options: {
+        defaultPath?: string
+        filters?: { name: string; extensions: string[] }[]
+      },
+    ) => {
       const lastOpenedFolder = store.get("lastOpenedFolder") as string | undefined
 
       const result = await dialog.showSaveDialog({
@@ -83,5 +87,15 @@ export function createBridge() {
   ipcMain.handle("theme:set", async (_, theme: "light" | "dark") => {
     store.set("theme", theme)
     return theme
+  })
+
+  ipcMain.handle("language:get", async () => {
+    const language = store.get("language") as LanguageId | undefined
+    return language || LanguageIdDefault
+  })
+
+  ipcMain.handle("language:set", async (_, language: LanguageId) => {
+    store.set("language", language)
+    return language
   })
 }

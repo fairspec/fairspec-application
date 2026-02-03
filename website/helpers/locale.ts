@@ -10,7 +10,13 @@ export async function activateLocale(languageId: LanguageId) {
 }
 
 export async function detectClientLanguage() {
-  const langTag = detect(fromHtmlTag("lang"))
+  let langTag: string | null | undefined
+
+  if (globalThis.desktop) {
+    langTag = await globalThis.desktop.getLanguage()
+  } else {
+    langTag = detect(fromHtmlTag("lang"))
+  }
 
   const language =
     Object.values(Languages).find(language => language.id === langTag) ??
@@ -33,4 +39,10 @@ export function detectLanguageFromPath(path: string) {
     Languages[LanguageIdDefault]
 
   return language
+}
+
+export async function setLanguage(languageId: LanguageId) {
+  if (globalThis.desktop) {
+    await globalThis.desktop.setLanguage(languageId)
+  }
 }

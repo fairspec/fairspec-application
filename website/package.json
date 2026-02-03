@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.0-dev",
   "private": true,
-  "main": "desktop/build/main/main.js",
   "title": "Fairspec Application",
   "description": "Fairspec Application is a visual tool for managing and validating tabular and structured data",
   "homepage": "https://application.fairspec.org",
+  "exports": "./index.ts",
   "imports": {
     "#*": "./*"
   },
