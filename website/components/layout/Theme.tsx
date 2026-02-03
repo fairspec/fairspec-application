@@ -1,28 +1,25 @@
 import { useLingui } from "@lingui/react/macro"
 import { useEffect, useState } from "react"
 import { Button } from "#elements/button.tsx"
+import { detectTheme, getCurrentTheme, setTheme } from "#helpers/theme.ts"
 import * as icons from "#icons.ts"
 import * as settings from "#settings.ts"
 
 export function Theme() {
   const { t } = useLingui()
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const [theme, setThemeInState] = useState(getCurrentTheme)
 
   useEffect(() => {
-    // Get initial theme from document
-    const isDark = document.documentElement.classList.contains("dark")
-    setTheme(isDark ? "dark" : "light")
+    detectTheme().then((detectedTheme) => {
+      setThemeInState(detectedTheme)
+      setTheme(detectedTheme)
+    })
   }, [])
 
-  const handleToggle = () => {
+  const handleToggle = async () => {
     const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
+    setThemeInState(newTheme)
+    await setTheme(newTheme)
   }
 
   return (

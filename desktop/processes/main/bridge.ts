@@ -74,4 +74,14 @@ export function createBridge() {
       return options.filePath
     },
   )
+
+  ipcMain.handle("theme:get", async () => {
+    const theme = store.get("theme") as "light" | "dark" | undefined
+    return theme || "light"
+  })
+
+  ipcMain.handle("theme:set", async (_, theme: "light" | "dark") => {
+    store.set("theme", theme)
+    return theme
+  })
 }

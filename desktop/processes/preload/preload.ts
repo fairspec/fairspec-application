@@ -24,6 +24,14 @@ contextBridge.exposeInMainWorld("desktop", {
   }) => {
     return await ipcRenderer.invoke("file:write", options)
   },
+
+  getTheme: async () => {
+    return await ipcRenderer.invoke("theme:get")
+  },
+
+  setTheme: async (theme: "light" | "dark") => {
+    return await ipcRenderer.invoke("theme:set", theme)
+  },
 })
 
 window.addEventListener("message", (event) => {

@@ -14,6 +14,9 @@ export interface DesktopAPI {
     filePath: string
     content: string
   }) => Promise<string>
+
+  getTheme: () => Promise<"light" | "dark">
+  setTheme: (theme: "light" | "dark") => Promise<"light" | "dark">
 }
 
 declare global {
