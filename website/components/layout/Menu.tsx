@@ -16,7 +16,6 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  SidebarProvider,
 } from "#elements/sidebar.tsx"
 import * as icons from "#icons.ts"
 
@@ -72,50 +71,48 @@ export function Menu() {
   ]
 
   return (
-    <SidebarProvider>
-      <SidebarGroup className="p-5 bg-gray-50 dark:bg-gray-800">
-        <SidebarGroupContent>
-          <SidebarMenu>
-            {menuItems.map(menuItem => {
-              const Icon = menuItem.icon
-              return (
-                <Collapsible
-                  key={menuItem.id}
-                  open={openStates[menuItem.id]}
-                  onOpenChange={(open: boolean) =>
-                    setOpenStates(prev => ({ ...prev, [menuItem.id]: open }))
-                  }
-                  className="group/collapsible"
-                >
-                  <SidebarMenuItem>
-                    <CollapsibleTrigger
-                      render={<SidebarMenuButton className="font-bold text-lg" />}
-                    >
-                      <Icon />
-                      <span>{menuItem.label}</span>
-                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      <SidebarMenuSub>
-                        {menuItem.items.map(item => (
-                          <SidebarMenuSubItem key={item.path}>
-                            <SidebarMenuSubButton
-                              render={<Link to={item.path} />}
-                              className="text-base"
-                            >
-                              <span>{item.label}</span>
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
-                      </SidebarMenuSub>
-                    </CollapsibleContent>
-                  </SidebarMenuItem>
-                </Collapsible>
-              )
-            })}
-          </SidebarMenu>
-        </SidebarGroupContent>
-      </SidebarGroup>
-    </SidebarProvider>
+    <SidebarGroup className="p-4">
+      <SidebarGroupContent>
+        <SidebarMenu>
+          {menuItems.map(menuItem => {
+            const Icon = menuItem.icon
+            return (
+              <Collapsible
+                key={menuItem.id}
+                open={openStates[menuItem.id]}
+                onOpenChange={(open: boolean) =>
+                  setOpenStates(prev => ({ ...prev, [menuItem.id]: open }))
+                }
+                className="group/collapsible"
+              >
+                <SidebarMenuItem>
+                  <CollapsibleTrigger
+                    render={<SidebarMenuButton className="font-bold text-lg" />}
+                  >
+                    <Icon />
+                    <span>{menuItem.label}</span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {menuItem.items.map(item => (
+                        <SidebarMenuSubItem key={item.path}>
+                          <SidebarMenuSubButton
+                            render={<Link to={item.path} />}
+                            className="text-base"
+                          >
+                            <span>{item.label}</span>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+            )
+          })}
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
   )
 }

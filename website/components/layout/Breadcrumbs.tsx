@@ -18,7 +18,7 @@ export function Breadcrumbs() {
   const title = meta?.title
 
   return (
-    <Breadcrumb className="hidden md:block">
+    <Breadcrumb>
       <BreadcrumbList className="text-base">
         <BreadcrumbItem>
           <BreadcrumbLink render={<Link to="/{-$languageSlug}" />}>
