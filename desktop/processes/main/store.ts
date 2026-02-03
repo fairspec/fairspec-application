@@ -3,8 +3,8 @@ import Store from "electron-store"
 
 interface StoreState {
   lastOpenedFolder?: string
-  languageId?: LanguageId
   theme?: "light" | "dark"
+  language?: LanguageId
 }
 
 export const store = new Store<StoreState>()

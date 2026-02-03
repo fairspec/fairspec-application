@@ -2,7 +2,7 @@ const STORAGE_KEY = "tanstack-theme"
 
 export type Theme = "light" | "dark"
 
-export async function detectClientTheme() {
+export async function detectTheme() {
   let theme: Theme | null = null
 
   if (globalThis.desktop) {
