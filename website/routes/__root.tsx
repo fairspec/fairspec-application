@@ -42,10 +42,13 @@ export const Route = createRootRoute({
         type: "image/png",
         href: "/fairspec-logo.png",
       },
+      {
+        rel: "canonical",
+      },
     ],
     scripts: [
       {
-        // TODO: remove on desktop
+        // TODO: remove on desktop?
         src: "https://plausible.io/js/script.js",
         "data-domain": "fairspec.org",
         defer: true,
