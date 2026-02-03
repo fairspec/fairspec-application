@@ -45,6 +45,7 @@ export const Route = createRootRoute({
     ],
     scripts: [
       {
+        // TODO: remove on desktop
         src: "https://plausible.io/js/script.js",
         "data-domain": "fairspec.org",
         defer: true,
