@@ -100,8 +100,10 @@ export function Menu() {
                       {menuItem.items.map(item => (
                         <SidebarMenuSubItem key={item.path}>
                           <SidebarMenuSubButton
-                            render={<Link to={item.path} onClick={() => setOpenMobile(false)} />}
                             className="text-base"
+                            render={
+                              <Link to={item.path} onClick={() => setOpenMobile(false)} />
+                            }
                           >
                             <span>{item.label}</span>
                           </SidebarMenuSubButton>
