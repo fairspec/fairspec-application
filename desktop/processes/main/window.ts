@@ -36,6 +36,9 @@ export function createWindow() {
     mainWindow.show()
   })
 
+  const zoomFactor = store.get("zoomFactor") ?? 1.0
+  mainWindow.webContents.setZoomFactor(zoomFactor)
+
   const zoomLevels = [0.5, 0.67, 0.75, 0.8, 0.9, 1.0, 1.1, 1.25, 1.5, 1.75, 2.0]
   mainWindow.webContents.on("before-input-event", (event, input) => {
     if (input.control) {
@@ -44,6 +47,7 @@ export function createWindow() {
         const nextLevel = zoomLevels.find(level => level > currentZoom)
         if (nextLevel) {
           mainWindow.webContents.setZoomFactor(nextLevel)
+          store.set("zoomFactor", nextLevel)
         }
         event.preventDefault()
       } else if (input.key === "-" || input.key === "_") {
@@ -51,10 +55,12 @@ export function createWindow() {
         const prevLevel = [...zoomLevels].reverse().find(level => level < currentZoom)
         if (prevLevel) {
           mainWindow.webContents.setZoomFactor(prevLevel)
+          store.set("zoomFactor", prevLevel)
         }
         event.preventDefault()
       } else if (input.key === "0") {
         mainWindow.webContents.setZoomFactor(1.0)
+        store.set("zoomFactor", 1.0)
         event.preventDefault()
       }
     }
