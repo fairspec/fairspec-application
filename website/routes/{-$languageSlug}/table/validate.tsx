@@ -17,17 +17,19 @@ import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/table/validate")({
   component: Component,
-  head: () => ({
-    meta: [
-      {
-        title: t`Validate Table`,
-      },
-      {
-        name: "description",
-        content: t`Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data`,
-      },
-    ],
-  }),
+  head: () => {
+    const title = t`Validate Table`
+    const description = t`Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data`
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    }
+  },
 })
 
 function Component() {

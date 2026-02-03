@@ -25,17 +25,19 @@ import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/file/validate")({
   component: Component,
-  head: () => ({
-    meta: [
-      {
-        title: t`Validate File`,
-      },
-      {
-        name: "description",
-        content: t`Describe file contents and structure in detail, and automatically infer file formats and encoding specifications`,
-      },
-    ],
-  }),
+  head: () => {
+    const title = t`Validate File`
+    const description = t`Describe file contents and structure in detail, and automatically infer file formats and encoding specifications`
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    }
+  },
 })
 
 function Component() {

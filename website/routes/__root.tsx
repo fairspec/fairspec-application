@@ -1,5 +1,4 @@
 import { i18n } from "@lingui/core"
-import { t } from "@lingui/core/macro"
 import { I18nProvider } from "@lingui/react"
 import { TanStackDevtools } from "@tanstack/react-devtools"
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools"
@@ -41,13 +40,18 @@ export const Route = createRootRoute({
 
     return {
       meta: [
-        {
-          title: "Fairspec Application",
-        },
-        {
-          name: "description",
-          content: t`Visual tool for managing and validating tabular and structured data`,
-        },
+        // General
+        { title: settings.TITLE },
+        { name: "description", content: settings.DESCRIPTION },
+        // Open Graph
+        { property: "og:title", content: settings.TITLE },
+        { property: "og:description", content: settings.DESCRIPTION },
+        { property: "og:url", content: makeLink(language?.slug) },
+        { property: "og:site_name", content: settings.TITLE },
+        { property: "og:image", content: settings.IMAGE },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: language?.id },
+        // Media
         {
           name: "viewport",
           content: "width=device-width, initial-scale=1",
@@ -66,7 +70,7 @@ export const Route = createRootRoute({
         },
         {
           rel: "alternate",
-          hreflang: "x-default",
+          hrefLang: "x-default",
           href: makeLink(),
         },
         ...Object.values(Languages).map(language => ({
@@ -77,7 +81,6 @@ export const Route = createRootRoute({
       ],
       scripts: [
         {
-          // TODO: remove on desktop?
           src: "https://plausible.io/js/script.js",
           "data-domain": "fairspec.org",
           defer: true,

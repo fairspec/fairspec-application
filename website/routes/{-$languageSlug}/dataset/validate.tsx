@@ -17,17 +17,19 @@ import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/dataset/validate")({
   component: Component,
-  head: () => ({
-    meta: [
-      {
-        title: t`Validate Dataset`,
-      },
-      {
-        name: "description",
-        content: t`Validate dataset metadata against specifications and automatically infer dataset structure from your data files`,
-      },
-    ],
-  }),
+  head: () => {
+    const title = t`Validate Dataset`
+    const description = t`Validate dataset metadata against specifications and automatically infer dataset structure from your data files`
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    }
+  },
 })
 
 function Component() {

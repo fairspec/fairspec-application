@@ -18,17 +18,19 @@ import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/file/infer-dialect")({
   component: Component,
-  head: () => ({
-    meta: [
-      {
-        title: t`Infer Dialect`,
-      },
-      {
-        name: "description",
-        content: t`Automatically infer file formats, encoding specifications, and dialect parameters`,
-      },
-    ],
-  }),
+  head: () => {
+    const title = t`Infer Dialect`
+    const description = t`Automatically infer file formats, encoding specifications, and dialect parameters`
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    }
+  },
 })
 
 function Component() {

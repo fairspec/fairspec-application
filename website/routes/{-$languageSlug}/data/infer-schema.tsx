@@ -18,17 +18,19 @@ import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/data/infer-schema")({
   component: Component,
-  head: () => ({
-    meta: [
-      {
-        title: t`Infer Data Schema`,
-      },
-      {
-        name: "description",
-        content: t`Automatically infer comprehensive data schemas from your datasets`,
-      },
-    ],
-  }),
+  head: () => {
+    const title = t`Infer Data Schema`
+    const description = t`Automatically infer comprehensive data schemas from your datasets`
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    }
+  },
 })
 
 function Component() {

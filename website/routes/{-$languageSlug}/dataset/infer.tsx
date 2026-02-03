@@ -18,17 +18,19 @@ import { engine } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/dataset/infer")({
   component: Component,
-  head: () => ({
-    meta: [
-      {
-        title: t`Infer Dataset`,
-      },
-      {
-        name: "description",
-        content: t`Automatically infer dataset metadata and structure from your data files`,
-      },
-    ],
-  }),
+  head: () => {
+    const title = t`Infer Dataset`
+    const description = t`Automatically infer dataset metadata and structure from your data files`
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    }
+  },
 })
 
 function Component() {
