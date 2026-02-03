@@ -18,44 +18,75 @@ import { DefaultCatchBoundary } from "#components/system/DefaultCatchBoundary.ts
 import { NotFound } from "#components/system/NotFound.tsx"
 import { LanguageIdDefault, Languages } from "#constants/language.ts"
 import { Toaster } from "#elements/sonner.tsx"
+import * as settings from "#settings.ts"
 import generalCss from "#styles/general.css?url"
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      {
-        title: "Fairspec Application",
-      },
-      {
-        name: "description",
-        content: t`Visual tool for managing and validating tabular and structured data`,
-      },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-    ],
-    links: [
-      { rel: "stylesheet", href: generalCss },
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/fairspec-logo.png",
-      },
-      {
-        rel: "canonical",
-      },
-    ],
-    scripts: [
-      {
-        // TODO: remove on desktop?
-        src: "https://plausible.io/js/script.js",
-        "data-domain": "fairspec.org",
-        defer: true,
-      },
-    ],
-  }),
+  head: ({ matches }) => {
+    const match = matches.at(-1)
+    const path = match?.fullPath
+    const params = match?.params as any
+
+    const language = Object.values(Languages).find(
+      language => language.slug === params?.languageSlug,
+    )
+
+    // TODO: should be a builtin function in the future
+    // https://github.com/TanStack/router/discussions/6551
+    const makeLink = (languageSlug?: string) => {
+      const replacement = languageSlug ? `/${languageSlug}` : ""
+      const compiledPath = path?.replace("/{-$languageSlug}", replacement)
+      return `${settings.HOST}${compiledPath}`
+    }
+
+    return {
+      meta: [
+        {
+          title: "Fairspec Application",
+        },
+        {
+          name: "description",
+          content: t`Visual tool for managing and validating tabular and structured data`,
+        },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        },
+      ],
+      links: [
+        { rel: "stylesheet", href: generalCss },
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/fairspec-logo.png",
+        },
+        {
+          rel: "canonical",
+          href: makeLink(language?.slug),
+        },
+        {
+          rel: "alternate",
+          hreflang: "x-default",
+          href: makeLink(),
+        },
+        ...Object.values(Languages).map(language => ({
+          rel: "alternate",
+          hreflang: language.id,
+          href: makeLink(language.slug),
+        })),
+      ],
+      scripts: [
+        {
+          // TODO: remove on desktop?
+          src: "https://plausible.io/js/script.js",
+          "data-domain": "fairspec.org",
+          defer: true,
+        },
+      ],
+    }
+  },
   // TODO: improve NotFound page in this case
+  // @ts-expect-error
   beforeLoad: ({ params }) => {
     if ("languageSlug" in params) {
       const language = Object.values(Languages).find(
