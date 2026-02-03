@@ -16,17 +16,12 @@ export function Status(props: StatusProps) {
   const getIcon = (): ReactNode => {
     if (statusType === "pending")
       return (
-        <icons.Pending
-          size={100}
-          className="animate-spin text-yellow-500 w-20 h-20 sm:w-10 sm:h-10"
-        />
+        <icons.Pending className="animate-spin text-yellow-500 w-12 h-12 md:w-16 md:h-16" />
       )
     if (statusType === "success")
-      return (
-        <icons.Success size={100} className="text-green-500 w-20 h-20 sm:w-10 sm:h-10" />
-      )
+      return <icons.Success className="text-green-500 w-12 h-12 md:w-16 md:h-16" />
     if (statusType === "error")
-      return <icons.Error size={100} className="text-red-500 w-20 h-20 sm:w-10 sm:h-10" />
+      return <icons.Error className="text-red-500 w-12 h-12 md:w-16 md:h-16" />
     return null
   }
 
@@ -39,9 +34,9 @@ export function Status(props: StatusProps) {
 
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className="flex flex-col sm:flex-row items-center gap-4">
+      <div className="flex flex-col md:flex-row items-center gap-4">
         {getIcon()}
-        <span className="text-4xl font-semibold">{getTitle()}</span>
+        <span className="text-3xl md:text-4xl font-semibold">{getTitle()}</span>
       </div>
     </div>
   )

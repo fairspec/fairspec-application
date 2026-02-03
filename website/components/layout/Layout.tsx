@@ -16,10 +16,12 @@ export function Layout(props: { children?: React.ReactNode }) {
   return (
     <SidebarProvider
       defaultOpen={true}
-      style={{
-        "--sidebar-width": "20rem",
-        "--sidebar-width-mobile": "20rem",
-      }}
+      style={
+        {
+          "--sidebar-width": "20rem",
+          "--sidebar-width-mobile": "20rem",
+        } as React.CSSProperties
+      }
     >
       <Sidebar collapsible="offcanvas" side="left">
         <SidebarContent className="md:pt-28">
