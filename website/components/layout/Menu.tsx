@@ -16,11 +16,13 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "#elements/sidebar.tsx"
 import * as icons from "#icons.ts"
 
 export function Menu() {
   const { t } = useLingui()
+  const { setOpenMobile } = useSidebar()
 
   const [openStates, setOpenStates] = useState<Record<string, boolean>>({
     dataset: true,
@@ -98,7 +100,7 @@ export function Menu() {
                       {menuItem.items.map(item => (
                         <SidebarMenuSubItem key={item.path}>
                           <SidebarMenuSubButton
-                            render={<Link to={item.path} />}
+                            render={<Link to={item.path} onClick={() => setOpenMobile(false)} />}
                             className="text-base"
                           >
                             <span>{item.label}</span>
