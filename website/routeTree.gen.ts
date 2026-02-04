@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as Char123LanguageSlugChar125IndexRouteImport } from './routes/{-$languageSlug}/index'
 import { Route as Char123LanguageSlugChar125TableValidateRouteImport } from './routes/{-$languageSlug}/table/validate'
+import { Route as Char123LanguageSlugChar125TablePreviewRouteImport } from './routes/{-$languageSlug}/table/preview'
 import { Route as Char123LanguageSlugChar125TableInferSchemaRouteImport } from './routes/{-$languageSlug}/table/infer-schema'
 import { Route as Char123LanguageSlugChar125FileValidateRouteImport } from './routes/{-$languageSlug}/file/validate'
 import { Route as Char123LanguageSlugChar125FileInferDialectRouteImport } from './routes/{-$languageSlug}/file/infer-dialect'
@@ -29,6 +30,12 @@ const Char123LanguageSlugChar125TableValidateRoute =
   Char123LanguageSlugChar125TableValidateRouteImport.update({
     id: '/{-$languageSlug}/table/validate',
     path: '/{-$languageSlug}/table/validate',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char123LanguageSlugChar125TablePreviewRoute =
+  Char123LanguageSlugChar125TablePreviewRouteImport.update({
+    id: '/{-$languageSlug}/table/preview',
+    path: '/{-$languageSlug}/table/preview',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char123LanguageSlugChar125TableInferSchemaRoute =
@@ -83,6 +90,7 @@ export interface FileRoutesByFullPath {
   '/{-$languageSlug}/file/infer-dialect': typeof Char123LanguageSlugChar125FileInferDialectRoute
   '/{-$languageSlug}/file/validate': typeof Char123LanguageSlugChar125FileValidateRoute
   '/{-$languageSlug}/table/infer-schema': typeof Char123LanguageSlugChar125TableInferSchemaRoute
+  '/{-$languageSlug}/table/preview': typeof Char123LanguageSlugChar125TablePreviewRoute
   '/{-$languageSlug}/table/validate': typeof Char123LanguageSlugChar125TableValidateRoute
 }
 export interface FileRoutesByTo {
@@ -94,6 +102,7 @@ export interface FileRoutesByTo {
   '/{-$languageSlug}/file/infer-dialect': typeof Char123LanguageSlugChar125FileInferDialectRoute
   '/{-$languageSlug}/file/validate': typeof Char123LanguageSlugChar125FileValidateRoute
   '/{-$languageSlug}/table/infer-schema': typeof Char123LanguageSlugChar125TableInferSchemaRoute
+  '/{-$languageSlug}/table/preview': typeof Char123LanguageSlugChar125TablePreviewRoute
   '/{-$languageSlug}/table/validate': typeof Char123LanguageSlugChar125TableValidateRoute
 }
 export interface FileRoutesById {
@@ -106,6 +115,7 @@ export interface FileRoutesById {
   '/{-$languageSlug}/file/infer-dialect': typeof Char123LanguageSlugChar125FileInferDialectRoute
   '/{-$languageSlug}/file/validate': typeof Char123LanguageSlugChar125FileValidateRoute
   '/{-$languageSlug}/table/infer-schema': typeof Char123LanguageSlugChar125TableInferSchemaRoute
+  '/{-$languageSlug}/table/preview': typeof Char123LanguageSlugChar125TablePreviewRoute
   '/{-$languageSlug}/table/validate': typeof Char123LanguageSlugChar125TableValidateRoute
 }
 export interface FileRouteTypes {
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/{-$languageSlug}/file/infer-dialect'
     | '/{-$languageSlug}/file/validate'
     | '/{-$languageSlug}/table/infer-schema'
+    | '/{-$languageSlug}/table/preview'
     | '/{-$languageSlug}/table/validate'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/{-$languageSlug}/file/infer-dialect'
     | '/{-$languageSlug}/file/validate'
     | '/{-$languageSlug}/table/infer-schema'
+    | '/{-$languageSlug}/table/preview'
     | '/{-$languageSlug}/table/validate'
   id:
     | '__root__'
@@ -141,6 +153,7 @@ export interface FileRouteTypes {
     | '/{-$languageSlug}/file/infer-dialect'
     | '/{-$languageSlug}/file/validate'
     | '/{-$languageSlug}/table/infer-schema'
+    | '/{-$languageSlug}/table/preview'
     | '/{-$languageSlug}/table/validate'
   fileRoutesById: FileRoutesById
 }
@@ -153,6 +166,7 @@ export interface RootRouteChildren {
   Char123LanguageSlugChar125FileInferDialectRoute: typeof Char123LanguageSlugChar125FileInferDialectRoute
   Char123LanguageSlugChar125FileValidateRoute: typeof Char123LanguageSlugChar125FileValidateRoute
   Char123LanguageSlugChar125TableInferSchemaRoute: typeof Char123LanguageSlugChar125TableInferSchemaRoute
+  Char123LanguageSlugChar125TablePreviewRoute: typeof Char123LanguageSlugChar125TablePreviewRoute
   Char123LanguageSlugChar125TableValidateRoute: typeof Char123LanguageSlugChar125TableValidateRoute
 }
 
@@ -170,6 +184,13 @@ declare module '@tanstack/react-router' {
       path: '/{-$languageSlug}/table/validate'
       fullPath: '/{-$languageSlug}/table/validate'
       preLoaderRoute: typeof Char123LanguageSlugChar125TableValidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/{-$languageSlug}/table/preview': {
+      id: '/{-$languageSlug}/table/preview'
+      path: '/{-$languageSlug}/table/preview'
+      fullPath: '/{-$languageSlug}/table/preview'
+      preLoaderRoute: typeof Char123LanguageSlugChar125TablePreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/{-$languageSlug}/table/infer-schema': {
@@ -240,6 +261,8 @@ const rootRouteChildren: RootRouteChildren = {
     Char123LanguageSlugChar125FileValidateRoute,
   Char123LanguageSlugChar125TableInferSchemaRoute:
     Char123LanguageSlugChar125TableInferSchemaRoute,
+  Char123LanguageSlugChar125TablePreviewRoute:
+    Char123LanguageSlugChar125TablePreviewRoute,
   Char123LanguageSlugChar125TableValidateRoute:
     Char123LanguageSlugChar125TableValidateRoute,
 }

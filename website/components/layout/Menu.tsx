@@ -46,6 +46,7 @@ export function Menu() {
       label: t`Table`,
       icon: icons.Table,
       items: [
+        { label: t`Preview Table`, path: "/{-$languageSlug}/table/preview" },
         { label: t`Validate Table`, path: "/{-$languageSlug}/table/validate" },
         { label: t`Infer Schema`, path: "/{-$languageSlug}/table/infer-schema" },
         { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },

@@ -35,7 +35,7 @@ export const previewTableEndpoint = publicEndpoint
         tableSchema = await inferTableSchemaFromTable(table)
       }
 
-      const frame = await table.collect()
+      const frame = await table.limit(100).collect()
       const records = frame.toRecords()
 
       return { records, tableSchema }
