@@ -22,7 +22,8 @@
     "start:desktop": "pnpm --parallel -F website -F desktop start",
     "start:website": "pnpm --parallel -F engine -F website start",
     "test": "pnpm lint && pnpm type && pnpm spec",
-    "type": "pnpm -r type"
+    "type": "pnpm -r type",
+    "version:ci": "pnpm --include-workspace-root -r exec pnpm version --no-git-tag-version"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
