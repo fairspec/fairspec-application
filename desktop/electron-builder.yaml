@@ -30,9 +30,8 @@ linux:
 # https://github.com/electron/notarize
 
 mac:
-  hardenedRuntime: true
-  entitlements: "entitlements.mac.plist"
-  entitlementsInherit: "entitlements.mac.plist"
+  target:
+    - dmg
 
 # Windows
 # Variable ${name} doesn't work on windows
