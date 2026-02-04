@@ -67,6 +67,7 @@ function limitStreamSize(inputStream: Readable, maxBytes: number) {
     new Transform({
       transform(chunk, _encoding, callback) {
         if (total >= maxBytes) {
+          inputStream.destroy()
           throw new Error("File size exceeds the limit")
         }
 
