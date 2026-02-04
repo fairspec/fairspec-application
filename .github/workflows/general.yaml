@@ -28,3 +28,74 @@ jobs:
         run: pnpm test
       - name: Build Project
         run: pnpm build
+
+  release-draft:
+    needs: [test]
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    outputs:
+      created: ${{ steps.draft.outputs.new_release_published }}
+      version: ${{ steps.draft.outputs.new_release_version }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version-file: package.json
+      - name: Install Dependencies
+        run: pnpm install:ci
+      - name: Draft Release
+        id: draft
+        uses: cycjimmy/semantic-release-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-publish:
+    needs: [release-draft]
+    if: needs.release-draft.outputs.created == 'true'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v5
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version-file: package.json
+      - name: Install Dependencies
+        run: pnpm install:ci
+      - name: Set Version
+        run: pnpm version:ci ${{ needs.release-draft.outputs.version }}
+      - name: Build Packages
+        run: pnpm build
+      - name: Compile Packages
+        run: pnpm compile
+      - name: Publish Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          tag_name: v${{ needs.release-draft.outputs.version }}
+          files: |
+            desktop/compile/*.AppImage
+            desktop/compile/*.deb
+            desktop/compile/*.dmg
+            desktop/compile/*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
