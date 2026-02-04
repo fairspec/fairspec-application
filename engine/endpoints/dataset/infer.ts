@@ -1,7 +1,7 @@
 import { dirname } from "node:path"
 import { denormalizeDataset, inferDataset } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
-import { prefetchFile } from "#action/file/fetch.ts"
+import { prefetchFile } from "#action/file/prefetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
 import { InferDatasetInput } from "#models/dataset.ts"
 

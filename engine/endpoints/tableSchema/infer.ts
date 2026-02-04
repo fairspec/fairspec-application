@@ -1,6 +1,6 @@
 import { inferTableSchema } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
-import { prefetchFile } from "#action/file/fetch.ts"
+import { prefetchFile } from "#action/file/prefetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
 import { InferTableSchemaInput } from "#models/tableSchema.ts"
 
