@@ -14,12 +14,12 @@ import { createColumnDefs } from "./columns.tsx"
 
 interface TableProps {
   records: Record<string, unknown>[]
-  schema: TableSchema
+  tableSchema: TableSchema
   className?: string
 }
 
-export function Table({ records, schema, className }: TableProps) {
-  const columns = useMemo(() => createColumnDefs(schema), [schema])
+export function Table({ records, tableSchema, className }: TableProps) {
+  const columns = useMemo(() => createColumnDefs(tableSchema), [tableSchema])
 
   const table = useReactTable({
     data: records,

@@ -6,6 +6,6 @@ export {
 } from "./models/dataset.ts"
 export { InferDialectInput } from "./models/dialect.ts"
 export { FileType, ValidateFileInput } from "./models/file.ts"
-export { ValidateTableInput } from "./models/table.ts"
+export { PreviewTableInput, ValidateTableInput } from "./models/table.ts"
 export { InferTableSchemaInput } from "./models/tableSchema.ts"
 export { createEngineService } from "./service.ts"

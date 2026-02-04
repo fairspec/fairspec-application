@@ -3,11 +3,13 @@ import { getColumns } from "@fairspec/metadata"
 import type { ColumnDef } from "@tanstack/react-table"
 import { formatCell } from "./formatters.tsx"
 
-export function createColumnDefs(schema: TableSchema): ColumnDef<Record<string, any>>[] {
-  const columns = getColumns(schema)
+export function createColumnDefs(
+  tableSchema: TableSchema,
+): ColumnDef<Record<string, any>>[] {
+  const columns = getColumns(tableSchema)
 
   return columns.map(column => {
-    const isPrimaryKey = schema.primaryKey?.includes(column.name)
+    const isPrimaryKey = tableSchema.primaryKey?.includes(column.name)
 
     return {
       accessorKey: column.name,
@@ -19,7 +21,7 @@ export function createColumnDefs(schema: TableSchema): ColumnDef<Record<string, 
       ),
       cell: ({ getValue }) => (
         <div className={isPrimaryKey ? "font-medium" : ""}>
-          {formatCell(getValue(), column, schema.missingValues)}
+          {formatCell(getValue(), column, tableSchema.missingValues)}
         </div>
       ),
     }

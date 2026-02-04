@@ -1,6 +1,7 @@
 import { inferDataSchemaEndpoint } from "#endpoints/dataSchema/infer.ts"
 import { validateDatasetEndpoint } from "#endpoints/dataset/validate.ts"
 import { inferDialectEndpoint } from "#endpoints/dialect/infer.ts"
+import { previewTableEndpoint } from "#endpoints/table/preview.ts"
 import { validateTableEndpoint } from "#endpoints/table/validate.ts"
 import { inferTableSchemaEndpoint } from "#endpoints/tableSchema/infer.ts"
 import { validateDataEndpoint } from "./endpoints/data/validate.ts"
@@ -25,6 +26,7 @@ export const router = {
     validate: validateFileEndpoint,
   },
   table: {
+    preview: previewTableEndpoint,
     validate: validateTableEndpoint,
   },
   tableSchema: {

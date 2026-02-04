@@ -100,8 +100,8 @@ importers:
   engine:
     dependencies:
       '@fairspec/library':
-        specifier: 0.5.2
-        version: 0.5.2(typescript@5.9.2)
+        specifier: 0.6.0
+        version: 0.6.0(typescript@5.9.2)
       '@fairspec/logger':
         specifier: workspace:*
         version: link:../logger
@@ -168,8 +168,8 @@ importers:
         specifier: workspace:*
         version: link:../logger
       '@fairspec/metadata':
-        specifier: 0.5.2
-        version: 0.5.2
+        specifier: 0.6.0
+        version: 0.6.0
       '@lingui/babel-plugin-lingui-macro':
         specifier: 5.8.0
         version: 5.8.0(typescript@5.9.2)
@@ -1343,20 +1343,20 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fairspec/dataset@0.5.2':
-    resolution: {integrity: sha512-prhNJHDnyi0F4kcPP4FR8kh6TpdeOlCvquiaieSEDgEuhlWQ/ZSBPN8wqIIaNKWIieVjY51mvnFmdpxNuKf5og==}
+  '@fairspec/dataset@0.6.0':
+    resolution: {integrity: sha512-xTfu5Ho4+n1JbVcWPnZYf54QZeTBx4SBHJm3HfTnk5U766APBEfPPj5ZOFpW3ecdkApvaMiHe/mAH09GbuOH2w==}
 
-  '@fairspec/extension@0.5.2':
-    resolution: {integrity: sha512-s6LxP5IKp6ViEcvfFRGXEx0fyXdlZnYWlvxupC+YVK/T/+wwNuuuL2BJjnHVheCVtflFBShzk303Co35wwx4CA==}
+  '@fairspec/extension@0.6.0':
+    resolution: {integrity: sha512-BdRTxitcZklT6927PsJyhkdbydkXe5FSVWbqFFbGGm7N5NLR4vqEhdFh7YekXuYsCp2SLkRkmiAU/UGJG33O9Q==}
 
-  '@fairspec/library@0.5.2':
-    resolution: {integrity: sha512-G9s/Loq9ernBOuXOC4nIb0uVvhLcRk1DAINHQAyoqkp49CO55VMc/ak5vnB/oCUM+jfbKTiR9Uc72dT9UwRtMQ==}
+  '@fairspec/library@0.6.0':
+    resolution: {integrity: sha512-PEXYlSElkqOIvgC+j3GEUkCrIS+SOzsuKivZDrXouyiSdsj1FeI5tXlLidHj1TyjgYOFz1epy5iPfdwcLL7pRQ==}
 
-  '@fairspec/metadata@0.5.2':
-    resolution: {integrity: sha512-BxsWtToIRP52s3HysiZd9mjrbwPqielOpUXey9cPkftLk/DLT7II+RkVK45N24jdsLgFYuGssqfhkq4i9KZaXA==}
+  '@fairspec/metadata@0.6.0':
+    resolution: {integrity: sha512-8xC3j4vnT+Fkr9iKfKYlQ6eq2W8l1nGXhuKGHA0cCcH78tWR0W1I7DNRjaKPt4vniPZ7S5RLD22DLUJo9yUxQg==}
 
-  '@fairspec/table@0.5.2':
-    resolution: {integrity: sha512-E/6awKqPAcvaNZjY0zULT1+mkRokBjw0pHXCJCtKLg4Qn7JbaKDEiCdd7cb3tZ3hCzZuaNywfufBWPFqkBA+rA==}
+  '@fairspec/table@0.6.0':
+    resolution: {integrity: sha512-7m8Q1nxMiuRH5pEzZoqpaMKPvgLJ1yOYivrpJmuooY7Znm+mUThFRlNGsJf8XXLcSeoL44pzjVdgMazwvIivsQ==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -9005,9 +9005,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@fairspec/dataset@0.5.2':
+  '@fairspec/dataset@0.6.0':
     dependencies:
-      '@fairspec/metadata': 0.5.2
+      '@fairspec/metadata': 0.6.0
       chardet: 2.1.1
       exit-hook: 4.0.0
       fflate: 0.8.2
@@ -9019,9 +9019,9 @@ snapshots:
       tempy: 3.1.0
       zod: 4.3.6
 
-  '@fairspec/extension@0.5.2':
+  '@fairspec/extension@0.6.0':
     dependencies:
-      '@fairspec/metadata': 0.5.2
+      '@fairspec/metadata': 0.6.0
       htmlfy: 1.0.1
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
@@ -9030,19 +9030,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@fairspec/library@0.5.2(typescript@5.9.2)':
+  '@fairspec/library@0.6.0(typescript@5.9.2)':
     dependencies:
-      '@fairspec/dataset': 0.5.2
-      '@fairspec/extension': 0.5.2
-      '@fairspec/metadata': 0.5.2
-      '@fairspec/table': 0.5.2(typescript@5.9.2)
+      '@fairspec/dataset': 0.6.0
+      '@fairspec/extension': 0.6.0
+      '@fairspec/metadata': 0.6.0
+      '@fairspec/table': 0.6.0(typescript@5.9.2)
       json-schema-it: 1.2.23
       p-all: 5.0.1
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@fairspec/metadata@0.5.2':
+  '@fairspec/metadata@0.6.0':
     dependencies:
       '@sindresorhus/slugify': 0.9.1
       '@types/json-schema': 7.0.15
@@ -9051,10 +9051,10 @@ snapshots:
       ts-extras: 0.16.1
       zod: 4.3.6
 
-  '@fairspec/table@0.5.2(typescript@5.9.2)':
+  '@fairspec/table@0.6.0(typescript@5.9.2)':
     dependencies:
-      '@fairspec/dataset': 0.5.2
-      '@fairspec/metadata': 0.5.2
+      '@fairspec/dataset': 0.6.0
+      '@fairspec/metadata': 0.6.0
       csv-sniffer: 0.1.1
       kysely: 0.28.10
       kysely-generic-sqlite: 1.2.1(kysely@0.28.10)
