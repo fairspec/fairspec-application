@@ -60,6 +60,7 @@ pids
 .wrangler/
 build/
 compile/
+render/
 dist/
 .astro/
 /docs/content/docs/reference/

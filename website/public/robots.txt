@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://application.fairspec.org/sitemap.xml

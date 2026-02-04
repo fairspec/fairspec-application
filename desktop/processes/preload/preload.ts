@@ -1,0 +1,54 @@
+import { contextBridge, ipcRenderer } from "electron"
+import * as settings from "#settings.ts"
+import type { LanguageSlug } from "@fairspec/website"
+
+contextBridge.exposeInMainWorld("desktop", {
+  engineIpc: settings.ENGINE_IPC,
+
+  openFileDialog: async (options: { filters?: {
+    name: string;
+    extensions: string[] }[]
+  }) => {
+    return await ipcRenderer.invoke("dialog:openFile", options)
+  },
+
+  saveFileDialog: async (options: {
+    defaultPath?: string
+    filters?: { name: string; extensions: string[] }[]
+  }) => {
+    return await ipcRenderer.invoke("dialog:saveFile", options)
+  },
+
+  writeFile: async (options: {
+    filePath: string
+    content: string
+  }) => {
+    return await ipcRenderer.invoke("file:write", options)
+  },
+
+  getTheme: async () => {
+    return await ipcRenderer.invoke("theme:get")
+  },
+
+  setTheme: async (theme: "light" | "dark") => {
+    return await ipcRenderer.invoke("theme:set", theme)
+  },
+
+  getLanguage: async (): Promise<LanguageSlug> => {
+    return await ipcRenderer.invoke("language:get")
+  },
+
+  setLanguage: async (languageSlug: LanguageSlug): Promise<LanguageSlug> => {
+    return await ipcRenderer.invoke("language:set", languageSlug)
+  },
+})
+
+window.addEventListener("message", (event) => {
+  if (event.data === settings.ENGINE_IPC) {
+    const [serverPort] = event.ports
+
+    if (serverPort) {
+      ipcRenderer.postMessage(settings.ENGINE_IPC, null, [serverPort])
+    }
+  }
+})

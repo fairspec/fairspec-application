@@ -1,5 +1,5 @@
 import { Trans, useLingui } from "@lingui/react/macro"
-import { Link, useMatches, useParams } from "@tanstack/react-router"
+import { Link, useMatches } from "@tanstack/react-router"
 import { TypeAnimation } from "react-type-animation"
 import {
   Breadcrumb,
@@ -12,17 +12,16 @@ import {
 
 export function Breadcrumbs() {
   const { t } = useLingui()
-  const { languageId } = useParams({ strict: false })
 
   const matches = useMatches()
   const meta = matches.at(-1)?.meta?.find((meta: any) => meta.title)
   const title = meta?.title
 
   return (
-    <Breadcrumb className="hidden md:block">
+    <Breadcrumb>
       <BreadcrumbList className="text-base">
         <BreadcrumbItem>
-          <BreadcrumbLink render={<Link to="/" params={{ languageId }} />}>
+          <BreadcrumbLink render={<Link to="/{-$languageSlug}" />}>
             <Trans>Home</Trans>
           </BreadcrumbLink>
         </BreadcrumbItem>

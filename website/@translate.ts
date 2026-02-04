@@ -11,14 +11,9 @@ import { type LanguageId, LanguageIdDefault, Languages } from "#constants/langua
 
 process.chdir(import.meta.dirname)
 dotenv.config({ path: ".env.local" })
+const shell = execa({ stdout: ["inherit"], preferLocal: true, shell: true })
 
-const $ = execa({
-  stdout: ["inherit", "pipe"],
-  verbose: "short",
-  preferLocal: true,
-})
-
-await $`lingui extract`
+await shell`lingui extract`
 await translateLanguages()
 // Handled by Vite
 // await $`lingui compile`

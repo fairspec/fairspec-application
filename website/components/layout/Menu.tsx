@@ -1,5 +1,5 @@
 import { useLingui } from "@lingui/react/macro"
-import { Link, useParams } from "@tanstack/react-router"
+import { Link } from "@tanstack/react-router"
 import { ChevronRight } from "lucide-react"
 import { useState } from "react"
 import {
@@ -16,13 +16,13 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  SidebarProvider,
+  useSidebar,
 } from "#elements/sidebar.tsx"
 import * as icons from "#icons.ts"
 
 export function Menu() {
   const { t } = useLingui()
-  const { languageId } = useParams({ strict: false })
+  const { setOpenMobile } = useSidebar()
 
   const [openStates, setOpenStates] = useState<Record<string, boolean>>({
     dataset: true,
@@ -37,8 +37,8 @@ export function Menu() {
       label: t`Dataset`,
       icon: icons.Dataset,
       items: [
-        { label: t`Validate Dataset`, path: "/$languageId/dataset/validate" },
-        { label: t`Infer Dataset`, path: "/$languageId/dataset/infer" },
+        { label: t`Validate Dataset`, path: "/{-$languageSlug}/dataset/validate" },
+        { label: t`Infer Dataset`, path: "/{-$languageSlug}/dataset/infer" },
       ],
     },
     {
@@ -46,8 +46,10 @@ export function Menu() {
       label: t`Table`,
       icon: icons.Table,
       items: [
-        { label: t`Validate Table`, path: "/$languageId/table/validate" },
-        { label: t`Infer Schema`, path: "/$languageId/table/infer-schema" },
+        { label: t`Preview Table`, path: "/{-$languageSlug}/table/preview" },
+        { label: t`Validate Table`, path: "/{-$languageSlug}/table/validate" },
+        { label: t`Infer Schema`, path: "/{-$languageSlug}/table/infer-schema" },
+        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
       ],
     },
     {
@@ -55,8 +57,9 @@ export function Menu() {
       label: t`Data`,
       icon: icons.Data,
       items: [
-        { label: t`Validate Data`, path: "/$languageId/data/validate" },
-        { label: t`Infer Schema`, path: "/$languageId/data/infer-schema" },
+        { label: t`Validate Data`, path: "/{-$languageSlug}/data/validate" },
+        { label: t`Infer Schema`, path: "/{-$languageSlug}/data/infer-schema" },
+        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
       ],
     },
     {
@@ -64,57 +67,57 @@ export function Menu() {
       label: t`File`,
       icon: icons.File,
       items: [
-        { label: t`Validate File`, path: "/$languageId/file/validate" },
-        { label: t`Infer Dialect`, path: "/$languageId/file/infer-dialect" },
+        { label: t`Validate File`, path: "/{-$languageSlug}/file/validate" },
+        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
       ],
     },
   ]
 
   return (
-    <SidebarProvider>
-      <SidebarGroup className="p-5 bg-gray-50 dark:bg-gray-800">
-        <SidebarGroupContent>
-          <SidebarMenu>
-            {menuItems.map(menuItem => {
-              const Icon = menuItem.icon
-              return (
-                <Collapsible
-                  key={menuItem.id}
-                  open={openStates[menuItem.id]}
-                  onOpenChange={(open: boolean) =>
-                    setOpenStates(prev => ({ ...prev, [menuItem.id]: open }))
-                  }
-                  className="group/collapsible"
-                >
-                  <SidebarMenuItem>
-                    <CollapsibleTrigger
-                      render={<SidebarMenuButton className="font-bold text-lg" />}
-                    >
-                      <Icon />
-                      <span>{menuItem.label}</span>
-                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      <SidebarMenuSub>
-                        {menuItem.items.map(item => (
-                          <SidebarMenuSubItem key={item.path}>
-                            <SidebarMenuSubButton
-                              render={<Link to={item.path} params={{ languageId }} />}
-                              className="text-base"
-                            >
-                              <span>{item.label}</span>
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
-                      </SidebarMenuSub>
-                    </CollapsibleContent>
-                  </SidebarMenuItem>
-                </Collapsible>
-              )
-            })}
-          </SidebarMenu>
-        </SidebarGroupContent>
-      </SidebarGroup>
-    </SidebarProvider>
+    <SidebarGroup className="p-4">
+      <SidebarGroupContent>
+        <SidebarMenu>
+          {menuItems.map(menuItem => {
+            const Icon = menuItem.icon
+            return (
+              <Collapsible
+                key={menuItem.id}
+                open={openStates[menuItem.id]}
+                onOpenChange={(open: boolean) =>
+                  setOpenStates(prev => ({ ...prev, [menuItem.id]: open }))
+                }
+                className="group/collapsible"
+              >
+                <SidebarMenuItem>
+                  <CollapsibleTrigger
+                    render={<SidebarMenuButton className="font-bold text-lg" />}
+                  >
+                    <Icon />
+                    <span>{menuItem.label}</span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {menuItem.items.map(item => (
+                        <SidebarMenuSubItem key={item.path}>
+                          <SidebarMenuSubButton
+                            className="text-base"
+                            render={
+                              <Link to={item.path} onClick={() => setOpenMobile(false)} />
+                            }
+                          >
+                            <span>{item.label}</span>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+            )
+          })}
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
   )
 }

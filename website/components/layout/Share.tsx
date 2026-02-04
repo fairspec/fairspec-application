@@ -1,4 +1,5 @@
-import { Trans, useLingui } from "@lingui/react/macro"
+import { useLingui } from "@lingui/react/macro"
+import { useLocation } from "@tanstack/react-router"
 import * as share from "react-share"
 import { Button } from "#elements/button.tsx"
 import {
@@ -13,7 +14,9 @@ import * as settings from "#settings.ts"
 export function Share() {
   const { t } = useLingui()
 
-  const currentUrl = globalThis.location?.href || ""
+  const location = useLocation()
+  const currentUrl = `${settings.HOST}${location.href}`
+
   const items = SHARE_PROVIDERS.map(provider => {
     const Component = provider.component
     return (
@@ -36,9 +39,6 @@ export function Share() {
         }
       >
         <icons.Share strokeWidth={settings.ICON_STROKE_WIDTH} />
-        <span className="hidden">
-          <Trans>Share</Trans>
-        </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="flex flex-col gap-4 p-2">
         {items}

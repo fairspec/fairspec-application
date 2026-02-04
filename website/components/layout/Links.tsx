@@ -23,7 +23,7 @@ export function Links() {
         <strong>TypeScript</strong>
       </Link>
       <Link
-        to="https://github.com/fairspec/fairspec-application"
+        to="https://github.com/fairspec"
         target="_blank"
         rel="noopener noreferrer"
         className="p-2 flex items-center gap-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"

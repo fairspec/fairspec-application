@@ -1,25 +1,42 @@
 import { createORPCClient, onError } from "@orpc/client"
-import { RPCLink } from "@orpc/client/fetch"
+import { RPCLink as FetchRpcLink } from "@orpc/client/fetch"
+import { RPCLink as MessagePortRpcLink } from "@orpc/client/message-port"
 import type { RouterClient } from "@orpc/server"
 import type { Router } from "./router.ts"
 
 export function createEngineService(
   url: string,
   options?: {
-    headers: () => Record<string, string>
+    engineIpc?: string
   },
 ) {
-  const link = new RPCLink({
-    url,
-    headers: options?.headers,
-    interceptors: [
-      onError(error => {
-        console.error(error)
-      }),
-    ],
-  })
+  const createLink = () => {
+    if (options?.engineIpc) {
+      const { port1: clientPort, port2: serverPort } = new MessageChannel()
+      window.postMessage(options.engineIpc, "*", [serverPort])
+      clientPort.start()
 
-  // Create a client for your router
+      return new MessagePortRpcLink({
+        port: clientPort,
+        interceptors: [
+          onError(error => {
+            console.error(error)
+          }),
+        ],
+      })
+    }
+
+    return new FetchRpcLink({
+      url,
+      interceptors: [
+        onError(error => {
+          console.error(error)
+        }),
+      ],
+    })
+  }
+
+  const link = createLink()
   const client: RouterClient<Router> = createORPCClient(link)
   return client
 }

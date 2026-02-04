@@ -1,5 +1,5 @@
 import type { FileType } from "@fairspec/engine"
-import { Trans } from "@lingui/react/macro"
+import { Trans, useLingui } from "@lingui/react/macro"
 import { useRef } from "react"
 import { Field, FieldDescription, FieldError, FieldLabel } from "#elements/field.tsx"
 import {
@@ -13,14 +13,16 @@ import { useFieldContext } from "./context.ts"
 
 export function FileOrPathField(props: {
   label: string
+  fileType: FileType
   description?: string
   placeholder?: string
-  fileType?: FileType
   required?: boolean
   disabled?: boolean
 }) {
+  const { t } = useLingui()
   const field = useFieldContext<File | string>()
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const isDesktop = !!globalThis.desktop
 
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
   const value = field.state.value
@@ -28,6 +30,11 @@ export function FileOrPathField(props: {
       ? field.state.value
       : field.state.value.name
     : ""
+
+  const maxFileSizeNote =
+    !isDesktop && ["table", "data", "file"].includes(props.fileType)
+      ? ` (${t`maximum`} 100MB)`
+      : undefined
 
   const fileInputAccept = props.fileType !== "file" ? [".json"] : undefined
   if (fileInputAccept && props.fileType === "table") {
@@ -45,6 +52,24 @@ export function FileOrPathField(props: {
     )
   }
 
+  const handleDesktopFileSelect = async () => {
+    if (!isDesktop || !globalThis.desktop) return
+
+    const filters = fileInputAccept
+      ? [
+          {
+            name: props.fileType === "table" ? "Table Files" : "JSON Files",
+            extensions: fileInputAccept.map(ext => ext.slice(1)),
+          },
+        ]
+      : undefined
+
+    const filePath = await globalThis.desktop.openFileDialog({ filters })
+    if (filePath) {
+      field.handleChange(filePath)
+    }
+  }
+
   return (
     <Field data-invalid={isInvalid}>
       <FieldLabel htmlFor={field.name} className="text-xl">
@@ -53,6 +78,9 @@ export function FileOrPathField(props: {
       {props.description && (
         <FieldDescription className="text-base text-inherit">
           {props.description}
+          {maxFileSizeNote && (
+            <span className="text-muted-foreground">{maxFileSizeNote}</span>
+          )}
         </FieldDescription>
       )}
       <InputGroup>
@@ -70,9 +98,13 @@ export function FileOrPathField(props: {
           type="file"
           ref={fileInputRef}
           onChange={e => {
-            // TODO: Replacing one file by another doesn't trigger rerender
             const file = e.target.files?.[0]
-            if (file) field.handleChange(file)
+            if (file) {
+              // Tanstack doesn't rerender on File change,
+              // so we use a hack to trigger a rerender
+              field.handleChange(file.name)
+              requestAnimationFrame(() => field.handleChange(file))
+            }
           }}
           className="hidden"
           accept={fileInputAccept?.join(",")}
@@ -80,7 +112,9 @@ export function FileOrPathField(props: {
         />
         <InputGroupAddon align="inline-start">
           <InputGroupButton
-            onClick={() => fileInputRef.current?.click()}
+            onClick={
+              isDesktop ? handleDesktopFileSelect : () => fileInputRef.current?.click()
+            }
             variant="secondary"
             disabled={props.disabled}
           >

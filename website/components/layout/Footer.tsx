@@ -1,9 +1,18 @@
-import { Banner } from "./Banner.tsx"
+import { Link } from "@tanstack/react-router"
+import { Languages } from "#constants/language.ts"
 
 export function Footer() {
   return (
-    <footer className="h-12 flex flex-col gap-4">
-      <Banner />
+    <footer className="hidden">
+      {Object.values(Languages).map(language => (
+        <Link
+          key={language.id}
+          to="/{-$languageSlug}"
+          params={{ languageSlug: language.slug }}
+        >
+          {language.title}
+        </Link>
+      ))}
     </footer>
   )
 }
