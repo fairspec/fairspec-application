@@ -41,11 +41,9 @@ dmg:
 
 win:
   executableName: fairspec
+  artifactName: fairspec-desktop-windows-${version}.${ext}
 
 nsis:
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
-
-exe:
-  artifactName: fairspec-desktop-windows-${version}.${ext}
