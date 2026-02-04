@@ -48,13 +48,13 @@
     "@types/gettext-parser": "8.0.0",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
+    "@uiw/react-json-view": "2.0.0-alpha.41",
     "@vitejs/plugin-react": "5.1.2",
     "ai": "5.0.106",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "es-toolkit": "1.44.0",
     "gettext-parser": "8.0.0",
-    "@uiw/react-json-view": "2.0.0-alpha.41",
     "loglayer": "6.9.1",
     "lucide-react": "0.555.0",
     "next-themes": "^0.4.6",
@@ -75,5 +75,8 @@
     "vite-plugin-svgr": "4.5.0",
     "wrangler": "4.60.0",
     "zod": "4.3.6"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "8.21.3"
   }
 }
