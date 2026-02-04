@@ -21,7 +21,7 @@ import {
   InputGroupSelect,
 } from "#elements/input-group.tsx"
 import * as icons from "#icons.ts"
-import { engine } from "#services/engine.ts"
+import { engineQuery } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/file/validate")({
   component: Component,
@@ -89,7 +89,7 @@ function Form() {
   })
 
   const validateFile = useMutation(
-    engine.file.validate.mutationOptions({
+    engineQuery.file.validate.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },

@@ -13,7 +13,7 @@ import { Result } from "#components/result/Result.tsx"
 import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
-import { engine } from "#services/engine.ts"
+import { engineQuery } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/table/validate")({
   component: Component,
@@ -81,7 +81,7 @@ function Form() {
   })
 
   const validateTable = useMutation(
-    engine.table.validate.mutationOptions({
+    engineQuery.table.validate.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },

@@ -13,7 +13,7 @@ import { Status, type StatusType } from "#components/result/Status.tsx"
 import { Table } from "#components/table/Table.tsx"
 import { Button } from "#elements/button.tsx"
 import { FieldGroup } from "#elements/field.tsx"
-import { engine } from "#services/engine.ts"
+import { engineQuery } from "#services/engine.ts"
 
 export const Route = createFileRoute("/{-$languageSlug}/table/preview")({
   component: Component,
@@ -78,7 +78,7 @@ function Form() {
   })
 
   const previewTable = useMutation(
-    engine.table.preview.mutationOptions({
+    engineQuery.table.preview.mutationOptions({
       onMutate: () => {
         setStatusType("pending")
       },
