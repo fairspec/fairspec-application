@@ -30,23 +30,23 @@ msgstr "Все ошибки"
 msgid "at"
 msgstr "в"
 
-#: routes/$languageId/data/infer-schema.tsx:25
-#: routes/$languageId/data/infer-schema.tsx:47
+#: routes/{-$languageSlug}/data/infer-schema.tsx:23
+#: routes/{-$languageSlug}/data/infer-schema.tsx:53
 msgid "Automatically infer comprehensive data schemas from your datasets"
 msgstr "Автоматически определяйте комплексные схемы данных из ваших наборов данных"
 
-#: routes/$languageId/table/infer-schema.tsx:25
-#: routes/$languageId/table/infer-schema.tsx:47
+#: routes/{-$languageSlug}/table/infer-schema.tsx:23
+#: routes/{-$languageSlug}/table/infer-schema.tsx:53
 msgid "Automatically infer comprehensive table schema definitions from your tabular data"
 msgstr "Автоматически определяйте комплексные схемы таблиц из ваших табличных данных"
 
-#: routes/$languageId/dataset/infer.tsx:27
-#: routes/$languageId/dataset/infer.tsx:64
+#: routes/{-$languageSlug}/dataset/infer.tsx:23
+#: routes/{-$languageSlug}/dataset/infer.tsx:53
 msgid "Automatically infer dataset metadata and structure from your data files"
 msgstr "Автоматически определяйте метаданные и структуру набора данных из ваших файлов данных"
 
-#: routes/$languageId/file/infer-dialect.tsx:25
-#: routes/$languageId/file/infer-dialect.tsx:47
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:23
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:53
 msgid "Automatically infer file formats, encoding specifications, and dialect parameters"
 msgstr "Автоматически определяйте форматы файлов, спецификации кодировки и параметры диалекта"
 
@@ -54,30 +54,31 @@ msgstr "Автоматически определяйте форматы фай�
 msgid "Brought to you by"
 msgstr "Предоставлено"
 
-#: components/layout/Language.tsx:65
+#: components/layout/Language.tsx:70
 msgid "Change Language"
 msgstr "Изменить язык"
 
-#: components/layout/Theme.tsx:33
+#: components/layout/Theme.tsx:21
 msgid "Change Theme"
 msgstr "Изменить тему"
 
-#: components/dialog/Dialog.tsx:31
+#: components/layout/Close.tsx:27
+#: components/result/Result.tsx:38
 msgid "Close"
 msgstr "Закрыть"
+
+#: components/layout/Close.tsx:21
+msgid "Close Application"
+msgstr "Закрыть приложение"
 
 #: components/report/Error.tsx:383
 msgid "Column"
 msgstr "Колонка"
 
-#: components/layout/Theme.tsx:46
-msgid "Dark"
-msgstr "Темная"
-
-#: components/layout/Menu.tsx:55
-#: routes/$languageId/data/infer-schema.tsx:125
-#: routes/$languageId/data/validate.tsx:118
-#: routes/$languageId/index.tsx:32
+#: components/layout/Menu.tsx:57
+#: routes/{-$languageSlug}/data/infer-schema.tsx:121
+#: routes/{-$languageSlug}/data/validate.tsx:122
+#: routes/{-$languageSlug}/index.tsx:32
 msgid "Data"
 msgstr "Данные"
 
@@ -86,38 +87,35 @@ msgid "Data error at"
 msgstr "Ошибка данных в"
 
 #: components/layout/Menu.tsx:37
-#: routes/$languageId/dataset/validate.tsx:134
-#: routes/$languageId/index.tsx:16
+#: routes/{-$languageSlug}/dataset/validate.tsx:121
+#: routes/{-$languageSlug}/index.tsx:16
 msgid "Dataset"
 msgstr "Набор данных"
 
-#: routes/$languageId/dataset/infer.tsx:169
+#: routes/{-$languageSlug}/dataset/infer.tsx:155
 msgid "Dataset Inferred"
 msgstr "Набор данных определён автоматически"
 
-#: routes/$languageId/file/validate.tsx:34
-#: routes/$languageId/file/validate.tsx:56
-#: routes/$languageId/index.tsx:43
+#: routes/{-$languageSlug}/file/validate.tsx:30
+#: routes/{-$languageSlug}/file/validate.tsx:60
+#: routes/{-$languageSlug}/index.tsx:43
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
 msgstr "Опишите содержимое и структуру файла подробно, и автоматически определите форматы файлов и спецификации кодировки"
 
-#: routes/$languageId/dataset/infer.tsx:48
-#: routes/$languageId/dataset/validate.tsx:49
-msgid "Desktop Only (coming soon)"
-msgstr "Только для настольной версии (скоро будет доступно)"
+#: components/desktop/Alert.tsx:13
+#: components/desktop/Alert.tsx:38
+msgid "Desktop Application"
+msgstr "Настольное приложение"
 
-#: routes/$languageId/table/infer-schema.tsx:142
-#: routes/$languageId/table/validate.tsx:142
+#: routes/{-$languageSlug}/table/infer-schema.tsx:138
+#: routes/{-$languageSlug}/table/preview.tsx:142
+#: routes/{-$languageSlug}/table/validate.tsx:146
 msgid "Dialect"
 msgstr "Диалект"
 
-#: routes/$languageId/file/infer-dialect.tsx:157
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:155
 msgid "Dialect Inferred"
 msgstr "Диалект определён автоматически"
-
-#: components/dialog/Dialog.tsx:17
-msgid "Dialog"
-msgstr "Диалог"
 
 #: components/report/Error.tsx:452
 msgid "do not reference existing values"
@@ -127,32 +125,35 @@ msgstr "не ссылаются на существующие значения"
 msgid "does not match the"
 msgstr "не соответствует"
 
-#: routes/$languageId/file/validate.tsx:171
+#: routes/{-$languageSlug}/file/validate.tsx:175
 msgid "Enter hash value"
 msgstr "Введите значение хеша"
 
-#: routes/$languageId/dataset/infer.tsx:170
+#: routes/{-$languageSlug}/dataset/infer.tsx:156
 msgid "Failed to Infer Dataset"
 msgstr "Не удалось определить набор данных"
 
-#: routes/$languageId/file/infer-dialect.tsx:158
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:156
 msgid "Failed to Infer Dialect"
 msgstr "Не удалось определить диалект"
 
-#: routes/$languageId/data/infer-schema.tsx:154
-#: routes/$languageId/table/infer-schema.tsx:170
+#: routes/{-$languageSlug}/data/infer-schema.tsx:152
+#: routes/{-$languageSlug}/table/infer-schema.tsx:168
 msgid "Failed to Infer Schema"
 msgstr "Не удалось определить схему"
+
+#: routes/{-$languageSlug}/table/preview.tsx:172
+msgid "Failed to Load Preview"
+msgstr "Не удалось загрузить предварительный просмотр"
 
 #: components/layout/Banner.tsx:19
 msgid "feedback and ideas"
 msgstr "отзывы и идеи"
 
-#: components/layout/Menu.tsx:64
-#: routes/$languageId/dataset/infer.tsx:145
-#: routes/$languageId/file/infer-dialect.tsx:129
-#: routes/$languageId/file/validate.tsx:127
-#: routes/$languageId/index.tsx:40
+#: components/layout/Menu.tsx:67
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:125
+#: routes/{-$languageSlug}/file/validate.tsx:131
+#: routes/{-$languageSlug}/index.tsx:40
 msgid "File"
 msgstr "Файл"
 
@@ -163,6 +164,10 @@ msgstr "Хеш файла"
 #: components/report/Error.tsx:434
 msgid "File is expected to be textual with utf-8 encoding but it is"
 msgstr "Ожидается, что файл будет текстовым в кодировке utf-8, но он"
+
+#: components/desktop/Alert.tsx:41
+msgid "For faster and privacy-first work, download the <0>desktop application</0>"
+msgstr "Для более быстрой и приватной работы скачайте <0>настольное приложение</0>"
 
 #: components/report/Error.tsx:451
 msgid "Foreign key constraint violated as cells"
@@ -176,11 +181,11 @@ msgstr "имеет меньше чем"
 msgid "has more than"
 msgstr "имеет больше чем"
 
-#: routes/$languageId/file/validate.tsx:137
+#: routes/{-$languageSlug}/file/validate.tsx:141
 msgid "Hash"
 msgstr "Хеш"
 
-#: components/layout/Breadcrumbs.tsx:26
+#: components/layout/Breadcrumbs.tsx:25
 msgid "Home"
 msgstr "Главная"
 
@@ -206,71 +211,73 @@ msgstr "в колонке"
 msgid "in resource"
 msgstr "в ресурсе"
 
-#: components/layout/Breadcrumbs.tsx:44
+#: components/layout/Breadcrumbs.tsx:43
 msgid "Infer data schema"
 msgstr "Определить схему данных"
 
-#: routes/$languageId/data/infer-schema.tsx:21
-#: routes/$languageId/data/infer-schema.tsx:44
+#: routes/{-$languageSlug}/data/infer-schema.tsx:22
+#: routes/{-$languageSlug}/data/infer-schema.tsx:50
 msgid "Infer Data Schema"
 msgstr "Определить схему данных"
 
 #: components/layout/Menu.tsx:41
-#: routes/$languageId/dataset/infer.tsx:23
-#: routes/$languageId/dataset/infer.tsx:61
+#: routes/{-$languageSlug}/dataset/infer.tsx:22
+#: routes/{-$languageSlug}/dataset/infer.tsx:50
 msgid "Infer Dataset"
 msgstr "Определить набор данных"
 
-#: components/layout/Breadcrumbs.tsx:42
+#: components/layout/Breadcrumbs.tsx:41
 msgid "Infer dialect"
 msgstr "Определить диалект"
 
-#: components/layout/Menu.tsx:68
-#: routes/$languageId/file/infer-dialect.tsx:21
-#: routes/$languageId/file/infer-dialect.tsx:44
+#: components/layout/Menu.tsx:52
+#: components/layout/Menu.tsx:62
+#: components/layout/Menu.tsx:71
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:22
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:50
 msgid "Infer Dialect"
 msgstr "Определить диалект"
 
-#: components/layout/Menu.tsx:50
-#: components/layout/Menu.tsx:59
+#: components/layout/Menu.tsx:51
+#: components/layout/Menu.tsx:61
 msgid "Infer Schema"
 msgstr "Определить схему"
 
-#: components/layout/Breadcrumbs.tsx:46
+#: components/layout/Breadcrumbs.tsx:45
 msgid "Infer table schema"
 msgstr "Определить схему таблицы"
 
-#: routes/$languageId/table/infer-schema.tsx:21
-#: routes/$languageId/table/infer-schema.tsx:44
+#: routes/{-$languageSlug}/table/infer-schema.tsx:22
+#: routes/{-$languageSlug}/table/infer-schema.tsx:50
 msgid "Infer Table Schema"
 msgstr "Определить схему таблицы"
 
-#: routes/$languageId/dataset/infer.tsx:168
+#: routes/{-$languageSlug}/dataset/infer.tsx:154
 msgid "Inferring Dataset..."
 msgstr "Определение набора данных..."
 
-#: routes/$languageId/file/infer-dialect.tsx:156
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:154
 msgid "Inferring Dialect..."
 msgstr "Определение диалекта..."
 
-#: routes/$languageId/data/infer-schema.tsx:152
-#: routes/$languageId/table/infer-schema.tsx:168
+#: routes/{-$languageSlug}/data/infer-schema.tsx:150
+#: routes/{-$languageSlug}/table/infer-schema.tsx:166
 msgid "Inferring Schema..."
 msgstr "Определение схемы..."
 
-#: routes/$languageId/data/validate.tsx:162
+#: routes/{-$languageSlug}/data/validate.tsx:164
 msgid "Invalid Data"
 msgstr "Некорректные данные"
 
-#: routes/$languageId/dataset/validate.tsx:168
+#: routes/{-$languageSlug}/dataset/validate.tsx:153
 msgid "Invalid Dataset"
 msgstr "Некорректный набор данных"
 
-#: routes/$languageId/file/validate.tsx:215
+#: routes/{-$languageSlug}/file/validate.tsx:217
 msgid "Invalid File"
 msgstr "Некорректный файл"
 
-#: routes/$languageId/table/validate.tsx:174
+#: routes/{-$languageSlug}/table/validate.tsx:176
 msgid "Invalid Table"
 msgstr "Некорректная таблица"
 
@@ -337,9 +344,18 @@ msgstr "элементов"
 msgid "Length of the cell"
 msgstr "Длина ячейки"
 
-#: components/layout/Theme.tsx:40
-msgid "Light"
-msgstr "Светлая"
+#: routes/{-$languageSlug}/table/preview.tsx:22
+#: routes/{-$languageSlug}/table/preview.tsx:52
+msgid "Load and preview your data table"
+msgstr "Загрузите и просмотрите вашу таблицу данных"
+
+#: routes/{-$languageSlug}/table/preview.tsx:170
+msgid "Loading Preview..."
+msgstr "Загрузка предварительного просмотра..."
+
+#: components/form/FileOrPathField.tsx:36
+msgid "maximum"
+msgstr "максимум"
 
 #: components/report/Error.tsx:80
 #: components/report/Error.tsx:98
@@ -364,6 +380,12 @@ msgstr "строки"
 msgid "phase. Please share your"
 msgstr "этап. Пожалуйста, поделитесь вашими"
 
+#: components/layout/Menu.tsx:49
+#: routes/{-$languageSlug}/table/preview.tsx:21
+#: routes/{-$languageSlug}/table/preview.tsx:49
+msgid "Preview Table"
+msgstr "Просмотр таблицы"
+
 #: components/report/Error.tsx:367
 msgid "Required column"
 msgstr "Обязательная колонка"
@@ -382,183 +404,188 @@ msgstr "Ресурс"
 msgid "Row"
 msgstr "Строка"
 
-#: routes/$languageId/data/infer-schema.tsx:166
-#: routes/$languageId/dataset/infer.tsx:182
-#: routes/$languageId/file/infer-dialect.tsx:170
-#: routes/$languageId/table/infer-schema.tsx:182
+#: routes/{-$languageSlug}/data/infer-schema.tsx:162
+#: routes/{-$languageSlug}/dataset/infer.tsx:166
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:166
+#: routes/{-$languageSlug}/table/infer-schema.tsx:178
 msgid "Save"
 msgstr "Сохранить"
 
-#: routes/$languageId/data/validate.tsx:130
-#: routes/$languageId/table/validate.tsx:131
+#: routes/{-$languageSlug}/data/validate.tsx:134
+#: routes/{-$languageSlug}/table/preview.tsx:131
+#: routes/{-$languageSlug}/table/validate.tsx:135
 msgid "Schema"
 msgstr "Схема"
 
-#: routes/$languageId/data/infer-schema.tsx:153
-#: routes/$languageId/table/infer-schema.tsx:169
+#: routes/{-$languageSlug}/data/infer-schema.tsx:151
+#: routes/{-$languageSlug}/table/infer-schema.tsx:167
 msgid "Schema Inferred"
 msgstr "Схема определена автоматически"
 
-#: routes/$languageId/file/validate.tsx:140
+#: routes/{-$languageSlug}/file/validate.tsx:144
 msgid "Select hash algorithm and enter hash value"
 msgstr "Выберите алгоритм хеширования и введите значение хеша"
 
-#: components/layout/Breadcrumbs.tsx:48
+#: components/layout/Breadcrumbs.tsx:47
 msgid "Select tools below"
 msgstr "Выберите инструменты ниже"
 
-#: components/layout/Share.tsx:40
-msgid "Share"
-msgstr "Поделиться"
-
-#: components/layout/Share.tsx:33
+#: components/layout/Share.tsx:36
 msgid "Share Page"
 msgstr "Поделиться страницей"
 
 #: components/layout/Menu.tsx:46
-#: routes/$languageId/index.tsx:24
-#: routes/$languageId/table/infer-schema.tsx:130
-#: routes/$languageId/table/validate.tsx:119
+#: routes/{-$languageSlug}/dataset/infer.tsx:124
+#: routes/{-$languageSlug}/index.tsx:24
+#: routes/{-$languageSlug}/table/infer-schema.tsx:126
+#: routes/{-$languageSlug}/table/preview.tsx:119
+#: routes/{-$languageSlug}/table/validate.tsx:123
 msgid "Table"
 msgstr "Таблица"
 
-#: routes/$languageId/dataset/infer.tsx:51
-#: routes/$languageId/dataset/validate.tsx:52
-msgid "This functionality is only available in the desktop application"
-msgstr "Эта функция доступна только в настольном приложении"
+#: routes/{-$languageSlug}/table/preview.tsx:171
+msgid "Table Preview"
+msgstr "Предварительный просмотр таблицы"
+
+#: components/desktop/Alert.tsx:16
+msgid "This functionality is only available in the <0>desktop application</0>"
+msgstr "Эта функция доступна только в <0>настольном приложении</0>"
 
 #: components/layout/Banner.tsx:9
 msgid "This project is in"
 msgstr "Этот проект находится на"
 
-#: components/form/FileOrPathField.tsx:88
+#: components/form/FileOrPathField.tsx:122
 msgid "Upload"
 msgstr "Загрузить"
 
-#: routes/$languageId/data/infer-schema.tsx:126
+#: routes/{-$languageSlug}/data/infer-schema.tsx:122
 msgid "Upload a data file or provide a URL to a data file"
 msgstr "Загрузите файл с данными или укажите URL файла с данными"
 
-#: routes/$languageId/table/infer-schema.tsx:143
-msgid "Upload a dialect or provide a URL to a dialect (optional)"
-msgstr "Загрузите диалект или укажите URL на диалект (необязательно)"
+#: routes/{-$languageSlug}/table/infer-schema.tsx:139
+msgid "Upload a dialect or provide a URL to a dialect"
+msgstr "Загрузите диалект или укажите URL на диалект"
 
-#: routes/$languageId/data/validate.tsx:119
+#: routes/{-$languageSlug}/data/validate.tsx:123
 msgid "Upload a file or provide a URL to a data file"
 msgstr "Загрузите файл или укажите URL файла с данными"
 
-#: routes/$languageId/data/validate.tsx:131
+#: routes/{-$languageSlug}/data/validate.tsx:135
 msgid "Upload a file or provide a URL to a data schema"
 msgstr "Загрузите файл или укажите URL схемы данных"
 
-#: routes/$languageId/dataset/validate.tsx:135
-msgid "Upload a file or provide a URL to a dataset package"
-msgstr "Загрузите файл или укажите URL пакета набора данных"
+#: routes/{-$languageSlug}/dataset/validate.tsx:122
+msgid "Upload a file or provide a URL to a dataset"
+msgstr "Загрузите файл или укажите URL на набор данных"
 
-#: routes/$languageId/dataset/infer.tsx:146
-#: routes/$languageId/file/infer-dialect.tsx:130
-#: routes/$languageId/file/validate.tsx:128
+#: routes/{-$languageSlug}/file/infer-dialect.tsx:126
+#: routes/{-$languageSlug}/file/validate.tsx:132
 msgid "Upload a file or provide a URL to a file"
 msgstr "Загрузите файл или укажите URL файла"
 
-#: routes/$languageId/table/validate.tsx:143
+#: routes/{-$languageSlug}/table/preview.tsx:143
+#: routes/{-$languageSlug}/table/validate.tsx:147
 msgid "Upload a file or provide a URL to a table dialect"
 msgstr "Загрузите файл или укажите URL диалекта таблицы"
 
-#: routes/$languageId/table/validate.tsx:132
+#: routes/{-$languageSlug}/table/preview.tsx:132
+#: routes/{-$languageSlug}/table/validate.tsx:136
 msgid "Upload a file or provide a URL to a table schema"
 msgstr "Загрузите файл или укажите URL схемы таблицы"
 
-#: routes/$languageId/table/validate.tsx:120
+#: routes/{-$languageSlug}/dataset/infer.tsx:125
+#: routes/{-$languageSlug}/table/preview.tsx:120
+#: routes/{-$languageSlug}/table/validate.tsx:124
 msgid "Upload a file or provide a URL to a tabular data file"
 msgstr "Загрузите файл или укажите URL табличного файла данных"
 
-#: routes/$languageId/table/infer-schema.tsx:131
+#: routes/{-$languageSlug}/table/infer-schema.tsx:127
 msgid "Upload a table or provide a URL to a table"
 msgstr "Загрузите таблицу или укажите URL таблицы"
 
-#: routes/$languageId/data/validate.tsx:161
+#: routes/{-$languageSlug}/data/validate.tsx:163
 msgid "Valid Data"
 msgstr "Корректные данные"
 
-#: routes/$languageId/dataset/validate.tsx:167
+#: routes/{-$languageSlug}/dataset/validate.tsx:152
 msgid "Valid Dataset"
 msgstr "Корректный набор данных"
 
-#: routes/$languageId/file/validate.tsx:214
+#: routes/{-$languageSlug}/file/validate.tsx:216
 msgid "Valid File"
 msgstr "Корректный файл"
 
-#: routes/$languageId/table/validate.tsx:173
+#: routes/{-$languageSlug}/table/validate.tsx:175
 msgid "Valid Table"
 msgstr "Корректная таблица"
 
-#: components/layout/Menu.tsx:58
-#: routes/$languageId/data/validate.tsx:22
-#: routes/$languageId/data/validate.tsx:45
+#: components/layout/Menu.tsx:60
+#: routes/{-$languageSlug}/data/validate.tsx:21
+#: routes/{-$languageSlug}/data/validate.tsx:49
 msgid "Validate Data"
 msgstr "Проверить данные"
 
-#: routes/$languageId/data/validate.tsx:26
-#: routes/$languageId/data/validate.tsx:48
-#: routes/$languageId/index.tsx:35
+#: routes/{-$languageSlug}/data/validate.tsx:22
+#: routes/{-$languageSlug}/data/validate.tsx:52
+#: routes/{-$languageSlug}/index.tsx:35
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
 msgstr "Проверьте качество данных, обнаружьте несоответствия и ошибки, а также автоматически определите полные схемы данных из ваших наборов данных"
 
-#: components/layout/Breadcrumbs.tsx:38
+#: components/layout/Breadcrumbs.tsx:37
 msgid "Validate dataset"
 msgstr "Проверить набор данных"
 
 #: components/layout/Menu.tsx:40
-#: routes/$languageId/dataset/validate.tsx:24
-#: routes/$languageId/dataset/validate.tsx:62
+#: routes/{-$languageSlug}/dataset/validate.tsx:21
+#: routes/{-$languageSlug}/dataset/validate.tsx:49
 msgid "Validate Dataset"
 msgstr "Проверить набор данных"
 
-#: routes/$languageId/dataset/validate.tsx:28
-#: routes/$languageId/dataset/validate.tsx:65
-#: routes/$languageId/index.tsx:19
+#: routes/{-$languageSlug}/dataset/validate.tsx:22
+#: routes/{-$languageSlug}/dataset/validate.tsx:52
+#: routes/{-$languageSlug}/index.tsx:19
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 msgstr "Проверьте метаданные набора данных на соответствие спецификациям и автоматически определите структуру набора данных по вашим файлам данных"
 
-#: components/layout/Menu.tsx:67
-#: routes/$languageId/file/validate.tsx:30
-#: routes/$languageId/file/validate.tsx:53
+#: components/layout/Menu.tsx:70
+#: routes/{-$languageSlug}/file/validate.tsx:29
+#: routes/{-$languageSlug}/file/validate.tsx:57
 msgid "Validate File"
 msgstr "Проверить файл"
 
-#: components/layout/Breadcrumbs.tsx:40
+#: components/layout/Breadcrumbs.tsx:39
 msgid "Validate table"
 msgstr "Проверить таблицу"
 
-#: components/layout/Menu.tsx:49
-#: routes/$languageId/table/validate.tsx:22
-#: routes/$languageId/table/validate.tsx:45
+#: components/layout/Menu.tsx:50
+#: routes/{-$languageSlug}/table/validate.tsx:21
+#: routes/{-$languageSlug}/table/validate.tsx:49
 msgid "Validate Table"
 msgstr "Проверить таблицу"
 
-#: routes/$languageId/index.tsx:27
-#: routes/$languageId/table/validate.tsx:26
+#: routes/{-$languageSlug}/index.tsx:27
+#: routes/{-$languageSlug}/table/validate.tsx:22
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Проверьте структуру таблицы на правильность и соответствие, а также автоматически определите схемы таблицы по вашим табличным данным"
 
-#: routes/$languageId/table/validate.tsx:48
+#: routes/{-$languageSlug}/table/validate.tsx:52
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema from your tabular data"
 msgstr "Проверьте структуру таблицы на корректность и соответствие, и автоматически определите схему таблицы из ваших табличных данных"
 
-#: routes/$languageId/data/validate.tsx:160
+#: routes/{-$languageSlug}/data/validate.tsx:162
 msgid "Validating Data..."
 msgstr "Проверка данных..."
 
-#: routes/$languageId/dataset/validate.tsx:166
+#: routes/{-$languageSlug}/dataset/validate.tsx:151
 msgid "Validating Dataset..."
 msgstr "Проверка набора данных..."
 
-#: routes/$languageId/file/validate.tsx:213
+#: routes/{-$languageSlug}/file/validate.tsx:215
 msgid "Validating File..."
 msgstr "Проверка файла..."
 
-#: routes/$languageId/table/validate.tsx:172
+#: routes/{-$languageSlug}/table/validate.tsx:174
 msgid "Validating Table..."
 msgstr "Проверка таблицы..."
 
@@ -590,8 +617,7 @@ msgstr "нарушает ограничение первичного ключа 
 msgid "violates unique key constraint on columns"
 msgstr "нарушает ограничение уникального ключа по колонкам"
 
-#: routes/__root.tsx:30
-#: routes/$languageId/index.tsx:52
+#: routes/{-$languageSlug}/index.tsx:52
 msgid "Visual tool for managing and validating tabular and structured data"
 msgstr "Визуальный инструмент для управления и проверки табличных и структурированных данных"
 
