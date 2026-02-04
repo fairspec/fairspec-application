@@ -14,7 +14,7 @@
   "description": "Fairspec Application is a visual tool for managing and validating tabular and structured data",
   "scripts": {
     "build": "node @build.ts",
-    "compile": "node @compile.ts",
+    "compile": "electron-builder",
     "start": "electron-vite dev",
     "type": "tsc --noEmit"
   },
