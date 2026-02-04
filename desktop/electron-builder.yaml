@@ -1,6 +1,6 @@
 appId: fairspec
 copyright: Copyright © 2025 ${author}
-artifactName: fairspec-${os}-${version}.${ext}
+artifactName: fairspec-desktop-${os}-${version}.${ext}
 
 # General
 
