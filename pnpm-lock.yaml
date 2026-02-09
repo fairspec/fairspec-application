@@ -100,8 +100,8 @@ importers:
   engine:
     dependencies:
       '@fairspec/library':
-        specifier: 0.6.0
-        version: 0.6.0(typescript@5.9.2)
+        specifier: 0.10.0
+        version: 0.10.0(typescript@5.9.2)
       '@fairspec/logger':
         specifier: workspace:*
         version: link:../logger
@@ -168,8 +168,8 @@ importers:
         specifier: workspace:*
         version: link:../logger
       '@fairspec/metadata':
-        specifier: 0.6.0
-        version: 0.6.0
+        specifier: 0.10.0
+        version: 0.10.0
       '@lingui/babel-plugin-lingui-macro':
         specifier: 5.8.0
         version: 5.8.0(typescript@5.9.2)
@@ -1343,20 +1343,20 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fairspec/dataset@0.6.0':
-    resolution: {integrity: sha512-xTfu5Ho4+n1JbVcWPnZYf54QZeTBx4SBHJm3HfTnk5U766APBEfPPj5ZOFpW3ecdkApvaMiHe/mAH09GbuOH2w==}
+  '@fairspec/dataset@0.10.0':
+    resolution: {integrity: sha512-AjJTDFecn+cMuRI6RArTPVJ4KOGO2scvzmyGmbSJSs/k8mFD4z9moak35EweFy7XZTDy1POYV6dDFgX860jVPg==}
 
-  '@fairspec/extension@0.6.0':
-    resolution: {integrity: sha512-BdRTxitcZklT6927PsJyhkdbydkXe5FSVWbqFFbGGm7N5NLR4vqEhdFh7YekXuYsCp2SLkRkmiAU/UGJG33O9Q==}
+  '@fairspec/extension@0.10.0':
+    resolution: {integrity: sha512-Dnqnxwbo5SpsoNZqG5/osVaBbUIRTk8UhNhes9uQGccs39gPqrJ+lvdKr7yaCwHkkNmp9uMcYJQxmor/7syuDA==}
 
-  '@fairspec/library@0.6.0':
-    resolution: {integrity: sha512-PEXYlSElkqOIvgC+j3GEUkCrIS+SOzsuKivZDrXouyiSdsj1FeI5tXlLidHj1TyjgYOFz1epy5iPfdwcLL7pRQ==}
+  '@fairspec/library@0.10.0':
+    resolution: {integrity: sha512-mJsdowKRpoDPTluH4XkxEYqktFH3i+e6xJjr3SwsxVjErA0X4I0D37fDOSYH3z88CZtmKIKSt3yNgxsdBojCEA==}
 
-  '@fairspec/metadata@0.6.0':
-    resolution: {integrity: sha512-8xC3j4vnT+Fkr9iKfKYlQ6eq2W8l1nGXhuKGHA0cCcH78tWR0W1I7DNRjaKPt4vniPZ7S5RLD22DLUJo9yUxQg==}
+  '@fairspec/metadata@0.10.0':
+    resolution: {integrity: sha512-x0CjhnAemDcOk5+i7BO3ecHX1nXU0loYVGQEQSWjLWsSJ3qxizFLUL//Iq86ybCR7p6Pgl9GN7LdfgkGgD9hOA==}
 
-  '@fairspec/table@0.6.0':
-    resolution: {integrity: sha512-7m8Q1nxMiuRH5pEzZoqpaMKPvgLJ1yOYivrpJmuooY7Znm+mUThFRlNGsJf8XXLcSeoL44pzjVdgMazwvIivsQ==}
+  '@fairspec/table@0.10.0':
+    resolution: {integrity: sha512-r1E7Z4IXLRyPqg/kLDoi2u3MurTUvJkmu7KcB0WGiUjo4Pmu59/h3+D3kqPE8rDqK9dJ/gUMp7OCs+LivpL1Ag==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -4107,9 +4107,6 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
-
-  csv-sniffer@0.1.1:
-    resolution: {integrity: sha512-HMFcKMGCaJNBtkEk1RYZxngODTx0gQnN5x494fWJizua2mdoM1h/LRooZQMkxx5RRHNP0mowlTw9xiS7QhXt/g==}
 
   data-uri-to-buffer@4.0.1:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
@@ -9005,9 +9002,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@fairspec/dataset@0.6.0':
+  '@fairspec/dataset@0.10.0':
     dependencies:
-      '@fairspec/metadata': 0.6.0
+      '@fairspec/metadata': 0.10.0
       chardet: 2.1.1
       exit-hook: 4.0.0
       fflate: 0.8.2
@@ -9019,9 +9016,9 @@ snapshots:
       tempy: 3.1.0
       zod: 4.3.6
 
-  '@fairspec/extension@0.6.0':
+  '@fairspec/extension@0.10.0':
     dependencies:
-      '@fairspec/metadata': 0.6.0
+      '@fairspec/metadata': 0.10.0
       htmlfy: 1.0.1
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
@@ -9030,19 +9027,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@fairspec/library@0.6.0(typescript@5.9.2)':
+  '@fairspec/library@0.10.0(typescript@5.9.2)':
     dependencies:
-      '@fairspec/dataset': 0.6.0
-      '@fairspec/extension': 0.6.0
-      '@fairspec/metadata': 0.6.0
-      '@fairspec/table': 0.6.0(typescript@5.9.2)
+      '@fairspec/dataset': 0.10.0
+      '@fairspec/extension': 0.10.0
+      '@fairspec/metadata': 0.10.0
+      '@fairspec/table': 0.10.0(typescript@5.9.2)
       json-schema-it: 1.2.23
       p-all: 5.0.1
+      zod: 4.3.6
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@fairspec/metadata@0.6.0':
+  '@fairspec/metadata@0.10.0':
     dependencies:
       '@sindresorhus/slugify': 0.9.1
       '@types/json-schema': 7.0.15
@@ -9051,11 +9049,10 @@ snapshots:
       ts-extras: 0.16.1
       zod: 4.3.6
 
-  '@fairspec/table@0.6.0(typescript@5.9.2)':
+  '@fairspec/table@0.10.0(typescript@5.9.2)':
     dependencies:
-      '@fairspec/dataset': 0.6.0
-      '@fairspec/metadata': 0.6.0
-      csv-sniffer: 0.1.1
+      '@fairspec/dataset': 0.10.0
+      '@fairspec/metadata': 0.10.0
       kysely: 0.28.10
       kysely-generic-sqlite: 1.2.1(kysely@0.28.10)
       nodejs-polars: 0.23.5
@@ -12654,8 +12651,6 @@ snapshots:
   cssesc@3.0.0: {}
 
   csstype@3.2.3: {}
-
-  csv-sniffer@0.1.1: {}
 
   data-uri-to-buffer@4.0.1: {}
 

@@ -15,7 +15,7 @@ export const inferTableSchemaEndpoint = publicEndpoint
 
       const schema = await inferTableSchema({
         data: table,
-        dialect,
+        fileDialect: dialect,
       })
 
       return schema

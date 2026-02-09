@@ -15,7 +15,7 @@
     "type": "tsc --noEmit"
   },
   "dependencies": {
-    "@fairspec/library": "0.6.0",
+    "@fairspec/library": "0.10.0",
     "@fairspec/logger": "workspace:*",
     "@hono/node-server": "1.19.9",
     "@orpc/client": "1.13.4",

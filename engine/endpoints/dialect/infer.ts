@@ -1,4 +1,4 @@
-import { inferDialect } from "@fairspec/library"
+import { inferFileDialect } from "@fairspec/library"
 import { temporaryDirectoryTask } from "tempy"
 import { prefetchFile } from "#action/file/prefetch.ts"
 import { publicEndpoint } from "#endpoints/base/public.ts"
@@ -12,7 +12,7 @@ export const inferDialectEndpoint = publicEndpoint
         prefetchFile(input.file, { folder, fileType: "file" }),
       ])
 
-      const dialect = await inferDialect({
+      const dialect = await inferFileDialect({
         data: file,
       })
 

@@ -21,7 +21,7 @@ export const previewTableEndpoint = publicEndpoint
 
       const resource: Resource = {
         data,
-        dialect,
+        fileDialect: dialect,
         tableSchema: schema,
       }
 

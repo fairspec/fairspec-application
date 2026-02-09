@@ -18,7 +18,7 @@ export const validateTableEndpoint = publicEndpoint
 
       const report = await validateTable({
         data: table,
-        dialect,
+        fileDialect: dialect,
         tableSchema: schema,
       })
 

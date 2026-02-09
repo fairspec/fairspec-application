@@ -3,7 +3,7 @@ import { mkdir } from "node:fs/promises"
 import { dirname } from "node:path"
 import { Readable, Transform } from "node:stream"
 import { pipeline } from "node:stream/promises"
-import { isRemotePath } from "@fairspec/library"
+import { getIsRemotePath } from "@fairspec/library"
 import { getFilePath } from "#helpers/path.ts"
 import type { FileType } from "#models/file.ts"
 import * as settings from "#settings.ts"
@@ -22,7 +22,7 @@ export async function prefetchFile(
   }
 
   if (typeof source === "string") {
-    const isRemote = isRemotePath(source)
+    const isRemote = getIsRemotePath(source)
     if (!isRemote) {
       if (!settings.IS_DESKTOP) {
         throw new Error("Invalid URL")
