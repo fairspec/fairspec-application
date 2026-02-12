@@ -23,16 +23,16 @@ export function Links() {
         <strong>Standard</strong>
       </Link>
       <Link
-        to="https://python.fairspec.org"
-        className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
-      >
-        <strong>Python</strong>
-      </Link>
-      <Link
         to="https://typescript.fairspec.org"
         className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
       >
         <strong>TypeScript</strong>
+      </Link>
+      <Link
+        to="https://python.fairspec.org"
+        className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
+      >
+        <strong>Python</strong>
       </Link>
       <Link
         to="https://github.com/fairspec"
