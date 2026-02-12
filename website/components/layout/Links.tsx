@@ -11,12 +11,6 @@ export function Links() {
         <strong>Home</strong>
       </Link>
       <Link
-        to="/"
-        className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
-      >
-        <strong>Application</strong>
-      </Link>
-      <Link
         to="https://fairspec.org/overview/introduction/"
         className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
       >
@@ -33,6 +27,18 @@ export function Links() {
         className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
       >
         <strong>Python</strong>
+      </Link>
+      <Link
+        to="https://fairspec.org/mcp-server/"
+        className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
+      >
+        <strong>MCP Server</strong>
+      </Link>
+      <Link
+        to="/"
+        className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
+      >
+        <strong>Application</strong>
       </Link>
       <Link
         to="https://github.com/fairspec"
