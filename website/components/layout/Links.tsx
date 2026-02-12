@@ -11,7 +11,7 @@ export function Links() {
         <strong>Application</strong>
       </Link>
       <Link
-        to="https://fairspec.org"
+        to="https://fairspec.org/overview/introduction/"
         className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
       >
         <strong>Standard</strong>
