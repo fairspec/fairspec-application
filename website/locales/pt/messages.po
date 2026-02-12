@@ -13,20 +13,20 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/report/Error.tsx:385
-#: components/report/Error.tsx:420
+#: components/report/Error.tsx:400
+#: components/report/Error.tsx:436
 msgid ", but it is"
 msgstr ", mas é"
 
-#: components/report/Error.tsx:315
+#: components/report/Error.tsx:328
 msgid "A required cell in column"
 msgstr "Uma célula obrigatória na coluna"
 
-#: components/report/Report.tsx:38
+#: components/report/Report.tsx:40
 msgid "All Errors"
 msgstr "Todos os Erros"
 
-#: components/report/Error.tsx:468
+#: components/report/Error.tsx:486
 msgid "at"
 msgstr "em"
 
@@ -54,7 +54,7 @@ msgstr "Inferir automaticamente formatos de arquivos, especificações de codifi
 msgid "Brought to you by"
 msgstr "Trazido a você por"
 
-#: components/layout/Language.tsx:70
+#: components/layout/Language.tsx:73
 msgid "Change Language"
 msgstr "Mudar idioma"
 
@@ -71,44 +71,44 @@ msgstr "Fechar"
 msgid "Close Application"
 msgstr "Fechar Aplicação"
 
-#: components/report/Error.tsx:383
+#: components/report/Error.tsx:398
 msgid "Column"
 msgstr "Coluna"
 
-#: components/layout/Menu.tsx:57
-#: routes/{-$languageSlug}/data/infer-schema.tsx:121
+#: components/layout/Menu.tsx:66
+#: routes/{-$languageSlug}/data/infer-schema.tsx:124
 #: routes/{-$languageSlug}/data/validate.tsx:122
-#: routes/{-$languageSlug}/index.tsx:32
+#: routes/{-$languageSlug}/index.tsx:37
 msgid "Data"
 msgstr "Dados"
 
-#: components/report/Error.tsx:401
+#: components/report/Error.tsx:416
 msgid "Data error at"
 msgstr "Erro de dados em"
 
 #: components/layout/Menu.tsx:37
 #: routes/{-$languageSlug}/dataset/validate.tsx:121
-#: routes/{-$languageSlug}/index.tsx:16
+#: routes/{-$languageSlug}/index.tsx:21
 msgid "Dataset"
 msgstr "Conjunto de dados"
 
-#: routes/{-$languageSlug}/dataset/infer.tsx:155
+#: routes/{-$languageSlug}/dataset/infer.tsx:156
 msgid "Dataset Inferred"
 msgstr "Conjunto de Dados Inferido"
 
-#: routes/{-$languageSlug}/file/validate.tsx:30
-#: routes/{-$languageSlug}/file/validate.tsx:60
-#: routes/{-$languageSlug}/index.tsx:43
+#: routes/{-$languageSlug}/file/validate.tsx:35
+#: routes/{-$languageSlug}/file/validate.tsx:65
+#: routes/{-$languageSlug}/index.tsx:48
 msgid "Describe file contents and structure in detail, and automatically infer file formats and encoding specifications"
 msgstr "Descreva o conteúdo e a estrutura do arquivo em detalhe e infira automaticamente os formatos de arquivo e especificações de codificação"
 
-#: components/desktop/Alert.tsx:13
-#: components/desktop/Alert.tsx:38
+#: components/desktop/Alert.tsx:17
+#: components/desktop/Alert.tsx:42
 msgid "Desktop Application"
 msgstr "Aplicação de Desktop"
 
 #: routes/{-$languageSlug}/table/infer-schema.tsx:138
-#: routes/{-$languageSlug}/table/preview.tsx:142
+#: routes/{-$languageSlug}/table/preview.tsx:144
 #: routes/{-$languageSlug}/table/validate.tsx:146
 msgid "Dialect"
 msgstr "Dialeto"
@@ -117,19 +117,19 @@ msgstr "Dialeto"
 msgid "Dialect Inferred"
 msgstr "Dialeto Inferido"
 
-#: components/report/Error.tsx:452
+#: components/report/Error.tsx:470
 msgid "do not reference existing values"
 msgstr "não fazem referência a valores existentes"
 
-#: components/report/Error.tsx:300
+#: components/report/Error.tsx:313
 msgid "does not match the"
 msgstr "não corresponde ao"
 
-#: routes/{-$languageSlug}/file/validate.tsx:175
+#: routes/{-$languageSlug}/file/validate.tsx:180
 msgid "Enter hash value"
 msgstr "Digite o valor de hash"
 
-#: routes/{-$languageSlug}/dataset/infer.tsx:156
+#: routes/{-$languageSlug}/dataset/infer.tsx:157
 msgid "Failed to Infer Dataset"
 msgstr "Falha ao Inferir o Conjunto de Dados"
 
@@ -137,12 +137,12 @@ msgstr "Falha ao Inferir o Conjunto de Dados"
 msgid "Failed to Infer Dialect"
 msgstr "Falha ao Inferir o Dialeto"
 
-#: routes/{-$languageSlug}/data/infer-schema.tsx:152
+#: routes/{-$languageSlug}/data/infer-schema.tsx:155
 #: routes/{-$languageSlug}/table/infer-schema.tsx:168
 msgid "Failed to Infer Schema"
 msgstr "Falha ao Inferir o Esquema"
 
-#: routes/{-$languageSlug}/table/preview.tsx:172
+#: routes/{-$languageSlug}/table/preview.tsx:174
 msgid "Failed to Load Preview"
 msgstr "Falha ao Carregar Pré-visualização"
 
@@ -150,64 +150,60 @@ msgstr "Falha ao Carregar Pré-visualização"
 msgid "feedback and ideas"
 msgstr "sugestões e ideias"
 
-#: components/layout/Menu.tsx:67
+#: components/layout/Menu.tsx:79
 #: routes/{-$languageSlug}/file/infer-dialect.tsx:125
-#: routes/{-$languageSlug}/file/validate.tsx:131
-#: routes/{-$languageSlug}/index.tsx:40
+#: routes/{-$languageSlug}/file/validate.tsx:136
+#: routes/{-$languageSlug}/index.tsx:45
 msgid "File"
 msgstr "Arquivo"
 
-#: components/report/Error.tsx:419
+#: components/report/Error.tsx:434
 msgid "File hash"
 msgstr "Hash do arquivo"
 
-#: components/report/Error.tsx:434
+#: components/report/Error.tsx:450
 msgid "File is expected to be textual with utf-8 encoding but it is"
 msgstr "Espera-se que o arquivo seja textual com codificação utf-8, mas é"
 
-#: components/desktop/Alert.tsx:41
+#: components/desktop/Alert.tsx:45
 msgid "For faster and privacy-first work, download the <0>desktop application</0>"
 msgstr "Para um trabalho mais rápido e focado em privacidade, baixe a <0>aplicação de desktop</0>"
 
-#: components/report/Error.tsx:451
+#: components/report/Error.tsx:469
 msgid "Foreign key constraint violated as cells"
 msgstr "Restrição de chave estrangeira violada pois as células"
 
-#: components/report/Error.tsx:227
+#: components/report/Error.tsx:237
 msgid "has less than"
 msgstr "possui menos que"
 
-#: components/report/Error.tsx:172
+#: components/report/Error.tsx:180
 msgid "has more than"
 msgstr "possui mais que"
 
-#: routes/{-$languageSlug}/file/validate.tsx:141
+#: routes/{-$languageSlug}/file/validate.tsx:146
 msgid "Hash"
 msgstr "Hash"
 
-#: components/layout/Breadcrumbs.tsx:25
-msgid "Home"
-msgstr "Início"
-
 #: components/report/Error.tsx:79
-#: components/report/Error.tsx:97
-#: components/report/Error.tsx:116
-#: components/report/Error.tsx:134
-#: components/report/Error.tsx:152
-#: components/report/Error.tsx:171
-#: components/report/Error.tsx:190
-#: components/report/Error.tsx:208
-#: components/report/Error.tsx:226
-#: components/report/Error.tsx:245
-#: components/report/Error.tsx:263
-#: components/report/Error.tsx:281
-#: components/report/Error.tsx:299
-#: components/report/Error.tsx:333
-#: components/report/Error.tsx:350
+#: components/report/Error.tsx:98
+#: components/report/Error.tsx:119
+#: components/report/Error.tsx:140
+#: components/report/Error.tsx:159
+#: components/report/Error.tsx:178
+#: components/report/Error.tsx:197
+#: components/report/Error.tsx:216
+#: components/report/Error.tsx:235
+#: components/report/Error.tsx:254
+#: components/report/Error.tsx:273
+#: components/report/Error.tsx:292
+#: components/report/Error.tsx:311
+#: components/report/Error.tsx:346
+#: components/report/Error.tsx:364
 msgid "in column"
 msgstr "na coluna"
 
-#: components/report/Error.tsx:556
+#: components/report/Error.tsx:574
 msgid "in resource"
 msgstr "no recurso"
 
@@ -220,7 +216,7 @@ msgstr "Inferir esquema de dados"
 msgid "Infer Data Schema"
 msgstr "Inferir Esquema de Dados"
 
-#: components/layout/Menu.tsx:41
+#: components/layout/Menu.tsx:44
 #: routes/{-$languageSlug}/dataset/infer.tsx:22
 #: routes/{-$languageSlug}/dataset/infer.tsx:50
 msgid "Infer Dataset"
@@ -230,16 +226,16 @@ msgstr "Inferir Conjunto de Dados"
 msgid "Infer dialect"
 msgstr "Inferir dialeto"
 
-#: components/layout/Menu.tsx:52
-#: components/layout/Menu.tsx:62
-#: components/layout/Menu.tsx:71
+#: components/layout/Menu.tsx:59
+#: components/layout/Menu.tsx:72
+#: components/layout/Menu.tsx:84
 #: routes/{-$languageSlug}/file/infer-dialect.tsx:22
 #: routes/{-$languageSlug}/file/infer-dialect.tsx:50
 msgid "Infer Dialect"
 msgstr "Inferir Dialeto"
 
-#: components/layout/Menu.tsx:51
-#: components/layout/Menu.tsx:61
+#: components/layout/Menu.tsx:55
+#: components/layout/Menu.tsx:70
 msgid "Infer Schema"
 msgstr "Inferir Esquema"
 
@@ -252,7 +248,7 @@ msgstr "Inferir esquema de tabela"
 msgid "Infer Table Schema"
 msgstr "Inferir Esquema da Tabela"
 
-#: routes/{-$languageSlug}/dataset/infer.tsx:154
+#: routes/{-$languageSlug}/dataset/infer.tsx:155
 msgid "Inferring Dataset..."
 msgstr "Inferindo Conjunto de Dados..."
 
@@ -260,7 +256,7 @@ msgstr "Inferindo Conjunto de Dados..."
 msgid "Inferring Dialect..."
 msgstr "Inferindo Dialeto..."
 
-#: routes/{-$languageSlug}/data/infer-schema.tsx:150
+#: routes/{-$languageSlug}/data/infer-schema.tsx:153
 #: routes/{-$languageSlug}/table/infer-schema.tsx:166
 msgid "Inferring Schema..."
 msgstr "Inferindo Esquema..."
@@ -273,7 +269,7 @@ msgstr "Dados Inválidos"
 msgid "Invalid Dataset"
 msgstr "Conjunto de Dados Inválido"
 
-#: routes/{-$languageSlug}/file/validate.tsx:217
+#: routes/{-$languageSlug}/file/validate.tsx:222
 msgid "Invalid File"
 msgstr "Arquivo Inválido"
 
@@ -281,66 +277,66 @@ msgstr "Arquivo Inválido"
 msgid "Invalid Table"
 msgstr "Tabela Inválida"
 
-#: components/report/Error.tsx:383
-#: components/report/Error.tsx:419
-#: components/report/Error.tsx:503
+#: components/report/Error.tsx:398
+#: components/report/Error.tsx:434
+#: components/report/Error.tsx:521
 msgid "is expected to be"
 msgstr "espera-se que seja"
 
-#: components/report/Error.tsx:117
+#: components/report/Error.tsx:121
 msgid "is greater or equal to"
 msgstr "é maior ou igual a"
 
-#: components/report/Error.tsx:135
+#: components/report/Error.tsx:142
 msgid "is less or equal to"
 msgstr "é menor ou igual a"
 
-#: components/report/Error.tsx:246
-#: components/report/Error.tsx:264
+#: components/report/Error.tsx:255
+#: components/report/Error.tsx:274
 msgid "is less than"
 msgstr "é menor que"
 
-#: components/report/Error.tsx:316
-#: components/report/Error.tsx:367
+#: components/report/Error.tsx:329
+#: components/report/Error.tsx:382
 msgid "is missing"
 msgstr "está ausente"
 
-#: components/report/Error.tsx:486
+#: components/report/Error.tsx:505
 msgid "is missing, but expected"
 msgstr "está ausente, mas é esperado"
 
-#: components/report/Error.tsx:191
-#: components/report/Error.tsx:209
+#: components/report/Error.tsx:198
+#: components/report/Error.tsx:217
 msgid "is more than"
 msgstr "é mais que"
 
-#: components/report/Error.tsx:334
+#: components/report/Error.tsx:347
 msgid "is not"
 msgstr "não é"
 
-#: components/report/Error.tsx:282
+#: components/report/Error.tsx:294
 msgid "is not a multiple of"
 msgstr "não é múltiplo de"
 
-#: components/report/Error.tsx:80
+#: components/report/Error.tsx:81
 msgid "is not allowed value"
 msgstr "não é um valor permitido"
 
-#: components/report/Error.tsx:98
+#: components/report/Error.tsx:100
 msgid "is not in the allowed values"
 msgstr "não está nos valores permitidos"
 
-#: components/report/Error.tsx:351
+#: components/report/Error.tsx:366
 msgid "is not unique"
 msgstr "não é único"
 
-#: components/report/Error.tsx:173
-#: components/report/Error.tsx:228
+#: components/report/Error.tsx:180
+#: components/report/Error.tsx:237
 msgid "items"
 msgstr "itens"
 
-#: components/report/Error.tsx:190
-#: components/report/Error.tsx:245
+#: components/report/Error.tsx:197
+#: components/report/Error.tsx:254
 msgid "Length of the cell"
 msgstr "Comprimento da célula"
 
@@ -349,30 +345,30 @@ msgstr "Comprimento da célula"
 msgid "Load and preview your data table"
 msgstr "Carregue e visualize sua tabela de dados"
 
-#: routes/{-$languageSlug}/table/preview.tsx:170
+#: routes/{-$languageSlug}/table/preview.tsx:172
 msgid "Loading Preview..."
 msgstr "Carregando Pré-visualização..."
 
-#: components/form/FileOrPathField.tsx:36
+#: components/form/FileOrPathField.tsx:41
 msgid "maximum"
 msgstr "máximo"
 
 #: components/report/Error.tsx:80
-#: components/report/Error.tsx:98
-#: components/report/Error.tsx:117
-#: components/report/Error.tsx:135
-#: components/report/Error.tsx:153
-#: components/report/Error.tsx:172
-#: components/report/Error.tsx:191
-#: components/report/Error.tsx:209
-#: components/report/Error.tsx:227
-#: components/report/Error.tsx:246
-#: components/report/Error.tsx:264
-#: components/report/Error.tsx:282
-#: components/report/Error.tsx:300
-#: components/report/Error.tsx:315
-#: components/report/Error.tsx:334
-#: components/report/Error.tsx:351
+#: components/report/Error.tsx:99
+#: components/report/Error.tsx:120
+#: components/report/Error.tsx:141
+#: components/report/Error.tsx:160
+#: components/report/Error.tsx:179
+#: components/report/Error.tsx:198
+#: components/report/Error.tsx:217
+#: components/report/Error.tsx:236
+#: components/report/Error.tsx:255
+#: components/report/Error.tsx:274
+#: components/report/Error.tsx:293
+#: components/report/Error.tsx:312
+#: components/report/Error.tsx:329
+#: components/report/Error.tsx:347
+#: components/report/Error.tsx:365
 msgid "of row"
 msgstr "da linha"
 
@@ -380,13 +376,13 @@ msgstr "da linha"
 msgid "phase. Please share your"
 msgstr "fase. Por favor, compartilhe seu"
 
-#: components/layout/Menu.tsx:49
+#: components/layout/Menu.tsx:52
 #: routes/{-$languageSlug}/table/preview.tsx:21
 #: routes/{-$languageSlug}/table/preview.tsx:49
 msgid "Preview Table"
 msgstr "Pré-visualizar Tabela"
 
-#: components/report/Error.tsx:367
+#: components/report/Error.tsx:382
 msgid "Required column"
 msgstr "Coluna obrigatória"
 
@@ -394,35 +390,35 @@ msgstr "Coluna obrigatória"
 msgid "research preview"
 msgstr "prévia de pesquisa"
 
-#: components/report/Error.tsx:486
-#: components/report/Error.tsx:503
+#: components/report/Error.tsx:504
+#: components/report/Error.tsx:521
 msgid "Resource"
 msgstr "Recurso"
 
-#: components/report/Error.tsx:521
-#: components/report/Error.tsx:537
+#: components/report/Error.tsx:539
+#: components/report/Error.tsx:555
 msgid "Row"
 msgstr "Linha"
 
-#: routes/{-$languageSlug}/data/infer-schema.tsx:162
-#: routes/{-$languageSlug}/dataset/infer.tsx:166
+#: routes/{-$languageSlug}/data/infer-schema.tsx:165
+#: routes/{-$languageSlug}/dataset/infer.tsx:167
 #: routes/{-$languageSlug}/file/infer-dialect.tsx:166
 #: routes/{-$languageSlug}/table/infer-schema.tsx:178
 msgid "Save"
 msgstr "Salvar"
 
 #: routes/{-$languageSlug}/data/validate.tsx:134
-#: routes/{-$languageSlug}/table/preview.tsx:131
+#: routes/{-$languageSlug}/table/preview.tsx:133
 #: routes/{-$languageSlug}/table/validate.tsx:135
 msgid "Schema"
 msgstr "Esquema"
 
-#: routes/{-$languageSlug}/data/infer-schema.tsx:151
+#: routes/{-$languageSlug}/data/infer-schema.tsx:154
 #: routes/{-$languageSlug}/table/infer-schema.tsx:167
 msgid "Schema Inferred"
 msgstr "Esquema Inferido"
 
-#: routes/{-$languageSlug}/file/validate.tsx:144
+#: routes/{-$languageSlug}/file/validate.tsx:149
 msgid "Select hash algorithm and enter hash value"
 msgstr "Selecione o algoritmo de hash e digite o valor de hash"
 
@@ -434,20 +430,20 @@ msgstr "Selecione as ferramentas abaixo"
 msgid "Share Page"
 msgstr "Compartilhar página"
 
-#: components/layout/Menu.tsx:46
-#: routes/{-$languageSlug}/dataset/infer.tsx:124
-#: routes/{-$languageSlug}/index.tsx:24
+#: components/layout/Menu.tsx:49
+#: routes/{-$languageSlug}/dataset/infer.tsx:125
+#: routes/{-$languageSlug}/index.tsx:29
 #: routes/{-$languageSlug}/table/infer-schema.tsx:126
-#: routes/{-$languageSlug}/table/preview.tsx:119
+#: routes/{-$languageSlug}/table/preview.tsx:121
 #: routes/{-$languageSlug}/table/validate.tsx:123
 msgid "Table"
 msgstr "Tabela"
 
-#: routes/{-$languageSlug}/table/preview.tsx:171
+#: routes/{-$languageSlug}/table/preview.tsx:173
 msgid "Table Preview"
 msgstr "Pré-visualização da Tabela"
 
-#: components/desktop/Alert.tsx:16
+#: components/desktop/Alert.tsx:20
 msgid "This functionality is only available in the <0>desktop application</0>"
 msgstr "Esta funcionalidade está disponível apenas na <0>aplicação de desktop</0>"
 
@@ -455,11 +451,15 @@ msgstr "Esta funcionalidade está disponível apenas na <0>aplicação de deskto
 msgid "This project is in"
 msgstr "Este projeto está em"
 
-#: components/form/FileOrPathField.tsx:122
+#: components/layout/Breadcrumbs.tsx:25
+msgid "Tools"
+msgstr "Ferramentas"
+
+#: components/form/FileOrPathField.tsx:130
 msgid "Upload"
 msgstr "Enviar"
 
-#: routes/{-$languageSlug}/data/infer-schema.tsx:122
+#: routes/{-$languageSlug}/data/infer-schema.tsx:125
 msgid "Upload a data file or provide a URL to a data file"
 msgstr "Envie um arquivo de dados ou forneça uma URL para um arquivo de dados"
 
@@ -480,22 +480,22 @@ msgid "Upload a file or provide a URL to a dataset"
 msgstr "Envie um arquivo ou forneça uma URL para um conjunto de dados"
 
 #: routes/{-$languageSlug}/file/infer-dialect.tsx:126
-#: routes/{-$languageSlug}/file/validate.tsx:132
+#: routes/{-$languageSlug}/file/validate.tsx:137
 msgid "Upload a file or provide a URL to a file"
 msgstr "Envie um arquivo ou forneça uma URL para um arquivo"
 
-#: routes/{-$languageSlug}/table/preview.tsx:143
+#: routes/{-$languageSlug}/table/preview.tsx:145
 #: routes/{-$languageSlug}/table/validate.tsx:147
 msgid "Upload a file or provide a URL to a table dialect"
 msgstr "Envie um arquivo ou forneça uma URL para um dialeto de tabela"
 
-#: routes/{-$languageSlug}/table/preview.tsx:132
+#: routes/{-$languageSlug}/table/preview.tsx:134
 #: routes/{-$languageSlug}/table/validate.tsx:136
 msgid "Upload a file or provide a URL to a table schema"
 msgstr "Envie um arquivo ou forneça uma URL para um esquema de tabela"
 
-#: routes/{-$languageSlug}/dataset/infer.tsx:125
-#: routes/{-$languageSlug}/table/preview.tsx:120
+#: routes/{-$languageSlug}/dataset/infer.tsx:126
+#: routes/{-$languageSlug}/table/preview.tsx:122
 #: routes/{-$languageSlug}/table/validate.tsx:124
 msgid "Upload a file or provide a URL to a tabular data file"
 msgstr "Envie um arquivo ou forneça uma URL para um arquivo de dados tabular"
@@ -512,7 +512,7 @@ msgstr "Dados Válidos"
 msgid "Valid Dataset"
 msgstr "Conjunto de Dados Válido"
 
-#: routes/{-$languageSlug}/file/validate.tsx:216
+#: routes/{-$languageSlug}/file/validate.tsx:221
 msgid "Valid File"
 msgstr "Arquivo Válido"
 
@@ -520,7 +520,7 @@ msgstr "Arquivo Válido"
 msgid "Valid Table"
 msgstr "Tabela Válida"
 
-#: components/layout/Menu.tsx:60
+#: components/layout/Menu.tsx:69
 #: routes/{-$languageSlug}/data/validate.tsx:21
 #: routes/{-$languageSlug}/data/validate.tsx:49
 msgid "Validate Data"
@@ -528,7 +528,7 @@ msgstr "Validar Dados"
 
 #: routes/{-$languageSlug}/data/validate.tsx:22
 #: routes/{-$languageSlug}/data/validate.tsx:52
-#: routes/{-$languageSlug}/index.tsx:35
+#: routes/{-$languageSlug}/index.tsx:40
 msgid "Validate data quality, check for inconsistencies and errors, and automatically infer comprehensive data schemas from your datasets"
 msgstr "Valide a qualidade dos dados, verifique inconsistências e erros e infira automaticamente esquemas de dados abrangentes dos seus conjuntos de dados"
 
@@ -536,7 +536,7 @@ msgstr "Valide a qualidade dos dados, verifique inconsistências e erros e infir
 msgid "Validate dataset"
 msgstr "Validar conjunto de dados"
 
-#: components/layout/Menu.tsx:40
+#: components/layout/Menu.tsx:41
 #: routes/{-$languageSlug}/dataset/validate.tsx:21
 #: routes/{-$languageSlug}/dataset/validate.tsx:49
 msgid "Validate Dataset"
@@ -544,13 +544,13 @@ msgstr "Validar Conjunto de Dados"
 
 #: routes/{-$languageSlug}/dataset/validate.tsx:22
 #: routes/{-$languageSlug}/dataset/validate.tsx:52
-#: routes/{-$languageSlug}/index.tsx:19
+#: routes/{-$languageSlug}/index.tsx:24
 msgid "Validate dataset metadata against specifications and automatically infer dataset structure from your data files"
 msgstr "Valide os metadados do conjunto de dados conforme as especificações e infira automaticamente a estrutura do conjunto de dados a partir dos seus arquivos de dados"
 
-#: components/layout/Menu.tsx:70
-#: routes/{-$languageSlug}/file/validate.tsx:29
-#: routes/{-$languageSlug}/file/validate.tsx:57
+#: components/layout/Menu.tsx:82
+#: routes/{-$languageSlug}/file/validate.tsx:34
+#: routes/{-$languageSlug}/file/validate.tsx:62
 msgid "Validate File"
 msgstr "Validar Arquivo"
 
@@ -558,13 +558,13 @@ msgstr "Validar Arquivo"
 msgid "Validate table"
 msgstr "Validar tabela"
 
-#: components/layout/Menu.tsx:50
+#: components/layout/Menu.tsx:53
 #: routes/{-$languageSlug}/table/validate.tsx:21
 #: routes/{-$languageSlug}/table/validate.tsx:49
 msgid "Validate Table"
 msgstr "Validar Tabela"
 
-#: routes/{-$languageSlug}/index.tsx:27
+#: routes/{-$languageSlug}/index.tsx:32
 #: routes/{-$languageSlug}/table/validate.tsx:22
 msgid "Validate table structure for correctness and compliance, and automatically infer table schema definitions from your tabular data"
 msgstr "Valide a estrutura da tabela quanto à exatidão e conformidade e infira automaticamente as definições de esquemas de tabela a partir dos seus dados tabulares"
@@ -581,7 +581,7 @@ msgstr "Validando Dados..."
 msgid "Validating Dataset..."
 msgstr "Validando Conjunto de Dados..."
 
-#: routes/{-$languageSlug}/file/validate.tsx:215
+#: routes/{-$languageSlug}/file/validate.tsx:220
 msgid "Validating File..."
 msgstr "Validando Arquivo..."
 
@@ -590,37 +590,37 @@ msgid "Validating Table..."
 msgstr "Validando Tabela..."
 
 #: components/report/Error.tsx:79
-#: components/report/Error.tsx:97
-#: components/report/Error.tsx:116
-#: components/report/Error.tsx:134
-#: components/report/Error.tsx:152
-#: components/report/Error.tsx:171
-#: components/report/Error.tsx:208
-#: components/report/Error.tsx:226
-#: components/report/Error.tsx:263
-#: components/report/Error.tsx:281
-#: components/report/Error.tsx:299
-#: components/report/Error.tsx:333
-#: components/report/Error.tsx:350
+#: components/report/Error.tsx:98
+#: components/report/Error.tsx:119
+#: components/report/Error.tsx:140
+#: components/report/Error.tsx:159
+#: components/report/Error.tsx:178
+#: components/report/Error.tsx:216
+#: components/report/Error.tsx:235
+#: components/report/Error.tsx:273
+#: components/report/Error.tsx:292
+#: components/report/Error.tsx:311
+#: components/report/Error.tsx:346
+#: components/report/Error.tsx:364
 msgid "Value of the cell"
 msgstr "Valor da célula"
 
-#: components/report/Error.tsx:153
+#: components/report/Error.tsx:161
 msgid "violates JSON schema at"
 msgstr "viola o esquema JSON em"
 
-#: components/report/Error.tsx:522
+#: components/report/Error.tsx:540
 msgid "violates primary key constraint on columns"
 msgstr "viola a restrição de chave primária nas colunas"
 
-#: components/report/Error.tsx:538
+#: components/report/Error.tsx:556
 msgid "violates unique key constraint on columns"
 msgstr "viola a restrição de chave única nas colunas"
 
-#: routes/{-$languageSlug}/index.tsx:52
+#: routes/{-$languageSlug}/index.tsx:57
 msgid "Visual tool for managing and validating tabular and structured data"
 msgstr "Ferramenta visual para gerenciar e validar dados tabulares e estruturados"
 
-#: components/layout/Credits.tsx:28
+#: components/layout/Credits.tsx:32
 msgid "We are bringing technological innovation and consultancy services to the open data field"
 msgstr "Estamos trazendo inovação tecnológica e serviços de consultoria para o campo de dados abertos"

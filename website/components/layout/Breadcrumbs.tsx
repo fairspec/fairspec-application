@@ -22,7 +22,7 @@ export function Breadcrumbs() {
       <BreadcrumbList className="text-base">
         <BreadcrumbItem>
           <BreadcrumbLink render={<Link to="/{-$languageSlug}" />}>
-            <Trans>Home</Trans>
+            <Trans>Tools</Trans>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
