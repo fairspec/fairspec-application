@@ -8,7 +8,10 @@ export const validateDatasetEndpoint = publicEndpoint
   .input(ValidateDatasetInput)
   .handler(async ({ input }) => {
     return await temporaryDirectoryTask(async folder => {
-      const dataset = await prefetchFile(input.dataset, { folder, fileType: "dataset" })
+      const dataset = await prefetchFile(input.dataset, {
+        folder,
+        fileType: "dataset",
+      })
 
       if (!dataset) {
         throw new Error("Dataset is required")

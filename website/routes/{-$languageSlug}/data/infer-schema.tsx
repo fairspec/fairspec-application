@@ -50,7 +50,10 @@ function Intro() {
         <Trans>Infer Data Schema</Trans>
       </h1>
       <p className="text-lg">
-        <Trans>Automatically infer comprehensive data schemas from your datasets</Trans>.
+        <Trans>
+          Automatically infer comprehensive data schemas from your datasets
+        </Trans>
+        .
       </p>
     </div>
   )

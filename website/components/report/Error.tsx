@@ -76,8 +76,9 @@ function CellConstError(props: { error: fairspec.CellConstError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is not allowed value</Trans> {constValue}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>is not allowed value</Trans> {constValue}
       {inResource}
     </div>
   )
@@ -94,15 +95,17 @@ function CellEnumError(props: { error: fairspec.CellEnumError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is not in the allowed values</Trans>{" "}
-      {enumValues}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>is not in the allowed values</Trans> {enumValues}
       {inResource}
     </div>
   )
 }
 
-function CellExclusiveMaximumError(props: { error: fairspec.CellExclusiveMaximumError }) {
+function CellExclusiveMaximumError(props: {
+  error: fairspec.CellExclusiveMaximumError
+}) {
   const { error } = props
 
   const cell = <Code>{error.cell}</Code>
@@ -113,14 +116,17 @@ function CellExclusiveMaximumError(props: { error: fairspec.CellExclusiveMaximum
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is greater or equal to</Trans> {maximum}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>is greater or equal to</Trans> {maximum}
       {inResource}
     </div>
   )
 }
 
-function CellExclusiveMinimumError(props: { error: fairspec.CellExclusiveMinimumError }) {
+function CellExclusiveMinimumError(props: {
+  error: fairspec.CellExclusiveMinimumError
+}) {
   const { error } = props
 
   const cell = <Code>{error.cell}</Code>
@@ -131,8 +137,9 @@ function CellExclusiveMinimumError(props: { error: fairspec.CellExclusiveMinimum
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is less or equal to</Trans> {minimum}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>is less or equal to</Trans> {minimum}
       {inResource}
     </div>
   )
@@ -149,9 +156,9 @@ function CellJsonError(props: { error: fairspec.CellJsonError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>violates JSON schema at</Trans>{" "}
-      {jsonPointer}: {error.message}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>violates JSON schema at</Trans> {jsonPointer}: {error.message}
       {inResource}
     </div>
   )
@@ -168,9 +175,9 @@ function CellMaxItemsError(props: { error: fairspec.CellMaxItemsError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>has more than</Trans> {maxItems}{" "}
-      <Trans>items</Trans>
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>has more than</Trans> {maxItems} <Trans>items</Trans>
       {inResource}
     </div>
   )
@@ -187,8 +194,9 @@ function CellMaxLengthError(props: { error: fairspec.CellMaxLengthError }) {
 
   return (
     <div>
-      <Trans>Length of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is more than</Trans> {maxLength}
+      <Trans>Length of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber} <Trans>is more than</Trans>{" "}
+      {maxLength}
       {inResource}
     </div>
   )
@@ -205,8 +213,9 @@ function CellMaximumError(props: { error: fairspec.CellMaximumError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is more than</Trans> {maximum}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber} <Trans>is more than</Trans>{" "}
+      {maximum}
       {inResource}
     </div>
   )
@@ -223,9 +232,9 @@ function CellMinItemsError(props: { error: fairspec.CellMinItemsError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>has less than</Trans> {minItems}{" "}
-      <Trans>items</Trans>
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>has less than</Trans> {minItems} <Trans>items</Trans>
       {inResource}
     </div>
   )
@@ -242,8 +251,9 @@ function CellMinLengthError(props: { error: fairspec.CellMinLengthError }) {
 
   return (
     <div>
-      <Trans>Length of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is less than</Trans> {minLength}
+      <Trans>Length of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber} <Trans>is less than</Trans>{" "}
+      {minLength}
       {inResource}
     </div>
   )
@@ -260,8 +270,9 @@ function CellMinimumError(props: { error: fairspec.CellMinimumError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is less than</Trans> {minimum}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber} <Trans>is less than</Trans>{" "}
+      {minimum}
       {inResource}
     </div>
   )
@@ -278,8 +289,9 @@ function CellMultipleOfError(props: { error: fairspec.CellMultipleOfError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is not a multiple of</Trans> {multipleOf}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>is not a multiple of</Trans> {multipleOf}
       {inResource}
     </div>
   )
@@ -296,8 +308,9 @@ function CellPatternError(props: { error: fairspec.CellPatternError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>does not match the</Trans> {pattern}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>does not match the</Trans> {pattern}
       {inResource}
     </div>
   )
@@ -312,8 +325,8 @@ function CellRequiredError(props: { error: fairspec.CellRequiredError }) {
 
   return (
     <div>
-      <Trans>A required cell in column</Trans> {columnName} <Trans>of row</Trans>{" "}
-      {rowNumber} <Trans>is missing</Trans>
+      <Trans>A required cell in column</Trans> {columnName}{" "}
+      <Trans>of row</Trans> {rowNumber} <Trans>is missing</Trans>
       {inResource}
     </div>
   )
@@ -330,8 +343,9 @@ function CellTypeError(props: { error: fairspec.CellTypeError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is not</Trans> {columnType}
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber} <Trans>is not</Trans>{" "}
+      {columnType}
       {inResource}
     </div>
   )
@@ -347,8 +361,9 @@ function CellUniqueError(props: { error: fairspec.CellUniqueError }) {
 
   return (
     <div>
-      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans> {columnName}{" "}
-      <Trans>of row</Trans> {rowNumber} <Trans>is not unique</Trans>
+      <Trans>Value of the cell</Trans> {cell} <Trans>in column</Trans>{" "}
+      {columnName} <Trans>of row</Trans> {rowNumber}{" "}
+      <Trans>is not unique</Trans>
       {inResource}
     </div>
   )
@@ -416,7 +431,8 @@ function IntegrityError(props: { error: fairspec.IntegrityError }) {
 
   return (
     <div>
-      <Trans>File hash</Trans> {hashType} <Trans>is expected to be</Trans> {expectedHash}
+      <Trans>File hash</Trans> {hashType} <Trans>is expected to be</Trans>{" "}
+      {expectedHash}
       <Trans>, but it is</Trans> {actualHash}
       {inResource}
     </div>
@@ -431,7 +447,9 @@ function TextualError(props: { error: fairspec.TextualError }) {
 
   return (
     <div>
-      <Trans>File is expected to be textual with utf-8 encoding but it is</Trans>{" "}
+      <Trans>
+        File is expected to be textual with utf-8 encoding but it is
+      </Trans>{" "}
       {actualEncoding}
       {inResource}
     </div>
@@ -483,8 +501,8 @@ function ResourceMissingError(props: { error: fairspec.ResourceMissingError }) {
 
   return (
     <div>
-      <Trans>Resource</Trans> {resourceName} <Trans>is missing, but expected</Trans>{" "}
-      {inReferencingResource}
+      <Trans>Resource</Trans> {resourceName}{" "}
+      <Trans>is missing, but expected</Trans> {inReferencingResource}
     </div>
   )
 }

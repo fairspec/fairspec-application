@@ -52,7 +52,9 @@ export function createWindow() {
         event.preventDefault()
       } else if (input.key === "-" || input.key === "_") {
         const currentZoom = mainWindow.webContents.getZoomFactor()
-        const prevLevel = [...zoomLevels].reverse().find(level => level < currentZoom)
+        const prevLevel = [...zoomLevels]
+          .reverse()
+          .find(level => level < currentZoom)
         if (prevLevel) {
           mainWindow.webContents.setZoomFactor(prevLevel)
           store.set("zoomFactor", prevLevel)

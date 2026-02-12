@@ -37,7 +37,10 @@ export function Menu() {
       label: t`Dataset`,
       icon: icons.Dataset,
       items: [
-        { label: t`Validate Dataset`, path: "/{-$languageSlug}/dataset/validate" },
+        {
+          label: t`Validate Dataset`,
+          path: "/{-$languageSlug}/dataset/validate",
+        },
         { label: t`Infer Dataset`, path: "/{-$languageSlug}/dataset/infer" },
       ],
     },
@@ -48,8 +51,14 @@ export function Menu() {
       items: [
         { label: t`Preview Table`, path: "/{-$languageSlug}/table/preview" },
         { label: t`Validate Table`, path: "/{-$languageSlug}/table/validate" },
-        { label: t`Infer Schema`, path: "/{-$languageSlug}/table/infer-schema" },
-        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
+        {
+          label: t`Infer Schema`,
+          path: "/{-$languageSlug}/table/infer-schema",
+        },
+        {
+          label: t`Infer Dialect`,
+          path: "/{-$languageSlug}/file/infer-dialect",
+        },
       ],
     },
     {
@@ -59,7 +68,10 @@ export function Menu() {
       items: [
         { label: t`Validate Data`, path: "/{-$languageSlug}/data/validate" },
         { label: t`Infer Schema`, path: "/{-$languageSlug}/data/infer-schema" },
-        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
+        {
+          label: t`Infer Dialect`,
+          path: "/{-$languageSlug}/file/infer-dialect",
+        },
       ],
     },
     {
@@ -68,7 +80,10 @@ export function Menu() {
       icon: icons.File,
       items: [
         { label: t`Validate File`, path: "/{-$languageSlug}/file/validate" },
-        { label: t`Infer Dialect`, path: "/{-$languageSlug}/file/infer-dialect" },
+        {
+          label: t`Infer Dialect`,
+          path: "/{-$languageSlug}/file/infer-dialect",
+        },
       ],
     },
   ]
@@ -103,7 +118,10 @@ export function Menu() {
                           <SidebarMenuSubButton
                             className="text-base"
                             render={
-                              <Link to={item.path} onClick={() => setOpenMobile(false)} />
+                              <Link
+                                to={item.path}
+                                onClick={() => setOpenMobile(false)}
+                              />
                             }
                           >
                             <span>{item.label}</span>

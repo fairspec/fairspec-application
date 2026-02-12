@@ -23,10 +23,16 @@ export function Theme() {
       className="rounded-xl cursor-pointer"
     >
       <div className="flex gap-1 items-center dark:hidden">
-        <icons.LightTheme className="w-5 h-5" strokeWidth={settings.ICON_STROKE_WIDTH} />
+        <icons.LightTheme
+          className="w-5 h-5"
+          strokeWidth={settings.ICON_STROKE_WIDTH}
+        />
       </div>
       <div className="gap-1 items-center hidden dark:flex">
-        <icons.DarkTheme className="w-5 h-5" strokeWidth={settings.ICON_STROKE_WIDTH} />
+        <icons.DarkTheme
+          className="w-5 h-5"
+          strokeWidth={settings.ICON_STROKE_WIDTH}
+        />
       </div>
     </Button>
   )

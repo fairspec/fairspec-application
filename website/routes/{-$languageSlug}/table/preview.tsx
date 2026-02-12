@@ -58,7 +58,9 @@ function Intro() {
 function Form() {
   const { t } = useLingui()
   const [error, setError] = useState<Error | undefined>()
-  const [records, setRecords] = useState<Record<string, unknown>[] | undefined>()
+  const [records, setRecords] = useState<
+    Record<string, unknown>[] | undefined
+  >()
   const [tableSchema, setTableSchema] = useState<TableSchema | undefined>()
   const [statusType, setStatusType] = useState<StatusType | undefined>()
 

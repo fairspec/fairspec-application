@@ -7,7 +7,11 @@ import { po } from "gettext-parser"
 import tasuku from "tasuku"
 import { objectKeys } from "ts-extras"
 import { z } from "zod"
-import { type LanguageId, LanguageIdDefault, Languages } from "#constants/language.ts"
+import {
+  type LanguageId,
+  LanguageIdDefault,
+  Languages,
+} from "#constants/language.ts"
 
 process.chdir(import.meta.dirname)
 dotenv.config({ path: ".env.local" })

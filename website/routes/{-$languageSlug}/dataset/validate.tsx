@@ -50,8 +50,8 @@ function Intro() {
       </h1>
       <p className="text-lg">
         <Trans>
-          Validate dataset metadata against specifications and automatically infer dataset
-          structure from your data files
+          Validate dataset metadata against specifications and automatically
+          infer dataset structure from your data files
         </Trans>
         .
       </p>

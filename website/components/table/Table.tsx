@@ -1,5 +1,9 @@
 import type { TableSchema } from "@fairspec/metadata"
-import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table"
+import {
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table"
 import { useMemo } from "react"
 import {
   Table as BaseTable,
@@ -35,7 +39,10 @@ export function Table({ records, tableSchema, className }: TableProps) {
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map(header => (
                 <TableHead key={header.id}>
-                  {flexRender(header.column.columnDef.header, header.getContext())}
+                  {flexRender(
+                    header.column.columnDef.header,
+                    header.getContext(),
+                  )}
                 </TableHead>
               ))}
             </TableRow>

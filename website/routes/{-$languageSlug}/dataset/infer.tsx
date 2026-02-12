@@ -51,7 +51,8 @@ function Intro() {
       </h1>
       <p className="text-lg">
         <Trans>
-          Automatically infer dataset metadata and structure from your data files
+          Automatically infer dataset metadata and structure from your data
+          files
         </Trans>
         .
       </p>

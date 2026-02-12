@@ -1,6 +1,10 @@
 import { basename, dirname, join } from "node:path"
 import { loadEnvFile } from "node:process"
-import { configDefaults, coverageConfigDefaults, defineConfig } from "vitest/config"
+import {
+  configDefaults,
+  coverageConfigDefaults,
+  defineConfig,
+} from "vitest/config"
 
 try {
   loadEnvFile(join(import.meta.dirname, ".env"))
