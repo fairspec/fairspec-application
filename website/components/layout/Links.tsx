@@ -5,6 +5,12 @@ export function Links() {
   return (
     <div className="hidden lg:flex gap-1 items-center">
       <Link
+        to="https://fairspec.org"
+        className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
+      >
+        <strong>Home</strong>
+      </Link>
+      <Link
         to="/"
         className="p-2 text-blue-500 hover:text-blue-400 dark:hover:text-blue-400"
       >
